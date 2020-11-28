@@ -60,13 +60,7 @@
         }
       ],
       "no-unused-expressions": "off",
-      "no-param-reassign": [
-        "error",
-        {
-          "props": true,
-          "ignorePropertyModificationsFor": ["socket"]
-        }
-      ],
+      "no-param-reassign": "off",
       "import/extensions": "off"
     }
   },
