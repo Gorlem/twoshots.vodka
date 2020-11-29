@@ -1,8 +1,7 @@
 <template>
   <div>
-    <Lobby v-if="status == 'lobby'"/>
-    <NameSelection v-if="status == 'name_selection'" @submit="setName"/>
-    <StartGame v-if="status == 'playing'"/>
+    <NameSelection v-if="cardName == null" @submit="setName"/>
+    <component :is="cardName"></component>
   </div>
 </template>
 
@@ -10,35 +9,34 @@
 import { mapState } from 'vuex';
 
 import NameSelection from '@/components/NameSelection.vue';
-import Lobby from '@/components/Lobby.vue';
-import StartGame from '@/components/cards/StartGame.vue';
+import LobbyCard from '@/components/cards/LobbyCard.vue';
+import StartGameCard from '@/components/cards/StartGameCard.vue';
 
 import socket from '@/socket';
 
 export default {
   components: {
     NameSelection,
-    Lobby,
-    StartGame,
+    LobbyCard,
+    StartGameCard,
   },
   created() {
-    this.$store.commit('UPDATE_STATUS', 'name_selection');
+    socket.on('card', (card) => {
+      this.$store.commit('UPDATE_CARD', card);
+    });
 
-    socket.once('start-game', () => {
-      this.$store.commit('UPDATE_STATUS', 'playing');
+    socket.on('room-update', (room) => {
+      this.$store.commit('UPDATE_ROOM', room);
     });
   },
   computed: {
     ...mapState({
-      roomId: (state) => state.room.id,
-      users: (state) => state.room.users,
-      status: (state) => state.room.status,
+      cardName: (state) => state.card.name,
     }),
   },
   methods: {
     setName(name) {
       socket.emit('join-room', this.$route.params.roomId, name);
-      this.$store.commit('UPDATE_STATUS', 'lobby');
     },
   },
 };

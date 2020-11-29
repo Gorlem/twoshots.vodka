@@ -2,7 +2,7 @@
   <div>
     <RoomId :room-id="roomId"/>
     <UserList :users="users"/>
-    <button type="button" v-if="hasVote" @click="vote">Vote!</button>
+    <button type="button" @click="vote">Vote!</button>
   </div>
 </template>
 
@@ -19,25 +19,10 @@ export default {
     UserList,
     RoomId,
   },
-  data() {
-    return {
-      hasVote: false,
-    };
-  },
-  created() {
-    socket.on('room-update', (room) => {
-      this.$store.commit('UPDATE_ROOM', room);
-    });
-
-    socket.on('new-vote', () => {
-      this.hasVote = true;
-    });
-  },
   computed: {
     ...mapState({
       roomId: (state) => state.room.id,
       users: (state) => state.room.users,
-      status: (state) => state.room.status,
     }),
   },
   methods: {

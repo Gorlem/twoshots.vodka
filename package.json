@@ -61,7 +61,8 @@
       ],
       "no-unused-expressions": "off",
       "no-param-reassign": "off",
-      "import/extensions": "off"
+      "import/extensions": "off",
+      "no-restricted-syntax": "off"
     }
   },
   "browserslist": [

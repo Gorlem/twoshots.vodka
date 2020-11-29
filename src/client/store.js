@@ -3,20 +3,16 @@ import { createStore } from 'vuex';
 export default createStore({
   state() {
     return {
-      room: {
-        id: null,
-        users: [],
-        status: null,
-      },
+      room: {},
+      card: {},
     };
   },
   mutations: {
     UPDATE_ROOM(state, room) {
-      state.room.id = room.id;
-      state.room.users = room.users.map((user) => ({ id: user.id, name: user.name }));
+      state.room = room;
     },
-    UPDATE_STATUS(state, status) {
-      state.room.status = status;
+    UPDATE_CARD(state, card) {
+      state.card = card;
     },
   },
 });
