@@ -1,5 +1,5 @@
 export default class Vote {
-  voted = [];
+  voted = new Set();
   card = null;
   condition = '';
   callback = null;
@@ -13,26 +13,31 @@ export default class Vote {
   }
 
   vote(user) {
-    if (user in this.voted) {
+    if (this.voted.has(user)) {
       return;
     }
 
-    this.voted.push(user);
+    this.voted.add(user);
 
-    if (this.isConditionReached()) {
+    this.card.room.send('vote:update', {
+      voted: this.voted.size,
+      required: this.getAmountOfRequiredVotes(),
+    });
+
+    if (this.voted.size === this.getAmountOfRequiredVotes()) {
       this.callback();
     }
   }
 
-  isConditionReached() {
+  getAmountOfRequiredVotes() {
     if (this.condition === 'all') {
-      return this.voted.length === this.card.room.users.length;
+      return this.card.room.users.length;
     }
 
     if (this.condition === 'half+one') {
-      return this.voted.length / this.card.room.users.length > 0.5;
+      return Math.floor(this.card.room.users.length / 0.5) + 1;
     }
 
-    return false;
+    return 1;
   }
 }

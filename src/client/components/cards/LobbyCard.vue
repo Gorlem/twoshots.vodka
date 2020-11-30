@@ -2,7 +2,7 @@
   <div>
     <RoomId :room-id="roomId"/>
     <UserList :users="users"/>
-    <button type="button" @click="vote">Vote!</button>
+    <button class="button" type="button" @click="vote">Es kann losgehen {{ voteStatus }}</button>
   </div>
 </template>
 
@@ -19,7 +19,22 @@ export default {
     UserList,
     RoomId,
   },
+  data() {
+    return {
+      required: 0,
+      voted: 0,
+    };
+  },
+  created() {
+    socket.on('vote:update', (votes) => {
+      this.required = votes.required;
+      this.voted = votes.voted;
+    });
+  },
   computed: {
+    voteStatus() {
+      return `${this.voted} / ${this.required}`;
+    },
     ...mapState({
       roomId: (state) => state.room.id,
       users: (state) => state.room.users,

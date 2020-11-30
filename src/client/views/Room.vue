@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <NameSelection v-if="cardName == null" @submit="setName"/>
-    <component :is="cardName"></component>
-  </div>
+  <NameSelection v-if="cardName == null" @submit="setName"/>
+  <component :is="cardName"></component>
 </template>
 
 <script>
@@ -21,6 +19,8 @@ export default {
     StartGameCard,
   },
   created() {
+    this.$store.commit('UPDATE_CARD', {});
+
     socket.on('card', (card) => {
       this.$store.commit('UPDATE_CARD', card);
     });

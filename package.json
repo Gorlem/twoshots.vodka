@@ -10,6 +10,7 @@
     "lint": "vue-cli-service lint src/client/main.js"
   },
   "dependencies": {
+    "bulma": "^0.9.1",
     "core-js": "^3.6.5",
     "express": "^4.17.1",
     "qrcode": "^1.4.4",
@@ -62,7 +63,13 @@
       "no-unused-expressions": "off",
       "no-param-reassign": "off",
       "import/extensions": "off",
-      "no-restricted-syntax": "off"
+      "no-restricted-syntax": "off",
+      "max-len": [
+        "error",
+        {
+          "code": 140
+        }
+      ]
     }
   },
   "browserslist": [
