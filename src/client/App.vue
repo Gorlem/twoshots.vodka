@@ -1,9 +1,5 @@
 <template>
-  <section class="hero is-fullheight is-primary">
-    <div class="hero-body">
-      <div class="container">
-        <router-view />
-      </div>
-    </div>
+  <section class="hero is-fullheight">
+    <router-view />
   </section>
 </template>

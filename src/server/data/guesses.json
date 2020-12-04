@@ -1,0 +1,278 @@
+[
+    {
+        "question": "Wie viele Weihnachtsbäume wurden in Deutschland 2019 verkauft?",
+        "unit": "Millionen",
+        "answer": 29.8,
+        "source": "https://www.holzindustrie.de/pressemitteilungen/2926/deutsche-kaufen-in-diesem-jahr-29-8-millionen-weihnachtsbaeume.html"
+    },
+    {
+        "question": "Wie viel Liter Bier wurde in Deutschland 2019 pro Kopf getrunken?",
+        "unit": "Liter",
+        "answer": 99.7,
+        "source": "https://www.reinheitsgebot.de/fileadmin/user_upload/Statistik/200508_Statistik_Brauwirtschaft_in_Zahlen_Deutschland_2011_-_2019.pdf"
+    },
+    {
+        "question": "Wie viel Kilogramm Schokolade wurde in Deutschland 2017 pro Kopf konsumiert?",
+        "unit": "Kilogramm",
+        "answer": 11.09,
+        "source": "https://de.statista.com/statistik/daten/studie/20040/umfrage/jaehrlicher-schokoladenkonsum-pro-kopf-in-ausgewaehlten-laendern/"
+    },
+    {
+        "question": "Wie lange dauerte der 30-jährige Krieg?",
+        "unit": "Jahre",
+        "answer": 30,
+        "source": "https://de.wikipedia.org/wiki/Drei%C3%9Figj%C3%A4hriger_Krieg"
+    },
+    {
+        "question": "Aus wie vielen Kräutern besteht Jägermeister?",
+        "unit": null,
+        "answer": 56,
+        "source": "https://www.jagermeister.com/de-DE/produkt"
+    },
+    {
+        "question": "Wie viele Knochen hat ein erwachsener Mensch?",
+        "unit": null,
+        "answer": 206,
+        "source": "https://www.barmer.de/presse/infothek/newsletter-gesundheit-im-blick/presse-newsletter-archiv/archiv-2016/knochen-40136"
+    },
+    {
+        "question": "Wie viele Tasten hat ein Klavier?",
+        "unit": null,
+        "answer": 88,
+        "source": "https://www.klavier-hammes.de/faq/klavier-tasten-anzahl"
+    },
+    {
+        "question": "Aus wie vielen Figuren besteht ein Schachspiel?",
+        "unit": null,
+        "answer": 32,
+        "source": "https://www.schach-bremen.de/lehrbuch/grundlagen.html"
+    },
+    {
+        "question": "In welchem Jahr wurde der Euro als Bargeld eingeführt?",
+        "unit": "Jahr",
+        "answer": 2002,
+        "source": "https://www.bundesfinanzministerium.de/Content/DE/Standardartikel/Themen/Europa/2019-12-08-zwanzig-jahre-euro.html"
+    },
+    {
+        "question": "Wie viel ist 1 PS umgewandelt in Kilowatt?",
+        "unit": "Kilowatt",
+        "answer": 0.7355,
+        "source": "https://www.smart-rechner.de/leistungs_umr/ratgeber/umrechner_kw_ps.php"
+    },
+    {
+        "question": "Wie groß ist die Distanz zwischen Berlin und München?",
+        "unit": "Kilometer",
+        "answer": 503.09,
+        "source": "https://www.google.com/maps/@50.3053823,10.3326314,7z"
+    },
+    {
+        "question": "Wie groß ist die Distanz wischen London und Prag?",
+        "unit": "Kilometer",
+        "answer": 1034.68,
+        "source": "https://www.google.com/maps/@51.6410505,5.3674669,6.25z"
+    },
+    {
+        "question": "Wie groß ist die Distanz zwischen Paris und Moskau?",
+        "unit": "Kilometer",
+        "answer": 2494.93,
+        "source": "https://www.google.com/maps/@49.9072139,8.3798956,5z"
+    },
+    {
+        "question": "Wie groß ist die Distanz zwischen Madrid und Rom?",
+        "unit": "Kilometer",
+        "answer": 1384.20,
+        "source": "https://www.google.com/maps/@41.1933518,-8.4511591,5z"
+    },
+    {
+        "question": "Wie groß ist die Distanz zwischen Köln und Frankfurt am Main?",
+        "unit": "Kilometer",
+        "answer": 151.11,
+        "source": "https://www.google.com/maps/@50.4707279,4.7608704,6.75z"
+    },
+    {
+        "question": "Wie groß ist die Distanz zwischen Hamburg und Stuttgart?",
+        "unit": "Kilometer",
+        "answer": 534.54,
+        "source": "https://www.google.com/maps/@50.4707279,4.7608704,6.75z"
+    },
+    {
+        "question": "Wie groß ist die Distanz zwischen Hannover und Bremen?",
+        "unit": "Kilometer",
+        "answer": 97.45,
+        "source": "https://www.google.com/maps/@50.4707279,4.7608704,6.75z"
+    },
+    {
+        "question": "In welchem Jahr kam der älteste Star Wars Film raus?",
+        "unit": "Jahr",
+        "answer": 1977,
+        "source": "https://www.jumpradio.de/thema/star-wars-richtige-reihenfolge-der-filme-100.html"
+    },
+    {
+        "question": "Wie schwer müssen (männliche) Boxer in der Schwergewichtsklasse mindestens wiegen?",
+        "unit": "Kilogramm",
+        "answer": 90.781,
+        "source": "https://www.boxen1.com/gewichtsklassen-im-boxen/"
+    },
+    {
+        "question": "Wie schwer dürfen Boxer in der Fliegengewichtsklasse maximal wiegen?",
+        "unit": "Kilogramm",
+        "answer": 50.802,
+        "source": "https://www.boxen1.com/gewichtsklassen-im-boxen/"
+    },
+    {
+        "question": "Wie schwer dürfen Boxer in der Leichtgewichtsklasse maximal wiegen?",
+        "unit": "Kilogramm",
+        "answer": 61.235,
+        "source": "https://www.boxen1.com/gewichtsklassen-im-boxen/"
+    },
+    {
+        "question": "Wie schwer dürfen Boxer in der Mittelgewichtsklasse maximal wiegen?",
+        "unit": "Kilogramm",
+        "answer": 72.574,
+        "source": "https://www.boxen1.com/gewichtsklassen-im-boxen/"
+    },
+    {
+        "question": "Wie oft wird der Deutesche Aktienindex (DAX) in einer Stunde berechnet?",
+        "unit": null,
+        "answer": 3600,
+        "source": "https://www.gevestor.de/details/wie-wird-der-dax-berechnet-570078.html"
+    },
+    {
+        "question": "Wie lang ist ein Tennisfeld?",
+        "unit": "Meter",
+        "answer": 23.77,
+        "source": "https://www.tennisplanet.de/tennisberatung/tennisplatz"
+    },
+    {
+        "question": "Wie breit ist ein Tennisfeld beim Doppel?",
+        "unit": "Meter",
+        "answer": 10.97,
+        "source": "https://www.tennisplanet.de/tennisberatung/tennisplatz"
+    },
+    {
+        "question": "Wie breit ist ein Tennisfeld beim Einzel?",
+        "unit": "Meter",
+        "answer": 8.23,
+        "source": "https://www.tennisplanet.de/tennisberatung/tennisplatz"
+    },
+    {
+        "question": "Auf welcher Höhe hängt ein Basktetballkorb?",
+        "unit": "Centimeter",
+        "answer": 305,
+        "source": "https://www.basketballkoerbe.com/basketballkorb-hoehe"
+    },
+    {
+        "question": "Wie lang ist ein Basketballfeld?",
+        "unit": "Meter",
+        "answer": 28,
+        "source": "https://www.basketball-bund.de/wp-content/uploads/spielfeld-details.pdf"
+    },
+    {
+        "question": "Wie breit ist ein Basketballfeld?",
+        "unit": "Meter",
+        "answer": 15,
+        "source": "https://www.basketball-bund.de/wp-content/uploads/spielfeld-details.pdf"
+    },
+    {
+        "question": "Wie lang ist ein Fußballfeld bei Europokal- bzw. Länderspielen?",
+        "unit": "Meter",
+        "answer": 105,
+        "source": "https://www.fussballtraining.de/allgemein/das-fussball-spielfeld-alle-abmessungen/25205/"
+    },
+    {
+        "question": "Wie breit ist ein Fußballfeld bei Europokal- bzw. Länderspielen?",
+        "unit": "Meter",
+        "answer": 68,
+        "source": "https://www.fussballtraining.de/allgemein/das-fussball-spielfeld-alle-abmessungen/25205/"
+    },
+    {
+        "question": "Wie breit ist ein Fußballtor?",
+        "unit": "Centimeter",
+        "answer": 732,
+        "source": "https://www.fussballtraining.de/allgemein/das-fussball-spielfeld-alle-abmessungen/25205/"
+    },
+    {
+        "question": "Wie hoch ist ein Fußballtor?",
+        "unit": "Centimeter",
+        "answer": 244,
+        "source": "https://www.fussballtraining.de/allgemein/das-fussball-spielfeld-alle-abmessungen/25205/"
+    },
+    {
+        "question": "Wie breit ist ein Handballfeld?",
+        "unit": "Meter",
+        "answer": 20,
+        "source": "https://www.handballtraining.tv/blog/handballfeld"
+    },
+    {
+        "question": "Wie lang ist ein Handballfeld?",
+        "unit": "Meter",
+        "answer": 40,
+        "source": "https://www.handballtraining.tv/blog/handballfeld"
+    },
+    {
+        "question": "Wie hoch ist ein Handballtor?",
+        "unit": "Centimeter",
+        "answer": 200,
+        "source": "https://www.handballtraining.tv/blog/handballfeld"
+    },
+    {
+        "question": "Wie breit ist ein Handballtor?",
+        "unit": "Centimeter",
+        "answer": 300,
+        "source": "https://www.handballtraining.tv/blog/handballfeld"
+    },
+    {
+        "question": "Wie viele Brücken gibt es in Hamburg?",
+        "unit": null,
+        "answer": 2500,
+        "source": "https://www.weltderwunder.de/photo_stories/diese-staedte-haben-die-meisten-bruecken"
+    },
+    {
+        "question": "Wie viele Sesamkörner sind durchschnittlich auf einem Big Mac?",
+        "unit": null,
+        "answer": 178,
+        "source": "https://www.mcdonalds.com/ch/de-ch/newsroom/article/News.big_mac_50_jahre.html"
+    },
+    {
+        "question": "In welchem Jahr ist die Titanik gesunden?",
+        "unit": "Jahr",
+        "answer": 1912,
+        "source": "https://de.statista.com/statistik/daten/studie/222490/umfrage/opfer-und-ueberlebende-des-untergangs-der-titanic/"
+    },
+    {
+        "question": "In welchem Jahr kam der erste High School Musical Film raus?",
+        "unit": "Jahr",
+        "answer": 2006,
+        "source": "https://de.wikipedia.org/wiki/High_School_Musical"
+    },
+    {
+        "question": "Wie viele Gehirne hat ein Kraken?",
+        "unit": null,
+        "answer": 9,
+        "source": "https://www.zoobasel.ch/de/aktuelles/news/1247/acht-arme-neun-gehirne-drei-herzen-und-jede-menge-charme/"
+    },
+    {
+        "question": "Wie viele Stunden Videomaterial werden pro Minute weltweit bei YouTube hochgeladen?",
+        "unit": "Stunden",
+        "answer": 500,
+        "source": "https://blog.youtube/press/"
+    },
+    {
+        "question": "Wie viele Menschen sprechen weltweit Chinesisch als Mutter- oder Zweitsprache?",
+        "unit": "Millionen",
+        "answer": 1300,
+        "source": "https://de.statista.com/statistik/daten/studie/150407/umfrage/die-zehn-meistgesprochenen-sprachen-weltweit/"
+    },
+    {
+        "question": "Wie viele Menschen sprechen weltweit Hindi als Mutter- oder Zweitsprache?",
+        "unit": "Millionen",
+        "answer": 525,
+        "source": "https://de.statista.com/statistik/daten/studie/150407/umfrage/die-zehn-meistgesprochenen-sprachen-weltweit/"
+    },
+    {
+        "question": "Wie viele Menschen sprechen weltweit Englisch als Mutter- oder Zweitsprache?",
+        "unit": "Millionen",
+        "answer": 510,
+        "source": "https://de.statista.com/statistik/daten/studie/150407/umfrage/die-zehn-meistgesprochenen-sprachen-weltweit/"
+    }
+]

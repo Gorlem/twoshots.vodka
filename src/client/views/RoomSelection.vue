@@ -1,23 +1,27 @@
 <template>
-  <h1 class="title">
-    Willkommen zu <em>drinking-game</em>!
-  </h1>
-  <h2 class="subtitle">
-    Hier kannst du entweder einen neuen Raum erstellen, oder einem bestehenden Raum beitreten.
-  </h2>
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Willkommen zu <em>drinking-game</em>!
+      </h1>
+      <h2 class="subtitle">
+        Hier kannst du entweder einen neuen Raum erstellen, oder einem bestehenden Raum beitreten.
+      </h2>
 
-  <div class="columns">
-    <div class="column">
-      <button @click="createRoom" class="button">Raum erstellen</button>
-    </div>
-    <div class="column">
-      <div class="field has-addons">
-        <p class="control">
-          <input class="input" type="text" pattern="[0-9]*" inputmode="numeric" v-model="roomId" ref="input"/>
-        </p>
-        <p class="control">
-          <button class="button" @click="joinRoom">Raum beitreten</button>
-        </p>
+      <div class="columns">
+        <div class="column">
+          <button @click="createRoom" class="button is-primary">Raum erstellen</button>
+        </div>
+        <div class="column">
+          <div class="field has-addons">
+            <p class="control">
+              <input class="input" type="text" pattern="[0-9]*" inputmode="numeric" v-model="roomId" ref="input"/>
+            </p>
+            <p class="control">
+              <button class="button is-primary" @click="joinRoom">Raum beitreten</button>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

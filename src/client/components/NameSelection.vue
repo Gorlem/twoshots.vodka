@@ -10,7 +10,7 @@
       <input class="input" type="text" v-model="name" ref="input"/>
     </p>
     <p class="control">
-      <button class="button" @click="submitName">Bestätigen</button>
+      <button class="button is-primary" @click="submitName">Bestätigen</button>
     </p>
   </div>
 </template>

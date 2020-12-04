@@ -1,4 +1,4 @@
-import Game from './game/game.js';
+import Game from './models/Game.js';
 import User from './models/User.js';
 
 import LobbyCard from './cards/LobbyCard.js';

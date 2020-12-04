@@ -1,4 +1,14 @@
-import Card from '../cards/Card.js';
+import sample from 'lodash/sample.js';
+
+import InstructionCard from '../cards/InstructionCard.js';
+import GuessCard from '../cards/GuessCard.js';
+import HorseRaceGame from '../games/HorseRaceGame.js';
+
+const cards = [
+  InstructionCard,
+  GuessCard,
+  HorseRaceGame,
+];
 
 export default class Room {
   users = [];
@@ -19,6 +29,8 @@ export default class Room {
     this.users.push(user);
     this.sendUpdate();
     user.send('card', this.card.toJson());
+    this.card?.addedUser?.(user);
+    this.card?.update?.();
 
     for (const [channel, callback] of this.listeners.entries()) {
       user.on(channel, (...args) => callback(user, ...args));
@@ -34,6 +46,8 @@ export default class Room {
 
     this.users.splice(index, 1);
     this.sendUpdate();
+    this.card?.removedUser?.(user);
+    this.card?.update?.();
 
     for (const channel of this.listeners.keys()) {
       user.off(channel);
@@ -41,8 +55,16 @@ export default class Room {
   }
 
   setCard(card) {
+    this.card?.destroy?.();
     this.card = card;
+    this.card.init();
     this.sendCard();
+  }
+
+  nextCard() {
+    const Card = sample(cards);
+    this.setCard(new Card(this));
+    // this.setCard(new HorseRaceGame(this));
   }
 
   on(channel, callback) {
@@ -71,11 +93,6 @@ export default class Room {
 
   sendCard() {
     this.send('card', this.card.toJson());
-  }
-
-  nextCard() {
-    this.card = new Card(this, 'StartGameCard');
-    this.sendCard();
   }
 
   toJson() {

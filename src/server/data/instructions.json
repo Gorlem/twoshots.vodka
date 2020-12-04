@@ -1,0 +1,86 @@
+[
+    {
+        "title": "Eine Runde bitte",
+        "message": "Jeder trinkt einen Schluck."
+    },
+    {
+        "title": "${ players[0] } ist dran",
+        "message": "...und muss ${ _.random(2, 5) } Schlücke trinken."
+    },
+    {
+        "title": "Hoffentlich mag ${ players[0] } euch",
+        "message": "${ players[0] } darf ${ _.random(4, 6) } Schlücke verteilen."
+    },
+    {
+        "title": "Couple goals",
+        "message": "${ players[0] } und ${ players[1] } trinken beide ${ _.random(2, 5) } Schlücke."
+    },
+    {
+        "title": "Alle Singles trinken",
+        "message": "Irgendwann findet ihr schon wen."
+    },
+    {
+        "title": "Alle in einer Beziehung trinken",
+        "message": "Hoffentlich lohnt es sich."
+    },
+    {
+        "title": "Raucher trinken einen Schluck",
+        "message": "Alkohol > Zigaretten."
+    },
+    {
+        "title": "Alle mit blonden Haaren trinken",
+        "message": "Ausnahmsweise mal kein Blondinenwitz."
+    },
+    {
+        "title": "Alle mit braunen Haaren trinken",
+        "message": "Hauptsache nur die Haare sind braun."
+    },
+    {
+        "title": "Alle mit schwarzen Haaren trinken",
+        "message": "Mehr als die Hälfte aller Menschen hat schwarzes Haar."
+    },
+    {
+        "title": "Alle mit roten Haaren trinken",
+        "message": "Auch ihr dürft mal was trinken."
+    },
+    {
+        "title": "Dicks drink",
+        "message": "Alle Männer trinken."
+    },
+    {
+        "title": "Chicks drink",
+        "message": "Alle Frauen trinken."
+    },
+    {
+        "title": "Der oder die Größte muss trinken",
+        "message": "Manchmal kommt es eben doch auf die Größe drauf an."
+    },
+    {
+        "title": "Der oder die Kleinste muss trinken",
+        "message": "Darfst du eigentlich schon vorne sitzen im Auto?"
+    },
+    {
+        "title": "Der oder die Jüngste muss trinken",
+        "message": "Dürfte ich mal Ihren Ausweis sehen?"
+    },
+    {
+        "title": "Der oder die Älteste muss trinken",
+        "message": "Du alter Sack."
+    },
+    {
+        "title": "Bartträger trinken",
+        "message": "Darf ich mal streicheln?"
+    },
+    {
+        "title": "Der oder die Nüchternste trinkt",
+        "message": "Du hast es dringend nötig."
+    },
+    {
+        "title": "Der oder die Betrunkenste trinkt",
+        "message": "Einer geht noch, einer geht noch rein."
+    },
+    {
+        "title": "Auf Ex",
+        "message": "${ players[0] } muss exen."
+    }
+]

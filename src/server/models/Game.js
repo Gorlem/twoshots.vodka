@@ -1,6 +1,6 @@
 import { randomInt } from 'crypto';
 
-import Room from '../models/Room.js';
+import Room from './Room.js';
 
 export default class Game {
   rooms = [];

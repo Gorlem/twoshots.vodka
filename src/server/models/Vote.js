@@ -1,43 +1,71 @@
 export default class Vote {
-  voted = new Set();
+  voted = new Map();
   card = null;
-  condition = '';
+  condition = 'half+one';
+  minimum = 1;
   callback = null;
+  namespace = '';
 
-  constructor(card, condition, callback) {
+  constructor(card, namespace, callback) {
     this.card = card;
-    this.condition = condition;
+    this.namespace = namespace;
     this.callback = callback;
-
-    this.card.room.on('vote', this.vote.bind(this));
   }
 
-  vote(user) {
-    if (this.voted.has(user)) {
-      return;
-    }
+  init() {
+    this.card.room.on(`${this.namespace}:submit`, this.vote.bind(this));
+  }
 
-    this.voted.add(user);
+  destroy() {
+    this.card.room.off(`${this.namespace}:submit`);
+  }
 
-    this.card.room.send('vote:update', {
+  update() {
+    this.card.room.send(`${this.namespace}:update`, {
       voted: this.voted.size,
       required: this.getAmountOfRequiredVotes(),
     });
 
-    if (this.voted.size === this.getAmountOfRequiredVotes()) {
+    if (this.voted.size >= this.getAmountOfRequiredVotes()) {
       this.callback();
     }
   }
 
+  setCondition(condition) {
+    this.condition = condition;
+  }
+
+  setMinimum(minimum) {
+    this.minimum = minimum;
+  }
+
+  removedUser(user) {
+    this.voted.delete(user);
+  }
+
+  vote(user, data) {
+    if (this.voted.has(user)) {
+      return;
+    }
+
+    this.voted.set(user, data);
+
+    this.update();
+  }
+
+  isConditionReached() {
+    return this.voted.size >= this.getAmountOfRequiredVotes();
+  }
+
   getAmountOfRequiredVotes() {
     if (this.condition === 'all') {
-      return this.card.room.users.length;
+      return Math.max(this.card.room.users.length, this.minimum);
     }
 
     if (this.condition === 'half+one') {
-      return Math.floor(this.card.room.users.length / 0.5) + 1;
+      return Math.max(Math.floor(this.card.room.users.length / 2) + 1, this.minimum);
     }
 
-    return 1;
+    return this.minimum;
   }
 }
