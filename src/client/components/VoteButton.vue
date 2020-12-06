@@ -33,7 +33,7 @@ export default {
       this.required = votes.required;
       this.voted = votes.voted;
     });
-    socket.on('card', () => {
+    socket.on('card:name', () => {
       this.hasVoted = false;
     });
   },

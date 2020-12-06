@@ -13,8 +13,8 @@ import { mapState } from 'vuex';
 export default {
   computed: {
     ...mapState({
-      title: (state) => state.card.data.title,
-      message: (state) => state.card.data.message,
+      title: (state) => state.data.title,
+      message: (state) => state.data.message,
     }),
   },
 };

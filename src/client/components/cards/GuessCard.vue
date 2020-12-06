@@ -50,7 +50,7 @@ export default {
   },
   computed: {
     ...mapState({
-      data: (state) => state.card.data,
+      data: (state) => state.data,
     }),
     sourceDomain() {
       return new URL(this.data.source).hostname;

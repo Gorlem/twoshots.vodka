@@ -47,19 +47,13 @@ export default {
     HorseRaceGame,
   },
   created() {
-    this.$store.commit('UPDATE_CARD', {});
-
-    socket.on('card', (card) => {
-      this.$store.commit('UPDATE_CARD', card);
-    });
-
     socket.on('room-update', (room) => {
       this.$store.commit('UPDATE_ROOM', room);
     });
   },
   computed: {
     ...mapState({
-      cardName: (state) => state.card.name,
+      cardName: (state) => state.card,
       roomId: (state) => state.room.id,
     }),
   },

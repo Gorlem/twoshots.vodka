@@ -28,7 +28,8 @@ export default class Room {
 
     this.users.push(user);
     this.sendUpdate();
-    user.send('card', this.card.toJson());
+    user.send('card:name', this.card.name);
+    user.send('card:data', this.card.data);
     this.card?.addedUser?.(user);
     this.card?.update?.();
 
@@ -64,7 +65,6 @@ export default class Room {
   nextCard() {
     const Card = sample(cards);
     this.setCard(new Card(this));
-    // this.setCard(new HorseRaceGame(this));
   }
 
   on(channel, callback) {
@@ -92,7 +92,8 @@ export default class Room {
   }
 
   sendCard() {
-    this.send('card', this.card.toJson());
+    this.send('card:name', this.card.name);
+    this.send('card:data', this.card.data);
   }
 
   toJson() {
