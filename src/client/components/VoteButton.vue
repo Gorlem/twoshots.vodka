@@ -6,7 +6,7 @@
       </button>
     </p>
     <p class="control">
-      <span class="button is-static" type="button">
+      <span class="button is-static">
         {{ voteStatus }}
       </span>
     </p>
@@ -14,32 +14,21 @@
 </template>
 
 <script>
-import socket from '@/socket';
-
 export default {
   data() {
     return {
-      required: 0,
-      voted: 0,
       hasVoted: false,
     };
   },
   props: [
-    'namespace',
     'data',
   ],
-  created() {
-    socket.on(`${this.namespace}:update`, (votes) => {
-      this.required = votes.required;
-      this.voted = votes.voted;
-    });
-    socket.on('card:name', () => {
-      this.hasVoted = false;
-    });
-  },
+  emits: [
+    'submit',
+  ],
   computed: {
     voteStatus() {
-      return `${this.voted} / ${this.required}`;
+      return `${this.data?.voted} / ${this.data?.required}`;
     },
   },
   methods: {
@@ -48,8 +37,15 @@ export default {
         return;
       }
 
-      socket.emit(`${this.namespace}:submit`, this.data);
+      this.$emit('submit');
       this.hasVoted = true;
+    },
+  },
+  watch: {
+    data() {
+      if (this.data.voted === 0) {
+        this.hasVoted = false;
+      }
     },
   },
 };

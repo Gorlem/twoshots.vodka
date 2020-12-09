@@ -9,7 +9,7 @@
         </h2>
         <div class="field has-addons">
           <p class="control">
-            <input class="input" type="number" v-model.number="guess" ref="input"/>
+            <input class="input" type="number" v-model="guess" ref="input"/>
           </p>
           <p class="control" v-if="data.unit != null">
             <span class="button is-static" type="button">
@@ -18,7 +18,7 @@
           </p>
         </div>
 
-        <VoteButton namespace="card:guess" :data="guess">Bestätigen</VoteButton>
+        <VoteButton :data="voteData" @submit="vote(guess)">Bestätigen</VoteButton>
       </div>
       <div v-else>
         <h2 class="subtitle">
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 import VoteButton from '@/components/VoteButton.vue';
 
@@ -46,14 +46,31 @@ export default {
     VoteButton,
   },
   mounted() {
-    this.$refs.input.focus();
+    this.reset();
   },
   computed: {
     ...mapState({
       data: (state) => state.data,
+      voteData: (state) => state.data.vote,
     }),
     sourceDomain() {
       return new URL(this.data.source).hostname;
+    },
+  },
+  methods: {
+    ...mapActions({
+      vote: 'doCardAction',
+    }),
+    reset() {
+      this.guess = '';
+      this.$refs.input.focus();
+    },
+  },
+  watch: {
+    data(newData, oldData) {
+      if (newData?.question !== oldData?.question) {
+        this.$nextTick(() => this.reset());
+      }
     },
   },
 };

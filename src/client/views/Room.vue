@@ -1,7 +1,7 @@
 <template>
   <div class="hero-head" v-if="cardName != null">
     <div class="container">
-      <div class="level is-mobile m-2">
+      <div class="level m-2">
         <div class="level-left">
           <div class="level-item">
             <p class="subtitle is-5">
@@ -11,7 +11,7 @@
         </div>
         <div class="level-right">
           <div class="level-item">
-            <VoteButton namespace="card:next" data="true">Nächste Karte</VoteButton>
+            <VoteButton :data="voteData" @submit="voteNext">Weiter</VoteButton>
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 import NameSelection from '@/components/NameSelection.vue';
 import VoteButton from '@/components/VoteButton.vue';
@@ -46,21 +46,28 @@ export default {
     GuessCard,
     HorseRaceGame,
   },
-  created() {
-    socket.on('room-update', (room) => {
-      this.$store.commit('UPDATE_ROOM', room);
-    });
-  },
   computed: {
     ...mapState({
       cardName: (state) => state.card,
-      roomId: (state) => state.room.id,
+      roomId: (state) => state.roomId,
+      voteData: (state) => state.room.vote,
     }),
   },
   methods: {
     setName(name) {
-      socket.emit('join-room', this.$route.params.roomId, name);
+      socket.emit('join-room', this.$route.params.roomId, name, (roomId) => {
+        console.log(roomId);
+        if (roomId == null) {
+          console.log('null');
+          this.$router.replace({ name: 'RoomSelection' });
+        } else if (roomId !== this.$route.params.roomId) {
+          this.$router.replace({ name: 'Room', params: { roomId: this.roomId } });
+        }
+      });
     },
+    ...mapActions({
+      voteNext: 'doRoomAction',
+    }),
   },
 };
 </script>

@@ -7,6 +7,8 @@ import Vote from '../models/Vote.js';
 const guesses = JSON.parse(fs.readFileSync('src/server/data/guesses.json'));
 
 export default class GuessCard extends Card {
+  data = {};
+
   guessVote;
 
   constructor(room) {
@@ -14,8 +16,8 @@ export default class GuessCard extends Card {
 
     const guess = _.sample(guesses);
 
-    this.guessVote = new Vote(this, 'card:guess', () => {
-      const getDifference = (entry) => Math.abs(Number.parseFloat(guess.answer) - Number.parseFloat(entry[1]));
+    this.guessVote = new Vote(this.room, () => {
+      const getDifference = (entry) => Math.abs(guess.answer - Number.parseFloat(entry[1].replace(',', '.')));
 
       const getWinner = _.minBy(getDifference);
       const getLoser = _.flow([
@@ -23,40 +25,43 @@ export default class GuessCard extends Card {
         _.maxBy(getDifference),
       ]);
 
-      const voted = [...this.guessVote.voted.entries()];
+      const voted = [...this.guessVote.results.entries()];
 
-      this.data.answer = guess.answer;
-      this.data.source = guess.source;
-      this.data.winner = getWinner(voted)[0].name;
-      this.data.loser = getLoser(voted)[0].name;
-      this.room.sendCard();
+      this.data = {
+        ...guess,
+        winner: getWinner(voted)[0].name,
+        loser: getLoser(voted)[0].name,
+      };
+
+      this.sendQuestionData();
     });
 
     this.guessVote.setCondition('all');
 
-    this.data.question = guess.question;
-    this.data.unit = guess.unit;
+    this.data = {
+      question: guess.question,
+      unit: guess.unit,
+    };
+  }
 
-    this.guessVote.update();
+  action(user, payload) {
+    this.guessVote.submit(user, payload);
+    this.sendQuestionData();
+  }
+
+  sendQuestionData() {
+    this.room.send('card:data', {
+      ...this.data,
+      vote: this.guessVote.data(),
+    });
   }
 
   init() {
-    super.init();
-    this.guessVote?.init();
-  }
-
-  destroy() {
-    super.destroy();
-    this.guessVote?.destroy();
-  }
-
-  update() {
-    super.update();
-    this.guessVote?.update();
+    this.sendQuestionData();
   }
 
   removedUser(user) {
-    super.removedUser(user);
-    this.guessVote?.removedUser(user);
+    this.guessVote.removedUser(user);
+    this.sendQuestionData();
   }
 }

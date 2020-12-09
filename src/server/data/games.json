@@ -1,0 +1,12 @@
+{
+    "HorseRaceGame": {
+        "explanation": {
+            "title": "Pferderennen",
+            "message": "Tippe so oft du kannst! Versuche schneller das Ziel zu erreichen, als deine Mitspieler."
+        },
+        "finish": {
+            "title": "Einem geschenkten Gaul, schaut man nichts Maul",
+            "message": "${ winner } hat gewonnen und darf 3 Schlücke verteilen."
+        }
+    }
+}

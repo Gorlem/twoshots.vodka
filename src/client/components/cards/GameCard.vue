@@ -1,7 +1,7 @@
 <template>
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">{{ title }}</h1>
+      <h1 class="title">{{ name }}</h1>
       <h2 class="subtitle">{{ message }}</h2>
     </div>
   </div>
@@ -13,8 +13,8 @@ import { mapState } from 'vuex';
 export default {
   computed: {
     ...mapState({
-      title: (state) => state.data?.title,
-      message: (state) => state.data?.message,
+      name: (state) => state.data.name,
+      message: (state) => state.data.message,
     }),
   },
 };

@@ -11,7 +11,7 @@ const routes = [
     component: RoomSelection,
   },
   {
-    path: '/room/:roomId',
+    path: '/:roomId',
     name: 'Room',
     component: Room,
     beforeEnter(to) {

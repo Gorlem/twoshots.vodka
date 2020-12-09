@@ -1,6 +1,8 @@
-import Card from '../cards/Card.js';
+import _ from 'lodash';
 
-export default class HorseRaceGame extends Card {
+import GameCard from '../cards/GameCard.js';
+
+export default class HorseRaceGame extends GameCard {
   horses = new Map();
 
   constructor(room) {
@@ -11,21 +13,42 @@ export default class HorseRaceGame extends Card {
     }
   }
 
-  addedUser(user) {
-    this.horses.set(user, 0);
+  startGame() {
+    super.startGame();
+    this.room.send('card:data', {
+      tracks: [{ distance: 0, name: '' }],
+    });
   }
 
-  init() {
-    super.init();
-    this.room.on('card:game:horse:tap', (user) => {
-      const distance = this.horses.get(user) + 1;
-      this.horses.set(user, distance);
-      user.send('card:game:horse:update', [{ distance, name: '' }]);
+  removedUser(user) {
+    super.removedUser();
+    this.horses.delete(user);
+  }
 
-      if (distance >= 100) {
-        this.room.off('card:game:horse:tap');
-        this.room.send('card:game:horse:update', Array.from(this.horses, (horse) => ({ distance: horse[1], name: horse[0].name })));
-      }
+  gameAction(user) {
+    const distance = this.horses.get(user) + 10;
+    this.horses.set(user, distance);
+    this.sendUserData(user);
+
+    if (distance >= 100) {
+      const winner = _.maxBy([...this.horses], '1');
+
+      this.finishGame(winner[0].name);
+      this.sendGameData();
+    }
+  }
+
+  sendGameData() {
+    this.room.send('card:data', {
+      ...this.data,
+      tracks: Array.from(this.horses, (horse) => ({ distance: horse[1], name: horse[0].name })),
+    });
+  }
+
+  sendUserData(user) {
+    const distance = this.horses.get(user);
+    user.send('card:data', {
+      tracks: [{ distance, name: '' }],
     });
   }
 }

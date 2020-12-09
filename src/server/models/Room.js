@@ -1,5 +1,8 @@
-import sample from 'lodash/sample.js';
+import _ from 'lodash';
 
+import Vote from './Vote.js';
+
+import LobbyCard from '../cards/LobbyCard.js';
 import InstructionCard from '../cards/InstructionCard.js';
 import GuessCard from '../cards/GuessCard.js';
 import HorseRaceGame from '../games/HorseRaceGame.js';
@@ -15,10 +18,27 @@ export default class Room {
   id = '';
   card = null;
 
+  vote = null;
+
   listeners = new Map();
 
   constructor(id) {
     this.id = id;
+    this.vote = new Vote(this, () => {
+      this.nextCard();
+      this.vote.reset();
+      this.sendData();
+    });
+    this.vote.setCondition('all');
+    this.vote.setMinimum(2);
+
+    this.on('card:action', (...args) => this.card.action(...args));
+    this.on('room:action', (user) => {
+      this.vote.submit(user);
+      this.sendData();
+    });
+
+    this.setCard(new LobbyCard(this));
   }
 
   join(user) {
@@ -27,11 +47,13 @@ export default class Room {
     }
 
     this.users.push(user);
-    this.sendUpdate();
+
+    this.sendRoomUpdate();
+
     user.send('card:name', this.card.name);
-    user.send('card:data', this.card.data);
+
     this.card?.addedUser?.(user);
-    this.card?.update?.();
+    this.sendData();
 
     for (const [channel, callback] of this.listeners.entries()) {
       user.on(channel, (...args) => callback(user, ...args));
@@ -45,10 +67,12 @@ export default class Room {
       return;
     }
 
-    this.users.splice(index, 1);
-    this.sendUpdate();
+    _.pull(this.users, user);
+
+    this.sendRoomUpdate();
     this.card?.removedUser?.(user);
-    this.card?.update?.();
+    this.vote.removedUser(user);
+    this.sendData();
 
     for (const channel of this.listeners.keys()) {
       user.off(channel);
@@ -58,12 +82,12 @@ export default class Room {
   setCard(card) {
     this.card?.destroy?.();
     this.card = card;
-    this.card.init();
+    this.card.init?.();
     this.sendCard();
   }
 
   nextCard() {
-    const Card = sample(cards);
+    const Card = _.sample(cards);
     this.setCard(new Card(this));
   }
 
@@ -87,13 +111,18 @@ export default class Room {
     }
   }
 
-  sendUpdate() {
-    this.send('room-update', this.toJson());
+  sendRoomUpdate() {
+    this.send('room:id', this.id);
+  }
+
+  sendData() {
+    this.send('room:data', {
+      vote: this.vote.data(),
+    });
   }
 
   sendCard() {
     this.send('card:name', this.card.name);
-    this.send('card:data', this.card.data);
   }
 
   toJson() {

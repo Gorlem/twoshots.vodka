@@ -17,9 +17,15 @@ export default {
       pixel: 0,
     };
   },
+  mounted() {
+    this.calculatePixel();
+  },
   watch: {
-    distance(value) {
-      this.pixel = (this.$refs.track.offsetWidth - this.$refs.horse.offsetWidth) * (value / 100);
+    distance: 'calculatePixel',
+  },
+  methods: {
+    calculatePixel() {
+      this.pixel = (this.$refs.track.offsetWidth - this.$refs.horse.offsetWidth) * (this.distance / 100);
     },
   },
 };

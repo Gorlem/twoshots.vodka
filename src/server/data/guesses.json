@@ -24,6 +24,12 @@
         "source": "https://de.wikipedia.org/wiki/Drei%C3%9Figj%C3%A4hriger_Krieg"
     },
     {
+        "question": "Wie viele Sprachen gibt es weltweit?",
+        "unit": null,
+        "answer": 7117,
+        "source": "https://www.ethnologue.com/"
+    },
+    {
         "question": "Aus wie vielen Kräutern besteht Jägermeister?",
         "unit": null,
         "answer": 56,

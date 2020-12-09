@@ -3,7 +3,23 @@ import Card from './Card.js';
 export default class LobbyCard extends Card {
   constructor(room) {
     super(room, 'LobbyCard');
-    this.vote.setMinimum(2);
-    this.vote.setCondition('all');
+  }
+
+  sendUsers() {
+    this.room.send('card:data', {
+      users: this.room.users.map((user) => user.name),
+    });
+  }
+
+  init() {
+    this.sendUsers();
+  }
+
+  addedUser() {
+    this.sendUsers();
+  }
+
+  removedUser() {
+    this.sendUsers();
   }
 }

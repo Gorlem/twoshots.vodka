@@ -1,23 +1,44 @@
-import { randomInt } from 'crypto';
+import _ from 'lodash';
+import fs from 'fs';
+import { closest } from 'fastest-levenshtein';
 
 import Room from './Room.js';
+
+const names = _(fs.readFileSync('src/server/data/names.txt'))
+  .split(/\r\n|\n/)
+  .filter((row) => row !== '' && !row.startsWith('#'))
+  .value();
+
+const seperator = '-mit-';
 
 export default class Game {
   rooms = [];
 
   static generateRoomId() {
-    return randomInt(1000000).toString().padStart(6, '0');
+    const first = _.sample(names);
+    const second = _.sample(names);
+    return first + seperator + second;
   }
 
   createRoom() {
-    const roomId = Game.generateRoomId();
+    let roomId;
+    do {
+      roomId = Game.generateRoomId();
+    } while (this.findRoomById(roomId) != null);
     const room = new Room(roomId);
     this.rooms.push(room);
     return room;
   }
 
   findRoomById(roomId) {
-    return this.rooms.find((room) => room.id === roomId);
+    const [first, second] = roomId.split(seperator);
+    const guessedRoomId = closest(first, names) + seperator + closest(second, names);
+
+    return this.rooms.find((room) => room.id === guessedRoomId);
+  }
+
+  removeRoom(room) {
+    _.pull(this.rooms, room);
   }
 
   toString() {

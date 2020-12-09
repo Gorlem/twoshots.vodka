@@ -1,0 +1,68 @@
+# Bier
+radler
+alster
+bockbier
+pils
+bier
+weizen
+
+# Wein
+wein
+weißwein
+rotwein
+
+# Sonstiger Alkohol
+branntwein
+schnaps
+kurzer
+gin
+rum
+whisky
+wodka
+met
+anis
+sekt
+pfeffi
+kräuterlikör
+tequila
+korn
+doppelkorn
+obstbrand
+obstgeist
+weinbrand
+likör
+amaretto
+ouzo
+absinth
+aperitif
+digestif
+
+# Softdrinks
+zitronenlimo
+cola
+orangenlimo
+limo
+apfelsaft
+orangensaft
+tonic
+multivitamin
+eistee
+wasser
+tee
+kaffee
+energy
+bananensaft
+kirschsaft
+
+# Früchte und ähnliches
+zitronen
+orangen
+limetten
+zucker
+eis
+
+# Lustig
+fusel
+alkohol
+irgendwas
+nichts

@@ -20,8 +20,8 @@ export default {
   },
   computed: {
     ...mapState({
-      roomId: (state) => state.room.id,
-      users: (state) => state.room.users,
+      roomId: (state) => state.roomId,
+      users: (state) => state.data?.users,
     }),
   },
 };
