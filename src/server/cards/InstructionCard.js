@@ -12,7 +12,7 @@ export default class InstructionCard extends Card {
     super(room, 'InstructionCard');
 
     const instruction = _.sample(instructions);
-    const players = _.chain(room.users)
+    const players = _.chain(room.players)
       .map('name')
       .shuffle()
       .value();

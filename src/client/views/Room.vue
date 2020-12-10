@@ -56,9 +56,7 @@ export default {
   methods: {
     setName(name) {
       socket.emit('join-room', this.$route.params.roomId, name, (roomId) => {
-        console.log(roomId);
         if (roomId == null) {
-          console.log('null');
           this.$router.replace({ name: 'RoomSelection' });
         } else if (roomId !== this.$route.params.roomId) {
           this.$router.replace({ name: 'Room', params: { roomId: this.roomId } });

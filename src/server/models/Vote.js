@@ -57,11 +57,11 @@ export default class Vote {
 
   getAmountOfRequiredVotes() {
     if (this.condition === 'all') {
-      return Math.max(this.room.users.length, this.minimum);
+      return Math.max(this.room.players.length, this.minimum);
     }
 
     if (this.condition === 'half+one') {
-      return Math.max(Math.floor(this.room.users.length / 2) + 1, this.minimum);
+      return Math.max(Math.floor(this.room.players.length / 2) + 1, this.minimum);
     }
 
     return this.minimum;

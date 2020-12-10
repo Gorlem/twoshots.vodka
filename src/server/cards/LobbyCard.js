@@ -7,7 +7,7 @@ export default class LobbyCard extends Card {
 
   sendUsers() {
     this.room.send('card:data', {
-      users: this.room.users.map((user) => user.name),
+      users: this.room.players.map((user) => user.name),
     });
   }
 

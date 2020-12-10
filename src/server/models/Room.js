@@ -2,6 +2,8 @@ import _ from 'lodash';
 
 import Vote from './Vote.js';
 
+// import UserCollection from './UserCollection.js';
+
 import LobbyCard from '../cards/LobbyCard.js';
 import InstructionCard from '../cards/InstructionCard.js';
 import GuessCard from '../cards/GuessCard.js';
@@ -14,7 +16,8 @@ const cards = [
 ];
 
 export default class Room {
-  users = [];
+  players = [];
+
   id = '';
   card = null;
 
@@ -46,7 +49,7 @@ export default class Room {
       return;
     }
 
-    this.users.push(user);
+    this.players.push(user);
 
     this.sendRoomUpdate();
 
@@ -61,13 +64,13 @@ export default class Room {
   }
 
   leave(user) {
-    const index = this.users.indexOf(user);
+    const index = this.players.indexOf(user);
 
     if (index === -1) {
       return;
     }
 
-    _.pull(this.users, user);
+    _.pull(this.players, user);
 
     this.sendRoomUpdate();
     this.card?.removedUser?.(user);
@@ -93,20 +96,20 @@ export default class Room {
 
   on(channel, callback) {
     this.listeners.set(channel, callback);
-    for (const user of this.users) {
+    for (const user of this.players) {
       user.on(channel, (...args) => callback(user, ...args));
     }
   }
 
   off(channel) {
     this.listeners.delete(channel);
-    for (const user of this.users) {
+    for (const user of this.players) {
       user.off(channel);
     }
   }
 
   send(channel, ...args) {
-    for (const user of this.users) {
+    for (const user of this.players) {
       user.send(channel, ...args);
     }
   }
@@ -128,11 +131,11 @@ export default class Room {
   toJson() {
     return {
       id: this.id,
-      users: this.users.map((user) => user.toJson()),
+      users: this.players.map((user) => user.toJson()),
     };
   }
 
   toString() {
-    return `Room { id = ${this.id}, users = ${this.users}, card = ${this.card} }`;
+    return `Room { id = ${this.id}, users = ${this.players}, card = ${this.card} }`;
   }
 }

@@ -1,10 +1,11 @@
 {
-  "name": "client",
+  "name": "twoshots.vodka",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "lint-server": "eslint src/server/**/*.js",
-    "dev": "nodemon --watch ./src/server --exec \"npm run lint-server && node ./src/server/index.js\"",
+    "dev": "nodemon --watch ./src/server --exec \"npm run lint-server && node ./src/server/dev.js\"",
+    "prod": "npm run build && node ./src/server/prod.js",
     "serve": "vue-cli-service serve src/client/main.js",
     "build": "vue-cli-service build src/client/main.js",
     "lint": "vue-cli-service lint src/client/main.js"

@@ -1,8 +1,11 @@
 import { createServer } from 'http';
 import { Server } from 'socket.io';
 
+import createGame from './index.js';
+
 const server = createServer();
 const io = new Server(server);
-server.listen(3000);
 
-export default io;
+createGame(io);
+
+server.listen(3000);

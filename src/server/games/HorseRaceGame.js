@@ -8,7 +8,7 @@ export default class HorseRaceGame extends GameCard {
   constructor(room) {
     super(room, 'HorseRaceGame');
 
-    for (const user of room.users) {
+    for (const user of room.players) {
       this.horses.set(user, 0);
     }
   }

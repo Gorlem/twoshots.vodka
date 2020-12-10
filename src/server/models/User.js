@@ -9,6 +9,15 @@ export default class User {
     this.id = socket.id;
   }
 
+  sendCard(name, data) {
+    this.send('card:name', name);
+    this.send('card:data', data);
+  }
+
+  sendData(data) {
+    this.send('card:data', data);
+  }
+
   send(channel, ...args) {
     this.socket.emit(channel, ...args);
   }
