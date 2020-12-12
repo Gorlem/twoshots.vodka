@@ -26,7 +26,7 @@ export default class HorseRaceGame extends GameCard {
   }
 
   gameAction(user) {
-    const distance = this.horses.get(user) + 10;
+    const distance = this.horses.get(user) + 1;
     this.horses.set(user, distance);
     this.sendUserData(user);
 
