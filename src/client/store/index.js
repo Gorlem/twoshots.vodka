@@ -26,6 +26,10 @@ export default createStore({
     'SOCKET_CARD:DATA': (state, [data]) => {
       state.data = data;
     },
+    SOCKET_CARD(state, [name, data]) {
+      state.card = name;
+      state.data = data;
+    },
     'SOCKET_ROOM:DATA': (state, [data]) => {
       state.room = data;
     },

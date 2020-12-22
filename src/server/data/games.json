@@ -6,7 +6,18 @@
         },
         "finish": {
             "title": "Einem geschenkten Gaul, schaut man nichts Maul",
-            "message": "${ winner } hat gewonnen und darf 3 Schlücke verteilen."
+            "message": [
+                {
+                    "type": "user",
+                    "content": "${ winner }"
+                },
+                " hat gewonnen und darf ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                " verteilen."
+            ]
         }
     }
 }

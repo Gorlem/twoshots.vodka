@@ -10,8 +10,7 @@ export default class User {
   }
 
   sendCard(name, data) {
-    this.send('card:name', name);
-    this.send('card:data', data);
+    this.send('card', name, data);
   }
 
   sendData(data) {

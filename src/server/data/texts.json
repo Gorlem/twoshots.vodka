@@ -1,0 +1,43 @@
+{
+    "GuessController:message": [
+        "Der Gewinner darf ",
+        {
+          "type": "highlight",
+          "content": "${ shots }"
+        },
+        " verteilen, der Verlierer muss ",
+        {
+          "type": "highlight",
+          "content": "${ shots }"
+        },
+        " trinken. Falls mehrere die richtige Antwort gegeben haben, geht es um Geschwindigkeit."
+    ],
+    "GuessController:result": [
+        "Die richtige Antwort ist ",
+        {
+          "type": "highlight",
+          "content": "${ answer }"
+        },
+        ". Somit darf ",
+        {
+          "type": "user",
+          "content": "${ winner }"
+        },
+        " ",
+        {
+          "type": "highlight",
+          "content": "${ shots }"
+        },
+        " verteilen, und ",
+        {
+          "type": "user",
+          "content": "${ loser }"
+        },
+        " muss ",
+        {
+          "type": "highlight",
+          "content": "${ shots }"
+        },
+        " trinken."
+    ]
+}

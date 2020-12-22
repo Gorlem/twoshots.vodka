@@ -22,7 +22,7 @@
       <NameSelection @submit="setName"/>
     </div>
   </div>
-  <component :is="cardName" v-if="cardName != null"></component>
+  <component :is="cardName" v-if="cardName != null" :data="data" @action="action"></component>
 </template>
 
 <script>
@@ -31,9 +31,11 @@ import { mapState, mapActions } from 'vuex';
 import NameSelection from '@/components/NameSelection.vue';
 import VoteButton from '@/components/VoteButton.vue';
 import LobbyCard from '@/components/cards/LobbyCard.vue';
-import InstructionCard from '@/components/cards/InstructionCard.vue';
-import GuessCard from '@/components/cards/GuessCard.vue';
+import InformationCard from '@/components/cards/InformationCard.vue';
+import ConfirmationCard from '@/components/cards/ConfirmationCard.vue';
+import InputCard from '@/components/cards/InputCard.vue';
 import HorseRaceGame from '@/components/games/HorseRaceGame.vue';
+import HorseRaceGameResults from '@/components/games/HorseRaceGameResults.vue';
 
 import socket from '@/socket';
 
@@ -42,15 +44,18 @@ export default {
     NameSelection,
     VoteButton,
     LobbyCard,
-    InstructionCard,
-    GuessCard,
+    InformationCard,
+    ConfirmationCard,
+    InputCard,
     HorseRaceGame,
+    HorseRaceGameResults,
   },
   computed: {
     ...mapState({
       cardName: (state) => state.card,
       roomId: (state) => state.roomId,
       voteData: (state) => state.room.vote,
+      data: (state) => state.data,
     }),
   },
   methods: {
@@ -65,6 +70,7 @@ export default {
     },
     ...mapActions({
       voteNext: 'doRoomAction',
+      action: 'doCardAction',
     }),
   },
 };

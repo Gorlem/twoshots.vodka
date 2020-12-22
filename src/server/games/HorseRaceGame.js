@@ -1,54 +1,64 @@
 import _ from 'lodash';
 
-import GameCard from '../cards/GameCard.js';
+import { template } from '../template.js';
+import generateShots from '../shots.js';
 
-export default class HorseRaceGame extends GameCard {
+class HorseRaceGameResult {
+  constructor({ room }, horses) {
+    const winner = _.maxBy([...horses], '1')[0].name;
+    const tracks = _.chain([...horses])
+      .sortBy((horse) => horse[1])
+      .reverse()
+      .map((horse) => ({
+        distance: horse[1],
+        name: horse[0].name,
+      }))
+      .value();
+
+    room.playing.sendCard('HorseRaceGameResults', {
+      tracks,
+      title: template(room.controller.messages.finish.title),
+      message: template(room.controller.messages.finish.message, {
+        winner,
+        shots: generateShots(3, 6),
+      }),
+    });
+  }
+}
+
+export default class HorseRaceGame {
   horses = new Map();
 
-  constructor(room) {
-    super(room, 'HorseRaceGame');
+  constructor({ room }) {
+    this.room = room;
 
-    for (const user of room.players) {
+    for (const user of room.playing.users) {
       this.horses.set(user, 0);
     }
-  }
 
-  startGame() {
-    super.startGame();
-    this.room.send('card:data', {
-      tracks: [{ distance: 0, name: '' }],
+    this.room.playing.sendCard('HorseRaceGame', {
+      track: {
+        distance: 0,
+      },
     });
   }
 
   removedUser(user) {
-    super.removedUser();
     this.horses.delete(user);
   }
 
-  gameAction(user) {
-    const distance = this.horses.get(user) + 1;
+  action(user) {
+    const distance = this.horses.get(user) + 10;
     this.horses.set(user, distance);
-    this.sendUserData(user);
+
+    user.sendCard('HorseRaceGame', {
+      track: {
+        distance,
+      },
+    });
 
     if (distance >= 100) {
-      const winner = _.maxBy([...this.horses], '1');
-
-      this.finishGame(winner[0].name);
-      this.sendGameData();
+      setImmediate(() => this.room.controller.setStep(new HorseRaceGameResult({ room: this.room }, this.horses)));
     }
-  }
-
-  sendGameData() {
-    this.room.send('card:data', {
-      ...this.data,
-      tracks: Array.from(this.horses, (horse) => ({ distance: horse[1], name: horse[0].name })),
-    });
-  }
-
-  sendUserData(user) {
-    const distance = this.horses.get(user);
-    user.send('card:data', {
-      tracks: [{ distance, name: '' }],
-    });
   }
 }

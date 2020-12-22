@@ -55,7 +55,7 @@
     },
     {
         "question": "In welchem Jahr wurde der Euro als Bargeld eingeführt?",
-        "unit": "Jahr",
+        "unit": null,
         "answer": 2002,
         "source": "https://www.bundesfinanzministerium.de/Content/DE/Standardartikel/Themen/Europa/2019-12-08-zwanzig-jahre-euro.html"
     },
@@ -109,7 +109,7 @@
     },
     {
         "question": "In welchem Jahr kam der älteste Star Wars Film raus?",
-        "unit": "Jahr",
+        "unit": null,
         "answer": 1977,
         "source": "https://www.jumpradio.de/thema/star-wars-richtige-reihenfolge-der-filme-100.html"
     },
@@ -241,13 +241,13 @@
     },
     {
         "question": "In welchem Jahr ist die Titanik gesunken?",
-        "unit": "Jahr",
+        "unit": null,
         "answer": 1912,
         "source": "https://de.statista.com/statistik/daten/studie/222490/umfrage/opfer-und-ueberlebende-des-untergangs-der-titanic/"
     },
     {
         "question": "In welchem Jahr kam der erste High School Musical Film raus?",
-        "unit": "Jahr",
+        "unit": null,
         "answer": 2006,
         "source": "https://de.wikipedia.org/wiki/High_School_Musical"
     },

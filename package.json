@@ -73,7 +73,8 @@
         {
           "code": 140
         }
-      ]
+      ],
+      "max-classes-per-file": "off"
     }
   },
   "browserslist": [

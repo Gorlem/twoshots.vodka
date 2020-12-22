@@ -2,24 +2,27 @@ import _ from 'lodash';
 
 import Vote from './Vote.js';
 
-// import UserCollection from './UserCollection.js';
+import UserCollection from './UserCollection.js';
 
-import LobbyCard from '../cards/LobbyCard.js';
-import InstructionCard from '../cards/InstructionCard.js';
-import GuessCard from '../cards/GuessCard.js';
-import HorseRaceGame from '../games/HorseRaceGame.js';
+import LobbyController from '../cards/LobbyController.js';
+import InstructionController from '../cards/InstructionController.js';
+import GuessController from '../cards/GuessController.js';
+import GameController from '../cards/GameController.js';
 
 const cards = [
-  InstructionCard,
-  GuessCard,
-  HorseRaceGame,
+  InstructionController,
+  GuessController,
+  GameController,
 ];
 
 export default class Room {
-  players = [];
+  all = new UserCollection();
+  spectating = new UserCollection();
+  pending = new UserCollection();
+  playing = new UserCollection();
 
   id = '';
-  card = null;
+  controller = null;
 
   vote = null;
 
@@ -30,18 +33,36 @@ export default class Room {
     this.vote = new Vote(this, () => {
       this.nextCard();
       this.vote.reset();
-      this.sendData();
+      this.playing.send('room:data', {
+        vote: this.vote.data(),
+      });
     });
-    this.vote.setCondition('all');
+    this.vote.setCondition('half+one');
     this.vote.setMinimum(2);
 
-    this.on('card:action', (...args) => this.card.action(...args));
-    this.on('room:action', (user) => {
+    this.playing.on('card:action', (...args) => this.controller.action(...args));
+    this.playing.on('room:action', (user) => {
       this.vote.submit(user);
-      this.sendData();
+      this.playing.send('room:data', {
+        vote: this.vote.data(),
+      });
     });
 
-    this.setCard(new LobbyCard(this));
+    this.setCard(new LobbyController(this));
+  }
+
+  addPlayer(user) {
+    if (this.controller instanceof LobbyController) {
+      this.playing.add(user);
+      this.controller.addedUser(user);
+      user.send('room:id', this.id);
+    } else {
+      this.pending.add(user);
+    }
+  }
+
+  addSpectator(user) {
+    this.spectating.add(user);
   }
 
   join(user) {
@@ -49,17 +70,21 @@ export default class Room {
       return;
     }
 
-    this.players.push(user);
+    if (this.controller instanceof LobbyController) {
+      this.playing.add(user);
 
-    this.sendRoomUpdate();
+      this.sendRoomUpdate();
 
-    user.send('card:name', this.card.name);
+      user.send('card:name', this.controller.name);
 
-    this.card?.addedUser?.(user);
-    this.sendData();
+      this.controller?.addedUser?.(user);
+      this.sendData();
 
-    for (const [channel, callback] of this.listeners.entries()) {
-      user.on(channel, (...args) => callback(user, ...args));
+      for (const [channel, callback] of this.listeners.entries()) {
+        user.on(channel, (...args) => callback(user, ...args));
+      }
+    } else {
+      this.pending.add(user);
     }
   }
 
@@ -73,7 +98,7 @@ export default class Room {
     _.pull(this.players, user);
 
     this.sendRoomUpdate();
-    this.card?.removedUser?.(user);
+    this.controller?.removedUser?.(user);
     this.vote.removedUser(user);
     this.sendData();
 
@@ -83,49 +108,13 @@ export default class Room {
   }
 
   setCard(card) {
-    this.card?.destroy?.();
-    this.card = card;
-    this.card.init?.();
-    this.sendCard();
+    this.controller?.destroy?.();
+    this.controller = card;
   }
 
   nextCard() {
     const Card = _.sample(cards);
     this.setCard(new Card(this));
-  }
-
-  on(channel, callback) {
-    this.listeners.set(channel, callback);
-    for (const user of this.players) {
-      user.on(channel, (...args) => callback(user, ...args));
-    }
-  }
-
-  off(channel) {
-    this.listeners.delete(channel);
-    for (const user of this.players) {
-      user.off(channel);
-    }
-  }
-
-  send(channel, ...args) {
-    for (const user of this.players) {
-      user.send(channel, ...args);
-    }
-  }
-
-  sendRoomUpdate() {
-    this.send('room:id', this.id);
-  }
-
-  sendData() {
-    this.send('room:data', {
-      vote: this.vote.data(),
-    });
-  }
-
-  sendCard() {
-    this.send('card:name', this.card.name);
   }
 
   toJson() {
@@ -136,6 +125,6 @@ export default class Room {
   }
 
   toString() {
-    return `Room { id = ${this.id}, users = ${this.players}, card = ${this.card} }`;
+    return `Room { id = ${this.id}, users = ${this.players}, card = ${this.controller} }`;
   }
 }

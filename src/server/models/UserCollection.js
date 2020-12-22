@@ -12,10 +12,18 @@ export default class UserCollection {
 
   add(user) {
     this.users.add(user);
+
+    for (const [channel, listener] of this.listeners.entries()) {
+      user.on(channel, (...args) => listener(user, ...args));
+    }
   }
 
   remove(user) {
     this.users.delete(user);
+
+    for (const channel of this.listeners.keys()) {
+      user.off(channel);
+    }
   }
 
   except(...users) {

@@ -1,86 +1,248 @@
 [
     {
         "title": "Eine Runde bitte",
-        "message": "Jeder trinkt einen Schluck."
+        "message": [
+            "Jeder trinkt ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            },
+            "."
+        ]
     },
     {
-        "title": "${ players[0] } ist dran",
-        "message": "...und muss ${ _.random(2, 5) } Schlücke trinken."
+        "title": [
+            {
+                "type": "user",
+                "content": "${ players[0] }"
+            },
+            " ist dran"
+        ],
+        "message": [
+            "...und muss ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            },
+            " trinken."
+        ]
     },
     {
-        "title": "Hoffentlich mag ${ players[0] } euch",
-        "message": "${ players[0] } darf ${ _.random(4, 6) } Schlücke verteilen."
+        "title": [
+            "Hoffentlich mag ",
+            {
+                "type": "user",
+                "content": "${ players[0] }"
+            },
+            " euch"
+        ],
+        "message": [
+            {
+                "type": "user",
+                "content": "${ players[0] }"
+            },
+            " darf ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            },
+            " verteilen."
+        ]
     },
     {
         "title": "Couple goals",
-        "message": "${ players[0] } und ${ players[1] } trinken beide ${ _.random(2, 5) } Schlücke."
+        "message": [
+            {
+                "type": "user",
+                "content": "${ players[0] }"
+            },
+            " und ",
+            {
+                "type": "user",
+                "content": "${ players[1] }"
+            },
+            " trinken beide ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            },
+            "."
+        ]
     },
     {
-        "title": "Alle Singles trinken",
+        "title": [
+            "Alle Singles trinken ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            }
+        ],
         "message": "Irgendwann findet ihr schon wen."
     },
     {
-        "title": "Alle in einer Beziehung trinken",
+        "title": [
+            "Alle in einer Beziehung trinken ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            }
+        ],
         "message": "Hoffentlich lohnt es sich."
     },
     {
-        "title": "Raucher trinken einen Schluck",
+        "title": [
+            "Raucher trinken ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            }
+        ],
         "message": "Alkohol > Zigaretten."
     },
     {
-        "title": "Alle mit blonden Haaren trinken",
+        "title": [
+            "Alle mit blonden Haaren trinken ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            }
+        ],
         "message": "Ausnahmsweise mal kein Blondinenwitz."
     },
     {
-        "title": "Alle mit braunen Haaren trinken",
+        "title": [
+            "Alle mit braunen Haaren trinken ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            }
+        ],
         "message": "Hauptsache nur die Haare sind braun."
     },
     {
-        "title": "Alle mit schwarzen Haaren trinken",
+        "title": [
+            "Alle mit schwarzen Haaren trinken ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            }
+        ],
         "message": "Mehr als die Hälfte aller Menschen hat schwarzes Haar."
     },
     {
-        "title": "Alle mit roten Haaren trinken",
+        "title": [
+            "Alle mit roten Haaren trinken ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            }
+        ],
         "message": "Auch ihr dürft mal was trinken."
     },
     {
         "title": "Dicks drink",
-        "message": "Alle Männer trinken."
+        "message": [
+            "Alle Männer trinken ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            },
+            "."
+        ]
     },
     {
         "title": "Chicks drink",
-        "message": "Alle Frauen trinken."
+        "message": [
+            "Alle Frauen trinken ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            },
+            "."
+        ]
     },
     {
-        "title": "Der oder die Größte muss trinken",
+        "title": [
+            "Der oder die Größte muss ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            },
+            " trinken"
+        ],
         "message": "Manchmal kommt es eben doch auf die Größe drauf an."
     },
     {
-        "title": "Der oder die Kleinste muss trinken",
+        "title": [
+            "Der oder die Kleinste muss ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            },
+            " trinken"
+        ],
         "message": "Darfst du eigentlich schon vorne sitzen im Auto?"
     },
     {
-        "title": "Der oder die Jüngste muss trinken",
+        "title": [
+            "Der oder die Jüngste muss ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            },
+            " trinken"
+        ],
         "message": "Dürfte ich mal Ihren Ausweis sehen?"
     },
     {
-        "title": "Der oder die Älteste muss trinken",
+        "title": [
+            "Der oder die Älteste muss ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            },
+            " trinken"
+        ],
         "message": "Du alter Sack."
     },
     {
-        "title": "Bartträger trinken",
+        "title": [
+            "Bartträger trinken ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            }
+        ],
         "message": "Darf ich mal streicheln?"
     },
     {
-        "title": "Der oder die Nüchternste trinkt",
+        "title": [
+            "Der oder die Nüchternste trinkt ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            }
+        ],
         "message": "Du hast es dringend nötig."
     },
     {
-        "title": "Der oder die Betrunkenste trinkt",
+        "title": [
+            "Der oder die Betrunkenste trinkt ",
+            {
+                "type": "highlight",
+                "content": "${ shots }"
+            }
+        ],
         "message": "Einer geht noch, einer geht noch rein."
     },
     {
         "title": "Auf Ex",
-        "message": "${ players[0] } muss exen."
+        "message": [
+            {
+                "type": "user",
+                "content": "${ players[0] }"
+            },
+            " muss exen."
+        ]
     }
 ]

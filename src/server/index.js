@@ -46,7 +46,7 @@ export default function (io) {
       socket.room = room;
       user.name = name;
 
-      room.join(user);
+      room.addPlayer(user);
       callback?.(room.id);
     });
 
