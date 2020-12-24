@@ -22,8 +22,12 @@ export default {
       qrCode: '',
     };
   },
-  async created() {
-    this.qrCode = await QRCode.toDataURL(window.location.href, { margin: 0 });
+  watch: {
+    async roomId() {
+      console.log(this.roomId);
+      console.log(window.location.href);
+      this.qrCode = await QRCode.toDataURL(window.location.href, { margin: 0 });
+    },
   },
 };
 </script>

@@ -1,12 +1,12 @@
 <template>
   <div class="field has-addons">
     <p class="control">
-      <button class="button is-primary" :class="{ 'is-loading': hasVoted }" type="button" @click="vote">
+      <button class="button is-primary is-medium" :class="{ 'is-loading': hasVoted }" type="button" @click="vote">
         <slot/>
       </button>
     </p>
     <p class="control">
-      <span class="button is-static">
+      <span class="button is-static is-medium">
         {{ voteStatus }}
       </span>
     </p>

@@ -64,7 +64,7 @@ export default function (io) {
 
       room.leave(socket.user);
 
-      if (room.players.length === 0) {
+      if (room.playing.users.length === 0) {
         game.removeRoom(room);
       }
     });

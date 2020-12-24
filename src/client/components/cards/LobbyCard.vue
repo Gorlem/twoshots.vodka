@@ -3,13 +3,13 @@
     <div class="container">
       <RoomId :room-id="roomId"/>
       <UserList :users="data.users"/>
-      <VoteButton :data="data.vote" @submit="vote()">Bestätigen</VoteButton>
+      <VoteButton :data="data.vote" @submit="$emit('action')">Bestätigen</VoteButton>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapState } from 'vuex';
 
 import UserList from '@/components/UserList.vue';
 import RoomId from '@/components/RoomId.vue';
@@ -24,13 +24,13 @@ export default {
   computed: {
     ...mapState({
       roomId: (state) => state.roomId,
-      data: (state) => state.data,
     }),
   },
-  methods: {
-    ...mapActions({
-      vote: 'doCardAction',
-    }),
-  },
+  props: [
+    'data',
+  ],
+  emits: [
+    'action',
+  ],
 };
 </script>

@@ -216,26 +216,6 @@
         "message": "Darf ich mal streicheln?"
     },
     {
-        "title": [
-            "Der oder die Nüchternste trinkt ",
-            {
-                "type": "highlight",
-                "content": "${ shots }"
-            }
-        ],
-        "message": "Du hast es dringend nötig."
-    },
-    {
-        "title": [
-            "Der oder die Betrunkenste trinkt ",
-            {
-                "type": "highlight",
-                "content": "${ shots }"
-            }
-        ],
-        "message": "Einer geht noch, einer geht noch rein."
-    },
-    {
         "title": "Auf Ex",
         "message": [
             {

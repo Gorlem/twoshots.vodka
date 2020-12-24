@@ -12,17 +12,20 @@ const texts = JSON.parse(fs.readFileSync('src/server/data/texts.json'));
 
 const guessMessage = prepare(texts['GuessController:message']);
 const resultMessage = prepare(texts['GuessController:result']);
+const sourceMessage = prepare(texts['GuessController:source']);
 
 class GuessStep {
-  constructor({ room, guess, shots }) {
+  constructor({
+    room, guess, shots, title,
+  }) {
     this.room = room;
     this.guess = guess;
+    this.title = title;
 
     this.vote = new Vote(this.room, () => {
       room.controller.setExplanationStep(this.vote.results);
     });
 
-    this.title = prepare(guess.question);
     this.message = template(guessMessage, { shots });
 
     this.sendQuestionData();
@@ -49,7 +52,9 @@ class GuessStep {
 }
 
 class ResultStep {
-  constructor({ room, guess, shots }, results) {
+  constructor({
+    room, guess, shots, title,
+  }, results) {
     const getDifference = (entry) => Math.abs(guess.answer - Number.parseFloat(entry[1].replace(',', '.')));
 
     const getWinner = _.minBy(getDifference);
@@ -68,11 +73,14 @@ class ResultStep {
     const message = template(resultMessage, {
       shots, winner, loser, answer,
     });
-    const title = prepare(guess.question);
+    const footer = template(sourceMessage, {
+      url: guess.source,
+    });
 
     room.playing.sendCard('InformationCard', {
       message,
       title,
+      footer,
     });
   }
 }
@@ -84,6 +92,8 @@ export default class GuessController extends Controller {
     this.shots = generateShots(1, 5);
 
     this.guess = _.sample(guesses);
+    this.title = prepare(this.guess.question);
+
     this.setGuessStep();
   }
 

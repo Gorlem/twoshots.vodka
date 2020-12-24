@@ -7,12 +7,14 @@ import UserCollection from './UserCollection.js';
 import LobbyController from '../cards/LobbyController.js';
 import InstructionController from '../cards/InstructionController.js';
 import GuessController from '../cards/GuessController.js';
+import PollController from '../cards/PollController.js';
 import GameController from '../cards/GameController.js';
 
 const cards = [
   InstructionController,
   GuessController,
   GameController,
+  PollController,
 ];
 
 export default class Room {
@@ -32,10 +34,6 @@ export default class Room {
     this.id = id;
     this.vote = new Vote(this, () => {
       this.nextCard();
-      this.vote.reset();
-      this.playing.send('room:data', {
-        vote: this.vote.data(),
-      });
     });
     this.vote.setCondition('half+one');
     this.vote.setMinimum(2);
@@ -89,22 +87,9 @@ export default class Room {
   }
 
   leave(user) {
-    const index = this.players.indexOf(user);
-
-    if (index === -1) {
-      return;
-    }
-
-    _.pull(this.players, user);
-
-    this.sendRoomUpdate();
+    this.playing.remove(user);
     this.controller?.removedUser?.(user);
     this.vote.removedUser(user);
-    this.sendData();
-
-    for (const channel of this.listeners.keys()) {
-      user.off(channel);
-    }
   }
 
   setCard(card) {
@@ -115,6 +100,11 @@ export default class Room {
   nextCard() {
     const Card = _.sample(cards);
     this.setCard(new Card(this));
+
+    this.vote.reset();
+    this.playing.send('room:data', {
+      vote: this.vote.data(),
+    });
   }
 
   toJson() {

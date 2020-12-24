@@ -5,13 +5,13 @@
         <div class="level-left">
           <div class="level-item">
             <p class="subtitle is-5">
-              Raum <strong>{{ roomId }}</strong>
+              <strong>{{ roomId }}</strong>
             </p>
           </div>
         </div>
-        <div class="level-right">
+        <div class="level-right" v-if="room.vote != null">
           <div class="level-item">
-            <VoteButton :data="voteData" @submit="voteNext">Weiter</VoteButton>
+            <VoteButton :data="room.vote" @submit="voteNext">Weiter geht's</VoteButton>
           </div>
         </div>
       </div>
@@ -34,6 +34,8 @@ import LobbyCard from '@/components/cards/LobbyCard.vue';
 import InformationCard from '@/components/cards/InformationCard.vue';
 import ConfirmationCard from '@/components/cards/ConfirmationCard.vue';
 import InputCard from '@/components/cards/InputCard.vue';
+import PollCard from '@/components/cards/PollCard.vue';
+import PollResultCard from '@/components/cards/PollResultCard.vue';
 import HorseRaceGame from '@/components/games/HorseRaceGame.vue';
 import HorseRaceGameResults from '@/components/games/HorseRaceGameResults.vue';
 
@@ -49,12 +51,14 @@ export default {
     InputCard,
     HorseRaceGame,
     HorseRaceGameResults,
+    PollCard,
+    PollResultCard,
   },
   computed: {
     ...mapState({
       cardName: (state) => state.card,
       roomId: (state) => state.roomId,
-      voteData: (state) => state.room.vote,
+      room: (state) => state.room,
       data: (state) => state.data,
     }),
   },

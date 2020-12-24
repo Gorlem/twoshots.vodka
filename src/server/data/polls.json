@@ -1,0 +1,425 @@
+[
+    {
+        "title": "Wer ist am nüchternsten unter euch?",
+        "message": [
+            [
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " hat es dringend nötig. Trink ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ],
+            [
+                "Dabei bleibt es auch erstmal. ",
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " darf ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                " verteilen."
+            ]
+        ]
+    },
+    {
+        "title": "Wer ist am betrunkensten unter euch?",
+        "message": [
+            [
+                "Einer geht noch, einer geht noch rein. ",
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " trink ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ],
+            [
+                "Dann muss der Rest mal nachziehen. ",
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " verteile ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ]
+        ]
+    },
+    {
+        "title": "Wer bringt am ehesten jemanden aus Versehen um?",
+        "message": [
+            [
+                "Du Tollpatsch. ",
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " muss dafür ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                " trinken."
+            ],
+            [
+                "Kann ja mal passieren. Stimmt's ",
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                "? Du darfst ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                " verteilen."
+            ]
+        ]
+    },
+    {
+        "title": "Wer rennt am ehesten weg, um sich dem Zirkus anzuschließen?",
+        "message": [
+            [
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " zeig uns doch mal deine Kunsttücke und trink ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ],
+            [
+                "Hast wohl 'nen Clown gefrühstückt, ",
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                ". Verteile ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ]
+        ]
+    },
+    {
+        "title": "Wer springt am ehesten von einem fahrenden Zug?",
+        "message": [
+            [
+                "Der Zug ist abgefahren. ",
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " trink ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ],
+            [
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " versteht nur Bahnhof. Verteile ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ]
+        ]
+    },
+    {
+        "title": "Wer ist am sportlichsten unter euch?",
+        "message": [
+            [
+                "Sport ist Mord. Trink ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                ", ",
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                "."
+            ],
+            [
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " bleib schön fit und verteile ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ]
+        ]
+    },
+    {
+        "title": "Wer wird am ehesten Stripper?",
+        "message": [
+            [
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " du kleines Luder. Trink ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ],
+            [
+                "Zieh' dich aus du kleine Maus, mach dich nackig. ",
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " verteile ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ]
+        ]
+    },
+    {
+        "title": "Wer wird am ehesten festgenommen, weil er einen Polizisten belästigt?",
+        "message": [
+            [
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " macht es denen auch viel zu einfach. Trink ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ],
+            [
+                "Hoffentlich hebt ",
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " nicht auch noch die Seife auf. Verteile ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ]
+        ]
+    },
+    {
+        "title": "Wer ist am spielsüchtigsten?",
+        "message": [
+            [
+                "Das Haus gewinnt immer, ",
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                ". Trink ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ],
+            [
+                "Go big or go home. ",
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " darf ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                " verteilen."
+            ]
+        ]
+    },
+    {
+        "title": "Wer ist am besten in Mathe?",
+        "message": [
+            [
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " der Mathe-Nerd. Trink ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ],
+            [
+                "Kleines Mathe-Ass. ",
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " darf ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                " verteilen."
+            ]
+        ]
+    },
+    {
+        "title": "Wer wird später wahrscheinlich am reichsten?",
+        "message": [
+            [
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " du Bonze. Trink ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ],
+            [
+                "Arumut ist keine Schande - Reichtum auch nicht. ",
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " darf ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                " verteilen."
+            ]
+        ]
+    },
+    {
+        "title": "Wer ist am ehesten bereit, eine Bank auszurauben?",
+        "message": [
+            [
+                "Hoffentlich hast du genug Prison Break geschaut, falls du gefasst wirst.",
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " muss ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                " trinken."
+            ],
+            [
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " ist wohl ein richtiger Panzerknacker. Verteile ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ]
+        ]
+    },
+    {
+        "title": "Wer lebt von euch am längsten?",
+        "message": [
+            [
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " lebt wohl ein entspanntes Leben. Verteile ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ],
+            [
+                "Bloß keine Risiken eingehen, ",
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                ". Trink ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ]
+        ]
+    },
+    {
+        "title": "Wer stirbt von euch als erstes?",
+        "message": [
+            [
+                "Pass mal besser auf dich auf, ",
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                ". Trink dafür ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ],
+            [
+                {
+                    "type": "highlight",
+                    "content": "${ winner }"
+                },
+                " du stehst wohl auf Risik. Verteile ",
+                {
+                    "type": "highlight",
+                    "content": "${ shots }"
+                },
+                "."
+            ]
+        ]
+    }
+]
