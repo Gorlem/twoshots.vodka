@@ -1,7 +1,7 @@
 export default class Vote {
   results = new Map();
   room = null;
-  condition = 'half+one';
+  condition = 'all';
   minimum = 1;
   callback = null;
 
