@@ -50,13 +50,13 @@ export default class Room {
   }
 
   addPlayer(user) {
-    if (this.controller instanceof LobbyController) {
-      this.playing.add(user);
-      this.controller.addedUser(user);
-      user.send('room:id', this.id);
-    } else {
-      this.pending.add(user);
-    }
+    // if (this.controller instanceof LobbyController) {
+    this.playing.add(user);
+    this.controller.addedUser(user);
+    user.send('room:id', this.id);
+    // } else {
+    //   this.pending.add(user);
+    // }
   }
 
   addSpectator(user) {
