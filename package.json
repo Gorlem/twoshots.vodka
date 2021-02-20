@@ -17,6 +17,7 @@
     "fastest-levenshtein": "^1.0.12",
     "lodash": "^4.17.20",
     "lodash-es": "^4.17.15",
+    "marked": "^2.0.0",
     "qrcode": "^1.4.4",
     "socket.io": "^3.0.3",
     "socket.io-client": "^3.0.3",

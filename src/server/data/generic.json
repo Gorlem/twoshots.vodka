@@ -1,0 +1,22 @@
+{
+    "guess:explanation": {
+        "message": "Der Gewinner darf *${shots}* verteilen, der Verlierer muss *${shots}* trinken. Falls mehrere die richtige Antwort gegeben haben, geht es um Geschwindigkeit."
+    },
+    "guess:results": {
+        "message": "Die richtige Antwort ist *${answer}*. Somit darf *${winner}* *${shots}* verteilen, und *${loser}* muss *${shots}* trinken."
+    },
+    "setup:role": {
+        "title": "Spielst du mit?",
+        "message": "Du kannst auswählen, ob du mitspielst oder nur zuschauen möchtest.",
+        "data": {
+            "options": [
+                { "key": "player", "value": "Mitspieler" },
+                { "key": "spectator", "value": "Zuschauer" }
+            ]
+        }
+    },
+    "setup:name": {
+        "title": "Hier könnte ihr Name stehen",
+        "message": "Bitte geb einen Namen ein. Deine Mitspieler werden diesen Namen sehen."
+    }
+}

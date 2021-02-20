@@ -2,9 +2,9 @@
   <ConfirmationCard :data="data" @action="$emit('action', guess)">
     <div class="field has-addons">
       <p class="control">
-        <input class="input" type="number" v-model="guess" ref="input"/>
+        <input class="input" :type="type" :inputmode="inputmode" v-model="guess" ref="input"/>
       </p>
-      <p class="control" v-if="data.hint != null">
+      <p class="control" v-if="data?.hint != null">
         <span class="button is-static" type="button">
           {{ data.hint }}
         </span>
@@ -33,6 +33,14 @@ export default {
   },
   mounted() {
     this.$refs.input.focus();
+  },
+  computed: {
+    type() {
+      return this.data.type === 'number' ? 'number' : 'text';
+    },
+    inputmode() {
+      return this.data.type === 'number' ? 'decimal' : 'text';
+    },
   },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <InformationCard :data="data">
     <slot/>
-    <VoteButton :data="data.vote" @submit="$emit('action')">Bestätigen</VoteButton>
+    <VoteButton :data="data?.vote" @submit="$emit('action')">Bestätigen</VoteButton>
   </InformationCard>
 </template>
 

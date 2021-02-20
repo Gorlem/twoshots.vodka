@@ -5,7 +5,7 @@
         <slot/>
       </button>
     </p>
-    <p class="control">
+    <p class="control" v-if="data != null">
       <span class="button is-static is-medium">
         {{ voteStatus }}
       </span>

@@ -17,11 +17,6 @@
       </div>
     </div>
   </div>
-  <div class="hero-body" v-if="cardName == null">
-    <div class="container">
-      <NameSelection @submit="setName"/>
-    </div>
-  </div>
   <component :is="cardName" v-if="cardName != null" :data="data" @action="action"></component>
 </template>
 
@@ -61,6 +56,9 @@ export default {
       room: (state) => state.room,
       data: (state) => state.data,
     }),
+  },
+  created() {
+    socket.emit('room:join', this.$route.params.roomId);
   },
   methods: {
     setName(name) {

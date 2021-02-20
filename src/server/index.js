@@ -1,5 +1,7 @@
 import fs from 'fs';
 import _ from 'lodash';
+import Handler from './handler/Handler.js';
+import SetupFlow from './handler/SetupFlow.js';
 
 import Game from './models/Game.js';
 import User from './models/User.js';
@@ -31,6 +33,25 @@ export default function (io) {
       const room = game.createRoom();
       callback?.(room.id);
     });
+
+    socket.on('room:join', (roomId) => {
+      const room = game.findRoomById(roomId);
+
+      if (room == null) {
+        socket.emit('room:id', null);
+        return;
+      }
+
+      socket.emit('room:id', room.id);
+
+      socket.handler = new Handler(SetupFlow, socket.user, () => {
+        socket.handler = room.handler;
+        room.addPlayer(socket.user);
+      });
+      socket.handler.nextStep();
+    });
+
+    socket.on('card:action', (...payload) => socket.handler.action(socket.user, ...payload));
 
     socket.on('join-room', (roomId, name, callback) => {
       socket.room?.leave(socket.user);

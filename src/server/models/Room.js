@@ -9,6 +9,8 @@ import InstructionController from '../cards/InstructionController.js';
 import GuessController from '../cards/GuessController.js';
 import PollController from '../cards/PollController.js';
 import GameController from '../cards/GameController.js';
+import LobbyFlow from '../handler/LobbyFlow.js';
+import Handler from '../handler/Handler.js';
 
 const cards = [
   InstructionController,
@@ -29,6 +31,8 @@ export default class Room {
   vote = null;
 
   listeners = new Map();
+
+  handler = new Handler(LobbyFlow, this, () => {});
 
   constructor(id) {
     this.id = id;
@@ -53,6 +57,7 @@ export default class Room {
     // if (this.controller instanceof LobbyController) {
     this.playing.add(user);
     this.controller.addedUser(user);
+    this.handler.addedUser(user);
     user.send('room:id', this.id);
     // } else {
     //   this.pending.add(user);

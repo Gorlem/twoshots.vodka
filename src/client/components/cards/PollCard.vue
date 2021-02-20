@@ -1,9 +1,9 @@
 <template>
   <ConfirmationCard :data="data" @action="$emit('action', selected)">
     <div class="field is-grouped">
-      <p class="control" v-for="option in data.options" :key="option">
-        <button class="button is-rounded" :class="{ 'is-primary': selected == option }" @click="selected = option">
-          {{option}}
+      <p class="control" v-for="option in data.options" :key="option.key">
+        <button class="button is-rounded" :class="{ 'is-primary': selected == option.key }" @click="selected = option.key">
+          {{option.value}}
         </button>
       </p>
     </div>
