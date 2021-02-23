@@ -3,7 +3,8 @@
         "message": "Der Gewinner darf *${shots}* verteilen, der Verlierer muss *${shots}* trinken. Falls mehrere die richtige Antwort gegeben haben, geht es um Geschwindigkeit."
     },
     "guess:results": {
-        "message": "Die richtige Antwort ist *${answer}*. Somit darf *${winner}* *${shots}* verteilen, und *${loser}* muss *${shots}* trinken."
+        "message": "Die richtige Antwort ist *${answer}*. Somit darf *${winner}* *${shots}* verteilen, und *${loser}* muss *${shots}* trinken.",
+        "footer": "Quelle: [${domain}](${url})"
     },
     "setup:role": {
         "title": "Spielst du mit?",
@@ -18,5 +19,19 @@
     "setup:name": {
         "title": "Hier könnte ihr Name stehen",
         "message": "Bitte geb einen Namen ein. Deine Mitspieler werden diesen Namen sehen."
+    },
+    "setup:name:toolong": {
+        "footer": "Dein Name darf nicht länger als ${max} Zeichen sein."
+    },
+    "polls:explanation": {
+        "message": "Es geht um *${shots}*. Diese müssen entweder getrunken oder verteilt werden."
+    },
+    "game:horserace:explanation": {
+        "title": "Pferderennen",
+        "message": "Tippe so oft du kannst! Versuche schneller das Ziel zu erreichen, als deine Mitspieler."
+    },
+    "game:horserace:results": {
+        "title": "Einem geschenkten Gaul, schaut man nichts Maul",
+        "message": "${winner} hat gewonnen und darf ${shots} verteilen."
     }
 }

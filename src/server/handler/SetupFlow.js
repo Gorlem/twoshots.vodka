@@ -26,15 +26,28 @@ class NameSelectionStep {
 
     const content = get('generic', 'setup:name');
 
-    user.sendCard('InputCard', {
+    this.data = {
       ...template(content),
       type: 'string',
+    };
+    this.sendCard();
+  }
+
+  sendCard(extra) {
+    this.user.sendCard('InputCard', {
+      ...this.data,
+      ...extra,
     });
   }
 
   action(user, name) {
-    this.user.name = name;
-    this.handler.nextStep();
+    name = name.trim();
+    if (name.length > 10) {
+      this.sendCard(template(get('generic', 'setup:name:toolong'), { max: 10 }));
+    } else {
+      this.user.name = name;
+      this.handler.nextStep();
+    }
   }
 }
 

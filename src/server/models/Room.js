@@ -4,19 +4,19 @@ import Vote from './Vote.js';
 
 import UserCollection from './UserCollection.js';
 
-import LobbyController from '../cards/LobbyController.js';
-import InstructionController from '../cards/InstructionController.js';
-import GuessController from '../cards/GuessController.js';
-import PollController from '../cards/PollController.js';
-import GameController from '../cards/GameController.js';
-import LobbyFlow from '../handler/LobbyFlow.js';
 import Handler from '../handler/Handler.js';
+import LobbyFlow from '../handler/LobbyFlow.js';
 
-const cards = [
-  InstructionController,
-  GuessController,
-  GameController,
-  PollController,
+import InstructionFlow from '../handler/InstructionFlow.js';
+import GuessFlow from '../handler/GuessFlow.js';
+import PollFlow from '../handler/PollFlow.js';
+import GameFlow from '../handler/GameFlow.js';
+
+const flows = [
+  InstructionFlow,
+  GuessFlow,
+  PollFlow,
+  GameFlow,
 ];
 
 export default class Room {
@@ -26,23 +26,17 @@ export default class Room {
   playing = new UserCollection();
 
   id = '';
-  controller = null;
-
   vote = null;
 
-  listeners = new Map();
-
-  handler = new Handler(LobbyFlow, this, () => {});
+  handler = new Handler(this, this.nextFlow.bind(this));
+  cache = {};
 
   constructor(id) {
     this.id = id;
-    this.vote = new Vote(this, () => {
-      this.nextCard();
-    });
+    this.vote = new Vote(this, this.nextFlow.bind(this));
     this.vote.setCondition('half+one');
     this.vote.setMinimum(2);
 
-    this.playing.on('card:action', (...args) => this.controller.action(...args));
     this.playing.on('room:action', (user) => {
       this.vote.submit(user);
       this.playing.send('room:data', {
@@ -50,14 +44,14 @@ export default class Room {
       });
     });
 
-    this.setCard(new LobbyController(this));
+    this.handler.pushFlow(LobbyFlow);
+    this.handler.nextStep();
   }
 
   addPlayer(user) {
     // if (this.controller instanceof LobbyController) {
     this.playing.add(user);
-    this.controller.addedUser(user);
-    this.handler.addedUser(user);
+    this.handler.addedPlayer(user);
     user.send('room:id', this.id);
     // } else {
     //   this.pending.add(user);
@@ -68,58 +62,19 @@ export default class Room {
     this.spectating.add(user);
   }
 
-  join(user) {
-    if (user.room != null) {
-      return;
+  nextFlow() {
+    if (this.cache.flows == null || this.cache.flows.length === 0) {
+      this.cache.flows = _.shuffle(flows);
     }
 
-    if (this.controller instanceof LobbyController) {
-      this.playing.add(user);
+    const flow = this.cache.flows.shift();
 
-      this.sendRoomUpdate();
-
-      user.send('card:name', this.controller.name);
-
-      this.controller?.addedUser?.(user);
-      this.sendData();
-
-      for (const [channel, callback] of this.listeners.entries()) {
-        user.on(channel, (...args) => callback(user, ...args));
-      }
-    } else {
-      this.pending.add(user);
-    }
-  }
-
-  leave(user) {
-    this.playing.remove(user);
-    this.controller?.removedUser?.(user);
-    this.vote.removedUser(user);
-  }
-
-  setCard(card) {
-    this.controller?.destroy?.();
-    this.controller = card;
-  }
-
-  nextCard() {
-    const Card = _.sample(cards);
-    this.setCard(new Card(this));
+    this.handler.pushFlow(flow);
+    this.handler.nextFlow();
 
     this.vote.reset();
     this.playing.send('room:data', {
       vote: this.vote.data(),
     });
-  }
-
-  toJson() {
-    return {
-      id: this.id,
-      users: this.players.map((user) => user.toJson()),
-    };
-  }
-
-  toString() {
-    return `Room { id = ${this.id}, users = ${this.players}, card = ${this.controller} }`;
   }
 }

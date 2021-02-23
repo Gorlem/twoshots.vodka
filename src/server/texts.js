@@ -4,6 +4,14 @@ import marked from 'marked';
 
 const sources = new Map();
 
+const renderer = {
+  em(text) {
+    return `<strong class="has-text-primary">${text}</strong>`;
+  },
+};
+
+marked.use({ renderer });
+
 function parseSourceFile(source) {
   const file = fs.readFileSync(`src/server/data/${source}.json`);
   const content = JSON.parse(file);
@@ -15,8 +23,7 @@ export function get(source, path) {
     sources.set(source, parseSourceFile(source));
   }
 
-  const content = sources.get(source)[path];
-  return content;
+  return sources.get(source)[path];
 }
 
 export function template(content, data) {
@@ -31,4 +38,12 @@ export function template(content, data) {
   }
 
   return result;
+}
+
+export function keys(source) {
+  if (!sources.has(source)) {
+    sources.set(source, parseSourceFile(source));
+  }
+
+  return Object.keys(sources.get(source));
 }

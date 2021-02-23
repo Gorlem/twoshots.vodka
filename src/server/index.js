@@ -1,5 +1,6 @@
 import fs from 'fs';
 import _ from 'lodash';
+
 import Handler from './handler/Handler.js';
 import SetupFlow from './handler/SetupFlow.js';
 
@@ -44,37 +45,15 @@ export default function (io) {
 
       socket.emit('room:id', room.id);
 
-      socket.handler = new Handler(SetupFlow, socket.user, () => {
+      socket.handler = new Handler(socket.user, () => {
         socket.handler = room.handler;
         room.addPlayer(socket.user);
       });
+      socket.handler.pushFlow(SetupFlow);
       socket.handler.nextStep();
     });
 
     socket.on('card:action', (...payload) => socket.handler.action(socket.user, ...payload));
-
-    socket.on('join-room', (roomId, name, callback) => {
-      socket.room?.leave(socket.user);
-      const room = game.findRoomById(roomId);
-      const { user } = socket;
-
-      if (room == null) {
-        socket.emit('room:id', null);
-        callback?.(null);
-        return;
-      }
-
-      socket.room = room;
-      user.name = name;
-
-      room.addPlayer(user);
-      callback?.(room.id);
-    });
-
-    socket.on('leave-room', () => {
-      socket.room?.leave(socket.user);
-      socket.emit('card:name', null);
-    });
 
     socket.on('disconnect', () => {
       const { room } = socket;
@@ -82,8 +61,6 @@ export default function (io) {
       if (room == null) {
         return;
       }
-
-      room.leave(socket.user);
 
       if (room.playing.users.length === 0) {
         game.removeRoom(room);

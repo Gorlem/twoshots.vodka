@@ -1,31 +1,56 @@
 export default class Handler {
-  constructor(flow, target, callback) {
-    this.flow = flow;
+  flows = [];
+  current;
+  step;
+
+  constructor(target, callback) {
     this.target = target;
     this.callback = callback;
   }
 
-  nextStep(data) {
-    let NextStep = this.flow.shift();
+  pushFlow(flow) {
+    this.flows.push([...flow]);
+  }
 
-    if (NextStep == null) {
+  nextFlow(data) {
+    this.current = this.flows.shift();
+    this.nextStep(data);
+  }
+
+  nextStep(data) {
+    let Step = this.current?.shift();
+
+    if (Step == null) {
+      if (this.flows.length > 0) {
+        this.nextFlow();
+        return;
+      }
+
       this.callback();
       return;
     }
 
-    if (NextStep.when != null && NextStep.then != null) {
-      if (!NextStep.when(data)) {
+    if (Step.when != null && Step.then != null) {
+      if (!Step.when(data)) {
         this.nextStep(data);
         return;
       }
 
-      NextStep = NextStep.then;
+      Step = Step.then;
     }
 
-    this.step = new NextStep(this, this.target);
+    this.step = new Step(this, this.target, data);
   }
 
   action(user, ...payload) {
-    this.step?.action(user, ...payload);
+    this.step?.action?.(user, ...payload);
+  }
+
+  addedPlayer(user) {
+    this.step?.addedPlayer?.(user);
+  }
+
+  removedPlayer(user) {
+    this.step?.removedPlayer?.(user);
   }
 }

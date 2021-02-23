@@ -17,11 +17,11 @@ class LobbyStep {
     });
   }
 
-  addedUser() {
+  addedPlayer() {
     this.sendCard();
   }
 
-  removedUser() {
+  removedPlayer() {
     this.sendCard();
   }
 
