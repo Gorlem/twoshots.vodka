@@ -47,7 +47,11 @@ export default function (io) {
 
       socket.handler = new Handler(socket.user, () => {
         socket.handler = room.handler;
-        room.addPlayer(socket.user);
+        if (socket.user.role === 'player') {
+          room.addPlayer(socket.user);
+        } else if (socket.user.role === 'spectator') {
+          room.addSpectator(socket.user);
+        }
       });
       socket.handler.pushFlow(SetupFlow);
       socket.handler.nextStep();

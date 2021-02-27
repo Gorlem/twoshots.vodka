@@ -15,8 +15,7 @@ export default class Game {
   rooms = [];
 
   static generateRoomId() {
-    const first = _.sample(names);
-    const second = _.sample(names);
+    const [first, second] = _.sampleSize(names, 2);
     return first + seperator + second;
   }
 

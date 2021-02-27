@@ -1,9 +1,19 @@
 {
+    "lobby": {
+        "title": "Raum *${roomId}*",
+        "message": "Mitspieler können den QR-Code scannen oder den Raumnamen auf der Startseite eingeben.",
+        "data": {
+            "button": "Verstanden ✔"
+        }
+    },
     "guess:explanation": {
-        "message": "Der Gewinner darf *${shots}* verteilen, der Verlierer muss *${shots}* trinken. Falls mehrere die richtige Antwort gegeben haben, geht es um Geschwindigkeit."
+        "message": "Der Gewinner darf *${shots}* verteilen, der Verlierer muss *${shots}* trinken. Falls mehrere die richtige Antwort gegeben haben, geht es um Geschwindigkeit.",
+        "data": {
+            "button": "Abgeben 😬"
+        }
     },
     "guess:results": {
-        "message": "Die richtige Antwort ist *${answer}*. Somit darf *${winner}* *${shots}* verteilen, und *${loser}* muss *${shots}* trinken.",
+        "message": "Die richtige Antwort ist *${answer}*. Somit darf *${winner}* *${shots}* verteilen, und *${loser}* muss *${shots}* trinken.\n\nAbgegebene Antworten waren: ${results}",
         "footer": "Quelle: [${domain}](${url})"
     },
     "setup:role": {
@@ -18,7 +28,10 @@
     },
     "setup:name": {
         "title": "Hier könnte ihr Name stehen",
-        "message": "Bitte geb einen Namen ein. Deine Mitspieler werden diesen Namen sehen."
+        "message": "Bitte geb einen Namen ein. Deine Mitspieler werden diesen Namen sehen.",
+        "data": {
+            "button": "Bestätigen ☝"
+        }
     },
     "setup:name:toolong": {
         "footer": "Dein Name darf nicht länger als ${max} Zeichen sein."
@@ -28,10 +41,16 @@
     },
     "game:horserace:explanation": {
         "title": "Pferderennen",
-        "message": "Tippe so oft du kannst! Versuche schneller das Ziel zu erreichen, als deine Mitspieler."
+        "message": "Tippe so oft du kannst! Versuche schneller das Ziel zu erreichen, als deine Mitspieler.",
+        "data": {
+            "button": "Verstanden ✔"
+        }
     },
     "game:horserace:results": {
         "title": "Einem geschenkten Gaul, schaut man nichts Maul",
-        "message": "${winner} hat gewonnen und darf ${shots} verteilen."
+        "message": "*${winner}* hat gewonnen und darf *${shots}* verteilen."
+    },
+    "voted": {
+        "footer": "Bisher haben **${voted}** von **${required}** benötigten Mitspielern abgestimmt."
     }
 }

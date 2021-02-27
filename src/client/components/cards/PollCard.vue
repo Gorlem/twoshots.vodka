@@ -1,21 +1,21 @@
 <template>
-  <ConfirmationCard :data="data" @action="$emit('action', selected)">
-    <div class="field is-grouped">
-      <p class="control" v-for="option in data.options" :key="option.key">
-        <button class="button is-rounded" :class="{ 'is-primary': selected == option.key }" @click="selected = option.key">
-          {{option.value}}
-        </button>
-      </p>
+  <InformationCard :data="data">
+    <div class="buttons" ref="buttonParent">
+      <button class="button is-rounded" type="button" v-for="option in data.options" :key="option.key"
+          :class="{ 'is-primary is-loading': data.selected == option.key }" :disabled="data.selected != null"
+          @click="$emit('action', option.key)">
+        {{option.value}}
+      </button>
     </div>
-  </ConfirmationCard>
+  </InformationCard>
 </template>
 
 <script>
-import ConfirmationCard from '@/components/cards/ConfirmationCard.vue';
+import InformationCard from '@/components/cards/InformationCard.vue';
 
 export default {
   components: {
-    ConfirmationCard,
+    InformationCard,
   },
   props: [
     'data',
@@ -23,10 +23,8 @@ export default {
   emits: [
     'action',
   ],
-  data() {
-    return {
-      selected: '',
-    };
+  mounted() {
+    this.$refs.buttonParent.firstElementChild.focus();
   },
 };
 </script>

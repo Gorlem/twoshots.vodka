@@ -53,4 +53,8 @@ export default class Handler {
   removedPlayer(user) {
     this.step?.removedPlayer?.(user);
   }
+
+  addedSpectator(user) {
+    this.step?.addedSpectator?.(user);
+  }
 }

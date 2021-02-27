@@ -5,6 +5,9 @@ import Vote from '../models/Vote.js';
 import { get, template, keys } from '../texts.js';
 import generateShots from '../shots.js';
 
+const explanation = get('generic', 'guess:explanation');
+const voted = get('generic', 'voted');
+
 class GuessStep {
   constructor(handler, room) {
     this.room = room;
@@ -14,19 +17,20 @@ class GuessStep {
     }
 
     const key = room.cache.guesses.shift();
-    const shots = generateShots(1, 5);
-
-    const explanation = get('generic', 'guess:explanation');
+    this.shots = generateShots(1, 5);
     const guess = get('guesses', key);
 
-    this.data = {
-      ...template(explanation, { shots }),
+    this.content = {
+      ...explanation,
+      ...voted,
       title: guess.question,
       hint: guess.unit,
+      type: 'number',
+      button: explanation.data.button,
     };
 
     this.vote = new Vote(this.room, () => {
-      handler.nextStep({ guess, shots, results: this.vote.results });
+      handler.nextStep({ guess, shots: this.shots, results: this.vote.results });
     });
 
     this.sendQuestionData();
@@ -38,9 +42,17 @@ class GuessStep {
   }
 
   sendQuestionData() {
-    this.room.playing.sendCard('InputCard', {
-      ...this.data,
-      vote: this.vote.data(),
+    for (const player of this.room.playing.users) {
+      player.sendCard('InputCard', {
+        ...this.content,
+        ...template(this.content, { shots: this.shots, ...this.vote.data() }),
+        selected: this.vote.results.has(player),
+      });
+    }
+
+    this.room.spectating.sendCard('InformationCard', {
+      ...this.content,
+      ...template(this.content, { shots: this.shots, ...this.vote.data() }),
     });
   }
 
@@ -62,24 +74,27 @@ class ResultStep {
       _.maxBy(getDifference),
     ]);
 
-    const voted = [...results.entries()];
+    const users = [...results.entries()];
 
-    const winner = getWinner(voted)[0].name;
-    const loser = getLoser(voted)[0].name;
+    const winner = getWinner(users)[0].name;
+    const loser = getLoser(users)[0].name;
 
     const answer = guess.answer.toLocaleString('de-DE', { useGrouping: false }) + (guess.unit == null ? '' : ` ${guess.unit}`);
 
-    room.playing.sendCard('InformationCard', {
-      ...template(content, {
-        shots,
-        winner,
-        loser,
-        answer,
-        url: guess.source,
-        domain: new URL(guess.source).hostname,
-      }),
-      title: guess.question,
-    });
+    for (const target of [room.playing, room.spectating]) {
+      target.sendCard('InformationCard', {
+        ...template(content, {
+          shots,
+          winner,
+          loser,
+          answer,
+          url: guess.source,
+          domain: new URL(guess.source).hostname,
+          results: [...results.values()],
+        }),
+        title: guess.question,
+      });
+    }
   }
 }
 

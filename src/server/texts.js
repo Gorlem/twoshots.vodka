@@ -8,6 +8,9 @@ const renderer = {
   em(text) {
     return `<strong class="has-text-primary">${text}</strong>`;
   },
+  link(href, title, text) {
+    return `<a href="${href}" target="_blank">${text}</a>`;
+  },
 };
 
 marked.use({ renderer });

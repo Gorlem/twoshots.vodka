@@ -73,7 +73,7 @@
         "title": "Wer wird später wahrscheinlich am reichsten?",
         "message": [
             "*${winner}* du Bonze. Trink *${shots}*.",
-            "Arumut ist keine Schande - Reichtum auch nicht. *${winner}* darf *${shots}* verteilen."
+            "Armut ist keine Schande - Reichtum auch nicht. *${winner}* darf *${shots}* verteilen."
         ]
     },
     {

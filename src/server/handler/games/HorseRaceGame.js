@@ -5,6 +5,10 @@ import Vote from '../../models/Vote.js';
 import { get, template } from '../../texts.js';
 import generateShots from '../../shots.js';
 
+const voted = get('generic', 'voted');
+const explanation = get('generic', 'game:horserace:explanation');
+const results = get('generic', 'game:horserace:results');
+
 class ExplanationStep {
   constructor(handler, room) {
     this.room = room;
@@ -13,16 +17,21 @@ class ExplanationStep {
       handler.nextStep();
     });
 
-    const content = get('generic', 'game:horserace:explanation');
-    this.data = template(content);
+    this.content = {
+      ...explanation,
+      ...voted,
+    };
 
     this.sendCard();
   }
 
   sendCard() {
     this.room.playing.sendCard('ConfirmationCard', {
-      ...this.data,
-      vote: this.vote.data(),
+      ...template(this.content, { ...this.vote.data() }),
+      button: this.content.data.button,
+    });
+    this.room.spectating.sendCard('InformationCard', {
+      ...template(this.content, { ...this.vote.data() }),
     });
   }
 
@@ -31,7 +40,7 @@ class ExplanationStep {
     this.sendCard();
   }
 
-  removedUser(user) {
+  removedPlayer(user) {
     this.vote.removedUser(user);
     this.sendCard();
   }
@@ -53,9 +62,10 @@ class GameStep {
         distance: 0,
       },
     });
+    this.sendSpectator();
   }
 
-  removedUser(user) {
+  removedPlayer(user) {
     this.horses.delete(user);
   }
 
@@ -69,9 +79,19 @@ class GameStep {
       },
     });
 
+    this.sendSpectator();
+
     if (distance >= 100) {
       setImmediate(() => this.handler.nextStep({ horses: this.horses }));
     }
+  }
+
+  sendSpectator() {
+    this.room.spectating.sendCard('HorseRaceGameResults', {
+      tracks: [...this.horses].map((horse) => ({
+        distance: horse[1],
+      })),
+    });
   }
 }
 
@@ -87,12 +107,19 @@ class ResultsStep {
       }))
       .value();
 
-    const content = get('generic', 'game:horserace:results');
     const shots = generateShots(3, 6);
 
     room.playing.sendCard('HorseRaceGameResults', {
       tracks,
-      ...template(content, { winner, shots }),
+      ...template(results, { winner, shots }),
+    });
+
+    room.spectating.sendCard('HorseRaceGameResults', {
+      tracks: [...horses].map((horse) => ({
+        distance: horse[1],
+        name: horse[0].name,
+      })),
+      ...template(results, { winner, shots }),
     });
   }
 }

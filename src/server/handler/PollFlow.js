@@ -13,36 +13,61 @@ class PollStep {
     }
 
     const key = room.cache.polls.shift();
-    const shots = generateShots(2, 6);
+    this.shots = generateShots(2, 6);
 
     const poll = get('polls', key);
     const explanation = get('generic', 'polls:explanation');
+    const voted = get('generic', 'voted');
 
     this.title = poll.title;
     this.users = [...room.playing.users].map((user) => ({ key: user.name, value: user.name }));
 
     this.vote = new Vote(this.room, () => {
-      handler.nextStep({ poll, shots, results: this.vote.results });
+      handler.nextStep({ poll, shots: this.shots, results: this.vote.results });
     });
 
-    this.data = template({
-      ...explanation,
+    this.content = {
       title: poll.title,
-    }, { shots });
+      ...explanation,
+      ...voted,
+    };
 
-    this.sendPollData();
+    this.room.playing.sendCard('PollCard', {
+      ...template(this.content, { shots: this.shots, ...this.vote.data() }),
+      options: this.users,
+    });
+    this.room.spectating.sendCard('PollCard', {
+      ...template(this.content, { shots: this.shots, ...this.vote.data() }),
+      options: this.users,
+      selected: true,
+    });
   }
 
   action(user, payload) {
     this.vote.submit(user, payload);
-    this.sendPollData();
-  }
 
-  sendPollData() {
-    this.room.playing.sendCard('PollCard', {
-      ...this.data,
-      options: this.users,
-      vote: this.vote.data(),
+    for (const player of this.room.playing.users) {
+      if (this.vote.results.has(player)) {
+        player.sendCard('PollCard', {
+          ...template(this.content, { shots: this.shots, ...this.vote.data() }),
+          options: this.users,
+          selected: this.vote.results.get(player),
+        });
+      } else {
+        player.sendCard('PollCard', {
+          ...template(this.content, { shots: this.shots, ...this.vote.data() }),
+          options: this.users,
+        });
+      }
+    }
+
+    this.room.spectating.sendCard('PollResultCard', {
+      title: this.content.title,
+      results: _([...this.vote.results])
+        .countBy('1')
+        .values()
+        .value()
+        .map((value) => ['', value]),
     });
   }
 
@@ -63,20 +88,20 @@ class ResultStep {
       .sample()
       .value()[0];
 
-    const message = template(
-      {
-        message: _.sample(poll.message),
-      },
-      {
-        shots,
-        winner,
-      },
-    );
+    const content = {
+      message: _.sample(poll.message),
+      title: poll.title,
+    };
+
+    const message = template(content, { shots, winner });
 
     room.playing.sendCard('PollResultCard', {
       ...message,
       results: _.entries(counts),
-      title: poll.title,
+    });
+    room.spectating.sendCard('PollResultCard', {
+      ...message,
+      results: _.entries(counts),
     });
   }
 }

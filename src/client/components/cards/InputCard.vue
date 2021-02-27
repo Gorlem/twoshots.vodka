@@ -1,24 +1,31 @@
 <template>
-  <ConfirmationCard :data="data" @action="$emit('action', guess)">
+  <InformationCard :data="data">
     <div class="field has-addons">
       <p class="control">
-        <input class="input" :type="type" :inputmode="inputmode" v-model="guess" ref="input"/>
+        <input class="input" :type="type" :inputmode="inputmode" v-model="guess" :disabled="data.selected"
+            @keydown.enter="$emit('action', guess)" ref="input"/>
       </p>
       <p class="control" v-if="data?.hint != null">
         <span class="button is-static" type="button">
           {{ data.hint }}
         </span>
       </p>
+      <p class="control">
+        <button type="button" class="button is-primary" :class="{ 'is-loading': data.selected }"
+            :disabled="data.selected" @click="$emit('action', guess)">
+          {{ data.button }}
+        </button>
+      </p>
     </div>
-  </ConfirmationCard>
+  </InformationCard>
 </template>
 
 <script>
-import ConfirmationCard from '@/components/cards/ConfirmationCard.vue';
+import InformationCard from '@/components/cards/InformationCard.vue';
 
 export default {
   components: {
-    ConfirmationCard,
+    InformationCard,
   },
   props: [
     'data',

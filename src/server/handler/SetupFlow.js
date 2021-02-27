@@ -29,6 +29,7 @@ class NameSelectionStep {
     this.data = {
       ...template(content),
       type: 'string',
+      button: content.data.button,
     };
     this.sendCard();
   }

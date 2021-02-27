@@ -1,30 +1,20 @@
 <template>
-  <div class="hero-body">
-    <div class="container">
-      <RoomId :room-id="roomId"/>
-      <UserList :users="data.users"/>
-      <VoteButton :data="data.vote" @submit="$emit('action')">Bestätigen</VoteButton>
-    </div>
-  </div>
+  <ConfirmationCard :data="data" @action="$emit('action')">
+    <RoomImage/>
+    <UserList :users="data.users"/>
+  </ConfirmationCard>
 </template>
 
 <script>
-import { mapState } from 'vuex';
-
+import ConfirmationCard from '@/components/cards/ConfirmationCard.vue';
 import UserList from '@/components/UserList.vue';
-import RoomId from '@/components/RoomId.vue';
-import VoteButton from '@/components/VoteButton.vue';
+import RoomImage from '@/components/RoomImage.vue';
 
 export default {
   components: {
+    ConfirmationCard,
     UserList,
-    RoomId,
-    VoteButton,
-  },
-  computed: {
-    ...mapState({
-      roomId: (state) => state.roomId,
-    }),
+    RoomImage,
   },
   props: [
     'data',

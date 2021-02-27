@@ -34,7 +34,7 @@ export default class Room {
   constructor(id) {
     this.id = id;
     this.vote = new Vote(this, this.nextFlow.bind(this));
-    this.vote.setCondition('half+one');
+    this.vote.setPercentage(50.1);
     this.vote.setMinimum(2);
 
     this.playing.on('room:action', (user) => {
@@ -60,6 +60,7 @@ export default class Room {
 
   addSpectator(user) {
     this.spectating.add(user);
+    this.handler.addedSpectator(user);
   }
 
   nextFlow() {

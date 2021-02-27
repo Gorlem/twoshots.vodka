@@ -1,7 +1,7 @@
 export default class Vote {
   results = new Map();
   room = null;
-  condition = 'all';
+  percentage = 100;
   minimum = 1;
   callback = null;
 
@@ -37,8 +37,8 @@ export default class Vote {
     this.checkCondition();
   }
 
-  setCondition(condition) {
-    this.condition = condition;
+  setPercentage(percentage) {
+    this.percentage = percentage;
   }
 
   setMinimum(minimum) {
@@ -56,14 +56,6 @@ export default class Vote {
   }
 
   getAmountOfRequiredVotes() {
-    if (this.condition === 'all') {
-      return Math.max(this.room.playing.users.size, this.minimum);
-    }
-
-    if (this.condition === 'half+one') {
-      return Math.max(Math.floor(this.room.playing.users.size / 2) + 1, this.minimum);
-    }
-
-    return this.minimum;
+    return Math.max(Math.ceil(this.room.playing.users.size * (this.percentage / 100)), this.minimum);
   }
 }
