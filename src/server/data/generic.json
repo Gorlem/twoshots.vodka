@@ -1,4 +1,15 @@
 {
+    "start": {
+        "title": "Willkommen zu *twoshots.vodka*",
+        "message": "Hier kannst du entweder einen neuen Raum erstellen, oder einem bestehenden Raum beitreten.",
+        "data": {
+            "buttons": {
+                "create": "Raum erstellen",
+                "join": "Raum beitreten"
+            },
+            "divider": "mit"
+        }
+    },
     "lobby": {
         "title": "Raum *${roomId}*",
         "message": "Mitspieler können den QR-Code scannen oder den Raumnamen auf der Startseite eingeben.",
@@ -21,8 +32,8 @@
         "message": "Du kannst auswählen, ob du mitspielst oder nur zuschauen möchtest.",
         "data": {
             "options": [
-                { "key": "player", "value": "Mitspieler" },
-                { "key": "spectator", "value": "Zuschauer" }
+                { "key": "player", "value": "Mitspieler 🎮" },
+                { "key": "spectator", "value": "Zuschauer 👀" }
             ]
         }
     },
@@ -35,6 +46,10 @@
     },
     "setup:name:toolong": {
         "footer": "Dein Name darf nicht länger als ${max} Zeichen sein."
+    },
+    "setup:waiting": {
+        "title": "Du musst jetzt etwas gedudig sein",
+        "message": "Die Mitspieler stimmen gleich ab, ob du beitreten darfst."
     },
     "polls:explanation": {
         "message": "Es geht um *${shots}*. Diese müssen entweder getrunken oder verteilt werden."
@@ -52,5 +67,40 @@
     },
     "voted": {
         "footer": "Bisher haben **${voted}** von **${required}** benötigten Mitspielern abgestimmt."
+    },
+    "pending:vote": {
+        "title": "Es gibt einen Nachzügler",
+        "message": "Darf *${pending}* dem Raum beitreten?",
+        "data": {
+            "options": [
+                { "key": "yes", "value": "Ja ✔" },
+                { "key": "no", "value": "Nein ❌" }
+            ]
+        }
+    },
+    "pending:voting": {
+        "title": "Jetzt wird über dich abgestimmt",
+        "message": "Gleich kannst du hoffentlich mitspielen."
+    },
+    "pending:yes": {
+        "title": "Glückwunsch",
+        "message": "*${player}* spielt jetzt mit!"
+    },
+    "pending:no": {
+        "title": "Wer war das denn?",
+        "message": "Ihr habt entschieden: *${player}* darf nicht mitspielen."
+    },
+    "would-you-rather:vote": {
+        "title": "Würdest du eher … oder …?",
+        "message": "Es geht um *${shots}*. Alle Spieler, welche die unbeliebtere Entscheidung getroffen haben, müssen trinken. Bei einem unentschieden trinkt niemand. Falls ihr jedoch alle die gleiche Entscheidung gefällt habt, müsst ihr alle trinken!"
+    },
+    "would-you-rather:tie": {
+        "title": "Unentschieden"
+    },
+    "would-you-rather:same": {
+        "title": "Einstimmig"
+    },
+    "would-you-rather:results": {
+        "title": "Entscheidung getroffen"
     }
 }

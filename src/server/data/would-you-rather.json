@@ -1,0 +1,26 @@
+[
+    {
+        "options": [
+            { "key": "left", "value": "eine Familie und kein Geld haben" },
+            { "key": "right", "value": "keine Familie und drei Millionen Euro haben" }
+        ]
+    },
+    {
+        "options": [
+            { "key": "left", "value": "jedes Wochenende alle deine Passwörter vergessen" },
+            { "key": "right", "value": "jedes Mal deinen Namen vergessen, wenn du jemanden zum ersten Mal triffst" }
+        ]
+    },
+    {
+        "options": [
+            { "key": "left", "value": "in einem kaputten Skilift festsitzen" },
+            { "key": "right", "value": "in einem kaputten Aufzug festsitzen" }
+        ]
+    },
+    {
+        "options": [
+            { "key": "left", "value": "Augen so groß wie Tennisbälle haben" },
+            { "key": "right", "value": "Augen so klein wie Erbsen haben" }
+        ]
+    }
+]

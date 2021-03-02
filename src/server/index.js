@@ -1,74 +1,76 @@
-import fs from 'fs';
-import _ from 'lodash';
-
-import Handler from './handler/Handler.js';
+import StartFlow from './handler/StartFlow.js';
 import SetupFlow from './handler/SetupFlow.js';
 
 import Game from './models/Game.js';
 import User from './models/User.js';
 
-export default function (io) {
-  const game = new Game();
+const game = new Game();
 
-  const names = _(fs.readFileSync('src/server/data/names.txt'))
-    .split(/\r\n|\n/)
-    .filter((row) => row !== '' && !row.startsWith('#'))
-    .sort()
-    .value();
+function joinRoom(room, user) {
+  user.handler.clear();
+  user.handler.pushFlow(SetupFlow);
+  user.handler.nextFlow({ room });
+}
 
-  io.on('connection', (socket) => {
-    socket.user = new User(socket);
-    socket.emit('card:name', null);
+function start(user) {
+  user.handler.clear();
+  user.handler.pushFlow(StartFlow);
+  user.handler.pushListener(({ roomId }) => {
+    let room;
+    if (roomId == null) {
+      room = game.createRoom();
+    } else {
+      room = game.findRoomById(roomId);
+    }
 
-    socket.on('names', (callback) => {
-      callback?.(names);
-    });
-
-    socket.on('has-room', (roomId, callback) => {
-      const room = game.findRoomById(roomId);
-      callback?.(room != null);
-    });
-
-    socket.on('create-room', (callback) => {
-      socket.room?.leave(socket.user);
-      const room = game.createRoom();
-      callback?.(room.id);
-    });
-
-    socket.on('room:join', (roomId) => {
-      const room = game.findRoomById(roomId);
-
-      if (room == null) {
-        socket.emit('room:id', null);
-        return;
-      }
-
-      socket.emit('room:id', room.id);
-
-      socket.handler = new Handler(socket.user, () => {
-        socket.handler = room.handler;
-        if (socket.user.role === 'player') {
-          room.addPlayer(socket.user);
-        } else if (socket.user.role === 'spectator') {
-          room.addSpectator(socket.user);
-        }
+    if (room != null) {
+      user.send('location', {
+        data: {
+          roomId: room.id,
+        },
+        title: `${room.id} | twoshots.vodka`,
+        path: `/${room.id}`,
       });
-      socket.handler.pushFlow(SetupFlow);
-      socket.handler.nextStep();
+    }
+
+    startOrJoinRoom(room, user);
+  });
+  user.handler.nextFlow();
+}
+
+function startOrJoinRoom(room, user) {
+  if (room == null) {
+    start(user);
+  } else {
+    joinRoom(room, user);
+  }
+}
+
+export default function (io) {
+  io.on('connection', (socket) => {
+    const user = new User(socket);
+    socket.user = user;
+
+    user.on('path', (path) => {
+      if (path === '/') {
+        start(user);
+      } else {
+        const room = game.findRoomById(path.substring(1));
+
+        if (room == null) {
+          user.send('location', {
+            data: {
+              roomId: '',
+            },
+            title: 'twoshots.vodka',
+            path: '/',
+          });
+        }
+
+        startOrJoinRoom(room, user);
+      }
     });
 
-    socket.on('card:action', (...payload) => socket.handler.action(socket.user, ...payload));
-
-    socket.on('disconnect', () => {
-      const { room } = socket;
-
-      if (room == null) {
-        return;
-      }
-
-      if (room.playing.users.length === 0) {
-        game.removeRoom(room);
-      }
-    });
+    user.on('card:action', (...payload) => user.handler.action(user, ...payload));
   });
 }

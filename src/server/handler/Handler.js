@@ -5,11 +5,25 @@ export default class Handler {
 
   constructor(target, callback) {
     this.target = target;
-    this.callback = callback;
+    this.callback = callback || (() => {});
+  }
+
+  clear() {
+    this.flows = [];
   }
 
   pushFlow(flow) {
     this.flows.push([...flow]);
+  }
+
+  pushListener(listener) {
+    this.pushFlow([
+      class {
+        constructor(handler, target, data) {
+          setImmediate(() => listener(data));
+        }
+      },
+    ]);
   }
 
   nextFlow(data) {
@@ -22,11 +36,11 @@ export default class Handler {
 
     if (Step == null) {
       if (this.flows.length > 0) {
-        this.nextFlow();
+        this.nextFlow(data);
         return;
       }
 
-      this.callback();
+      this.callback(data);
       return;
     }
 

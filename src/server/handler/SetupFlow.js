@@ -1,9 +1,11 @@
 import { get, template } from '../texts.js';
 
+const waitingText = get('generic', 'setup:waiting');
+
 class RoleSelectionStep {
-  constructor(handler, user) {
-    this.user = user;
+  constructor(handler, user, { room }) {
     this.handler = handler;
+    this.room = room;
 
     const content = get('generic', 'setup:role');
 
@@ -14,15 +16,21 @@ class RoleSelectionStep {
   }
 
   action(user, role) {
-    this.user.role = role;
-    this.handler.nextStep(role);
+    user.role = role;
+
+    if (role === 'spectator') {
+      this.room.addSpectator(user);
+    }
+
+    this.handler.nextStep({ role, room: this.room });
   }
 }
 
 class NameSelectionStep {
-  constructor(handler, user) {
+  constructor(handler, user, { room }) {
     this.user = user;
     this.handler = handler;
+    this.room = room;
 
     const content = get('generic', 'setup:name');
 
@@ -46,13 +54,27 @@ class NameSelectionStep {
     if (name.length > 10) {
       this.sendCard(template(get('generic', 'setup:name:toolong'), { max: 10 }));
     } else {
-      this.user.name = name;
-      this.handler.nextStep();
+      user.name = name;
+
+      if (this.room.isInLobby()) {
+        this.room.addPlayer(user);
+        this.handler.nextStep();
+      } else {
+        this.room.addPending(user);
+        this.handler.nextStep('waiting');
+      }
     }
+  }
+}
+
+class WaitingStep {
+  constructor(handler, user) {
+    user.sendCard('InformationCard', waitingText);
   }
 }
 
 export default [
   RoleSelectionStep,
-  { when: (data) => data === 'player', then: NameSelectionStep },
+  { when: (data) => data.role === 'player', then: NameSelectionStep },
+  { when: (data) => data === 'waiting', then: WaitingStep },
 ];

@@ -18,7 +18,7 @@ export default class Vote {
   }
 
   submit(user, data) {
-    if (this.results.has(user)) {
+    if (this.results.has(user) || !this.room.playing.users.has(user)) {
       return;
     }
 

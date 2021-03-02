@@ -6,21 +6,23 @@ import UserCollection from './UserCollection.js';
 
 import Handler from '../handler/Handler.js';
 import LobbyFlow from '../handler/LobbyFlow.js';
+import PendingFlow from '../handler/PendingFlow.js';
 
 import InstructionFlow from '../handler/InstructionFlow.js';
 import GuessFlow from '../handler/GuessFlow.js';
 import PollFlow from '../handler/PollFlow.js';
 import GameFlow from '../handler/GameFlow.js';
+import WouldYouRather from '../handler/WouldYouRatherFlow.js';
 
 const flows = [
   InstructionFlow,
   GuessFlow,
   PollFlow,
   GameFlow,
+  WouldYouRather,
 ];
 
 export default class Room {
-  all = new UserCollection();
   spectating = new UserCollection();
   pending = new UserCollection();
   playing = new UserCollection();
@@ -35,7 +37,6 @@ export default class Room {
     this.id = id;
     this.vote = new Vote(this, this.nextFlow.bind(this));
     this.vote.setPercentage(50.1);
-    this.vote.setMinimum(2);
 
     this.playing.on('room:action', (user) => {
       this.vote.submit(user);
@@ -49,16 +50,18 @@ export default class Room {
   }
 
   addPlayer(user) {
-    // if (this.controller instanceof LobbyController) {
+    user.handler = this.handler;
     this.playing.add(user);
     this.handler.addedPlayer(user);
     user.send('room:id', this.id);
-    // } else {
-    //   this.pending.add(user);
-    // }
+  }
+
+  addPending(user) {
+    this.pending.add(user);
   }
 
   addSpectator(user) {
+    user.handler = this.handler;
     this.spectating.add(user);
     this.handler.addedSpectator(user);
   }
@@ -68,7 +71,12 @@ export default class Room {
       this.cache.flows = _.shuffle(flows);
     }
 
-    const flow = this.cache.flows.shift();
+    let flow;
+    if (this.pending.users.size > 0) {
+      flow = PendingFlow;
+    } else {
+      flow = this.cache.flows.shift();
+    }
 
     this.handler.pushFlow(flow);
     this.handler.nextFlow();
@@ -77,5 +85,9 @@ export default class Room {
     this.playing.send('room:data', {
       vote: this.vote.data(),
     });
+  }
+
+  isInLobby() {
+    return this.handler.step instanceof LobbyFlow[0];
   }
 }

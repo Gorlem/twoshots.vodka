@@ -1,7 +1,11 @@
+import Handler from '../handler/Handler.js';
+
 export default class User {
   id = '';
   name = '';
+  role = '';
 
+  handler = new Handler(this);
   socket = null;
 
   constructor(socket) {
@@ -11,10 +15,6 @@ export default class User {
 
   sendCard(name, data) {
     this.send('card', name, data);
-  }
-
-  sendData(data) {
-    this.send('card:data', data);
   }
 
   send(channel, ...args) {

@@ -23,7 +23,7 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 
-import NameSelection from '@/components/NameSelection.vue';
+import StartCard from '@/components/cards/StartCard.vue';
 import VoteButton from '@/components/VoteButton.vue';
 import LobbyCard from '@/components/cards/LobbyCard.vue';
 import InformationCard from '@/components/cards/InformationCard.vue';
@@ -38,7 +38,6 @@ import socket from '@/socket';
 
 export default {
   components: {
-    NameSelection,
     VoteButton,
     LobbyCard,
     InformationCard,
@@ -48,6 +47,7 @@ export default {
     HorseRaceGameResults,
     PollCard,
     PollResultCard,
+    StartCard,
   },
   computed: {
     ...mapState({

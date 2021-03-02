@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import fs from 'fs';
-import { closest } from 'fastest-levenshtein';
 
 import Room from './Room.js';
 
@@ -15,8 +14,15 @@ export default class Game {
   rooms = [];
 
   static generateRoomId() {
-    const [first, second] = _.sampleSize(names, 2);
-    return first + seperator + second;
+    return Game.combineParts(..._.sampleSize(names, 2));
+  }
+
+  static combineParts(left, right) {
+    return left + seperator + right;
+  }
+
+  static getNameParts() {
+    return names;
   }
 
   createRoom() {
@@ -25,15 +31,13 @@ export default class Game {
       roomId = Game.generateRoomId();
     } while (this.findRoomById(roomId) != null);
     const room = new Room(roomId);
+    room.game = this;
     this.rooms.push(room);
     return room;
   }
 
   findRoomById(roomId) {
-    const [first, second] = roomId.split(seperator);
-    const guessedRoomId = closest(first, names) + seperator + closest(second, names);
-
-    return this.rooms.find((room) => room.id === guessedRoomId);
+    return this.rooms.find((room) => room.id === roomId);
   }
 
   removeRoom(room) {

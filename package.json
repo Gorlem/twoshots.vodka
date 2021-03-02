@@ -75,7 +75,8 @@
           "code": 140
         }
       ],
-      "max-classes-per-file": "off"
+      "max-classes-per-file": "off",
+      "no-use-before-define": "off"
     }
   },
   "browserslist": [
