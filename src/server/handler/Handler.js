@@ -10,6 +10,8 @@ export default class Handler {
 
   clear() {
     this.flows = [];
+    this.current = null;
+    this.step = null;
   }
 
   pushFlow(flow) {
@@ -24,6 +26,11 @@ export default class Handler {
         }
       },
     ]);
+  }
+
+  setRedirect(handler) {
+    this.clear();
+    this.step = handler;
   }
 
   nextFlow(data) {

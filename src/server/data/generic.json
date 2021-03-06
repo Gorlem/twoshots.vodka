@@ -47,10 +47,6 @@
     "setup:name:toolong": {
         "footer": "Dein Name darf nicht länger als ${max} Zeichen sein."
     },
-    "setup:waiting": {
-        "title": "Du musst jetzt etwas gedudig sein",
-        "message": "Die Mitspieler stimmen gleich ab, ob du beitreten darfst."
-    },
     "polls:explanation": {
         "message": "Es geht um *${shots}*. Diese müssen entweder getrunken oder verteilt werden."
     },
@@ -77,6 +73,10 @@
                 { "key": "no", "value": "Nein ❌" }
             ]
         }
+    },
+    "pending:waiting": {
+        "title": "Du musst jetzt etwas gedudig sein",
+        "message": "Die Mitspieler stimmen gleich ab, ob du beitreten darfst."
     },
     "pending:voting": {
         "title": "Jetzt wird über dich abgestimmt",

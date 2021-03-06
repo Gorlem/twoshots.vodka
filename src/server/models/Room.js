@@ -50,7 +50,7 @@ export default class Room {
   }
 
   addPlayer(user) {
-    user.handler = this.handler;
+    user.handler.setRedirect(this.handler);
     this.playing.add(user);
     this.handler.addedPlayer(user);
     user.send('room:id', this.id);
@@ -61,7 +61,7 @@ export default class Room {
   }
 
   addSpectator(user) {
-    user.handler = this.handler;
+    user.handler.setRedirect(this.handler);
     this.spectating.add(user);
     this.handler.addedSpectator(user);
   }

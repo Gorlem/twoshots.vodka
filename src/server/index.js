@@ -9,6 +9,18 @@ const game = new Game();
 function joinRoom(room, user) {
   user.handler.clear();
   user.handler.pushFlow(SetupFlow);
+  user.handler.pushListener(({ role, name }) => {
+    user.role = role;
+    user.name = name;
+
+    if (role === 'spectator') {
+      room.addSpectator(user);
+    } else if (room.isInLobby()) {
+      room.addPlayer(user);
+    } else {
+      room.addPending(user);
+    }
+  });
   user.handler.nextFlow({ room });
 }
 
