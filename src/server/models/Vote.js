@@ -18,7 +18,7 @@ export default class Vote {
   }
 
   submit(user, data) {
-    if (this.results.has(user) || !this.room.playing.users.has(user)) {
+    if (this.results.has(user) || !this.room.playing.has(user)) {
       return;
     }
 
@@ -31,7 +31,7 @@ export default class Vote {
     this.results.clear();
   }
 
-  removedUser(user) {
+  removedPlayer(user) {
     this.results.delete(user);
 
     this.checkCondition();
@@ -56,6 +56,6 @@ export default class Vote {
   }
 
   getAmountOfRequiredVotes() {
-    return Math.max(Math.ceil(this.room.playing.users.size * (this.percentage / 100)), this.minimum);
+    return Math.max(Math.ceil(this.room.playing.size * (this.percentage / 100)), this.minimum);
   }
 }

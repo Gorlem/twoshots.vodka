@@ -2,11 +2,10 @@ import _ from 'lodash';
 
 import Vote from './Vote.js';
 
-import UserCollection from './UserCollection.js';
-
 import Handler from '../handler/Handler.js';
 import LobbyFlow from '../handler/LobbyFlow.js';
 import PendingFlow from '../handler/PendingFlow.js';
+import WaitingFlow from '../handler/WaitingFlow.js';
 
 import InstructionFlow from '../handler/InstructionFlow.js';
 import GuessFlow from '../handler/GuessFlow.js';
@@ -23,9 +22,9 @@ const flows = [
 ];
 
 export default class Room {
-  spectating = new UserCollection();
-  pending = new UserCollection();
-  playing = new UserCollection();
+  spectating = new Set();
+  playing = new Set();
+  pending = new Set();
 
   id = '';
   vote = null;
@@ -38,26 +37,39 @@ export default class Room {
     this.vote = new Vote(this, this.nextFlow.bind(this));
     this.vote.setPercentage(50.1);
 
-    this.playing.on('room:action', (user) => {
-      this.vote.submit(user);
-      this.playing.send('room:data', {
-        vote: this.vote.data(),
-      });
-    });
-
     this.handler.pushFlow(LobbyFlow);
     this.handler.nextStep();
+  }
+
+  action(user) {
+    this.vote.submit(user);
+
+    this.sendRoomData();
+  }
+
+  sendRoomData() {
+    if (this.isInLobby()) {
+      return;
+    }
+
+    for (const player of this.playing) {
+      player.send('room:data', {
+        vote: this.vote.data(),
+      });
+    }
   }
 
   addPlayer(user) {
     user.handler.setRedirect(this.handler);
     this.playing.add(user);
     this.handler.addedPlayer(user);
-    user.send('room:id', this.id);
+    this.sendRoomData();
   }
 
   addPending(user) {
     this.pending.add(user);
+    user.handler.pushFlow(WaitingFlow);
+    user.handler.nextFlow();
   }
 
   addSpectator(user) {
@@ -72,7 +84,7 @@ export default class Room {
     }
 
     let flow;
-    if (this.pending.users.size > 0) {
+    if (this.pending.size > 0) {
       flow = PendingFlow;
     } else {
       flow = this.cache.flows.shift();
@@ -82,12 +94,33 @@ export default class Room {
     this.handler.nextFlow();
 
     this.vote.reset();
-    this.playing.send('room:data', {
-      vote: this.vote.data(),
-    });
+    this.sendRoomData();
   }
 
   isInLobby() {
     return this.handler.step instanceof LobbyFlow[0];
+  }
+
+  remove(user) {
+    if (this.playing.has(user)) {
+      this.playing.delete(user);
+      this.handler?.removedPlayer(user);
+    }
+
+    if (this.spectating.has(user)) {
+      this.spectating.delete(user);
+      this.handler?.removedSpectator(user);
+    }
+
+    if (this.pending.has(user)) {
+      this.pending.delete(user);
+    }
+
+    user.send('room:data', null);
+    this.sendRoomData();
+
+    if (this.playing.size === 0 && this.spectating.size === 0) {
+      this.game.removeRoom(this);
+    }
   }
 }

@@ -4,7 +4,7 @@ const dirty = Symbol('dirty');
 
 export default class Step {
   static proxy() {
-    return new Proxy({ card: '', data: {}, [dirty]: false }, {
+    return new Proxy({ [dirty]: false }, {
       set(target, property, value) {
         if (property !== dirty) {
           Reflect.set(target, dirty, true);
@@ -47,7 +47,7 @@ export default class Step {
         this.updatePlayers();
         this.playing[dirty] = false;
       } else {
-        for (const user of this.room.playing.users) {
+        for (const user of this.room.playing) {
           if (this.players[user.id][dirty]) {
             this.updatePlayer(user);
             this.players[user.id][dirty] = false;
@@ -63,18 +63,26 @@ export default class Step {
   }
 
   updateSpectators() {
-    const { card, data } = _.defaultsDeep({}, this.global, this.spectating);
-    this.room.spectating.sendCard(card, data);
+    const { card, data } = _.defaultsDeep({}, this.spectating, this.global);
+    for (const user of this.room.spectating) {
+      user.sendCard(card, data);
+    }
   }
 
   updatePlayers() {
-    for (const player of this.room.playing.users) {
+    for (const player of this.room.playing) {
       this.updatePlayer(player);
     }
   }
 
   updatePlayer(user) {
-    const { card, data } = _.defaultsDeep({}, this.global, this.playing, this.players[user.id]);
+    const { card, data } = _.defaultsDeep({}, this.players[user.id], this.playing, this.global);
+    console.log(card, data);
+    user.sendCard(card, data);
+  }
+
+  addedSpectator(user) {
+    const { card, data } = _.defaultsDeep({}, this.spectating, this.global);
     user.sendCard(card, data);
   }
 }

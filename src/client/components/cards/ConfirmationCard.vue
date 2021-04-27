@@ -1,17 +1,18 @@
 <template>
   <InformationCard :data="data">
     <slot/>
-    <VoteButton :data="data?.vote" @submit="$emit('action')" v-if="data.button !== false">{{data.button || 'Bestätigen'}}</VoteButton>
+    <button class="button" type="button" :class="{ 'is-primary is-loading': data.selected != null }"
+        :disabled="data.selected != null" @click="$emit('action')" v-if="data.button != null">
+      {{ data.button }}
+    </button>
   </InformationCard>
 </template>
 
 <script>
-import VoteButton from '@/components/VoteButton.vue';
 import InformationCard from '@/components/cards/InformationCard.vue';
 
 export default {
   components: {
-    VoteButton,
     InformationCard,
   },
   props: [

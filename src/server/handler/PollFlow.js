@@ -1,12 +1,17 @@
 import _ from 'lodash';
 
+import Step from './Step.js';
+import StepWithVote from './StepWithVote.js';
+
 import { get, template, keys } from '../texts.js';
 import generateShots from '../shots.js';
-import Vote from '../models/Vote.js';
 
-class PollStep {
+const explanation = get('generic', 'polls:explanation');
+
+class PollStep extends StepWithVote {
   constructor(handler, room) {
-    this.room = room;
+    super(room);
+    this.handler = handler;
 
     if (room.cache.polls == null || room.cache.polls.length === 0) {
       room.cache.polls = _.shuffle(keys('polls'));
@@ -15,94 +20,58 @@ class PollStep {
     const key = room.cache.polls.shift();
     this.shots = generateShots(2, 6);
 
-    const poll = get('polls', key);
-    const explanation = get('generic', 'polls:explanation');
-    const voted = get('generic', 'voted');
+    this.poll = get('polls', key);
 
-    this.title = poll.title;
-    this.users = [...room.playing.users].map((user) => ({ key: user.name, value: user.name }));
+    this.title = this.poll.title;
+    this.users = [...room.playing].map((user) => ({ key: user.name, value: user.name }));
 
-    this.vote = new Vote(this.room, () => {
-      handler.nextStep({ poll, shots: this.shots, results: this.vote.results });
-    });
-
-    this.content = {
-      title: poll.title,
-      ...explanation,
-      ...voted,
+    this.global.card = 'PollCard';
+    this.global.data = {
+      ...template({ title: this.poll.title, ...explanation }, { shots: this.shots }),
+      options: this.users,
     };
 
-    this.room.playing.sendCard('PollCard', {
-      ...template(this.content, { shots: this.shots, ...this.vote.data() }),
-      options: this.users,
-    });
-    this.room.spectating.sendCard('PollCard', {
-      ...template(this.content, { shots: this.shots, ...this.vote.data() }),
-      options: this.users,
+    this.spectating.data = {
       selected: true,
-    });
+    };
+
+    this.update();
+  }
+
+  nextStep() {
+    this.handler.nextStep({ poll: this.poll, shots: this.shots, results: this.vote.results });
   }
 
   action(user, payload) {
     this.vote.submit(user, payload);
 
-    for (const player of this.room.playing.users) {
-      if (this.vote.results.has(player)) {
-        player.sendCard('PollCard', {
-          ...template(this.content, { shots: this.shots, ...this.vote.data() }),
-          options: this.users,
-          selected: this.vote.results.get(player),
-        });
-      } else {
-        player.sendCard('PollCard', {
-          ...template(this.content, { shots: this.shots, ...this.vote.data() }),
-          options: this.users,
-        });
-      }
-    }
+    this.players[user.id].data = {
+      selected: payload,
+    };
 
-    this.room.spectating.sendCard('PollResultCard', {
-      title: this.content.title,
-      results: _([...this.vote.results])
-        .countBy('1')
-        .values()
-        .value()
-        .map((value) => ['', value]),
-    });
-  }
-
-  removedUser(user) {
-    this.vote.removedUser(user);
-    this.sendPollData();
+    this.update();
   }
 }
 
-class ResultStep {
+class ResultStep extends Step {
   constructor(handler, room, { poll, shots, results }) {
+    super(room);
+
     const counts = _.countBy([...results], '1');
     const max = _.max(_.values(counts));
 
-    const winner = _.chain(counts)
+    const winner = _(counts)
       .entries()
       .filter((count) => count[1] === max)
-      .sample()
-      .value()[0];
+      .head()[0];
 
-    const content = {
-      message: _.sample(poll.message),
-      title: poll.title,
+    this.global.card = 'PollResultCard';
+    this.global.data = {
+      ...template({ message: _.sample(poll.message), title: poll.title }, { shots, winner }),
+      results: _.entries(counts),
     };
 
-    const message = template(content, { shots, winner });
-
-    room.playing.sendCard('PollResultCard', {
-      ...message,
-      results: _.entries(counts),
-    });
-    room.spectating.sendCard('PollResultCard', {
-      ...message,
-      results: _.entries(counts),
-    });
+    this.send();
   }
 }
 

@@ -1,47 +1,57 @@
-import Vote from '../models/Vote.js';
+import StepWithVote from './StepWithVote.js';
 import { get, template } from '../texts.js';
 
 const content = get('generic', 'lobby');
-const voted = get('generic', 'voted');
 
-class LobbyStep {
+class LobbyStep extends StepWithVote {
   constructor(handler, room) {
+    super(room);
     this.handler = handler;
-    this.room = room;
 
-    this.vote = new Vote(room, () => {
-      handler.nextStep();
-    });
+    this.global.card = 'LobbyCard';
+    this.global.data = {
+      ...template(content, { roomId: this.room.id }),
+      users: [...this.room.playing].map((user) => user.name),
+    };
+
+    this.playing.data = {
+      button: content.data.button,
+    };
+
+    this.vote.setPercentage(100);
+
+    this.update();
   }
 
-  sendCard() {
-    this.room.playing.sendCard('LobbyCard', {
-      ...template({ ...content, ...voted }, { roomId: this.room.id, ...this.vote.data() }),
-      users: [...this.room.playing.users].map((user) => user.name),
-      button: content.data.button,
-    });
-    this.room.spectating.sendCard('LobbyCard', {
-      ...template({ ...content, ...voted }, { roomId: this.room.id, ...this.vote.data() }),
-      users: [...this.room.playing.users].map((user) => user.name),
-      button: false,
-    });
+  nextStep() {
+    this.handler.nextStep();
   }
 
   addedPlayer() {
-    this.sendCard();
-  }
+    this.global.data = {
+      ...this.global.data,
+      users: [...this.room.playing].map((user) => user.name),
+    };
 
-  addedSpectator() {
-    this.sendCard();
+    this.update();
   }
 
   removedPlayer() {
-    this.sendCard();
+    this.global.data = {
+      ...this.global.data,
+      users: [...this.room.playing].map((user) => user.name),
+    };
+
+    this.update();
   }
 
   action(user) {
     this.vote.submit(user);
-    this.sendCard();
+    this.players[user.id].data = {
+      selected: true,
+    };
+
+    this.update();
   }
 }
 

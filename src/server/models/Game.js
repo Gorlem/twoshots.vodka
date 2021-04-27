@@ -41,6 +41,7 @@ export default class Game {
   }
 
   removeRoom(room) {
+    room.game = null;
     _.pull(this.rooms, room);
   }
 

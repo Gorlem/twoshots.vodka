@@ -10,7 +10,7 @@
               </p>
             </div>
           </div>
-          <div class="level-right" v-if="room.vote != null">
+          <div class="level-right" v-if="room?.vote != null">
             <div class="level-item">
               <VoteButton :data="room.vote" @submit="voteNext">Weiter geht's 👉</VoteButton>
             </div>
@@ -72,7 +72,7 @@ export default {
     });
 
     socket.on('connect', () => {
-      socket.emit('path', window.location.pathname);
+      socket.emit('path', decodeURIComponent(window.location.pathname));
     });
 
     socket.on('location', (location) => {
@@ -83,7 +83,7 @@ export default {
 
     window.addEventListener('popstate', (event) => {
       this.roomId = event.state.roomId;
-      socket.emit('path', window.location.pathname);
+      socket.emit('path', decodeURIComponent(window.location.pathname));
     });
   },
   methods: {

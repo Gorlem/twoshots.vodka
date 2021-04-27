@@ -2,7 +2,6 @@ import _ from 'lodash';
 
 export default class UserCollection {
   users = new Set();
-  listeners = new Map();
 
   constructor(users) {
     if (users != null) {
@@ -12,18 +11,14 @@ export default class UserCollection {
 
   add(user) {
     this.users.add(user);
-
-    for (const [channel, listener] of this.listeners.entries()) {
-      user.on(channel, (...args) => listener(user, ...args));
-    }
   }
 
   remove(user) {
     this.users.delete(user);
+  }
 
-    for (const channel of this.listeners.keys()) {
-      user.off(channel);
-    }
+  has(user) {
+    return this.users.has(user);
   }
 
   except(...users) {
@@ -48,17 +43,7 @@ export default class UserCollection {
     }
   }
 
-  on(channel, callback) {
-    this.listeners.set(channel, callback);
-    for (const user of this.users) {
-      user.on(channel, (...args) => callback(user, ...args));
-    }
-  }
-
-  off(channel) {
-    this.listeners.delete(channel);
-    for (const user of this.users) {
-      user.off(channel);
-    }
+  [Symbol.iterator]() {
+    return this.users[Symbol.iterator];
   }
 }

@@ -10,8 +10,11 @@ function joinRoom(room, user) {
   user.handler.clear();
   user.handler.pushFlow(SetupFlow);
   user.handler.pushListener(({ role, name }) => {
+    user.room?.remove(user);
+
     user.role = role;
     user.name = name;
+    user.room = room;
 
     if (role === 'spectator') {
       room.addSpectator(user);
@@ -25,6 +28,8 @@ function joinRoom(room, user) {
 }
 
 function start(user) {
+  user.room?.remove(user);
+
   user.handler.clear();
   user.handler.pushFlow(StartFlow);
   user.handler.pushListener(({ roomId }) => {
@@ -36,6 +41,7 @@ function start(user) {
     }
 
     if (room != null) {
+      user.room = room;
       user.send('location', {
         data: {
           roomId: room.id,
@@ -63,12 +69,14 @@ export default function (io) {
     const user = new User(socket);
     socket.user = user;
 
+    user.send('room:data', null);
+
     user.on('path', (path) => {
       if (path === '/') {
         start(user);
       } else {
         const room = game.findRoomById(path.substring(1));
-
+        console.log(path, room);
         if (room == null) {
           user.send('location', {
             data: {
@@ -84,5 +92,11 @@ export default function (io) {
     });
 
     user.on('card:action', (...payload) => user.handler.action(user, ...payload));
+    user.on('room:action', (...payload) => user.room?.action(user, ...payload));
+
+    user.on('disconnect', () => {
+      console.log(`${user} disconnected`);
+      user.room?.remove(user);
+    });
   });
 }

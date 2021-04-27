@@ -1,16 +1,17 @@
 import _ from 'lodash/fp.js';
 
-import Vote from '../models/Vote.js';
+import Step from './Step.js';
+import StepWithVote from './StepWithVote.js';
 
 import { get, template, keys } from '../texts.js';
 import generateShots from '../shots.js';
 
 const explanation = get('generic', 'guess:explanation');
-const voted = get('generic', 'voted');
 
-class GuessStep {
+class GuessStep extends StepWithVote {
   constructor(handler, room) {
-    this.room = room;
+    super(room);
+    this.handler = handler;
 
     if (room.cache.guesses == null || room.cache.guesses.length === 0) {
       room.cache.guesses = _.shuffle(keys('guesses'));
@@ -18,53 +19,43 @@ class GuessStep {
 
     const key = room.cache.guesses.shift();
     this.shots = generateShots(1, 5);
-    const guess = get('guesses', key);
+    this.guess = get('guesses', key);
 
-    this.content = {
-      ...explanation,
-      ...voted,
-      title: guess.question,
-      hint: guess.unit,
+    this.global.data = {
+      ...template(explanation, { shots: this.shots }),
+      title: this.guess.question,
+    };
+
+    this.playing.card = 'InputCard';
+    this.playing.data = {
+      hint: this.guess.unit,
       type: 'number',
       button: explanation.data.button,
     };
 
-    this.vote = new Vote(this.room, () => {
-      handler.nextStep({ guess, shots: this.shots, results: this.vote.results });
-    });
+    this.update();
+  }
 
-    this.sendQuestionData();
+  nextStep() {
+    this.handler.nextStep({ guess: this.guess, shots: this.shots, results: this.vote.results });
   }
 
   action(user, payload) {
     this.vote.submit(user, payload);
-    this.sendQuestionData();
-  }
 
-  sendQuestionData() {
-    for (const player of this.room.playing.users) {
-      player.sendCard('InputCard', {
-        ...this.content,
-        ...template(this.content, { shots: this.shots, ...this.vote.data() }),
-        selected: this.vote.results.has(player),
-      });
-    }
+    this.players[user.id].data = {
+      selected: true,
+    };
 
-    this.room.spectating.sendCard('InformationCard', {
-      ...this.content,
-      ...template(this.content, { shots: this.shots, ...this.vote.data() }),
-    });
-  }
-
-  removedUser(user) {
-    this.vote.removedUser(user);
-    this.sendQuestionData();
+    this.update();
   }
 }
 
-class ResultStep {
+class ResultStep extends Step {
   constructor(handler, room, { guess, shots, results }) {
-    const content = get('generic', 'guess:results');
+    super(room);
+
+    const resultsText = get('generic', 'guess:results');
 
     const getDifference = (entry) => Math.abs(guess.answer - Number.parseFloat(entry[1].replace(',', '.')));
 
@@ -81,20 +72,21 @@ class ResultStep {
 
     const answer = guess.answer.toLocaleString('de-DE', { useGrouping: false }) + (guess.unit == null ? '' : ` ${guess.unit}`);
 
-    for (const target of [room.playing, room.spectating]) {
-      target.sendCard('InformationCard', {
-        ...template(content, {
-          shots,
-          winner,
-          loser,
-          answer,
-          url: guess.source,
-          domain: new URL(guess.source).hostname,
-          results: [...results.values()],
-        }),
-        title: guess.question,
-      });
-    }
+    this.global.card = 'InformationCard';
+    this.global.data = {
+      ...template(resultsText, {
+        shots,
+        winner,
+        loser,
+        answer,
+        url: guess.source,
+        domain: new URL(guess.source).hostname,
+        results: [...results.values()],
+      }),
+      title: guess.question,
+    };
+
+    this.send();
   }
 }
 

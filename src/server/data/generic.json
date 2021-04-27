@@ -95,12 +95,15 @@
         "message": "Es geht um *${shots}*. Alle Spieler, welche die unbeliebtere Entscheidung getroffen haben, müssen trinken. Bei einem unentschieden trinkt niemand. Falls ihr jedoch alle die gleiche Entscheidung gefällt habt, müsst ihr alle trinken!"
     },
     "would-you-rather:tie": {
-        "title": "Unentschieden"
+        "title": "Unentschieden",
+        "message": "Beide Möglichkeiten wurden gleich oft gewählt. Glück gehabt! Keiner muss trinken."
     },
     "would-you-rather:same": {
-        "title": "Einstimmig"
+        "title": "Es kann nur Verlierer geben",
+        "message": "Da ihr euch alle für *${option}* entschieden habt, müsst ihr alle *${shots}* trinken!"
     },
     "would-you-rather:results": {
-        "title": "Entscheidung getroffen"
+        "title": "Die Mehrheit würdet eher ${option}",
+        "message": "Das bedeutet *${losers}* müssen *${shots}* trinken!"
     }
 }

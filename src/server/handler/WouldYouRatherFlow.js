@@ -1,43 +1,42 @@
 import _ from 'lodash';
 
 import Step from './Step.js';
+import StepWithVote from './StepWithVote.js';
 
-import Vote from '../models/Vote.js';
 import generateShots from '../shots.js';
 import { get, template, keys } from '../texts.js';
 
 const voteText = get('generic', 'would-you-rather:vote');
-const votedText = get('generic', 'voted');
 
-class VoteStep extends Step {
+class VoteStep extends StepWithVote {
   constructor(handler, room) {
     super(room);
+    this.handler = handler;
 
     if (room.cache.would == null || room.cache.would.length === 0) {
       room.cache.would = _.shuffle(keys('would-you-rather'));
     }
 
-    this.vote = new Vote(this.room, () => {
-      handler.nextStep({ results: this.vote.results });
-    });
-
     const key = room.cache.would.shift();
-    const options = get('would-you-rather', key);
+    this.options = get('would-you-rather', key);
 
-    const shots = generateShots(2, 6);
+    this.shots = generateShots(2, 6);
 
     this.global.card = 'PollCard';
     this.global.data = {
-      ...template(voteText, { shots }),
-      ...options,
-      ...template(votedText, this.vote.data()),
+      ...template(voteText, { shots: this.shots }),
+      ...this.options,
     };
 
     this.spectating.data = {
       selected: true,
     };
 
-    this.send();
+    this.update();
+  }
+
+  nextStep() {
+    this.handler.nextStep({ results: this.vote.results, options: this.options.options, shots: this.shots });
   }
 
   action(user, payload) {
@@ -45,16 +44,12 @@ class VoteStep extends Step {
     this.players[user.id].data = {
       selected: payload,
     };
-    this.global.data = {
-      ...this.global.data,
-      ...template(votedText, this.vote.data()),
-    };
-    this.send();
+    this.update();
   }
 }
 
 class ResultsStep extends Step {
-  constructor(handler, room, { results }) {
+  constructor(handler, room, { results, options, shots }) {
     super(room);
 
     const tieText = get('generic', 'would-you-rather:tie');
@@ -68,15 +63,23 @@ class ResultsStep extends Step {
 
     if (counts.left === 0 || counts.right === 0) {
       this.global.data = {
-        ...template(sameText),
+        ...template(sameText, { option: counts.left === 0 ? options[1].value : options[0].value, shots }),
       };
     } else if (counts.left === counts.right) {
       this.global.data = {
         ...template(tieText),
       };
     } else {
+      const losers = _([...results])
+        .filter((r) => (r[1] === (counts.left < counts.right ? 'left' : 'right')))
+        .map('[0].name')
+        .value();
       this.global.data = {
-        ...template(resultsText),
+        ...template(resultsText, {
+          option: counts.left < counts.right ? options[1].value : options[0].value,
+          losers,
+          shots,
+        }),
       };
     }
 

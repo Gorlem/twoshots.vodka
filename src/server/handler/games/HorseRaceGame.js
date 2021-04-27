@@ -1,102 +1,115 @@
 import _ from 'lodash';
 
-import Vote from '../../models/Vote.js';
+import Step from '../Step.js';
+import StepWithVote from '../StepWithVote.js';
 
 import { get, template } from '../../texts.js';
 import generateShots from '../../shots.js';
 
-const voted = get('generic', 'voted');
 const explanation = get('generic', 'game:horserace:explanation');
 const results = get('generic', 'game:horserace:results');
 
-class ExplanationStep {
+const horseStep = 2;
+const finishLine = 100;
+
+class ExplanationStep extends StepWithVote {
   constructor(handler, room) {
-    this.room = room;
+    super(room);
+    this.handler = handler;
 
-    this.vote = new Vote(this.room, () => {
-      handler.nextStep();
-    });
+    this.global.card = 'ConfirmationCard';
+    this.global.data = template(explanation);
 
-    this.content = {
-      ...explanation,
-      ...voted,
+    this.playing.data = {
+      button: explanation.data.button,
     };
 
-    this.sendCard();
+    this.update();
   }
 
-  sendCard() {
-    this.room.playing.sendCard('ConfirmationCard', {
-      ...template(this.content, { ...this.vote.data() }),
-      button: this.content.data.button,
-    });
-    this.room.spectating.sendCard('InformationCard', {
-      ...template(this.content, { ...this.vote.data() }),
-    });
+  nextStep() {
+    this.handler.nextStep();
   }
 
   action(user) {
     this.vote.submit(user);
-    this.sendCard();
-  }
 
-  removedPlayer(user) {
-    this.vote.removedUser(user);
-    this.sendCard();
+    this.players[user.id].data = {
+      selected: true,
+    };
+
+    this.update();
   }
 }
 
-class GameStep {
+class GameStep extends Step {
   horses = new Map();
 
   constructor(handler, room) {
-    this.room = room;
+    super(room);
     this.handler = handler;
 
-    for (const user of room.playing.users) {
+    for (const user of room.playing) {
       this.horses.set(user, 0);
     }
 
-    this.room.playing.sendCard('HorseRaceGame', {
+    this.playing.card = 'HorseRaceGame';
+    this.playing.data = {
       track: {
         distance: 0,
       },
-    });
-    this.sendSpectator();
+    };
+
+    this.spectating.card = 'HorseRaceGameResults';
+    this.spectating.data = {
+      tracks: [...this.horses].map((horse) => ({
+        distance: horse[1],
+      })),
+    };
+
+    this.send();
   }
 
   removedPlayer(user) {
     this.horses.delete(user);
-  }
 
-  action(user) {
-    const distance = this.horses.get(user) + 10;
-    this.horses.set(user, distance);
-
-    user.sendCard('HorseRaceGame', {
-      track: {
-        distance,
-      },
-    });
-
-    this.sendSpectator();
-
-    if (distance >= 100) {
-      setImmediate(() => this.handler.nextStep({ horses: this.horses }));
-    }
-  }
-
-  sendSpectator() {
-    this.room.spectating.sendCard('HorseRaceGameResults', {
+    this.spectating.data = {
       tracks: [...this.horses].map((horse) => ({
         distance: horse[1],
       })),
-    });
+    };
+
+    this.send();
+  }
+
+  action(user) {
+    const distance = this.horses.get(user) + horseStep;
+    this.horses.set(user, distance);
+
+    this.players[user.id].data = {
+      track: {
+        distance,
+      },
+    };
+
+    this.spectating.data = {
+      tracks: [...this.horses].map((horse) => ({
+        distance: horse[1],
+      })),
+    };
+
+    this.send();
+
+    if (distance >= finishLine) {
+      setImmediate(() => this.handler.nextStep({ horses: this.horses }));
+    }
   }
 }
 
-class ResultsStep {
+class ResultsStep extends Step {
   constructor(handler, room, { horses }) {
+    super(room);
+
     const winner = _.maxBy([...horses], '1')[0].name;
     const tracks = _.chain([...horses])
       .sortBy((horse) => horse[1])
@@ -109,18 +122,13 @@ class ResultsStep {
 
     const shots = generateShots(3, 6);
 
-    room.playing.sendCard('HorseRaceGameResults', {
+    this.global.card = 'HorseRaceGameResults';
+    this.global.data = {
       tracks,
       ...template(results, { winner, shots }),
-    });
+    };
 
-    room.spectating.sendCard('HorseRaceGameResults', {
-      tracks: [...horses].map((horse) => ({
-        distance: horse[1],
-        name: horse[0].name,
-      })),
-      ...template(results, { winner, shots }),
-    });
+    this.send();
   }
 }
 
