@@ -76,7 +76,9 @@ export default {
     });
 
     socket.on('location', (location) => {
-      window.history.pushState(location.data, location.title, location.path);
+      if (window.location.pathname !== location.path) {
+        window.history.pushState(location.data, location.title, location.path);
+      }
       document.title = location.title;
       this.roomId = location.data.roomId;
     });

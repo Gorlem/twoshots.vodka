@@ -102,6 +102,8 @@ export default class Room {
   }
 
   remove(user) {
+    console.log(`removing ${user} from ${this}`);
+
     if (this.playing.has(user)) {
       this.playing.delete(user);
       this.handler?.removedPlayer(user);
@@ -120,7 +122,7 @@ export default class Room {
     this.sendRoomData();
 
     if (this.playing.size === 0 && this.spectating.size === 0) {
-      this.game.removeRoom(this);
+      this.game?.removeRoom(this);
     }
   }
 }

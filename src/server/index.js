@@ -7,10 +7,23 @@ import User from './models/User.js';
 const game = new Game();
 
 function joinRoom(room, user) {
+  if (room != null) {
+    user.room = room;
+    user.send('location', {
+      data: {
+        roomId: room.id,
+      },
+      title: `${room.id} | twoshots.vodka`,
+      path: `/${room.id}`,
+    });
+  }
+
   user.handler.clear();
   user.handler.pushFlow(SetupFlow);
   user.handler.pushListener(({ role, name }) => {
-    user.room?.remove(user);
+    if (user.room !== room) {
+      user.room?.remove(user);
+    }
 
     user.role = role;
     user.name = name;
