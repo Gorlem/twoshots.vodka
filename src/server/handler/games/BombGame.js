@@ -8,16 +8,20 @@ import generateShots from '../../shots.js';
 
 const explanation = get('generic', 'game:bomb:explanation');
 const results = get('generic', 'game:bomb:results');
+const hasBomb = get('generic', 'game:bomb:has-bomb');
+const waiting = get('generic', 'game:bomb:waiting');
+
+const fuseTime = [15000, 30000]; // between 15 and 30 seconds
 
 class ExplanationStep extends StepWithVote {
   constructor(handler, room) {
     super(room);
     this.handler = handler;
 
-    const shots = generateShots(3, 6);
+    this.shots = generateShots(3, 6);
 
     this.global.card = 'ConfirmationCard';
-    this.global.data = template(explanation, { shots });
+    this.global.data = template(explanation, { shots: this.shots });
 
     this.playing.data = {
       button: explanation.data.button,
@@ -27,7 +31,7 @@ class ExplanationStep extends StepWithVote {
   }
 
   nextStep() {
-    this.handler.nextStep();
+    this.handler.nextStep({ shots: this.shots });
   }
 
   action(user) {
@@ -45,18 +49,19 @@ class GameStep extends Step {
   current;
   seating;
 
-  constructor(handler, room) {
+  constructor(handler, room, { shots }) {
     super(room);
     this.handler = handler;
 
     this.global.card = 'InformationCard';
-    this.global.data = {
-      title: 'Puff',
-    };
 
     this.seating = [...room.playing];
 
     this.giveBomb(_.sample(this.seating));
+
+    setTimeout(() => {
+      handler.nextStep({ loser: this.current, shots });
+    }, _.random(...fuseTime));
   }
 
   giveBomb(player) {
@@ -67,21 +72,11 @@ class GameStep extends Step {
 
     this.players[player.id].card = 'PollCard';
     this.players[player.id].data = {
-      options: [
-        {
-          key: 'left',
-          value: '👈 nach links',
-        },
-        {
-          key: 'random',
-          value: '🔀 zufällig',
-        },
-        {
-          key: 'right',
-          value: 'nach rechts 👉',
-        },
-      ],
+      ...hasBomb,
+      ...template(hasBomb),
     };
+
+    this.global.data = template(waiting, { bomb: player.name });
 
     this.current = player;
 
@@ -121,25 +116,12 @@ class GameStep extends Step {
 }
 
 class ResultsStep extends Step {
-  constructor(handler, room, { horses }) {
+  constructor(handler, room, { loser, shots }) {
     super(room);
 
-    const winner = _.maxBy([...horses], '1')[0].name;
-    const tracks = _.chain([...horses])
-      .sortBy((horse) => horse[1])
-      .reverse()
-      .map((horse) => ({
-        distance: horse[1],
-        name: horse[0].name,
-      }))
-      .value();
-
-    const shots = generateShots(3, 6);
-
-    this.global.card = 'HorseRaceGameResults';
+    this.global.card = 'InformationCard';
     this.global.data = {
-      tracks,
-      ...template(results, { winner, shots }),
+      ...template(results, { loser: loser.name, shots }),
     };
 
     this.send();

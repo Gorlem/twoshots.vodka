@@ -92,7 +92,7 @@ export default class Room {
 
   nextFlow() {
     if (this.cache.flows == null || this.cache.flows.length === 0) {
-      this.cache.flows = _(flows).keys().shuffle().value();
+      this.cache.flows = _(flows).values().shuffle().value();
     }
 
     let flow;

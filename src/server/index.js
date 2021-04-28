@@ -108,7 +108,7 @@ export default function (io) {
     user.on('room:action', (...payload) => user.room?.action(user, ...payload));
 
     user.on('force-flow', (flowName) => {
-      user.room.forceFlow(flowName);
+      user.room?.forceFlow(flowName);
     });
 
     user.on('disconnect', () => {

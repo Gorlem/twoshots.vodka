@@ -108,7 +108,7 @@
     },
     "game:bomb:explanation": {
         "title": "Die Bombe tickt",
-        "message": "Wenn du die Bombe hast, kannst du sie nach links oder rechts weitergeben. Der Spieler, bei dem die Bombe explodiert, muss *${shots}* trinken!",
+        "message": "Wenn du die Bombe hast, kannst du sie nach links / rechts oder an einen zufälligen Mitspieler weitergeben. Der Spieler, bei dem die Bombe explodiert, muss *${shots}* trinken!",
         "data": {
             "button": "Verstanden ✔"
         }
@@ -116,5 +116,27 @@
     "game:bomb:results": {
         "title": "Das war kein Blindgänger",
         "message": "Bei *${loser}* ist die Bombe hochgegangen. Du musst *${shots}* trinken."
+    },
+    "game:bomb:waiting": {
+        "title": "Gerade kannst du entspannen",
+        "message": "Die Bombe ist aktuell bei *${bomb}*."
+    },
+    "game:bomb:has-bomb": {
+        "title": "Du hast die *Bombe*",
+        "message": "Die Bombe kannst du nach links / rechts oder an einen zufälligen Mitspieler weitergeben.",
+        "options": [
+            {
+                "key": "left",
+                "value": "👈 nach links"
+            },
+            {
+                "key": "random",
+                "value": "🔀 zufällig"
+            },
+            {
+                "key": "right",
+                "value": "nach rechts 👉"
+            }
+        ]
     }
 }

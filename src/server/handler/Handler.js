@@ -60,6 +60,8 @@ export default class Handler {
       Step = Step.then;
     }
 
+    console.log(Step);
+
     this.step = new Step(this, this.target, data);
   }
 
