@@ -95,6 +95,9 @@ export default {
     voteNext(...payload) {
       socket.emit('room:action', ...payload);
     },
+    send(...payload) {
+      socket.emit(...payload);
+    },
   },
 };
 </script>

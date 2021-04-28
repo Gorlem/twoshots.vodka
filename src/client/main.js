@@ -4,5 +4,5 @@ import 'bulma/css/bulma.css';
 
 import App from './App.vue';
 
-createApp(App)
+window.app = createApp(App)
   .mount('#app');

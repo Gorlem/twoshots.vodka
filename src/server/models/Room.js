@@ -13,13 +13,13 @@ import PollFlow from '../handler/PollFlow.js';
 import GameFlow from '../handler/GameFlow.js';
 import WouldYouRather from '../handler/WouldYouRatherFlow.js';
 
-const flows = [
+const flows = {
   InstructionFlow,
   GuessFlow,
   PollFlow,
   GameFlow,
   WouldYouRather,
-];
+};
 
 export default class Room {
   spectating = new Set();
@@ -78,9 +78,21 @@ export default class Room {
     this.handler.addedSpectator(user);
   }
 
+  forceFlow(flowName) {
+    const flow = flows[flowName];
+
+    if (this.cache.flows == null || this.cache.flows.length === 0) {
+      this.cache.flows = [flow];
+    } else {
+      this.cache.flows.unshift(flow);
+    }
+
+    this.nextFlow();
+  }
+
   nextFlow() {
     if (this.cache.flows == null || this.cache.flows.length === 0) {
-      this.cache.flows = _.shuffle(flows);
+      this.cache.flows = _(flows).keys().shuffle().value();
     }
 
     let flow;

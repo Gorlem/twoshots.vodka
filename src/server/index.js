@@ -107,6 +107,10 @@ export default function (io) {
     user.on('card:action', (...payload) => user.handler.action(user, ...payload));
     user.on('room:action', (...payload) => user.room?.action(user, ...payload));
 
+    user.on('force-flow', (flowName) => {
+      user.room.forceFlow(flowName);
+    });
+
     user.on('disconnect', () => {
       console.log(`${user} disconnected`);
       user.room?.remove(user);
