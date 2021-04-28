@@ -25,7 +25,10 @@ class VoteStep extends StepWithVote {
     this.global.card = 'PollCard';
     this.global.data = {
       ...template(voteText, { shots: this.shots }),
-      ...this.options,
+      options: [
+        { key: 'left', value: this.options[0] },
+        { key: 'right', value: this.options[1] },
+      ],
     };
 
     this.spectating.data = {
@@ -36,7 +39,7 @@ class VoteStep extends StepWithVote {
   }
 
   nextStep() {
-    this.handler.nextStep({ results: this.vote.results, options: this.options.options, shots: this.shots });
+    this.handler.nextStep({ results: this.vote.results, options: this.options, shots: this.shots });
   }
 
   action(user, payload) {
@@ -63,7 +66,7 @@ class ResultsStep extends Step {
 
     if (counts.left === 0 || counts.right === 0) {
       this.global.data = {
-        ...template(sameText, { option: counts.left === 0 ? options[1].value : options[0].value, shots }),
+        ...template(sameText, { option: counts.left === 0 ? options[1] : options[0], shots }),
       };
     } else if (counts.left === counts.right) {
       this.global.data = {
@@ -76,7 +79,7 @@ class ResultsStep extends Step {
         .value();
       this.global.data = {
         ...template(resultsText, {
-          option: counts.left < counts.right ? options[1].value : options[0].value,
+          option: counts.left < counts.right ? options[1] : options[0],
           losers,
           shots,
         }),

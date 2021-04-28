@@ -1,26 +1,146 @@
 [
-    {
-        "options": [
-            { "key": "left", "value": "eine Familie und kein Geld haben" },
-            { "key": "right", "value": "keine Familie und drei Millionen Euro haben" }
-        ]
-    },
-    {
-        "options": [
-            { "key": "left", "value": "jedes Wochenende alle deine Passwörter vergessen" },
-            { "key": "right", "value": "jedes Mal deinen Namen vergessen, wenn du jemanden zum ersten Mal triffst" }
-        ]
-    },
-    {
-        "options": [
-            { "key": "left", "value": "in einem kaputten Skilift festsitzen" },
-            { "key": "right", "value": "in einem kaputten Aufzug festsitzen" }
-        ]
-    },
-    {
-        "options": [
-            { "key": "left", "value": "Augen so groß wie Tennisbälle haben" },
-            { "key": "right", "value": "Augen so klein wie Erbsen haben" }
-        ]
-    }
+    [
+        "eine Familie und kein Geld haben",
+        "keine Familie und viel Geld haben"
+    ],
+    [
+        "jedes Wochenende alle deine Passwörter vergessen",
+        "jedes Mal deinen Namen vergessen, wenn du jemanden zum ersten Mal triffst"
+    ],
+    [
+        "in einem kaputten Skilift festsitzen",
+        "in einem kaputten Aufzug festsitzen"
+    ],
+    [
+        "Augen so groß wie Tennisbälle haben",
+        "Augen so klein wie Erbsen haben"
+    ],
+    [
+        "während einer Rede dein T-Shirt falsch herum tragen",
+        "während einer Rede Toilettenpapier auf der Schuhsohle haben"
+    ],
+    [
+        "in einer Welt voller Scientologists leben",
+        "in einer Welt voller Flat-Earthers leben"
+    ],
+    [
+        "ein Durchschnittsmensch in der Gegenwart sein",
+        "ein König eines großen Landes vor 2500 Jahren sein"
+    ],
+    [
+        "das Gefühl haben ständig niesen zu müssen",
+        "das Gefühl haben ständig kacken zu müssen"
+    ],
+    [
+        "eine Karotte sein",
+        "eine Gurke sein"
+    ],
+    [
+        "in einem Aufzug laut furzen",
+        "in einer überfüllten Toilette laut furzen"
+    ],
+    [
+        "mit Fell bedeckt sein",
+        "mit Schuppen bedeckt sein"
+    ],
+    [
+        "unsterblich sein",
+        "9 Leben haben"
+    ],
+    [
+        "Windeln für Erwachsene tragen",
+        "die Windeln eines Erwachsenen wechseln"
+    ],
+    [
+        "Steine kacken",
+        "Schlangen kotzen"
+    ],
+    [
+        "Augenbrauen haben, die nie aufhören zu wachsen",
+        "Wimpern haben, die nie aufhören zu wachsen"
+    ],
+    [
+        "beim Einkaufen 10 Sachen kaufen, die du nicht brauchst",
+        "vergessen was du eigentlich kaufen wolltest"
+    ],
+    [
+        "einen Pferdschwanz haben",
+        "ein Einhorn-Horn haben"
+    ],
+    [
+        "im Lotto gewinnen",
+        "deine Lebenszeit verdoppeln"
+    ],
+    [
+        "allergisch gegen Babies sein",
+        "allergisch gegen Rentner sein"
+    ],
+    [
+        "ein Huhn sein",
+        "ein Schwein sein"
+    ],
+    [
+        "die ganze Zeit nackt sein",
+        "dein Zuhause nie wieder verlassen"
+    ],
+    [
+        "jedes Mal mit Lügen davonkommen",
+        "immer wissen, wenn jemand lügt"
+    ],
+    [
+        "einen Monat lang dieselben Socken tragen",
+        "zwei Wochen lang dieselbe Unterwäsche tragen"
+    ],
+    [
+        "ohne Kaffe leben",
+        "ohne Schokolade leben"
+    ],
+    [
+        "fliegen können",
+        "unsichtbar sein"
+    ],
+    [
+        "die Nase eines Hundes haben",
+        "die Augen eines Hundes haben"
+    ],
+    [
+        "eine Rückspultaste in deinem Leben haben",
+        "eube Pausetaste in deinem Leben haben"
+    ],
+    [
+        "die Toilette an deinem Arbeitsplatz verstopfen",
+        "die Toilette im Haus deines Schwarms verstopfen"
+    ],
+    [
+        "an dem Hintern eines Hundes schnüffeln",
+        "an dem nackten Hintern eines Fremden schnüffeln"
+    ],
+    [
+        "ein Drache sein",
+        "ein Einhorn sein"
+    ],
+    [
+        "immer wenn du weinen musst, unkontrolliert lachen",
+        "immer wenn du glücklich bist, wie ein Baby weinen"
+    ],
+    [
+        "in die Vergangenheit reisen",
+        "in die Zukunft reisen"
+    ],
+    [
+        "jeder Person, die du begenestet, die Hand geben",
+        "dich vor jeder Person, die du begenestet, verneigen"
+    ],
+    [
+        "einen Hund mit der Persönlichkeit einer Katze haben",
+        "eine Katze mit der Persönlichkeit eines Hundes haben"
+    ],
+    [
+        "nur grüne Ampeln haben",
+        "nie wieder in einer Schlange warten müssen"
+    ],
+    [
+        "nur noch in Reimen sprechen",
+        "nur noch mit Alliterationen sprechen"
+    ]
 ]

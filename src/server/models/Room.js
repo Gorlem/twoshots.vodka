@@ -11,14 +11,14 @@ import InstructionFlow from '../handler/InstructionFlow.js';
 import GuessFlow from '../handler/GuessFlow.js';
 import PollFlow from '../handler/PollFlow.js';
 import GameFlow from '../handler/GameFlow.js';
-import WouldYouRather from '../handler/WouldYouRatherFlow.js';
+import WouldYouRatherFlow from '../handler/WouldYouRatherFlow.js';
 
 const flows = {
   InstructionFlow,
   GuessFlow,
   PollFlow,
   GameFlow,
-  WouldYouRather,
+  WouldYouRatherFlow,
 };
 
 export default class Room {
