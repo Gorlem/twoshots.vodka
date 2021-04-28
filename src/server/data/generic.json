@@ -105,5 +105,16 @@
     "would-you-rather:results": {
         "title": "Die Mehrheit würdet eher ${option}",
         "message": "Das bedeutet *${losers}* müssen *${shots}* trinken!"
+    },
+    "game:bomb:explanation": {
+        "title": "Die Bombe tickt",
+        "message": "Wenn du die Bombe hast, kannst du sie nach links oder rechts weitergeben. Der Spieler, bei dem die Bombe explodiert, muss *${shots}* trinken!",
+        "data": {
+            "button": "Verstanden ✔"
+        }
+    },
+    "game:bomb:results": {
+        "title": "Das war kein Blindgänger",
+        "message": "Bei *${loser}* ist die Bombe hochgegangen. Du musst *${shots}* trinken."
     }
 }

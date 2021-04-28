@@ -1,7 +1,9 @@
 import HorseRaceGame from './games/HorseRaceGame.js';
+import BombGame from './games/BombGame.js';
 
 const games = [
   HorseRaceGame,
+  BombGame,
 ];
 
 class GameStep {
