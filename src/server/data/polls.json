@@ -35,10 +35,24 @@
         ]
     },
     {
+        "title": "Wer ist am wahrscheinlichsten Paranoid?",
+        "message": [
+            "Du verrückte Sau *${winner}*! Trink *${shots}*.",
+            "Hast du dich schon mal von einem Arzt checken lassen *${winner}*? Verteile *${shots}*"
+        ]
+    },
+    {
         "title": "Wer ist am sportlichsten unter euch?",
         "message": [
             "Sport ist Mord. Trink *${shots}*, *${winner}*.",
             "*${winner}* bleib schön fit und verteile *${shots}*."
+        ]
+    },
+    {
+        "title": "Wer schaut am ehesten romantische Filme?",
+        "message": [
+            "*${winner}* ist wohl ein richtiger Romantiker. Verteile *${shots}*.",
+            "Sehr süß *${winner}*. Dafür trinkst du erstmal *${shots}*."
         ]
     },
     {
@@ -56,6 +70,27 @@
         ]
     },
     {
+        "title": "Wer ist der unsicherste?",
+        "message": [
+            "Hoffentlich hilft dir Alkohol *${winner}*. Trink *${shots}*.",
+            "*${winner}* kannst du dich wenigsten entscheiden an wen du *${shots}* verteilst?"
+        ]
+    },
+    {
+        "title": "Wer wurde eher von einem Bären aufgezogen?",
+        "message": [
+            "Wird wohl eher ein Panda gewesen sein, nicht wahr *${winner}*? Trink *${shots}*.",
+            "Bestimmt von einem Schwarzbär, oder *${winner}*? Verteile *${shots}*."
+        ]
+    },
+    {
+        "title": "Wer ist am emotionalsten?",
+        "message": [
+            "Brauchst du erstmal eine Umarmung *${winner}*? Kriegst du aber nicht, stattdesen bekommst du *${shots}*!",
+            "Lass deine Emotionen frei und verteile *${shots}* *${winner}*!"
+        ]
+    },
+    {
         "title": "Wer ist am spielsüchtigsten?",
         "message": [
             "Das Haus gewinnt immer, *${winner}*. Trink *${shots}*.",
@@ -63,10 +98,31 @@
         ]
     },
     {
+        "title": "Wer war wahrscheinlich der erste, der jemanden geküsst hat?",
+        "message": [
+            "*${winner}* du warst wohl richtig früh reif. Du darfst *${shots}* verteilen.",
+            "Hoffentlich hast du es nicht bereut *${winner}*. Trink darauf *${shots}*."
+        ]
+    },
+    {
         "title": "Wer ist am besten in Mathe?",
         "message": [
             "*${winner}* der Mathe-Nerd. Trink *${shots}*.",
             "Kleines Mathe-Ass. *${winner}* darf *${shots}* verteilen."
+        ]
+    },
+    {
+        "title": "Wer ist bei einem ersten Date wohl am peinlichsten?",
+        "message": [
+            "Nach *${shots}* vergisst du es hoffentlich wieder *${winner}*.",
+            "Als Trostpreis darf *${winner}* *${shots}* verteilen."
+        ]
+    },
+    {
+        "title": "Wer trifft am ehesten einen Geist?",
+        "message": [
+            "Solange du keine Angst vor Geistern hast ist ja alles gut *${winner}*. Verteile *${shots}*.",
+            "Bist du etwa ein Geisterjäger *${winner}*? Trink *${shots}*."
         ]
     },
     {
