@@ -53,7 +53,7 @@ class GameStep extends Step {
     super(room);
     this.handler = handler;
 
-    this.seating = [...room.playing];
+    this.seating = room.seating;
 
     this.playing.card = 'InformationCard';
     this.spectating.card = 'CarouselCard';

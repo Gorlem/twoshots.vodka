@@ -4,7 +4,7 @@
       <button class="button is-rounded" type="button" v-for="(option, index) in data.options" :key="option.key"
           :class="{
             'is-primary is-loading': data.selected === option.key,
-            'is-static': data.selected != null && data.selected !== option.key
+            'is-static': (data.selected != null && data.selected !== option.key) || option.static,
           }"
           :style="'--index: ' + index + ';'"
           @click="$emit('action', option.key)">
@@ -41,6 +41,11 @@ export default {
     position: absolute;
     transform: translate(-50%, -50%) rotate(var(--degree)) translate(min(35vh, 35vw)) rotate(calc(-1 * var(--degree)));
     clip-path: invert;
+  }
+
+  .circle {
+    height: min(70vh, 70vw);
+    width: min(70vh, 70vw);
   }
 
   .circle::before {

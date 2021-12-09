@@ -4,6 +4,7 @@ import Vote from './Vote.js';
 
 import Handler from '../handler/Handler.js';
 import LobbyFlow from '../handler/LobbyFlow.js';
+import SeatFlow from '../handler/SeatFlow.js';
 import PendingFlow from '../handler/PendingFlow.js';
 import WaitingFlow from '../handler/WaitingFlow.js';
 
@@ -38,6 +39,7 @@ export default class Room {
     this.vote.setPercentage(50.1);
 
     this.handler.pushFlow(LobbyFlow);
+    this.handler.pushFlow(SeatFlow);
     this.handler.nextStep();
   }
 
@@ -123,6 +125,10 @@ export default class Room {
     if (this.playing.has(user)) {
       this.playing.delete(user);
       this.handler?.removedPlayer(user);
+
+      if (this.seating) {
+        _.pull(this.seating, user);
+      }
     }
 
     if (this.spectating.has(user)) {

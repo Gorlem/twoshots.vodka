@@ -141,5 +141,9 @@
                 "value": "nach rechts 👉"
             }
         ]
+    },
+    "seats": {
+        "title": "Freie Platzwahl",
+        "message": "Wählt bitte aus, wo ihr abhängig von *${player}* sitzt."
     }
 }
