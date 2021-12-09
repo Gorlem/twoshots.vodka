@@ -23,7 +23,7 @@
     {
         "title": "Wer rennt am ehesten weg, um sich dem Zirkus anzuschließen?",
         "message": [
-            "*${winner}* zeig uns doch mal deine Kunsttücke und trink *${shots}*.",
+            "*${winner}* zeig uns doch mal deine Kunststücke und trink *${shots}*.",
             "Hast wohl 'nen Clown gefrühstückt, *${winner}*. Verteile *${shots}*."
         ]
     },

@@ -39,13 +39,16 @@
     },
     "setup:name": {
         "title": "Hier könnte ihr Name stehen",
-        "message": "Bitte geb einen Namen ein. Deine Mitspieler werden diesen Namen sehen.",
+        "message": "Bitte gib einen Namen ein. Deine Mitspieler werden diesen Namen sehen.",
         "data": {
             "button": "Bestätigen ☝"
         }
     },
     "setup:name:toolong": {
         "footer": "Dein Name darf nicht länger als ${max} Zeichen sein."
+    },
+    "setup:name:tooshort": {
+        "footer": "Dein Name muss mindestens ${min} Zeichen lang sein."
     },
     "polls:explanation": {
         "message": "Es geht um *${shots}*. Diese müssen entweder getrunken oder verteilt werden."
@@ -75,7 +78,7 @@
         }
     },
     "pending:waiting": {
-        "title": "Du musst jetzt etwas gedudig sein",
+        "title": "Du musst jetzt etwas geduldig sein",
         "message": "Die Mitspieler stimmen gleich ab, ob du beitreten darfst."
     },
     "pending:voting": {
