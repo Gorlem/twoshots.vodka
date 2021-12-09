@@ -81,6 +81,10 @@ export default class Room {
   forceFlow(flowName) {
     const flow = flows[flowName];
 
+    if (flow == null) {
+      return;
+    }
+
     if (this.cache.flows == null || this.cache.flows.length === 0) {
       this.cache.flows = [flow];
     } else {

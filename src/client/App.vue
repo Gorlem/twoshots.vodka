@@ -33,6 +33,7 @@ import PollCard from '@/components/cards/PollCard.vue';
 import PollResultCard from '@/components/cards/PollResultCard.vue';
 import HorseRaceGame from '@/components/games/HorseRaceGame.vue';
 import HorseRaceGameResults from '@/components/games/HorseRaceGameResults.vue';
+import CarouselCard from '@/components/cards/CarouselCard.vue';
 
 import socket from '@/socket';
 
@@ -48,6 +49,7 @@ export default {
     PollCard,
     PollResultCard,
     StartCard,
+    CarouselCard,
   },
   data() {
     return {

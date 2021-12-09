@@ -53,18 +53,24 @@ class GameStep extends Step {
     super(room);
     this.handler = handler;
 
-    this.global.card = 'InformationCard';
-
     this.seating = [...room.playing];
+
+    this.playing.card = 'InformationCard';
+    this.spectating.card = 'CarouselCard';
 
     this.giveBomb(_.sample(this.seating));
 
-    setTimeout(() => {
+    const id = setTimeout(() => {
       handler.nextStep({ loser: this.current, shots });
     }, _.random(...fuseTime));
+    clearTimeout(id);
   }
 
   giveBomb(player) {
+    if (player === null) {
+      return;
+    }
+
     if (this.current != null) {
       this.players[this.current.id].card = undefined;
       this.players[this.current.id].data = undefined;
@@ -76,7 +82,12 @@ class GameStep extends Step {
       ...template(hasBomb),
     };
 
-    this.global.data = template(waiting, { bomb: player.name });
+    this.playing.data = template(waiting, { bomb: player.name });
+
+    this.spectating.data = {
+      options: this.seating.map((user) => ({ key: user.id, value: user.name + (user.id === player.id ? ' 💣' : '') })),
+      selected: true,
+    };
 
     this.current = player;
 

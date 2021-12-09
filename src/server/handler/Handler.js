@@ -80,4 +80,8 @@ export default class Handler {
   addedSpectator(user) {
     this.step?.addedSpectator?.(user);
   }
+
+  removedSpectator(user) {
+    this.step?.removedSpectator?.(user);
+  }
 }
