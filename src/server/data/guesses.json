@@ -280,5 +280,78 @@
         "unit": "Millionen",
         "answer": 510,
         "source": "https://de.statista.com/statistik/daten/studie/150407/umfrage/die-zehn-meistgesprochenen-sprachen-weltweit/"
+    },
+    {
+        "question": "Wie viel kostet der teuerste Platz für einen Hot Dog Stand im New York Central Park Zoo?",
+        "unit": "$",
+        "answer": 289.500,
+        "source": "https://www.nytimes.com/2013/09/05/nyregion/the-six-figure-price-tag-for-selling-a-two-dollar-hot-dog.html"
+    },
+    {
+        "question": "In welchem Jahr wurde die erste Webcam entwickelt?",
+        "unit": null,
+        "answer": 1991,
+        "source": "https://www.cl.cam.ac.uk/coffee/qsf/timeline.html"
+    },
+    {
+        "question": "Wie hoch war der Pro-Kopf-Verbrauch von Tiefkühlkost in Deutschland im Jahr 2020?",
+        "unit": "Kilogramm",
+        "answer": 44.8,
+        "source": "https://de.statista.com/statistik/daten/studie/37571/umfrage/pro-kopf-verbrauch-von-tiefkuehlkost/"
+    },
+    {
+        "question": "Wie viele verschiedene Baumarten gibt es in den Wäldern Deutschlands?",
+        "unit": null,
+        "answer": 51,
+        "source": "https://www.deutschewildtierstiftung.de/baumarten-laubbaum-nadelbaum"
+    },
+    {
+        "question": "Wie viele Freiwillige Feuerwehren gibt es in Deutschland? (Stand 2018)",
+        "unit": null,
+        "answer": 22155,
+        "source": "https://www.feuerwehrverband.de/presse/statistik/"
+    },
+    {
+        "question": "Wie viele Berufsfeuerwehren gibt es in Deutschland? (Stand 2018)",
+        "unit": null,
+        "answer": 104,
+        "source": "https://www.feuerwehrverband.de/presse/statistik/"
+    },
+    {
+        "question": "Wie viele Werksfeuerwehren gibt es in Deutschland? (Stand 2018)",
+        "unit": null,
+        "answer": 771,
+        "source": "https://www.feuerwehrverband.de/presse/statistik/"
+    },
+    {
+        "question": "Wie viel Prozent der deutschen Bevölkerung besitzt die Blutgruppe A?",
+        "unit": "%",
+        "answer": 43,
+        "source": "https://magazin.blutspende.de/von-a-bis-0/blutgruppen-verteilung-in-der-bevoelkerung"
+    }
+    ,
+    {
+        "question": "Wie viel Prozent der deutschen Bevölkerung besitzt die Blutgruppe B?",
+        "unit": "%",
+        "answer": 11,
+        "source": "https://magazin.blutspende.de/von-a-bis-0/blutgruppen-verteilung-in-der-bevoelkerung"
+    },
+    {
+        "question": "Wie viel Prozent der deutschen Bevölkerung besitzt die Blutgruppe AB?",
+        "unit": "%",
+        "answer": 5,
+        "source": "https://magazin.blutspende.de/von-a-bis-0/blutgruppen-verteilung-in-der-bevoelkerung"
+    },
+    {
+        "question": "Wie viel Prozent der deutschen Bevölkerung besitzt die Blutgruppe 0?",
+        "unit": "%",
+        "answer": 41,
+        "source": "https://magazin.blutspende.de/von-a-bis-0/blutgruppen-verteilung-in-der-bevoelkerung"
+    },
+    {
+        "question": "Wie viele schwarze Streifen sind auf einem Zebrastreifen Schild?",
+        "unit": null,
+        "answer": 5,
+        "source": "http://www.strassenschilder.de/richtzeichen/fussgaengerueberweg/"
     }
 ]
