@@ -60,10 +60,9 @@ class GameStep extends Step {
 
     this.giveBomb(_.sample(this.seating));
 
-    const id = setTimeout(() => {
+    setTimeout(() => {
       handler.nextStep({ loser: this.current, shots });
     }, _.random(...fuseTime));
-    clearTimeout(id);
   }
 
   giveBomb(player) {
