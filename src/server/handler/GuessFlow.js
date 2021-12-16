@@ -33,6 +33,8 @@ class GuessStep extends StepWithVote {
       button: explanation.data.button,
     };
 
+    this.spectating.card = 'InformationCard';
+
     this.update();
   }
 
