@@ -39,28 +39,24 @@ export default {
     top: 50%;
     left: 50%;
     position: absolute;
-    transform: translate(-50%, -50%) rotate(var(--degree)) translate(min(35vh, 35vw)) rotate(calc(-1 * var(--degree)));
+    transform: translate(-50%, -50%) rotate(var(--degree)) translate(min(25vh, 25vw)) rotate(calc(-1 * var(--degree)));
     clip-path: invert;
   }
 
   .circle {
-    height: min(70vh, 70vw);
-    width: min(70vh, 70vw);
+    height: min(50vh, 50vw);
+    width: min(50vh, 50vw);
+    position: relative;
+    margin: 5em;
   }
 
   .circle::before {
     display: block;
     content: " ";
-    height: min(70vh, 70vw);
-    width: min(70vh, 70vw);
+    height: inherit;
+    width: inherit;
 
     border: 5px solid hsl(171, 100%, 29%);
     border-radius: 50%;
-
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
   }
 </style>

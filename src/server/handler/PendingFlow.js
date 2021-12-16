@@ -6,8 +6,6 @@ import StepWithVote from './StepWithVote.js';
 import { get, template } from '../texts.js';
 
 const voteText = get('generic', 'pending:vote');
-const votingText = get('generic', 'pending:voting');
-
 const yesText = get('generic', 'pending:yes');
 const noText = get('generic', 'pending:no');
 
@@ -26,26 +24,37 @@ class VoteStep extends StepWithVote {
     };
 
     this.update();
-    this.player.sendCard('InformationCard', votingText);
+    this.player.handler.nextStep();
+
+    this.seat = null;
   }
 
   nextStep() {
-    this.handler.nextStep({ player: this.player, results: this.vote.results });
+    if (this.seat == null) {
+      return;
+    }
+
+    this.handler.nextStep({ player: this.player, results: this.vote.results, seat: this.seat });
   }
 
   action(user, payload) {
     this.vote.submit(user, payload);
 
     this.players[user.id].data = {
-      selected: true,
+      selected: payload,
     };
 
     this.update();
   }
+
+  setSeat(seat) {
+    this.seat = seat;
+    this.vote.checkCondition();
+  }
 }
 
 class ResultStep extends Step {
-  constructor(handler, room, { player, results }) {
+  constructor(handler, room, { player, results, seat }) {
     super(room);
     const counts = _.countBy([...results], '1');
 
@@ -53,6 +62,7 @@ class ResultStep extends Step {
 
     if (counts.yes > counts.no) {
       room.addPlayer(player);
+      room.seating.splice(seat, 0, player);
 
       this.global.card = 'InformationCard';
       this.global.data = {
