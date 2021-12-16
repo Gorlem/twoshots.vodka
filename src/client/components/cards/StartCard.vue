@@ -10,13 +10,15 @@
         </datalist>
         <div class="field has-addons">
           <p class="control">
-            <input class="input" type="text" list="drinks" v-model="left" ref="input"/>
+            <input class="input" type="text" list="drinks" :placeholder="placeholderLeft"
+              v-model="left" @keydown.enter="$refs.right.focus()" ref="left"/>
           </p>
           <p class="control">
             <span class="button is-static">{{ data.divider }}</span>
           </p>
           <p class="control">
-            <input class="input" type="text" list="drinks" v-model="right"/>
+            <input class="input" type="text" list="drinks" :placeholder="placeholderRight"
+              v-model="right" @keydown.enter="$emit('action', left, right)" ref="right"/>
           </p>
         </div>
         <p class="control">
@@ -44,10 +46,31 @@ export default {
     return {
       left: '',
       right: '',
+      placeholderLeft: '',
+      placeholderRight: '',
+      timer: '',
     };
   },
   mounted() {
-    this.$refs.input.focus();
+    this.$refs.left.focus();
+
+    this.placeholderLeft = this.randomPart();
+    this.placeholderRight = this.randomPart();
+
+    this.timer = setInterval(this.updatePlaceholder, 5000);
+  },
+  methods: {
+    randomPart() {
+      const number = Math.floor(Math.random() * this.data.names.length);
+      return this.data.names[number];
+    },
+    updatePlaceholder() {
+      if (Math.random() > 0.5) {
+        this.placeholderLeft = this.randomPart();
+      } else {
+        this.placeholderRight = this.randomPart();
+      }
+    },
   },
 };
 </script>

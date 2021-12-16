@@ -18,7 +18,7 @@ class StartStep {
     if (left == null && right == null) {
       this.handler.nextStep({ roomId: null });
     } else {
-      const roomId = Game.combineParts(left, right);
+      const roomId = Game.combineParts(left, right).toLowerCase();
       this.handler.nextStep({ roomId });
     }
   }
