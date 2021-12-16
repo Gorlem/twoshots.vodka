@@ -150,7 +150,7 @@
         "title": "Wer stirbt von euch als erstes?",
         "message": [
             "Pass mal besser auf dich auf, *${winner}*. Trink dafür *${shots}*.",
-            "*${winner}* du stehst wohl auf Risik. Verteile *${shots}*."
+            "*${winner}* du stehst wohl auf Risiko. Verteile *${shots}*."
         ]
     }
 ]
