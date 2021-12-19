@@ -2,7 +2,7 @@
   <InformationCard :data="data">
     <div v-for="result in data.results" :key="result[0]">
       <span class="is-pulled-right is-size-1">{{ result[0] }}</span>
-      <span class="is-size-1" v-for="index in result[1]" :key="index">☝</span>
+      <span class="is-size-1">{{result[1]}}x ☝</span>
     </div>
   </InformationCard>
 </template>
