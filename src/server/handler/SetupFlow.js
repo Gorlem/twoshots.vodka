@@ -46,9 +46,15 @@ class NameSelectionStep {
     name = name.trim();
     if (name.length > 10) {
       this.sendCard(template(get('generic', 'setup:name:toolong'), { max: 10 }));
-    } else {
-      this.handler.nextStep({ role: this.role, name, room: this.room });
+      return;
     }
+
+    if (name.length < 1) {
+      this.sendCard(template(get('generic', 'setup:name:tooshort'), { min: 1 }));
+      return;
+    }
+
+    this.handler.nextStep({ role: this.role, name, room: this.room });
   }
 }
 
