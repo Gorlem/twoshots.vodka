@@ -56,8 +56,6 @@ class GameStep extends StepWithVote {
     this.handler = handler;
     this.teams = { left, right };
 
-    this.seating = room.seating;
-
     const parts = room.id.split('-');
 
     this.global.card = 'PollCard';

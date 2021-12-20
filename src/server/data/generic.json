@@ -171,5 +171,16 @@
     },
     "countdown": {
         "title": "*${number}*…"
+    },
+    "defendcastle:explanation": {
+        "title": "Verteidige dein Schloss",
+        "message": "Team *${leftName}* (*${leftPlayers}*) spielt gegen Team *${rightName}* (*${rightPlayers}*).\nTippt so schnell ihr könnt, um das gegnerische Schloss zu erreichen.",
+        "data": {
+            "button": "Verstanden ✔"
+        }
+    },
+    "defendcastle:winner": {
+        "title": "*${winner}* hat gewonnen",
+        "message": "Somit muss Team *${losersName}* (*${losers}*) *${shots}* trinken!"
     }
 }
