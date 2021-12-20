@@ -145,5 +145,28 @@
     "seats": {
         "title": "Freie Platzwahl",
         "message": "Wählt bitte aus, wo ihr abhängig von *${player}* sitzt."
+    },
+    "rockpaperscissor:explanation": {
+        "title": "Schere, Stein, Papier",
+        "message": "Team *${leftName}* (*${leftPlayers}*) spielt gegen Team *${rightName}* (*${rightPlayers}*).\nJeder Spieler wählt zwischen Schere, Stein und Papier aus.",
+        "data": {
+            "button": "Verstanden ✔"
+        }
+    },
+    "rockpaperscissor:draw": {
+        "title": "Unentschieden",
+        "message": "Dafür trinkt ihr alle *${shots}*."
+    },
+    "rockpaperscissor:winner": {
+        "title": "*${winner}* schlägt *${loser}*",
+        "message": "Somit muss Team *${losersName}* (*${losers}*) *${shots}* trinken!"
+    },
+    "rockpaperscissor:team": {
+        "title": "Team *${team}*",
+        "message": "Die Mehrheit entscheidet. Falls ihr euch im Team nicht einig seid, wird nochmal gewählt."
+    },
+    "rockpaperscissor:spectator": {
+        "title": "Team *${left}* gegen Team *${right}*",
+        "message": "Die Mehrheit entscheidet. Falls ihr euch im Team nicht einig seid, wird nochmal gewählt."
     }
 }

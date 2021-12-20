@@ -27,8 +27,12 @@ export default class Vote {
     this.checkCondition();
   }
 
-  reset() {
-    this.results.clear();
+  reset(player) {
+    if (player == null) {
+      this.results.clear();
+    } else {
+      this.results.delete(player);
+    }
   }
 
   removedPlayer(user) {
