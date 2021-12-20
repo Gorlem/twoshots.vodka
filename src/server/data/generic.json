@@ -168,5 +168,8 @@
     "rockpaperscissor:spectator": {
         "title": "Team *${left}* gegen Team *${right}*",
         "message": "Die Mehrheit entscheidet. Falls ihr euch im Team nicht einig seid, wird nochmal gewählt."
+    },
+    "countdown": {
+        "title": "*${number}*…"
     }
 }

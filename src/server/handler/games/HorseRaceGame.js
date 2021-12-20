@@ -6,6 +6,8 @@ import StepWithVote from '../StepWithVote.js';
 import { get, template } from '../../texts.js';
 import generateShots from '../../shots.js';
 
+import CountdownStep from '../CountdownStep.js';
+
 const explanation = get('generic', 'game:horserace:explanation');
 const results = get('generic', 'game:horserace:results');
 
@@ -134,6 +136,7 @@ class ResultsStep extends Step {
 
 export default [
   ExplanationStep,
+  CountdownStep,
   GameStep,
   ResultsStep,
 ];
