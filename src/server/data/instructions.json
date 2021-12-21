@@ -76,7 +76,23 @@
         "message": "Darf ich mal streicheln?"
     },
     {
+        "title": "Alle ohne einen Bart trinken *${shots}*",
+        "message": "Wenigstens bleibt nichts im Bart hängen."
+    },
+    {
         "title": "Auf Ex",
         "message": "*${players[0]}* muss exen."
+    },
+    {
+        "title": "…and two shots of vodka",
+        "message": "*2 Schlücke* an jeden!"
+    },
+    {
+        "title": "Wer austeilen kann, muss auch einstecken können",
+        "message": "Trink *${shots}*, *${players[0]}*. Dafür darfst du jetzt auch *${shots}* verteilen."
+    },
+    {
+        "title": "Wasserfall",
+        "message": "Alle fangen gleichzeitig an zu trinken. Höre erst auf wenn dein rechter Nachbar absetzt. *${players[0]}* darf als erstes absetzen."
     }
 ]
