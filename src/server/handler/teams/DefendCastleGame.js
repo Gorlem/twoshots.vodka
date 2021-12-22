@@ -6,6 +6,7 @@ import generateShots from '../../shots.js';
 import CountdownStep from '../CountdownStep.js';
 
 const explanationText = get('generic', 'defendcastle:explanation');
+const gameText = get('generic', 'defendcastle:game');
 const winnerText = get('generic', 'defendcastle:winner');
 
 class ExplanationStep extends StepWithVote {
@@ -63,6 +64,18 @@ class GameStep extends Step {
       left: parts[0],
       right: parts[2],
     };
+
+    for (const player of left) {
+      this.players[player.id].data = {
+        ...template(gameText, { team: parts[0] }),
+      };
+    }
+    for (const player of right) {
+      this.players[player.id].data = {
+        ...template(gameText, { team: parts[2] }),
+      };
+    }
+
     this.send();
 
     this.interval = setInterval(this.updateScore.bind(this), 100);
@@ -88,7 +101,7 @@ class GameStep extends Step {
 
     this.prevScore = this.score;
 
-    if (this.score === -100 || this.score === 100) {
+    if (this.score <= -100 || this.score >= 100) {
       this.finish();
     }
   }

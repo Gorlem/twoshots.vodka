@@ -1,6 +1,8 @@
 <template>
   <div class="hero-body has-background-info tug-of-war" @click="$emit('action')">
     <div class="container">
+      <h1 class="title has-text-light is-unselectable" v-html="data?.title"></h1>
+      <h2 class="subtitle has-text-light is-unselectable" v-html="data?.message"></h2>
       <div class="has-background-info-dark is-relative" ref="field">
         <p class="is-size-1 is-unselectable has-text-light mr-3 is-pulled-right">{{ data.right }} 🏰</p>
         <p class="is-size-1 is-unselectable has-text-light ml-3">🏰 {{ data.left }}</p>

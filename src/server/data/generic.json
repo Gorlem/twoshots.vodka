@@ -179,6 +179,9 @@
             "button": "Verstanden ✔"
         }
     },
+    "defendcastle:game": {
+        "title": "Team *${team}*"
+    },
     "defendcastle:winner": {
         "title": "*${winner}* hat gewonnen",
         "message": "Somit muss Team *${losersName}* (*${losers}*) *${shots}* trinken!"
