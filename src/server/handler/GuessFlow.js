@@ -74,7 +74,7 @@ class ResultStep extends Step {
 
     const answer = guess.answer.toLocaleString('de-DE', { useGrouping: false }) + (guess.unit == null ? '' : ` ${guess.unit}`);
 
-    this.global.card = 'InformationCard';
+    this.global.card = 'ResultsCard';
     this.global.data = {
       ...template(resultsText, {
         shots,
@@ -83,9 +83,13 @@ class ResultStep extends Step {
         answer,
         url: guess.source,
         domain: new URL(guess.source).hostname,
-        results: [...results.values()],
       }),
       title: guess.question,
+      options: _.entries(results).map((e) => ({
+        key: e[0].id,
+        value: e[0].name,
+        result: e[1].toLocaleString('de-DE', { useGrouping: false }) + (guess.unit == null ? '' : ` ${guess.unit}`),
+      })),
     };
 
     this.send();

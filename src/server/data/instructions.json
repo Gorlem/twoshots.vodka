@@ -5,7 +5,7 @@
     },
     {
         "title": "*${players[0]}* ist dran",
-        "message": "...und muss *${shots}* trinken."
+        "message": "…und muss *${shots}* trinken."
     },
     {
         "title": "Hoffentlich mag *${players[0]}* euch",

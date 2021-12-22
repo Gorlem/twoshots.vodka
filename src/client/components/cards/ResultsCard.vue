@@ -1,8 +1,8 @@
 <template>
   <InformationCard :data="data">
-    <div v-for="result in data.results" :key="result[0]">
-      <span class="is-pulled-right is-size-1">{{ result[0] }}</span>
-      <span class="is-size-1">{{result[1]}}x ☝</span>
+    <div v-for="option in data.options" :key="option.key">
+      <span class="is-size-4">{{ option.value }}</span>
+      <span class="tag is-primary is-medium is-pulled-right">{{ option.result }}</span>
     </div>
   </InformationCard>
 </template>

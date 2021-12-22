@@ -24,7 +24,7 @@
         }
     },
     "guess:results": {
-        "message": "Die richtige Antwort ist *${answer}*. Somit darf *${winner}* *${shots}* verteilen, und *${loser}* muss *${shots}* trinken.\n\nAbgegebene Antworten waren: ${results}",
+        "message": "Die richtige Antwort ist *${answer}*. Somit darf *${winner}* *${shots}* verteilen, und *${loser}* muss *${shots}* trinken.",
         "footer": "Quelle: [${domain}](${url})"
     },
     "setup:role": {
@@ -219,7 +219,7 @@
         "message": "Du bist als *${rank}.* fertig!"
     },
     "countclick:results": {
-        "title": "*${winner}* war als erstes fertig und kann *${shots}* verteilen",
-        "message": "*${loser}* hat am längsten gebraucht und muss *${shots}* trinken."
+        "title": "*${winner}* war als erstes fertig",
+        "message": "…und kann *${shots}* verteilen. Am längsten hat *${loser}* gebraucht und muss *${shots}* trinken."
     }
 }

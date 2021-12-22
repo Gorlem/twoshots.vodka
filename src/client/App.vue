@@ -30,12 +30,12 @@ import InformationCard from '@/components/cards/InformationCard.vue';
 import ConfirmationCard from '@/components/cards/ConfirmationCard.vue';
 import InputCard from '@/components/cards/InputCard.vue';
 import PollCard from '@/components/cards/PollCard.vue';
-import PollResultCard from '@/components/cards/PollResultCard.vue';
 import HorseRaceGame from '@/components/games/HorseRaceGame.vue';
 import HorseRaceGameResults from '@/components/games/HorseRaceGameResults.vue';
 import CarouselCard from '@/components/cards/CarouselCard.vue';
 import DefendCastleGame from '@/components/teams/DefendCastleGame.vue';
 import CanvasCard from '@/components/cards/CanvasCard.vue';
+import ResultsCard from '@/components/cards/ResultsCard.vue';
 
 import socket from '@/socket';
 
@@ -49,11 +49,11 @@ export default {
     HorseRaceGame,
     HorseRaceGameResults,
     PollCard,
-    PollResultCard,
     StartCard,
     CarouselCard,
     DefendCastleGame,
     CanvasCard,
+    ResultsCard,
   },
   data() {
     return {

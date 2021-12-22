@@ -65,10 +65,14 @@ class ResultStep extends Step {
       .filter((count) => count[1] === max)
       .head()[0];
 
-    this.global.card = 'PollResultCard';
+    this.global.card = 'ResultsCard';
     this.global.data = {
       ...template({ message: _.sample(poll.message), title: poll.title }, { shots, winner }),
-      results: _.entries(counts),
+      options: _.entries(counts).map((e) => ({
+        key: e[0],
+        value: e[0],
+        result: `${e[1]}x ☝`,
+      })),
     };
 
     this.send();

@@ -73,6 +73,8 @@ class GameStep extends Step {
     }
 
     this.send();
+
+    this.start = Date.now();
   }
 
   action(user, payload) {
@@ -89,7 +91,7 @@ class GameStep extends Step {
     this.send();
 
     if (options.length === 0) {
-      this.finished.set(user, Date.now());
+      this.finished.set(user, Date.now() - this.start);
 
       this.players[user.id].card = 'InformationCard';
       this.players[user.id].data = {
@@ -122,13 +124,18 @@ class ResultsStep extends Step {
     const winner = results.first()[0].name;
     const loser = results.last()[0].name;
 
-    this.global.card = 'InformationCard';
+    this.global.card = 'ResultsCard';
     this.global.data = {
       ...template(resultsText, {
         winner,
         loser,
         shots,
       }),
+      options: results.map((r) => ({
+        key: r[0].id,
+        value: r[0].name,
+        result: `${(r[1] / 1000).toLocaleString('de-DE')} Sekunden`,
+      })),
     };
 
     this.send();
