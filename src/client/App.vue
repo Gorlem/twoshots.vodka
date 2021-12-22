@@ -35,6 +35,7 @@ import HorseRaceGame from '@/components/games/HorseRaceGame.vue';
 import HorseRaceGameResults from '@/components/games/HorseRaceGameResults.vue';
 import CarouselCard from '@/components/cards/CarouselCard.vue';
 import DefendCastleGame from '@/components/teams/DefendCastleGame.vue';
+import CanvasCard from '@/components/cards/CanvasCard.vue';
 
 import socket from '@/socket';
 
@@ -52,6 +53,7 @@ export default {
     StartCard,
     CarouselCard,
     DefendCastleGame,
+    CanvasCard,
   },
   data() {
     return {

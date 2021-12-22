@@ -202,5 +202,24 @@
     "categories:results": {
         "message": "*${winner}* hat mit *${winnerCorrect}* richtigen Antworten gewonnen und darf *${shots}* verteilen. *${loser}* hatte nur *${loserCorrect}* richtig und muss *${shots}* trinken.",
         "footer": "Quelle: [${domain}](${url})"
+    },
+    "countclick:explanation": {
+        "title": "Zähle und Klicke",
+        "message": "Klicke die Zahlen in der richtigen Reihenfolge an. Es geht um *${shots}*.",
+        "data": {
+            "button": "Verstanden ✔"
+        }
+    },
+    "countclick:game": {
+        "title": "Verklicke dich bloß nicht",
+        "message": "Wenn du eine falsche Zahl anklickst, muss du von vorne beginnen."
+    },
+    "countclick:finished": {
+        "title": "Glückwunsch",
+        "message": "Du bist als *${rank}.* fertig!"
+    },
+    "countclick:results": {
+        "title": "*${winner}* war als erstes fertig und kann *${shots}* verteilen",
+        "message": "*${loser}* hat am längsten gebraucht und muss *${shots}* trinken."
     }
 }

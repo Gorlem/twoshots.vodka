@@ -39,7 +39,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .tug-of-war {
   touch-action: manipulation;
 }

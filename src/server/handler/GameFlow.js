@@ -2,10 +2,12 @@ import _ from 'lodash';
 
 import HorseRaceGame from './games/HorseRaceGame.js';
 import BombGame from './games/BombGame.js';
+import CountClick from './games/CountClickGame.js';
 
 const games = [
   HorseRaceGame,
   BombGame,
+  CountClick,
 ];
 
 class GameStep {
