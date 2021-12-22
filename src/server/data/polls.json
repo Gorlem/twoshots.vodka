@@ -152,5 +152,68 @@
             "Pass mal besser auf dich auf, *${winner}*. Trink dafür *${shots}*.",
             "*${winner}* du stehst wohl auf Risiko. Verteile *${shots}*."
         ]
+    },
+    {
+        "title": "Wer küsst am ehesten einen Frosch?",
+        "message": [
+            "Eine richtige Prinzessin, *${winner}*. Die Prinzessin darf *${shots}* verteilen.",
+            "Schon ein bisschen eklig, oder? *${winner}* trink *${shots}*"
+        ]
+    },
+    {
+        "title": "Wer wird als erstes eine Million Follower haben?",
+        "message": [
+            "*${winner}* wird mal ein richtiger Influenzer. Aber davor musst du *${shots}* trinken.",
+            "Vielleicht hilft es dir ja *${shots}* zu verteile, damit du viral gehst *${winner}*."
+        ]
+    },
+    {
+        "title": "Wer wird am ehesten in eine psychiatrische Klinik eingewiesen?",
+        "message": [
+            "Passt auf vor *${winner}*. Du darfst *${shots}* verteilen.",
+            "*${winner}* wenn du jetzt noch *${shots}* trinkst, dauert es vielleicht gar nicht mehr so lange."
+        ]
+    },
+    {
+        "title": "Wer ist am wahrscheinlichsten ein Außerirdischer?",
+        "message": [
+            "*${winner}* du warst mir schon immer suspekt. Trink *${shots}*.",
+            "Dafür, dass du dich so gut versteckst, darfst du *${shots}* verteilen, *${winner}*"
+        ]
+    },
+    {
+        "title": "Wer strandet am ehesten im Urlaub?",
+        "message": [
+            "Damit du die Zeit auch aushälst *${winner}* trinkst du am besten noch *${shots}*.",
+            "Verteile *${shots}* an die, die im Stich gelassen haben, *${winner}*."
+        ]
+    },
+    {
+        "title": "Wer räumt immer hinter allen auf?",
+        "message": [
+            "Jede Party braucht eine Putzfee, *${winner}*. Deine gute Arbeit wird belohnt, verteile *${shots}*.",
+            "Du könntest ja auch mal die anderen fragen, *${winner}*. Trink *${shots}*."
+        ]
+    },
+    {
+        "title": "Wer hat immer einen leeren Akku?",
+        "message": [
+            "Lad doch einfach mal dein Handy auf, *${winner}*. Als Strafe musst du *${shots}* trinken.",
+            "Hat denn niemand eine Powerbank für *${winner}*. Verteile *${shots}*."
+        ]
+    },
+    {
+        "title": "Wer gibt am meisten beim Shoppen aus?",
+        "message": [
+            "Günstiger als eine Therapie, oder *${winner}*? Verteile *${shots}*.",
+            "Ich will gar nicht wissen, wie viel du schon ausgegeben hast *${winner}*. Trinke *${shots}*."
+        ]
+    },
+    {
+        "title": "Wer ist die größte Petze?",
+        "message": [
+            "*${winner}* manchmal hilft es einfach Still zu sein. Trink *${shots}*.",
+            "*${winner}* für dein großes Maul darfst du *${shots}* verteilen."
+        ]
     }
 ]
