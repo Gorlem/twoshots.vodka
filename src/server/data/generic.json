@@ -182,5 +182,22 @@
     "defendcastle:winner": {
         "title": "*${winner}* hat gewonnen",
         "message": "Somit muss Team *${losersName}* (*${losers}*) *${shots}* trinken!"
+    },
+    "categories:explanation": {
+        "message": "Ihr habt gleich *60 Sekunden* um möglichst viel aus der Kategorie *${category}* aufzuzählen. Der Gewinner darf *${shots}* verteilen, der Verlierer muss *${shots}* trinken. Sollte einer alle *${size}* Antworten richtig erraten, endet das Spiel sofort.",
+        "data": {
+            "button": "Verstanden ✔"
+        }
+    },
+    "categories:game": {
+        "message": "Du hast noch *${seconds} Sekunden*.",
+        "data": {
+            "button": "Abgeben 😬"
+        },
+        "footer": "Bisher *${correct}* richtige Antworten."
+    },
+    "categories:results": {
+        "message": "*${winner}* hat mit *${winnerCorrect}* richtigen Antworten gewonnen und darf *${shots}* verteilen. *${loser}* hatte nur *${loserCorrect}* richtig und muss *${shots}* trinken.",
+        "footer": "Quelle: [${domain}](${url})"
     }
 }
