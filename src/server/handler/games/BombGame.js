@@ -110,7 +110,7 @@ class GameStep extends Step {
       this.giveBomb(_(this.seating).without(user).sample());
     } else {
       let index = this.seating.indexOf(user);
-      index += direction === 'left' ? -1 : 1;
+      index += direction === 'left' ? 1 : -1;
 
       if (index >= this.seating.length) {
         index = 0;
