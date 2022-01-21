@@ -18,6 +18,7 @@ winston.configure({
 winston.add(new winston.transports.Console());
 winston.add(new winston.transports.DailyRotateFile({
   filename: '%DATE%.log',
+  dirname: './logs',
   maxFiles: 30,
 }));
 
