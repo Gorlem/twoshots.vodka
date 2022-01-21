@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import winston from 'winston';
 
 import Vote from './Vote.js';
 
@@ -39,6 +40,9 @@ export default class Room {
 
   constructor(id) {
     this.id = id;
+
+    this.logger = winston.child({ room: id });
+
     this.vote = new Vote(this, this.nextFlow.bind(this));
     this.vote.setPercentage(50.1);
 
@@ -124,7 +128,7 @@ export default class Room {
   }
 
   remove(user) {
-    console.log(`removing ${user} from ${this}`);
+    this.logger.info(`Removing user ${user.name}`, { user: user.id });
 
     if (this.playing.has(user)) {
       this.playing.delete(user);

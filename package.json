@@ -24,7 +24,9 @@
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vue-socket.io-extended": "^4.0.5",
-    "vuex": "^4.0.0-rc.2"
+    "vuex": "^4.0.0-rc.2",
+    "winston": "^3.4.0",
+    "winston-daily-rotate-file": "^4.5.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

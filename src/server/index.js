@@ -1,3 +1,5 @@
+import winston from 'winston';
+
 import StartFlow from './handler/StartFlow.js';
 import SetupFlow from './handler/SetupFlow.js';
 
@@ -28,6 +30,8 @@ function joinRoom(room, user) {
     user.role = role;
     user.name = name;
     user.room = room;
+
+    user.logger.info(`Joined room as ${user.name} (${user.role})`, { room: room.id });
 
     if (role === 'spectator') {
       room.addSpectator(user);
@@ -82,6 +86,9 @@ export default function (io) {
     const user = new User(socket);
     socket.user = user;
 
+    user.logger = winston.child({ user: user.id });
+    user.logger.info('New user connection');
+
     user.send('room:data', null);
 
     user.on('path', (path) => {
@@ -89,7 +96,7 @@ export default function (io) {
         start(user);
       } else {
         const room = game.findRoomById(path.substring(1));
-        console.log(path, room);
+
         if (room == null) {
           user.send('location', {
             data: {
@@ -108,11 +115,12 @@ export default function (io) {
     user.on('room:action', (...payload) => user.room?.action(user, ...payload));
 
     user.on('force-flow', (flowName) => {
+      user.logger.info(`User forced ${flowName}`);
       user.room?.forceFlow(flowName);
     });
 
     user.on('disconnect', () => {
-      console.log(`${user} disconnected`);
+      user.logger.info('User disconnected');
       user.room?.remove(user);
     });
   });

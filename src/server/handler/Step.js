@@ -34,6 +34,8 @@ export default class Step {
   }
 
   send() {
+    this.room.logger.info(`Updating ${this.global.card}`, { data: this.global.data });
+
     if (this.global[dirty]) {
       this.updateAll();
       this.global[dirty] = false;
@@ -77,7 +79,6 @@ export default class Step {
 
   updatePlayer(user) {
     const { card, data } = _.defaultsDeep({}, this.players[user.id], this.playing, this.global);
-    console.log(card, data);
     user.sendCard(card, data);
   }
 

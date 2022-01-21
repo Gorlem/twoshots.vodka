@@ -197,7 +197,6 @@ class ResultStep extends Step {
   }
 
   static findWinner(left, right) {
-    console.log(left, right);
     if (left === right) {
       return 'draw';
     }
