@@ -199,6 +199,16 @@
         },
         "footer": "Bisher *${correct}* richtige Antworten."
     },
+    "categories:correct": {
+        "title": "*${answer}* ist *richtig*",
+        "message": "Weiter so!",
+        "footer": "Bisher *${correct}* richtige Antworten."
+    },
+    "categories:wrong": {
+        "title": "*${answer}* gehört *nicht* dazu",
+        "message": "Versuch's weiter!",
+        "footer": "Bisher *${correct}* richtige Antworten."
+    },
     "categories:results": {
         "message": "*${winner}* hat mit *${winnerCorrect}* richtigen Antworten gewonnen und darf *${shots}* verteilen. *${loser}* hatte nur *${loserCorrect}* richtig und muss *${shots}* trinken.",
         "footer": "Quelle: [${domain}](${url})"

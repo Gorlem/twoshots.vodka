@@ -11,6 +11,8 @@ import CountdownStep from './CountdownStep.js';
 const explanationText = get('generic', 'categories:explanation');
 const gameText = get('generic', 'categories:game');
 const resultsText = get('generic', 'categories:results');
+const correctText = get('generic', 'categories:correct');
+const wrongText = get('generic', 'categories:wrong');
 
 class ExplanationStep extends StepWithVote {
   constructor(handler, room) {
@@ -58,6 +60,8 @@ class InputStep extends Step {
   results = new Map();
   seconds = 60;
 
+  timeouts = [];
+
   constructor(handler, room, { category, shots }) {
     super(room);
     this.handler = handler;
@@ -85,7 +89,11 @@ class InputStep extends Step {
 
   nextStep() {
     this.handler.nextStep({ shots: this.shots, category: this.category, results: this.results });
+
     clearInterval(this.interval);
+    for (const timeout of this.timeouts) {
+      clearTimeout(timeout);
+    }
   }
 
   countdown() {
@@ -105,19 +113,43 @@ class InputStep extends Step {
   action(user, payload) {
     const cleaned = payload.toLowerCase().replace(/[^a-zäöüß]/g, ' ');
 
+    const answers = this.results.get(user);
     if (this.category.answers.includes(cleaned)) {
-      const answers = this.results.get(user);
       answers.add(cleaned);
 
+      this.players[user.id].card = 'InformationCard';
       this.players[user.id].data = {
-        ...template({ footer: gameText.footer }, { correct: answers.size }),
+        ...template(correctText, {
+          answer: payload,
+          correct: answers.size,
+        }),
       };
       this.send();
 
       if (answers.size === this.category.answers.length) {
         this.nextStep();
       }
+    } else {
+      this.players[user.id].card = 'InformationCard';
+      this.players[user.id].data = {
+        ...template(wrongText, {
+          answer: payload,
+          correct: answers.size,
+        }),
+      };
+      this.send();
     }
+
+    const id = setTimeout(() => {
+      _.pull(this.timeouts, id);
+
+      this.players[user.id].card = 'InputCard';
+      this.players[user.id].data = {
+        ...template({ footer: gameText.footer }, { correct: answers.size }),
+      };
+      this.send();
+    }, 500);
+    this.timeouts.push(id);
   }
 }
 
