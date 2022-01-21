@@ -165,7 +165,7 @@ class ResultStep extends Step {
     const winner = sorted.first();
     const loser = sorted.last();
 
-    this.global.card = 'InformationCard';
+    this.global.card = 'ResultsCard';
     this.global.data = {
       ...template(resultsText, {
         shots,
@@ -177,6 +177,11 @@ class ResultStep extends Step {
         domain: new URL(category.source).hostname,
       }),
       title: category.category,
+      options: sorted.map((entry) => ({
+        key: entry[0].id,
+        value: entry[0].name,
+        result: `${entry[1]} Antworten`,
+      })),
     };
 
     this.send();
