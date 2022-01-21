@@ -12,7 +12,7 @@ const gameText = get('generic', 'countclick:game');
 const finishedText = get('generic', 'countclick:finished');
 const resultsText = get('generic', 'countclick:results');
 
-const numbers = ['0️⃣', '1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣', '🔟'];
+const numbers = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣', '🔟'];
 
 class ExplanationStep extends StepWithVote {
   constructor(handler, room) {

@@ -215,7 +215,7 @@
     },
     "countclick:explanation": {
         "title": "Zähle und Klicke",
-        "message": "Klicke die Zahlen in der richtigen Reihenfolge an. Es geht um *${shots}*.",
+        "message": "Klicke die Zahlen von 1️⃣ bis 🔟 in der richtigen Reihenfolge an. Es geht um *${shots}*.",
         "data": {
             "button": "Verstanden ✔"
         }
