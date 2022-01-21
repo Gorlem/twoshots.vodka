@@ -1,6 +1,6 @@
 [
     {
-        "category": "Bundesländer Deutschland",
+        "category": "Bundesländer von Deutschland",
         "answers": [
             "schleswig holstein",
             "hamburg",
@@ -22,7 +22,7 @@
         "source": "https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/Glossar/bundeslaender.html"
     },
     {
-        "category": "Landkreise Deutschland",
+        "category": "Landkreise & Kreisefreie Städte in Deutschland",
         "answers": [
             "flensburg",
             "kiel",
@@ -426,19 +426,21 @@
         "source": "https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/Administrativ/04-kreise.html"
     },
     {
-        "category": "Charaktere der Sesamstraße",
+        "category": "Puppen der Sesamstraße",
         "answers": [
             "bibo",
-            "bob",
             "elmo",
             "ernie",
             "bert",
             "graf zahl",
             "grobi",
             "kermit",
+            "krümelmonster",
             "lulatsch",
             "mumpitz",
             "oscar",
+            "robert",
+            "schlemihl",
             "samson",
             "tiffy",
             "finchen",
@@ -447,7 +449,7 @@
         "source": "https://www.kino.de/artikel/sesamstrasse-namen--6wfv9j37h7"
     },
     {
-        "category": "Nachbarländer Deutschlands",
+        "category": "Nachbarländer von Deutschland",
         "answers": [
             "dänemark",
             "polen",
@@ -571,7 +573,7 @@
         "source": "https://awieatlas.de/europa-laender/"
     },
     {
-        "category": "Bundesländer Österreich",
+        "category": "Bundesländer in Österreich",
         "answers": [
             "burgenland",
             "kärnten",
@@ -586,7 +588,7 @@
         "source": "https://awieatlas.de/bundeslaender-oesterreich/"
     },
     {
-        "category": "Kantone Schweiz",
+        "category": "Kantone in der Schweiz",
         "answers": [
             "aargau",
             "appenzell ausserrhoden",
@@ -687,7 +689,7 @@
         "source": "https://www.issgesund.de/a/obstlexikon"
     },
     {
-        "category": "Körperteile des Menschen",
+        "category": "Organe des Menschen",
         "answers": [
             "muskeln",
             "skelett",
@@ -705,7 +707,7 @@
         "source": "https://de.wikipedia.org/wiki/Organ_(Biologie)#Organe_beim_Menschen"
     },
     {
-        "category": "Farben",
+        "category": "Farbnamen",
         "answers": [
             "achatgrau",
             "ahornrot",
@@ -1123,7 +1125,7 @@
         "source": "https://de.wiktionary.org/wiki/Verzeichnis:Deutsch/Farben"
     },
     {
-        "category": "Olympische Sportarten",
+        "category": "Olympische Sportarten (Nicht Disziplinen)",
         "answers": [
             "badminton",
             "basketball",
@@ -1240,7 +1242,7 @@
         "source": "https://de.wikipedia.org/wiki/Liste_der_Formel-1-Weltmeister"
     },
     {
-        "category": "Dschungelcamp Kandidaten",
+        "category": "Dschungelcamp Kandidaten (Vor- & Nachname)",
         "answers": [
             "costa cordalis",
             "lisa fitz",
@@ -1338,7 +1340,7 @@
             "benjamin boyce",
             "patricia blanco",
             "angelina heger",
-            "menderes bagcı",
+            "menderes bagci",
             "sophia wollersheim",
             "thorsten legat",
             "helena fürst",
