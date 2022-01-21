@@ -2,8 +2,24 @@ import express from 'express';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
 import { resolve } from 'path';
+import winston from 'winston';
+import 'winston-daily-rotate-file';
 
 import createGame from './index.js';
+
+winston.configure({
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.printf(({
+      timestamp, level, message, ...rest
+    }) => `${timestamp} ${level}: ${message} ${JSON.stringify(rest)}`),
+  ),
+});
+winston.add(new winston.transports.Console());
+winston.add(new winston.transports.DailyRotateFile({
+  filename: '%DATE%.log',
+  maxFiles: 30,
+}));
 
 const app = express();
 app.disable('x-powered-by');
