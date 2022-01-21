@@ -4,9 +4,9 @@
       <h1 class="title has-text-light is-unselectable" v-html="data?.title"></h1>
       <h2 class="subtitle has-text-light is-unselectable" v-html="data?.message"></h2>
       <div class="has-background-info-dark is-relative" ref="field">
-        <p class="is-size-1 is-unselectable has-text-light mr-3 is-pulled-right">{{ data.right }} 🏰</p>
-        <p class="is-size-1 is-unselectable has-text-light ml-3">🏰 {{ data.left }}</p>
-        <p :style="{ left: pixel + 'px', position: 'absolute', top: 0 }" class="is-size-1 is-unselectable" ref="tug">🤜⚔🤛</p>
+        <p class="is-size-4 is-unselectable has-text-light mr-3 is-pulled-right">{{ data.right }} 🏰</p>
+        <p class="is-size-4 is-unselectable has-text-light ml-3">🏰 {{ data.left }}</p>
+        <p :style="{ left: pixel + 'px', position: 'absolute', top: 0 }" class="is-size-4 is-unselectable" ref="tug">🤜⚔🤛</p>
       </div>
     </div>
   </div>
