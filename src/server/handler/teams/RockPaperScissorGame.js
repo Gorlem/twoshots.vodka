@@ -90,12 +90,12 @@ class GameStep extends StepWithVote {
 
   static keyToName(key) {
     if (key === 'scissor') {
-      return '✂ Schere';
+      return '✌ Schere';
     }
     if (key === 'rock') {
-      return '🪨 Stein';
+      return '✊ Stein';
     }
-    return '📃 Papier';
+    return '✋ Papier';
   }
 
   nextStep() {
@@ -176,6 +176,7 @@ class ResultStep extends Step {
     if (winner === 'draw') {
       content = template(drawText, {
         shots: generateShots(2, 5),
+        symbol: GameStep.keyToName(winnerSign),
       });
     } else {
       content = template(winnerText, {

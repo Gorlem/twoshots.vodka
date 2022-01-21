@@ -155,7 +155,7 @@
     },
     "rockpaperscissor:draw": {
         "title": "Unentschieden",
-        "message": "Dafür trinkt ihr alle *${shots}*."
+        "message": "Beide Teams haben sich für *${symbol}* entschieden. Dafür trinkt ihr alle *${shots}*."
     },
     "rockpaperscissor:winner": {
         "title": "*${winner}* schlägt *${loser}*",
