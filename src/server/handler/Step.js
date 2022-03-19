@@ -34,8 +34,6 @@ export default class Step {
   }
 
   send() {
-    this.room.logger.info(`Updating ${this.global.card}`, { data: this.global.data });
-
     if (this.global[dirty]) {
       this.updateAll();
       this.global[dirty] = false;

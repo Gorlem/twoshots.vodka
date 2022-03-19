@@ -6,8 +6,6 @@ import Vote from './Vote.js';
 import Handler from '../handler/Handler.js';
 import LobbyFlow from '../handler/LobbyFlow.js';
 import SeatFlow from '../handler/SeatFlow.js';
-import PendingFlow from '../handler/PendingFlow.js';
-import WaitingFlow from '../handler/WaitingFlow.js';
 
 import InstructionFlow from '../handler/InstructionFlow.js';
 import GuessFlow from '../handler/GuessFlow.js';
@@ -63,14 +61,11 @@ export default class Room {
     }
 
     for (const player of this.playing) {
-      player.send('room:data', {
-        vote: this.vote.data(),
-      });
+      player.send('room/vote', this.vote.data());
     }
   }
 
   addPlayer(user) {
-    user.handler.setRedirect(this.handler);
     this.playing.add(user);
     this.handler.addedPlayer(user);
     this.sendRoomData();
@@ -78,12 +73,9 @@ export default class Room {
 
   addPending(user) {
     this.pending.add(user);
-    user.handler.pushFlow(WaitingFlow);
-    user.handler.nextFlow();
   }
 
   addSpectator(user) {
-    user.handler.setRedirect(this.handler);
     this.spectating.add(user);
     this.handler.addedSpectator(user);
   }
@@ -109,12 +101,14 @@ export default class Room {
       this.cache.flows = _(flows).values().shuffle().value();
     }
 
-    let flow;
     if (this.pending.size > 0) {
-      flow = PendingFlow;
-    } else {
-      flow = this.cache.flows.shift();
+      for (const user of this.pending) {
+        this.playing.add(user);
+      }
+      this.pending.clear();
     }
+
+    const flow = this.cache.flows.shift();
 
     this.handler.pushFlow(flow);
     this.handler.nextFlow();
@@ -133,6 +127,7 @@ export default class Room {
     if (this.playing.has(user)) {
       this.playing.delete(user);
       this.handler?.removedPlayer(user);
+      this.vote.reset(user);
 
       if (this.seating) {
         _.pull(this.seating, user);
@@ -148,7 +143,6 @@ export default class Room {
       this.pending.delete(user);
     }
 
-    user.send('room:data', null);
     this.sendRoomData();
 
     if (this.playing.size === 0 && this.spectating.size === 0) {

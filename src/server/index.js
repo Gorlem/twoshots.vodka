@@ -1,127 +1,61 @@
 import winston from 'winston';
 
-import StartFlow from './handler/StartFlow.js';
-import SetupFlow from './handler/SetupFlow.js';
-
 import Game from './models/Game.js';
 import User from './models/User.js';
 
 const game = new Game();
 
-function joinRoom(room, user) {
-  if (room != null) {
-    user.room = room;
-    user.send('location', {
-      data: {
-        roomId: room.id,
-      },
-      title: `${room.id} | twoshots.vodka`,
-      path: `/${room.id}`,
-    });
-  }
-
-  user.handler.clear();
-  user.handler.pushFlow(SetupFlow);
-  user.handler.pushListener(({ role, name }) => {
-    if (user.room !== room) {
-      user.room?.remove(user);
-    }
-
-    user.role = role;
-    user.name = name;
-    user.room = room;
-
-    user.logger.info(`Joined room as ${user.name} (${user.role})`, { room: room.id });
-
-    if (role === 'spectator') {
-      room.addSpectator(user);
-    } else if (room.isInLobby()) {
-      room.addPlayer(user);
-    } else {
-      room.addPending(user);
-    }
-  });
-  user.handler.nextFlow({ room });
-}
-
-function start(user) {
-  user.room?.remove(user);
-
-  user.handler.clear();
-  user.handler.pushFlow(StartFlow);
-  user.handler.pushListener(({ roomId }) => {
-    let room;
-    if (roomId == null) {
-      room = game.createRoom();
-    } else {
-      room = game.findRoomById(roomId);
-    }
-
-    if (room != null) {
-      user.room = room;
-      user.send('location', {
-        data: {
-          roomId: room.id,
-        },
-        title: `${room.id} | twoshots.vodka`,
-        path: `/${room.id}`,
-      });
-    }
-
-    startOrJoinRoom(room, user);
-  });
-  user.handler.nextFlow();
-}
-
-function startOrJoinRoom(room, user) {
-  if (room == null) {
-    start(user);
-  } else {
-    joinRoom(room, user);
-  }
-}
-
 export default function (io) {
   io.on('connection', (socket) => {
-    const user = new User(socket);
-    socket.user = user;
+    socket.on('room/join', (roomId, role, name, callback) => {
+      const user = new User(socket);
+      socket.user = user;
+      user.role = role;
+      user.name = name;
 
-    user.logger = winston.child({ user: user.id });
-    user.logger.info('New user connection');
+      user.logger = winston.child({ user: user.id });
 
-    user.send('room:data', null);
+      let room;
 
-    user.on('path', (path) => {
-      if (path === '/') {
-        start(user);
+      if (roomId === 'new') {
+        room = game.createRoom();
       } else {
-        const room = game.findRoomById(path.substring(1));
+        room = game.findRoomById(roomId);
+      }
 
-        if (room == null) {
-          user.send('location', {
-            data: {
-              roomId: '',
-            },
-            title: 'twoshots.vodka',
-            path: '/',
-          });
-        }
+      if (room == null) {
+        callback(null);
+        return;
+      }
 
-        startOrJoinRoom(room, user);
+      callback(room.id);
+      socket.room = room;
+
+      if (role === 'spectator') {
+        room.addSpectator(user);
+      } else if (room.isInLobby()) {
+        room.addPlayer(user);
+      } else {
+        room.addPending(user);
       }
     });
 
-    user.on('card:action', (...payload) => user.handler.action(user, ...payload));
-    user.on('room:action', (...payload) => user.room?.action(user, ...payload));
-
-    user.on('force-flow', (flowName) => {
-      user.logger.info(`User forced ${flowName}`);
-      user.room?.forceFlow(flowName);
+    socket.on('room/action', (...payload) => {
+      socket.room?.handler?.action(socket.user, ...payload);
     });
 
-    user.on('disconnect', () => {
-      user.logger.info('User disconnected');
-      user.room?.remove(user);
+    socket.on('room/vote', () => {
+      socket.room?.action(socket.user);
+    });
+
+    socket.on('disconnect', () => {
+      socket.user.logger.info('User disconnected');
+      socket.room?.remove(socket.user);
+    });
+
+    socket.on('force-flow', (flowName) => {
+      socket.user.logger.info(`User forced ${flowName}`);
+      socket.user.room?.forceFlow(flowName);
     });
   });
 }

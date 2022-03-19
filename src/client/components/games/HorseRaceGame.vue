@@ -21,9 +21,3 @@ export default {
   ],
 };
 </script>
-
-<style>
-.race-game {
-  touch-action: manipulation;
-}
-</style>
