@@ -14,6 +14,7 @@ import WouldYouRatherFlow from '../handler/WouldYouRatherFlow.js';
 import GameFlow from '../handler/GameFlow.js';
 import TeamGameFlow from '../handler/TeamGameFlow.js';
 import CategoryFlow from '../handler/CategoryFlow.js';
+import PromptsFlow from '../handler/PromptsFlow.js';
 
 const flows = {
   InstructionFlow,
@@ -23,6 +24,7 @@ const flows = {
   GameFlow,
   TeamGameFlow,
   CategoryFlow,
+  PromptsFlow,
 };
 
 export default class Room {

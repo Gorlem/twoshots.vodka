@@ -1,0 +1,121 @@
+[
+    {
+        "question": "Nennt eine beliebte Automarke",
+        "amount": 565,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 22,
+                "texts": [
+                    "vw",
+                    "volkswagen"
+                ]
+            },
+            {
+                "percent": 18,
+                "texts": [
+                    "audi"
+                ]
+            },
+            {
+                "percent": 17,
+                "texts": [
+                    "bmw",
+                    "bayerische motoren werke"
+                ]
+            },
+            {
+                "percent": 13,
+                "texts": [
+                    "mercedes benz",
+                    "mercedes",
+                    "benz"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "tesla"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "porsche"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "opel"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "ford"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "skoda"
+                ]   
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "toyota"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "ferrari"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "volvo"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "honda"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "renault"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "peugeot"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "lada"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "mazda"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "fiat"
+                ]
+            }
+        ]
+    }
+]

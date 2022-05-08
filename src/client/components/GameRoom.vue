@@ -72,6 +72,8 @@ export default {
   mounted() {
     this.socket = io();
 
+    window.socket = this.socket;
+
     this.socket.on('connect', () => {
       this.socket.emit('room/join', this.roomId, this.role, this.name, (roomId) => {
         this.$emit('update', roomId);

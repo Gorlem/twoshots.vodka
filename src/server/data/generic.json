@@ -231,5 +231,33 @@
     "countclick:results": {
         "title": "*${winner}* war als erstes fertig",
         "message": "…und kann *${shots}* verteilen. Am längsten hat *${loser}* gebraucht und muss *${shots}* trinken."
+    },
+    "prompts:explanation": {
+        "title": "Erratet die Antworten",
+        "message": "Ihr bekommt gleich eine Frage gestellt die *${amount} Leute* bereits beantwortet haben. Euer Ziel ist es die gegebenen Antworten zu erraten. Jede Antwort gibt Punkte, je nachdem wie viel Prozent der Leute die gleiche Antwort gegeben hat. Der am Ende die meisten Punkte hat, darf *${shots}* verteilen. Der mit den wenigsten muss *${shots}* trinken!",
+        "data": {
+            "button": "Verstanden ✔"
+        }
+    },
+    "prompts:game": {
+        "message": "Du hast noch *${seconds} Sekunden*.",
+        "data": {
+            "button": "Abgeben 😬"
+        },
+        "footer": "Bisher hast du *${points}* Punkte."
+    },
+    "prompts:correct": {
+        "title": "*${answer}* ist *richtig*",
+        "message": "…und gibt dir *${percent} Punkte*!",
+        "footer": "Du hast jetzt *${points} Punkte*."
+    },
+    "prompts:wrong": {
+        "title": "*${answer}* gehört *nicht* dazu",
+        "message": "Versuch's weiter!",
+        "footer": "Du hast immernoch *${points} Punkte*."
+    },
+    "prompts:results": {
+        "message": "*${winner}* hat mit *${winnerCorrect} Punkten* gewonnen und darf *${shots}* verteilen. *${loser}* ist nur auf *${loserCorrect} Punkte* gekomen und muss *${shots}* trinken.",
+        "footer": "Quelle: [${domain}](${url})"
     }
 }

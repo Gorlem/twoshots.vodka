@@ -55,7 +55,7 @@ export default function (io) {
 
     socket.on('force-flow', (flowName) => {
       socket.user.logger.info(`User forced ${flowName}`);
-      socket.user.room?.forceFlow(flowName);
+      socket.room?.forceFlow(flowName);
     });
   });
 }
