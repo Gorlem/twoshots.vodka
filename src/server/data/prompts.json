@@ -117,5 +117,3252 @@
                 ]
             }
         ]
+    },
+    {
+        "question": "Nennt etwas, das man stapeln kann",
+        "amount": 533,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 14,
+                "texts": [
+                    "paletten"
+                ]
+            },
+            {
+                "percent": 13,
+                "texts": [
+                    "bücher"
+                ]
+            },
+            {
+                "percent": 13,
+                "texts": [
+                    "kisten"
+                ]
+            },
+            {
+                "percent": 8,
+                "texts": [
+                    "papier"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "karten"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "bauklötze"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "teller",
+                    "geschirr"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "lego",
+                    "klemmbausteine"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "bierkisten"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "steine"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "chips"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "kartons"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "becher"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "stühle"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "holz"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "dosen"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "boxen"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "jenga"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "bierdeckel"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "würfel"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "gabeln"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "pakete"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "kekse"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "container"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt eine süße Backware",
+        "amount": 504,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 30,
+                "texts": [
+                    "berliner",
+                    "krapfen",
+                    "pfannkuchen"
+                ]
+            },
+            {
+                "percent": 12,
+                "texts": [
+                    "croissant"
+                ]
+            },
+            {
+                "percent": 10,
+                "texts": [
+                    "kuchen"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "donut"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "schnecke (zimt/nuss/rosine/mohn)",
+                    "zimtschnecke",
+                    "nussschnecke",
+                    "rosinenschnecke",
+                    "mohnschnecke"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "keks"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "tasche (quark/apfel)",
+                    "quarktasche",
+                    "apfeltasche"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "baklava"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "plunder"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "amerikaner"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "muffin"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "franzbrötchen"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "puddingteilchen",
+                    "puddingsteilchen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "hefezopf"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "milchbrötchen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "torte"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "donauwelle"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt ein Pokémon, welches nicht Pikachu ist",
+        "amount": 459,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 22,
+                "texts": [
+                    "glumanda"
+                ]
+            },
+            {
+                "percent": 14,
+                "texts": [
+                    "bisasam"
+                ]
+            },
+            {
+                "percent": 13,
+                "texts": [
+                    "glurak"
+                ]
+            },
+            {
+                "percent": 9,
+                "texts": [
+                    "schiggy"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "raichu"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "relaxo"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "mew"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "mewtu"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "pummeluff"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "enton"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "evoli"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "turtok"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "karpador"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "mauzi"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "garados"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "raupy"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "ditto"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "lucario"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "pikachu"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "rattfratz"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "glutexo"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "taubsi"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt einen häufigen Trennungsgrund",
+        "amount": 500,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 60,
+                "texts": [
+                    "fremdgehen"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "kinderwunsch",
+                    "kinder"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "streit"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "geld"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "schlechter sex",
+                    "sex"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "auseinanderleben"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "eifersucht"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "scheidung",
+                    "trennung"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "tod"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "alkohol"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "frauen"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt ein Tier, welches im Wasser lebt",
+        "amount": 537,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 31,
+                "texts": [
+                    "fisch"
+                ]
+            },
+            {
+                "percent": 13,
+                "texts": [
+                    "wal"
+                ]
+            },
+            {
+                "percent": 8,
+                "texts": [
+                    "delfin"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "hai"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "schildkröte"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "frosch"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "otter"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "krokodil"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "biber"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "lachs"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "qualle"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "ente"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "karpfen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "schnabeltier"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "forelle"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "nilpferd"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "goldfisch"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "oktopus"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "aal"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "krebs"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "kaulquappe"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "seegurke"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "molch"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "schnecke"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt etwas, das man täglich macht",
+        "amount": 544,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 37,
+                "texts": [
+                    "zähne putzen",
+                    "zähneputzen"
+                ]
+            },
+            {
+                "percent": 12,
+                "texts": [
+                    "essen"
+                ]
+            },
+            {
+                "percent": 11,
+                "texts": [
+                    "schlafen"
+                ]
+            },
+            {
+                "percent": 8,
+                "texts": [
+                    "das große geschäft",
+                    "kacken",
+                    "scheißen",
+                    "koten",
+                    "groß",
+                    "abkoten"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "aufstehen",
+                    "aufwachen"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "das kleine geschäft",
+                    "pinkeln",
+                    "pissen",
+                    "klein",
+                    "wasser lassen"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "duschen"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "atmen"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "trinken"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "masturbieren"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "arbeiten"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt ein alkoholfreies Getränk",
+        "amount": 563,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 34,
+                "texts": [
+                    "wasser"
+                ]
+            },
+            {
+                "percent": 28,
+                "texts": [
+                    "cola"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "saft"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "fanta"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "limonade"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "spezi",
+                    "mezzo mix"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "tee"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "kaffee"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "alkoholfreies bier",
+                    "bier"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "schorle"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "radler"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "eistee"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "sprite"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "mate"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "milch"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt einen angenehmen Geruch",
+        "amount": 465,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 12,
+                "texts": [
+                    "vanille"
+                ]
+            },
+            {
+                "percent": 12,
+                "texts": [
+                    "blumen"
+                ]
+            },
+            {
+                "percent": 10,
+                "texts": [
+                    "lavendel"
+                ]
+            },
+            {
+                "percent": 8,
+                "texts": [
+                    "rosen"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "parfüm"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "gras",
+                    "rasen"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "benzin"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "kaffee"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "regen"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "kochen",
+                    "essen"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "brot"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "zimt"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "zitrone"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "frische wäsche",
+                    "wäsche"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "minze"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "flieder"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "orange"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "pizza"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "curry"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "seife"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "holz"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "blähungen"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt einen beliebten Superhelden",
+        "amount": 515,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 31,
+                "texts": [
+                    "superman"
+                ]
+            },
+            {
+                "percent": 28,
+                "texts": [
+                    "batman"
+                ]
+            },
+            {
+                "percent": 12,
+                "texts": [
+                    "spiderman"
+                ]
+            },
+            {
+                "percent": 9,
+                "texts": [
+                    "iron man"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "captain america"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "deadpool"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "flash"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "wonderwoman"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "thor"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "aquaman"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "hulk"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "wolverine"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt ein kultiges Computerspiel",
+        "amount": 484,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 10,
+                "texts": [
+                    "tetris"
+                ]
+            },
+            {
+                "percent": 10,
+                "texts": [
+                    "doom"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "age of empires",
+                    "aoe"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "mario",
+                    "mario kart",
+                    "mariokart"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "gothic"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "monkey island"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "counter strike",
+                    "cs",
+                    "csgo",
+                    "css"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "minecraft"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "warcraft",
+                    "wow",
+                    "world of warcraft"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "pacman"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "anno"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "die sims",
+                    "sims"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "pong"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "die siedler",
+                    "siedler"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "grand theft auto",
+                    "gta"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "moorhuhn"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "worms"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "day of the tentacle"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "skyrim"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "zelda"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "starcraft"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "call of duty",
+                    "cod"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "half life"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "diablo"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "command  conquer",
+                    "command and conquer",
+                    "c&c"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "minesweeper"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "civilization",
+                    "civ"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "snake"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "fallout"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "the witcher",
+                    "witcher"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt etwas, das unter der Erde lebt",
+        "amount": 557,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 58,
+                "texts": [
+                    "maulwurf"
+                ]
+            },
+            {
+                "percent": 34,
+                "texts": [
+                    "wurm",
+                    "regenwurm"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "echsenmenschen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "ameisen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "nacktmull"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt ein Gemüse, das gut schmeckt",
+        "amount": 538,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 18,
+                "texts": [
+                    "brokkoli"
+                ]
+            },
+            {
+                "percent": 17,
+                "texts": [
+                    "karotte"
+                ]
+            },
+            {
+                "percent": 17,
+                "texts": [
+                    "paprika"
+                ]
+            },
+            {
+                "percent": 10,
+                "texts": [
+                    "tomate"
+                ]
+            },
+            {
+                "percent": 9,
+                "texts": [
+                    "gurke"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "kartoffel"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "zucchini"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "rosenkohl"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "blumenkohl"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "erbsen"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "spinat"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "spargel"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "zwiebel"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "aubergine"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "sellerie"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "kohlrabi"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "mais"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "fenchel"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt eine beliebte Likörsorte",
+        "amount": 442,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 44,
+                "texts": [
+                    "eierlikör"
+                ]
+            },
+            {
+                "percent": 11,
+                "texts": [
+                    "sahne"
+                ]
+            },
+            {
+                "percent": 8,
+                "texts": [
+                    "pfeffi",
+                    "pfefferminz"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "kirsch"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "jägermeister",
+                    "kräuter"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "43er"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "amaretto"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "haselnuss"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "pflaume"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "limone"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "jostabeere",
+                    "ficken"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "obstler"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "aperol"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "kräuter"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "himbeer"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "sambuca"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "frangelico"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "curacao"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "cointreau"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "lakritz"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt einen Smartphone Hersteller",
+        "amount": 575,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 40,
+                "texts": [
+                    "samsung"
+                ]
+            },
+            {
+                "percent": 22,
+                "texts": [
+                    "apple"
+                ]
+            },
+            {
+                "percent": 15,
+                "texts": [
+                    "huawei"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "xiaomi"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "nokia"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "oneplus"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "lg"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "google"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "sony"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "htc"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "oppo"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "fairphone"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "motorola"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt eine Farbe",
+        "amount": 561,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 31,
+                "texts": [
+                    "blau"
+                ]
+            },
+            {
+                "percent": 28,
+                "texts": [
+                    "rot"
+                ]
+            },
+            {
+                "percent": 19,
+                "texts": [
+                    "grün"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "gelb"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "lila"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "orange"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "schwarz"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "violett"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "türkis"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "pink"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "rosa"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "beige"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt einen Monat, in dem viele Menschen Geburtstag haben",
+        "amount": 570,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 19,
+                "texts": [
+                    "september"
+                ]
+            },
+            {
+                "percent": 12,
+                "texts": [
+                    "juli"
+                ]
+            },
+            {
+                "percent": 11,
+                "texts": [
+                    "märz"
+                ]
+            },
+            {
+                "percent": 10,
+                "texts": [
+                    "august"
+                ]
+            },
+            {
+                "percent": 10,
+                "texts": [
+                    "juni"
+                ]
+            },
+            {
+                "percent": 9,
+                "texts": [
+                    "mai"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "november"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "april"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "februar"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "januar"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "dezember"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "oktober"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt ein Geschenk, das man gerne zurück gibt",
+        "amount": 351,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 17,
+                "texts": [
+                    "socken"
+                ]
+            },
+            {
+                "percent": 16,
+                "texts": [
+                    "kleidung"
+                ]
+            },
+            {
+                "percent": 9,
+                "texts": [
+                    "liebe"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "buch"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "gutschein"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "pullover"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "geld"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "wein"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "parfüm"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "pralinen"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "zeit"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "kompliment"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "blumen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "kuss"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "herpes"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "alkohol"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "schmuck"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "krawatte"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "unterwäsche"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "kuchen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "aufmerksamkeit"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "ohrfeige",
+                    "backpfeife"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "schokolade",
+                    "schoko"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "lächeln",
+                    "lachen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "freude"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "umarmung"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt etwas, das man beim Verreisen zu Hause vergisst",
+        "amount": 499,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 26,
+                "texts": [
+                    "zahnbürste"
+                ]
+            },
+            {
+                "percent": 18,
+                "texts": [
+                    "ladekabel"
+                ]
+            },
+            {
+                "percent": 9,
+                "texts": [
+                    "ausweis",
+                    "pass"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "sonnencreme"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "sonnenbrille"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "kevin"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "kinder"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "unterwäsche"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "schlüssel"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "schlafanzug"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "handtuch"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "reiseadapter"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "föhn"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "zahnpasta"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "haarbürste",
+                    "kamm"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "badehose"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "herd ausschalten"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "kamera"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "rasierer"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "shampoo"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "regenschirm"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "socken"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt ein Ereignis, bei dem man lieber seinen Anwalt ruft",
+        "amount": 426,
+        "source": "https://www.reddit.com/r/de/comments/mgdrw2/aufl%C3%B6sung_familienduell_umfrage/",
+        "answers": [
+            {
+                "percent": 25,
+                "texts": [
+                    "unfall",
+                    "autounfall"
+                ]
+            },
+            {
+                "percent": 16,
+                "texts": [
+                    "scheidung"
+                ]
+            },
+            {
+                "percent": 14,
+                "texts": [
+                    "mord",
+                    "mordverdacht"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "haft",
+                    "verhaftung"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "hausdurchsuchung"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "festnahme"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "anzeige"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "kündigung"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "abmahnung"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "straftat"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "schlägerei",
+                    "messerstecherei"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "betrug"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "steuerhinterziehung"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "anklage",
+                    "klage"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "mahnung"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "nachbarschaftsstreit"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "haftbefehl"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "vorladung"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt einen bekannten, blonden Mann",
+        "amount": 275,
+        "source": "https://www.reddit.com/r/de/comments/bqvjk1/wir_haben_285_rdeler_gefragt_auswerung_vom/",
+        "answers": [
+            {
+                "percent": 28,
+                "texts": [
+                    "thomas gottschalk",
+                    "gottschalk"
+                ]
+            },
+            {
+                "percent": 8,
+                "texts": [
+                    "donald trump",
+                    "trump"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "dieter bolhen",
+                    "dieter",
+                    "bohlen"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "boris becker",
+                    "becker"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "chris hemsworth",
+                    "hemsworth",
+                    "thor"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "brad pitt",
+                    "pitt"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "christian linder",
+                    "linder"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "heino"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "oliver kahn",
+                    "kahn"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "guide cantz",
+                    "cantz"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "chris evans",
+                    "evans",
+                    "captain america"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "farin urlaub"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "owen wilson"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "philipp amthor",
+                    "amthor"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "stefan raab",
+                    "raab"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "dirk nowitzki",
+                    "nowitzki"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "leonardo di caprio",
+                    "di caprio"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "till schweiger",
+                    "schweiger"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "daniel craig"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "eminem"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "florian silbereisen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "h.p. baxxter",
+                    "h p  baxxter",
+                    "baxter"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "jaime lannister"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "joko winterscheidt",
+                    "joko"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "manuel neuer"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "matthias schweighöfer"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "michel aus lönneberga"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "otto"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "ryan gosling"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "terrence hill"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "toni kroos"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt einen Preis, der jedes Jahr vergeben wird",
+        "amount": 280,
+        "source": "https://www.reddit.com/r/de/comments/bqvjk1/wir_haben_285_rdeler_gefragt_auswerung_vom/",
+        "answers": [
+            {
+                "percent": 55,
+                "texts": [
+                    "oscar",
+                    "academy award",
+                    "academy award of merrit",
+                    "academy awards",
+                    "der oscar",
+                    "die oscars",
+                    "oscars",
+                    "oskar",
+                    "oskars"
+                ]
+            },
+            {
+                "percent": 21,
+                "texts": [
+                    "nobelpreis",
+                    "friedensnobelpreis",
+                    "nobel",
+                    "nobel preis"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "bambi"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "grammy"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "echo"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "goldene himbeere"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "deutscher computerspielepreis"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "emmys"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "goldene kamera"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "pulitzer preis"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "ballon d or"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "deutsche meisterschale"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "dfb pokal"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt einen ausländischen Fußballverein",
+        "amount": 277,
+        "source": "https://www.reddit.com/r/de/comments/bqvjk1/wir_haben_285_rdeler_gefragt_auswerung_vom/",
+        "answers": [
+            {
+                "percent": 21,
+                "texts": [
+                    "real madrid"
+                ]
+            },
+            {
+                "percent": 17,
+                "texts": [
+                    "fc barcelona"
+                ]
+            },
+            {
+                "percent": 15,
+                "texts": [
+                    "manchester united"
+                ]
+            },
+            {
+                "percent": 12,
+                "texts": [
+                    "fc liverpool"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "fc arsenal"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "fc chelsea"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "juventus turim"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "ac mailand"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "ajax amsterdam"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "inter mailand"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "paris saint germain"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "manchester city"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "galatasaray istanbul"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "tottenham hotspurs"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "atletico madrid"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "celtic glasgow"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "rapid wien"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt ein Lieblingsschulfach",
+        "amount": 282,
+        "source": "https://www.reddit.com/r/de/comments/bqvjk1/wir_haben_285_rdeler_gefragt_auswerung_vom/",
+        "answers": [
+            {
+                "percent": 32,
+                "texts": [
+                    "mathematik",
+                    "mathe"
+                ]
+            },
+            {
+                "percent": 22,
+                "texts": [
+                    "sport"
+                ]
+            },
+            {
+                "percent": 10,
+                "texts": [
+                    "englisch"
+                ]
+            },
+            {
+                "percent": 9,
+                "texts": [
+                    "geschichte"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "physik"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "biologie",
+                    "bio"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "deutsch"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "kunst"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "chemie"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "informatik",
+                    "info"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "musik"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "erdkunde",
+                    "geographie"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "latein"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt einen Traumberuf vieler Kinder",
+        "amount": 282,
+        "source": "https://www.reddit.com/r/de/comments/bqvjk1/wir_haben_285_rdeler_gefragt_auswerung_vom/",
+        "answers": [
+            {
+                "percent": 34,
+                "texts": [
+                    "feuerwehr",
+                    "feuerwehrmann",
+                    "feuerwehrfrau",
+                    "feuerwehrleute"
+                ]
+            },
+            {
+                "percent": 22,
+                "texts": [
+                    "astronaut",
+                    "kosmonaut"
+                ]
+            },
+            {
+                "percent": 17,
+                "texts": [
+                    "polizei",
+                    "polizist"
+                ]
+            },
+            {
+                "percent": 8,
+                "texts": [
+                    "pilot"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "arzt"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "tierarzt"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "bauarbeiter",
+                    "baggerfahrer"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "zugführer",
+                    "lokomotivführer",
+                    "lokführer"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "busfahrer"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "fußballspieler",
+                    "fussballspieler"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "influencer",
+                    "youtuber",
+                    "tiktoker",
+                    "instagramer"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "sänger"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "tierpfleger"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt eine beliebte Eissorte",
+        "amount": 282,
+        "source": "https://www.reddit.com/r/de/comments/bqvjk1/wir_haben_285_rdeler_gefragt_auswerung_vom/",
+        "answers": [
+            {
+                "percent": 38,
+                "texts": [
+                    "vanille"
+                ]
+            },
+            {
+                "percent": 26,
+                "texts": [
+                    "schokolade",
+                    "schoko"
+                ]
+            },
+            {
+                "percent": 15,
+                "texts": [
+                    "erdbeere"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "stracciatella",
+                    "stacciatella",
+                    "staciatella",
+                    "stracatiella",
+                    "straciatella"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "zitrone"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "schlumpf"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "pistazie"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "banane"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "himbeere"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "joghurt"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt ein Lieblingstier, welches kein Haustier ist",
+        "amount": 282,
+        "source": "https://www.reddit.com/r/de/comments/bqvjk1/wir_haben_285_rdeler_gefragt_auswerung_vom/",
+        "answers": [
+            {
+                "percent": 16,
+                "texts": [
+                    "elefant"
+                ]
+            },
+            {
+                "percent": 13,
+                "texts": [
+                    "löwe"
+                ]
+            },
+            {
+                "percent": 9,
+                "texts": [
+                    "pferd"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "tiger"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "delfin",
+                    "delfine",
+                    "delphin"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "pinguin"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "giraffe"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "wolf"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "bär",
+                    "eisbär"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "fuchs"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "kuh"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "affe",
+                    "orang utan"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "känguru"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "panda"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "schwein"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "dinosaurier",
+                    "dino",
+                    "tyrannosaurs rex"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "zebra"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "adler"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "eichhörnchen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "eule",
+                    "schneeeule"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "faultier",
+                    "dreizehenfaultier"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "wasserschwein",
+                    "capybara"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "igel"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "krokodil"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "schaf"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "schnabeltier"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "seehund",
+                    "robbe"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "wal"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt eine Sportart, in der man etwas fängt",
+        "amount": 280,
+        "source": "https://www.reddit.com/r/de/comments/bqvjk1/wir_haben_285_rdeler_gefragt_auswerung_vom/",
+        "answers": [
+            {
+                "percent": 33,
+                "texts": [
+                    "handball"
+                ]
+            },
+            {
+                "percent": 23,
+                "texts": [
+                    "baseball"
+                ]
+            },
+            {
+                "percent": 15,
+                "texts": [
+                    "basketball"
+                ]
+            },
+            {
+                "percent": 11,
+                "texts": [
+                    "american football",
+                    "football",
+                    "amerikanischer fußball"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "ultimate frisbee",
+                    "frisbee"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "fußball",
+                    "fussball"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "rugby"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "fangen"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "völkerball"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "angeln"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "lacrosse"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt eine Hauptstadt, außer Berlin",
+        "amount": 282,
+        "source": "https://www.reddit.com/r/de/comments/bqvjk1/wir_haben_285_rdeler_gefragt_auswerung_vom/",
+        "answers": [
+            {
+                "percent": 40,
+                "texts": [
+                    "paris"
+                ]
+            },
+            {
+                "percent": 14,
+                "texts": [
+                    "london"
+                ]
+            },
+            {
+                "percent": 8,
+                "texts": [
+                    "rom"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "wien"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "madrid"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "prag"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "amsterdam"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "brüssel"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "lissabon"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "warschau"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "riga"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "kopenhagen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "athen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "budapest"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "kyiv",
+                    "kiew",
+                    "kiev"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "moskau"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "vaduz"
+                ]
+            }
+        ]
     }
 ]
