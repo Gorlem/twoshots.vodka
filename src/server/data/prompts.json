@@ -3364,5 +3364,774 @@
                 ]
             }
         ]
+    },
+    {
+        "question": "Nennt eine Tätigkeit während der Corona Zeit",
+        "amount": 100,
+        "source": "https://www.reddit.com/r/de/comments/hflfc5/auswertung_der_gestrigen_familienduellumfrage/",
+        "answers": [
+            {
+                "percent": 16,
+                "texts": [
+                    "spiele spielen",
+                    "computerspiele spielen",
+                    "zocken"
+                ]
+            },
+            {
+                "percent": 13,
+                "texts": [
+                    "fernsehen",
+                    "netflix",
+                    "serien"
+                ]
+            },
+            {
+                "percent": 10,
+                "texts": [
+                    "masturbation"
+                ]
+            },
+            {
+                "percent": 9,
+                "texts": [
+                    "schlafen"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "gartenarbeit",
+                    "garten"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "lesen"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "puzzlen"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "spazieren gehen",
+                    "spazieren",
+                    "wandern"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "bier trinken",
+                    "saufen",
+                    "trinken"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "essen"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "ausmisten",
+                    "aufräumen",
+                    "hausputz"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "kochen",
+                    "brot backen",
+                    "backen"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "arbeiten",
+                    "home office",
+                    "homeoffice"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "sport"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "videochatten",
+                    "video chat"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "stricken",
+                    "häkeln"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "prokrastinieren"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "chillen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "babies machen",
+                    "sex",
+                    "ficken"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "einkaufen",
+                    "shoppen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "steuererklärung"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "klopapier horten",
+                    "klopapier hamstern"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "gitarre spielen",
+                    "gitarre"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "post"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt ein Spiel, das man früher als Kind am Geburtstag gespielt hat",
+        "amount": 100,
+        "source": "https://www.reddit.com/r/de/comments/hflfc5/auswertung_der_gestrigen_familienduellumfrage/",
+        "answers": [
+            {
+                "percent": 78,
+                "texts": [
+                    "topfschlagen",
+                    "topf schlagen"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "schatzsuche",
+                    "schnitzeljagd"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "fangen"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "sackhüpfen"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "blinde kuh"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "reise nach jerusalem"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "activity"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "apfeltauchen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "klopapier-mumie"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "mehlberg"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "mutter vater kind"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "nintendo"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "schokoladen-wettessen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "spitz pass auf!"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "uno"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "verstecken"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt ein Essen, das an einem Geburtstag nicht fehlen darf",
+        "amount": 100,
+        "source": "https://www.reddit.com/r/de/comments/hflfc5/auswertung_der_gestrigen_familienduellumfrage/",
+        "answers": [
+            {
+                "percent": 64,
+                "texts": [
+                    "kuchen",
+                    "torte"
+                ]
+            },
+            {
+                "percent": 9,
+                "texts": [
+                    "pizza"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "salat",
+                    "nudelsalat",
+                    "couscoussalat"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "pommes"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "bratwurst",
+                    "wurst"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "chips"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "benjamin blümchen torte"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "bier"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "dips"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "frühstück"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "mettigel"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "nudeln"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "schokolinsen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "schweinebraten"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "stockbrot"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "tomatenbutter"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "zwiebelkuchen"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt ein berühmtes Märchen",
+        "amount": 100,
+        "source": "https://www.reddit.com/r/de/comments/hflfc5/auswertung_der_gestrigen_familienduellumfrage/",
+        "answers": [
+            {
+                "percent": 33,
+                "texts": [
+                    "hänsel und gretel"
+                ]
+            },
+            {
+                "percent": 19,
+                "texts": [
+                    "schneewittchen"
+                ]
+            },
+            {
+                "percent": 16,
+                "texts": [
+                    "rotkäppchen"
+                ]
+            },
+            {
+                "percent": 8,
+                "texts": [
+                    "rapunzel"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "dornröschen"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "aschenputtel"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "der gestiefelte kater"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "struwwelpeter",
+                    "struwelpeter"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "das kleine mädchen mit schwefelhölzchen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "das tapfere schneiderlein"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "der wolf und die sieben geislein"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "frau holle"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "froschkönig"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "hans im glück"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "sterntaler"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "vom fischer und seiner frau"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt einen biologischen Begriff",
+        "amount": 100,
+        "source": "https://www.reddit.com/r/de/comments/hflfc5/auswertung_der_gestrigen_familienduellumfrage/",
+        "answers": [
+            {
+                "percent": 18,
+                "texts": [
+                    "endoplasmatisches retikulum"
+                ]
+            },
+            {
+                "percent": 14,
+                "texts": [
+                    "mitochondrium"
+                ]
+            },
+            {
+                "percent": 9,
+                "texts": [
+                    "zelle"
+                ]
+            },
+            {
+                "percent": 8,
+                "texts": [
+                    "photosynthese"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "desoxyribonukleinsäure",
+                    "dna",
+                    "dns"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "gen"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "genetik"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "herz"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "vulva"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "art"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "blume"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "darmzotten"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "diffusion"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "embryo"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "familie"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "fauna"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "fisch"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "flora"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "fortpflanzung"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "hormon"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "hypothalamus"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "kuh"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "lumbricus",
+                    "regenwurm"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "makrophage"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "membran"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "mimese"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "mitose"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "osmose"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "pflanzen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "phallus"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "protein"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "refraktärzeit"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "samen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "sexualkunde"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "solar plexus"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "spongiforme enzephalopathie"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "tier"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "umwelt"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "vererbung"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "virus"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "vogel"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "zellteilung"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "zellulose"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "citratzyklus"
+                ]
+            }
+        ]
     }
 ]
