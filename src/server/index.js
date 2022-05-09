@@ -7,6 +7,10 @@ const game = new Game();
 
 export default function (io) {
   io.on('connection', (socket) => {
+    socket.on('parts', (callback) => {
+      callback(Game.getNameParts());
+    });
+
     socket.on('room/join', (roomId, role, name, callback) => {
       const user = new User(socket);
       socket.user = user;
@@ -49,12 +53,12 @@ export default function (io) {
     });
 
     socket.on('disconnect', () => {
-      socket.user.logger.info('User disconnected');
+      socket.user?.logger?.info('User disconnected');
       socket.room?.remove(socket.user);
     });
 
     socket.on('force-flow', (flowName) => {
-      socket.user.logger.info(`User forced ${flowName}`);
+      socket.user?.logger?.info(`User forced ${flowName}`);
       socket.room?.forceFlow(flowName);
     });
   });

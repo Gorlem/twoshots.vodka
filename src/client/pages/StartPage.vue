@@ -53,6 +53,8 @@
 </style>
 
 <script>
+import io from 'socket.io-client';
+
 export default {
   emits: [
     'navigate',
@@ -76,10 +78,18 @@ export default {
   mounted() {
     this.$refs.left.focus();
 
-    this.placeholderLeft = this.randomPart();
-    this.placeholderRight = this.randomPart();
+    const socket = io();
 
-    this.timer = setInterval(this.updatePlaceholder, 5000);
+    socket.emit('parts', (parts) => {
+      this.data.names = parts;
+
+      this.placeholderLeft = this.randomPart();
+      this.placeholderRight = this.randomPart();
+
+      this.timer = setInterval(this.updatePlaceholder, 5000);
+
+      socket.close();
+    });
   },
   methods: {
     randomPart() {

@@ -78,7 +78,11 @@
         }
       ],
       "max-classes-per-file": "off",
-      "no-use-before-define": "off"
+      "no-use-before-define": "off",
+      "template-curly-spacing" : "off",
+      "indent": ["error", 2, {
+        "ignoredNodes": ["TemplateLiteral"]
+      }]
     }
   },
   "browserslist": [
