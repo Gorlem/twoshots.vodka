@@ -32,7 +32,7 @@ export default {
     this.role = sessionStorage.getItem('role');
     this.name = sessionStorage.getItem('name');
 
-    this.roomId = window.location.pathname.slice(1);
+    this.roomId = decodeURI(window.location.pathname.slice(1));
   },
   methods: {
     setRole(role) {
