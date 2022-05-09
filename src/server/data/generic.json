@@ -1,15 +1,4 @@
 {
-    "start": {
-        "title": "Willkommen zu *twoshots.vodka*",
-        "message": "Hier kannst du entweder einen neuen Raum erstellen, oder einem bestehenden Raum beitreten.",
-        "data": {
-            "buttons": {
-                "create": "Raum erstellen",
-                "join": "Raum beitreten"
-            },
-            "divider": "mit"
-        }
-    },
     "lobby": {
         "title": "Raum *${roomId}*",
         "message": "Mitspieler können den QR-Code scannen oder den Raumnamen auf der Startseite eingeben.",

@@ -3,7 +3,10 @@
     <div class="hero-body">
       <div class="container">
         <h1 class="title">Willkommen zu <strong class="has-text-primary shake">twoshots.vodka</strong></h1>
-        <h2 class="subtitle">Hier kannst du entweder einen neuen Raum erstellen, oder einem bestehenden Raum beitreten.</h2>
+        <h2 class="subtitle">
+          <strong class="has-text-primary">twoshots.vodka</strong> ist ein kooperatives Trinkspiel.
+          Jeder von euch nutzt sein eigenes Smartphone, um einem gemeinsamen Raum beizutreten.
+        </h2>
         <div class="columns">
           <div class="column">
             <button @click="createRoom" class="button is-primary">Raum erstellen</button>
@@ -67,11 +70,7 @@ export default {
       placeholderRight: '',
       timer: null,
       data: {
-        names: [
-          'one',
-          'two',
-          'three',
-        ],
+        names: [],
       },
     };
   },
