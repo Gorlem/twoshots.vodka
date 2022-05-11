@@ -28,6 +28,7 @@ class ExplanationStep extends StepWithVote {
     this.category = get('categories', key);
 
     this.global.card = 'ConfirmationCard';
+    this.spectating.card = 'InformationCard';
     this.global.data = {
       ...template(explanationText, {
         shots: this.shots,
@@ -67,6 +68,11 @@ class InputStep extends Step {
     this.handler = handler;
     this.category = category;
     this.shots = shots;
+
+    this.spectating.card = 'InformationCard';
+    this.spectating.data = {
+      title: this.category.category,
+    };
 
     this.playing.card = 'InputCard';
     this.playing.data = {
