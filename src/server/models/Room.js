@@ -5,7 +5,7 @@ import Vote from './Vote.js';
 
 import Handler from '../handler/Handler.js';
 import LobbyFlow from '../handler/LobbyFlow.js';
-import SeatFlow from '../handler/SeatFlow.js';
+import SetupFlow from '../handler/SetupFlow.js';
 
 import InstructionFlow from '../handler/InstructionFlow.js';
 import GuessFlow from '../handler/GuessFlow.js';
@@ -38,6 +38,9 @@ export default class Room {
   handler = new Handler(this, this.nextFlow.bind(this));
   cache = {};
 
+  seating = [];
+  pendingRoom = null;
+
   constructor(id) {
     this.id = id;
 
@@ -47,11 +50,20 @@ export default class Room {
     this.vote.setPercentage(50.1);
 
     this.handler.pushFlow(LobbyFlow);
-    this.handler.pushFlow(SeatFlow);
+    this.handler.pushFlow(SetupFlow);
     this.handler.nextStep();
   }
 
-  action(user) {
+  action(user, ...payload) {
+    if (this.playing.has(user)) {
+      this.handler.action(user, ...payload);
+    }
+    if (this.pending.has(user)) {
+      this.pendingRoom.action(user, ...payload);
+    }
+  }
+
+  roomVote(user) {
     this.vote.submit(user);
 
     this.sendRoomData();
@@ -75,6 +87,7 @@ export default class Room {
 
   addPending(user) {
     this.pending.add(user);
+    this.pendingRoom.addPlayer(user);
   }
 
   addSpectator(user) {
@@ -104,10 +117,13 @@ export default class Room {
     }
 
     if (this.pending.size > 0) {
-      for (const user of this.pending) {
-        this.playing.add(user);
+      for (const user of [...this.pending]) {
+        if (this.seating.includes(user)) {
+          this.playing.add(user);
+          this.pending.delete(user);
+          this.pendingRoom.remove(user);
+        }
       }
-      this.pending.clear();
     }
 
     const flow = this.cache.flows.shift();
@@ -132,7 +148,7 @@ export default class Room {
       this.vote.reset(user);
 
       if (this.seating) {
-        _.pull(this.seating, user);
+        _.pullAllBy(this.seating, [user], 'id');
       }
     }
 
@@ -143,6 +159,7 @@ export default class Room {
 
     if (this.pending.has(user)) {
       this.pending.delete(user);
+      this.pendingRoom.remove(user);
     }
 
     this.sendRoomData();

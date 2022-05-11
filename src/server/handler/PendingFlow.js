@@ -1,87 +1,50 @@
-import _ from 'lodash';
-
 import Step from './Step.js';
-import StepWithVote from './StepWithVote.js';
 
 import { get, template } from '../texts.js';
 
-const voteText = get('generic', 'pending:vote');
-const yesText = get('generic', 'pending:yes');
-const noText = get('generic', 'pending:no');
+const text = get('generic', 'seats');
 
-class VoteStep extends StepWithVote {
+class SeatStep extends Step {
   constructor(handler, room) {
     super(room);
     this.handler = handler;
+  }
 
-    this.player = room.pending.values().next().value;
-    room.pending.delete(this.player);
+  updateOptions() {
+    this.seating = this.room.seating
+      .flatMap((player, i) => [{ key: i, value: text.data.seat }, { key: player.id, value: player.name, static: true }]);
 
-    this.global.card = 'PollCard';
+    this.global.card = 'CarouselCard';
     this.global.data = {
-      ...template(voteText, { pending: this.player.name }),
-      ...voteText.data,
+      ...template(text, { player: '!!!!' }),
+      options: this.seating,
     };
 
-    this.update();
-    this.player.handler.nextStep();
-
-    this.seat = null;
+    this.send();
   }
 
-  nextStep() {
-    if (this.seat == null) {
-      return;
-    }
-
-    this.handler.nextStep({ player: this.player, results: this.vote.results, seat: this.seat });
+  addedPlayer(user) {
+    user.logger.info('added to pending flow');
+    this.updateOptions();
   }
 
-  action(user, payload) {
-    this.vote.submit(user, payload);
-
-    this.players[user.id].data = {
-      selected: payload,
-    };
-
-    this.update();
+  removedPlayer() {
+    this.updateOptions();
   }
 
-  setSeat(seat) {
-    this.seat = seat;
-    this.vote.checkCondition();
-  }
-}
-
-class ResultStep extends Step {
-  constructor(handler, room, { player, results, seat }) {
-    super(room);
-    const counts = _.countBy([...results], '1');
-
-    _.defaults(counts, { yes: 0, no: 0 });
-
-    if (counts.yes > counts.no) {
-      room.addPlayer(player);
-      room.seating.splice(seat, 0, player);
-
-      this.global.card = 'InformationCard';
-      this.global.data = {
-        ...template(yesText, { player: player.name }),
+  action(user, value) {
+    user.logger.info('action', { value });
+    if (this.seating[value * 2] != null && this.seating[value * 2].key === value) {
+      this.room.seating.splice(value, 0, user);
+      this.players[user.id].data = {
+        selected: true,
       };
 
-      this.send();
-    } else {
-      this.global.card = 'InformationCard';
-      this.global.data = {
-        ...template(noText, { player: player.name }),
-      };
-
-      this.send();
+      this.updateOptions();
     }
   }
 }
 
 export default [
-  VoteStep,
-  ResultStep,
+  SeatStep,
 ];

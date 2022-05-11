@@ -133,7 +133,10 @@
     },
     "seats": {
         "title": "Freie Platzwahl",
-        "message": "Wählt bitte aus, wo ihr abhängig von *${player}* sitzt."
+        "message": "Wählt bitte aus, wo ihr abhängig von *${player}* sitzt.",
+        "data": {
+            "seat": "Freier Platz 🪑"
+        }
     },
     "rockpaperscissor:explanation": {
         "title": "Schere, Stein, Papier",

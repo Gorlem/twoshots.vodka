@@ -1,64 +1,69 @@
+import _ from 'lodash';
+
+import Step from './Step.js';
+
 import { get, template } from '../texts.js';
+import PendingRoom from '../models/PendingRoom.js';
 
-class RoleSelectionStep {
-  constructor(handler, user, { room }) {
+const text = get('generic', 'seats');
+
+class SeatStep extends Step {
+  constructor(handler, room) {
+    super(room);
     this.handler = handler;
-    this.room = room;
 
-    const content = get('generic', 'setup:role');
+    const player = _.sample([...room.playing]);
 
-    user.sendCard('PollCard', {
-      ...template(content),
-      options: content.data.options,
-    });
-  }
+    this.seating = [...room.playing]
+      .map((p, i) => (i === 0 ? { key: player.id, value: player.name, static: true } : { key: i, value: text.data.seat }));
 
-  action(user, role) {
-    this.handler.nextStep({ role, room: this.room });
-  }
-}
-
-class NameSelectionStep {
-  constructor(handler, user, { room, role }) {
-    this.user = user;
-    this.handler = handler;
-    this.room = room;
-    this.role = role;
-
-    const content = get('generic', 'setup:name');
-
-    this.data = {
-      ...template(content),
-      type: 'string',
-      button: content.data.button,
+    this.global.card = 'CarouselCard';
+    this.global.data = {
+      ...template(text, { player: player.name }),
+      options: this.seating,
     };
-    this.sendCard();
+
+    this.send();
   }
 
-  sendCard(extra) {
-    this.user.sendCard('InputCard', {
-      ...this.data,
-      ...extra,
-    });
+  action(player, value) {
+    if (this.seating[value] != null && this.seating[value].key === value) {
+      const prev = this.seating.findIndex((seat) => seat.key === player.id);
+
+      if (prev !== -1) {
+        this.seating[prev] = { key: prev, value: text.data.seat };
+      }
+
+      this.seating[value] = { key: player.id, value: player.name, static: true };
+
+      this.global.data = {
+        ...this.global.data,
+        options: this.seating,
+      };
+
+      this.send();
+    }
+
+    if (this.seating.every((seat, i) => seat.key !== i)) {
+      this.room.seating = this.seating.map((seat) => [...this.room.playing].find((p) => p.id === seat.key));
+      this.room.pendingRoom = new PendingRoom(this.room.seating);
+      this.handler.nextStep();
+    }
   }
 
-  action(user, name) {
-    name = name.trim();
-    if (name.length > 10) {
-      this.sendCard(template(get('generic', 'setup:name:toolong'), { max: 10 }));
-      return;
+  removedPlayer(player) {
+    const prev = this.seating.findIndex((seat) => seat.key === player.id);
+
+    if (prev !== -1) {
+      _.pullAt(this.seating, prev);
+    } else {
+      _.pullAt(this.seating, this.seating.findLastIndex((seat, i) => seat.key === i));
     }
 
-    if (name.length < 1) {
-      this.sendCard(template(get('generic', 'setup:name:tooshort'), { min: 1 }));
-      return;
-    }
-
-    this.handler.nextStep({ role: this.role, name, room: this.room });
+    this.seating = this.seating.map((seat, i) => (seat.static ? seat : { key: i, value: text.data.seat }));
   }
 }
 
 export default [
-  RoleSelectionStep,
-  { when: (data) => data.role === 'player', then: NameSelectionStep },
+  SeatStep,
 ];

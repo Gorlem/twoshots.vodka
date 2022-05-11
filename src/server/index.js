@@ -7,6 +7,8 @@ const game = new Game();
 
 export default function (io) {
   io.on('connection', (socket) => {
+    winston.info('User connected', { user: socket.id });
+
     socket.on('parts', (callback) => {
       callback(Game.getNameParts());
     });
@@ -45,11 +47,11 @@ export default function (io) {
     });
 
     socket.on('room/action', (...payload) => {
-      socket.room?.handler?.action(socket.user, ...payload);
+      socket.room?.action(socket.user, ...payload);
     });
 
     socket.on('room/vote', () => {
-      socket.room?.action(socket.user);
+      socket.room?.roomVote(socket.user);
     });
 
     socket.on('disconnect', () => {

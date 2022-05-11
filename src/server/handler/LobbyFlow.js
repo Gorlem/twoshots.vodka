@@ -19,6 +19,7 @@ class LobbyStep extends StepWithVote {
     };
 
     this.vote.setPercentage(100);
+    this.vote.setMinimum(2);
 
     this.update();
   }
