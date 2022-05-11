@@ -1405,5 +1405,19 @@
             "oganesson"
         ],
         "source": "https://www.periodensystem.info/elemente/"
+    },
+    {
+        "category": "Planeten in unserem Sonnensystem",
+        "answers": [
+            "merkur",
+            "venus",
+            "erde",
+            "mars",
+            "jupiter",
+            "saturn",
+            "uranus",
+            "neptun"
+        ],
+        "source": "https://www.weltderphysik.de/gebiet/universum/planeten-des-sonnensystems/"
     }
 ]
