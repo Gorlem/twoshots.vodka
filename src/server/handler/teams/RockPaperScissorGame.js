@@ -67,6 +67,7 @@ class GameStep extends StepWithVote {
         right: parts[2],
       }),
       options,
+      selected: true,
     };
     for (const player of left) {
       this.players[player.id].data = {
