@@ -66,6 +66,10 @@ class GameStep extends Step {
       ...template(gameText),
     };
 
+    this.spectating.data = {
+      options: [...this.numbers],
+    };
+
     for (const player of room.playing) {
       this.players[player.id].data = {
         options: [...this.numbers],
