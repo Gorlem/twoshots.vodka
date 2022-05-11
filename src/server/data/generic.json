@@ -171,8 +171,11 @@
             "button": "Verstanden ✔"
         }
     },
-    "defendcastle:game": {
+    "defendcastle:team": {
         "title": "Team *${team}*"
+    },
+    "defendcastle:spectator": {
+        "title": "Team *${left}* gegen Team *${right}*"
     },
     "defendcastle:winner": {
         "title": "*${winner}* hat gewonnen",

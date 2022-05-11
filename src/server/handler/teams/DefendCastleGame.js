@@ -6,7 +6,8 @@ import generateShots from '../../shots.js';
 import CountdownStep from '../CountdownStep.js';
 
 const explanationText = get('generic', 'defendcastle:explanation');
-const gameText = get('generic', 'defendcastle:game');
+const teamText = get('generic', 'defendcastle:team');
+const spectatorText = get('generic', 'defendcastle:spectator');
 const winnerText = get('generic', 'defendcastle:winner');
 
 class ExplanationStep extends StepWithVote {
@@ -65,14 +66,21 @@ class GameStep extends Step {
       right: parts[2],
     };
 
+    this.spectating.data = {
+      ...template(spectatorText, {
+        left: parts[0],
+        right: parts[2],
+      }),
+    };
+
     for (const player of left) {
       this.players[player.id].data = {
-        ...template(gameText, { team: parts[0] }),
+        ...template(teamText, { team: parts[0] }),
       };
     }
     for (const player of right) {
       this.players[player.id].data = {
-        ...template(gameText, { team: parts[2] }),
+        ...template(teamText, { team: parts[2] }),
       };
     }
 
