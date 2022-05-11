@@ -10,6 +10,7 @@ const explanation = get('generic', 'game:bomb:explanation');
 const results = get('generic', 'game:bomb:results');
 const hasBomb = get('generic', 'game:bomb:has-bomb');
 const waiting = get('generic', 'game:bomb:waiting');
+const spectator = get('generic', 'game:bomb:spectator');
 
 const fuseTime = [15000, 30000]; // between 15 and 30 seconds
 
@@ -57,6 +58,10 @@ class GameStep extends Step {
 
     this.playing.card = 'InformationCard';
     this.spectating.card = 'CarouselCard';
+    this.spectating.data = {
+      ...template(spectator),
+      selected: true,
+    };
 
     this.giveBomb(_.sample(this.seating));
 
@@ -84,8 +89,8 @@ class GameStep extends Step {
     this.playing.data = template(waiting, { bomb: player.name });
 
     this.spectating.data = {
+      ...this.spectating.data,
       options: this.seating.map((user) => ({ key: user.id, value: user.name + (user.id === player.id ? ' 💣' : '') })),
-      selected: true,
     };
 
     this.current = player;

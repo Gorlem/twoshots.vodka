@@ -109,6 +109,9 @@
         "title": "Das war kein Blindgänger",
         "message": "Bei *${loser}* ist die Bombe hochgegangen. Du musst *${shots}* trinken."
     },
+    "game:bomb:spectator": {
+        "title": "Bombenstimmung hier"
+    },
     "game:bomb:waiting": {
         "title": "Gerade kannst du entspannen",
         "message": "Die Bombe ist aktuell bei *${bomb}*."
