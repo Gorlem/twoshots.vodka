@@ -23,6 +23,10 @@ class SeatStep extends Step {
       options: this.seating,
     };
 
+    this.spectating.data = {
+      selected: true,
+    };
+
     this.send();
   }
 
