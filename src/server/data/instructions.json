@@ -94,5 +94,33 @@
     {
         "title": "Wasserfall",
         "message": "Alle fangen gleichzeitig an zu trinken. Höre erst auf wenn dein rechter Nachbar absetzt. *${players[0]}* darf als erstes absetzen."
+    },
+    {
+        "title": "*${players[0]}* wählt eine Person aus, die *${shots}* trinken muss",
+        "message": "Wer hat es am meisten verdient?"
+    },
+    {
+        "title": "Kategorie",
+        "message": "*${players[0]}* sucht sich eine Kategorie aus. Im Uhrzeigersinn muss jeder etwas aus der Kategorie nennen. Der erste der etwas wiederholt, oder nichts mehr weiß, muss *${shots}* trinken."
+    },
+    {
+        "title": "Reimen",
+        "message": "*${players[0]}* sucht sich ein Wort aus. Im Uhrzeigersinn müssen die anderen einen Reim darauf finden. Der erste der keinen Reim findet, oder ein Wort wiederholt, muss *${shots}* trinken."
+    },
+    {
+        "title": "Hands up",
+        "message": "Haltet eure Hände in die *Luft*. Der letzte muss *${shots}* trinken!"
+    },
+    {
+        "title": "Hands down",
+        "message": "Berührt so schnell ihr könnt den *Boden*. Der letzte muss *${shots}* trinken!"
+    },
+    {
+        "title": "Ich hab noch nie",
+        "message": "*${players[0]}* erzähl etwas, was du noch nie gemacht hast. Jeder der das schon gemacht hat muss *${shots}* trinken."
+    },
+    {
+        "title": "Happy Birthday",
+        "message": "Wer von euch zuletzt Geburtstag hatte, darf sich jemanden aussuchen, mit dem er zusammen mit *${shots}* darauf anstößt."
     }
 ]
