@@ -16,29 +16,6 @@
         "message": "Die richtige Antwort ist *${answer}*. Somit darf *${winner}* *${shots}* verteilen, und *${loser}* muss *${shots}* trinken.",
         "footer": "Quelle: [${domain}](${url})"
     },
-    "setup:role": {
-        "title": "Spielst du mit?",
-        "message": "Du kannst auswählen, ob du mitspielst oder nur zuschauen möchtest.",
-        "data": {
-            "options": [
-                { "key": "player", "value": "Mitspieler 🎮" },
-                { "key": "spectator", "value": "Zuschauer 👀" }
-            ]
-        }
-    },
-    "setup:name": {
-        "title": "Hier könnte ihr Name stehen",
-        "message": "Bitte gib einen Namen ein. Deine Mitspieler werden diesen Namen sehen.",
-        "data": {
-            "button": "Bestätigen ☝"
-        }
-    },
-    "setup:name:toolong": {
-        "footer": "Dein Name darf nicht länger als ${max} Zeichen sein."
-    },
-    "setup:name:tooshort": {
-        "footer": "Dein Name muss mindestens ${min} Zeichen lang sein."
-    },
     "polls:explanation": {
         "message": "Es geht um *${shots}*. Diese müssen entweder getrunken oder verteilt werden."
     },
