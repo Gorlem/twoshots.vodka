@@ -1,0 +1,41 @@
+[
+    {
+        "message": "*Wasserfall*. Alle fangen gleichzeitig an zu trinken. Hört erst auf wenn euer rechter Nachbar absetzt. Du darfst als erstes absetzen."
+    },
+    {
+        "message": "Wähle eine Person aus die *2 Schlücke* trinken muss."
+    },
+    {
+        "message": "Du musst *3 Schlücke* trinken."
+    },
+    {
+        "message": "Trink *2 Schlücke* und verteile *2 Schlücke*."
+    },
+    {
+        "message": "*Kategorie*. Wähle eine Kategorie, im Uhrzeigersinn muss jeder etwas aus der Kategorie nennen."
+    },
+    {
+        "message": "Berührt so schnell ihr könnt den *Boden*. Der letzte muss trinken!"
+    },
+    {
+        "message": "Haltet eure Hände in die *Luft*. Der letzte muss trinken!"
+    },
+    {
+        "message": "Such dir jemanden aus mit dem du jetzt *zusammen trinkst*."
+    },
+    {
+        "message": "*Reimen*. Such dir ein Wort aus. Im Uhrzeigersinn müssen die anderen einen Reim darauf finden. Der erste der keinen Reim findet, oder ein Wort wiederholt, muss trinken."
+    },
+    {
+        "message": "*Ich hab noch nie*. Erzähl etwas, was du noch nie gemacht hast. Jeder der das schon gemacht hat muss trinken."
+    },
+    {
+        "message": "Alle *Buben* trinken."
+    },
+    {
+        "message": "Alle *Damen* trinken."
+    },
+    {
+        "message": "Der *König* befiehlt, dass ihr alle trinkt!"
+    }
+]

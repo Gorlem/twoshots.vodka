@@ -257,5 +257,26 @@
     "prompts:results": {
         "message": "*${winner}* hat mit *${winnerCorrect} Punkten* gewonnen und darf *${shots}* verteilen. *${loser}* ist nur auf *${loserCorrect} Punkte* gekomen und muss *${shots}* trinken.",
         "footer": "Quelle: [${domain}](${url})"
+    },
+    "kingscup:explanation": {
+        "title": "Mini Cup",
+        "message": "Ihr wählt gleich nacheinander eine *verdeckte Karte* aus. Jede Karte bedeutet eine unterschiedliche *Aufgabe*, die euch anschließend erklärt wird.",
+        "data": {
+            "button": "Verstanden ✔"
+        }
+    },
+    "kingscup:turn": {
+        "title": "*${player}* ist dran",
+        "message": "Wähle eine *verdeckte Karte* aus."
+    },
+    "kingscup:instruction": {
+        "title": "*${player}* hat ${card} gezogen",
+        "data": {
+            "button": "Erledigt ✔"
+        }
+    },
+    "kingscup:results": {
+        "title": "Das wars auch schon mit dem Mini Cup",
+        "message": "Hier könnt ihr nochmal sehen, wer welche Karte gezogen hat."
     }
 }
