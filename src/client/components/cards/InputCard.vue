@@ -41,6 +41,9 @@ export default {
   mounted() {
     this.$refs.input.focus();
   },
+  activated() {
+    this.$refs.input.focus();
+  },
   computed: {
     type() {
       return this.data.type === 'number' ? 'number' : 'text';

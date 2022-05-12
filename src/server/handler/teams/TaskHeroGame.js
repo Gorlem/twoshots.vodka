@@ -307,6 +307,8 @@ class GameStep extends Step {
         team.count += 1;
       }
 
+      team.current = this.nextPlayer(team.players, team.current);
+
       for (const member of team.players) {
         this.players[member.id].card = 'InformationCard';
         this.players[member.id].data = {
@@ -319,7 +321,6 @@ class GameStep extends Step {
 
       this.send();
 
-      team.current = this.nextPlayer(team.players, team.current);
       team.answer = this.task(team.current);
     }
   }
