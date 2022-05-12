@@ -31,6 +31,9 @@ export default {
   emits: [
     'name',
   ],
+  mounted() {
+    this.$refs.input.focus();
+  },
   methods: {
     checkName() {
       this.$emit('name', this.name);
