@@ -129,14 +129,14 @@ class ResultStep extends Step {
 
     const parts = room.id.split('-');
 
-    const winner = score > 0 ? 'right' : 'left';
+    const winner = score < 0 ? 'right' : 'left';
 
     this.global.card = 'InformationCard';
     this.global.data = {
       ...template(winnerText, {
-        winner: parts[winner === 'left' ? 2 : 0],
-        losersName: parts[winner === 'left' ? 0 : 2],
-        losers: (winner === 'left' ? left : right).map((p) => p.name).join('*, *'),
+        winner: parts[winner === 'right' ? 2 : 0],
+        losersName: parts[winner === 'right' ? 0 : 2],
+        losers: (winner === 'right' ? left : right).map((p) => p.name).join('*, *'),
         shots: generateShots(2, 5),
       }),
     };

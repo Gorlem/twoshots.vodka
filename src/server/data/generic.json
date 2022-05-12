@@ -138,7 +138,7 @@
     },
     "rockpaperscissor:winner": {
         "title": "*${winner}* schlägt *${loser}*",
-        "message": "Somit muss Team *${losersName}* (*${losers}*) *${shots}* trinken!"
+        "message": "Somit muss Team *${losersName}* (*${losers}*) jeweils *${shots}* trinken!"
     },
     "rockpaperscissor:team": {
         "title": "Team *${team}*",
@@ -166,7 +166,7 @@
     },
     "defendcastle:winner": {
         "title": "*${winner}* hat gewonnen",
-        "message": "Somit muss Team *${losersName}* (*${losers}*) *${shots}* trinken!"
+        "message": "Somit muss Team *${losersName}* (*${losers}*) jeweils *${shots}* trinken!"
     },
     "categories:explanation": {
         "message": "Ihr habt gleich *60 Sekunden* um möglichst viel aus der Kategorie *${category}* aufzuzählen. Der Gewinner darf *${shots}* verteilen, der Verlierer muss *${shots}* trinken. Sollte einer alle *${size}* Antworten richtig erraten, endet das Spiel sofort.",
@@ -262,5 +262,62 @@
     "kingscup:results": {
         "title": "Das wars auch schon mit dem Mini Cup",
         "message": "Hier könnt ihr nochmal sehen, wer welche Karte gezogen hat."
+    },
+    "taskhero:explanation": {
+        "title": "Held der Aufgaben",
+        "message": "Team *${leftName}* (*${leftPlayers}*) spielt gegen Team *${rightName}* (*${rightPlayers}*).\nInnerhalb eurer Gruppe seid ihr nacheinander dran, und müsst verschiedene Aufgaben lösen.",
+        "data": {
+            "button": "Verstanden ✔"
+        }
+    },
+    "taskhero:countdown": {
+        "message": "Ihr habt noch *${seconds} Sekunden*."
+    },
+    "taskhero:points": {
+        "title": "Gerade ist *${current}* dabei eine Aufgabe zu lösen",
+        "footer": "Ihr habt bisher *${points}* gelöste Aufgaben."
+    },
+    "taskhero:collectiontask": {
+        "title": "Wähle *${label}* aus"
+    },
+    "taskhero:invertedcollectiontask": {
+        "title": "Wähle nicht *${label}* aus"
+    },
+    "taskhero:additiontask": {
+        "title": "Rechne *${left} + ${right}* aus",
+        "data": {
+            "type": "number",
+            "button": "Abgeben 😬"
+        }
+    },
+    "taskhero:subtractiontask": {
+        "title": "Rechne *${left} - ${right}* aus",
+        "data": {
+            "type": "number",
+            "button": "Abgeben 😬"
+        }
+    },
+    "taskhero:multiplicationtask": {
+        "title": "Rechne *${left} * ${right}* aus",
+        "data": {
+            "type": "number",
+            "button": "Abgeben 😬"
+        }
+    },
+    "taskhero:biggertask": {
+        "title": "Wähle eine Zahl die größer als *${number}* ist"
+    },
+    "taskhero:smallertask": {
+        "title": "Wähle eine Zahl die kleiner als *${number}* ist"
+    },
+    "taskhero:buttontask": {
+        "title": "Drück den *Knopf*",
+        "data": {
+            "button": "Den hier 👈"
+        }
+    },
+    "taskhero:results": {
+        "title": "*${winnersName}* hat gewonnen",
+        "message": "Somit muss Team *${losersName}* (*${losers}*) jeweils *${shots}* trinken!"
     }
 }

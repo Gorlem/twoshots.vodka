@@ -2,10 +2,12 @@ import _ from 'lodash';
 
 import RockPaperScissor from './teams/RockPaperScissorGame.js';
 import DefendCastle from './teams/DefendCastleGame.js';
+import TaskHeroGame from './teams/TaskHeroGame.js';
 
 const games = [
   RockPaperScissor,
   DefendCastle,
+  TaskHeroGame,
 ];
 
 class GameStep {

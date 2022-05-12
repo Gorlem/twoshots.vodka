@@ -1,0 +1,91 @@
+{
+    "collections": [
+        [
+            { "label": "das Fahrrad", "value": "🚲"},
+            { "label": "das Taxi", "value": "🚕"},
+            { "label": "den Roller", "value": "🛵"},
+            { "label": "den Zug", "value": "🚝"},
+            { "label": "das Feuerwehrauto", "value": "🚒"},
+            { "label": "den Rettungswagen", "value": "🚑"},
+            { "label": "den Helikopter", "value": "🚁"},
+            { "label": "das Flugzeug", "value": "🛩️"},
+            { "label": "das Schiff", "value": "🚢"},
+            { "label": "den Traktor", "value": "🚜"},
+            { "label": "den LKW", "value": "🚚"}
+        ],
+        [
+            { "label": "das orangene Herz", "value": "🧡"},
+            { "label": "das gelbe Herz", "value": "💛"},
+            { "label": "das grüne Herz", "value": "💚"},
+            { "label": "das blaue Herz", "value": "💙"},
+            { "label": "das lilane Herz", "value": "💜"},
+            { "label": "das braune Herz", "value": "🤎"},
+            { "label": "das schwarze Herz", "value": "🖤"},
+            { "label": "das weiße Herz", "value": "🤍"}
+        ],
+        [
+            { "label": "die Null", "value": "0️⃣"},
+            { "label": "die Eins", "value": "1️⃣"},
+            { "label": "die Zwei", "value": "2️⃣"},
+            { "label": "die Drei", "value": "3️⃣"},
+            { "label": "die Vier", "value": "4️⃣"},
+            { "label": "die Fünf", "value": "5️⃣"},
+            { "label": "die Sechs", "value": "6️⃣"},
+            { "label": "die Sieben", "value": "7️⃣"},
+            { "label": "die Acht", "value": "8️⃣"},
+            { "label": "die Neun", "value": "9️⃣"},
+            { "label": "die Zehn", "value": "🔟"}
+        ],
+        [
+            { "label": "das Dreieck", "value": "🔺"},
+            { "label": "die Raute", "value": "🔷"},
+            { "label": "den Kreis", "value": "🟡"},
+            { "label": "das Quadrat", "value": "🟩"},
+            { "label": "das Kreuz", "value": "✖"}
+        ],
+        [
+            { "label": "01:00 Uhr", "value": "🕐"},
+            { "label": "02:00 Uhr", "value": "🕑"},
+            { "label": "03:00 Uhr", "value": "🕒"},
+            { "label": "04:00 Uhr", "value": "🕓"},
+            { "label": "05:00 Uhr", "value": "🕔"},
+            { "label": "06:00 Uhr", "value": "🕕"},
+            { "label": "07:00 Uhr", "value": "🕖"},
+            { "label": "08:00 Uhr", "value": "🕗"},
+            { "label": "09:00 Uhr", "value": "🕘"},
+            { "label": "10:00 Uhr", "value": "🕙"},
+            { "label": "11:00 Uhr", "value": "🕚"},
+            { "label": "12:00 Uhr", "value": "🕛"}
+        ],
+        [
+            { "label": "den Frosch", "value": "🐸" },
+            { "label": "das Krokodil", "value": "🐊" },
+            { "label": "die Schildkröte", "value": "🐢" },
+            { "label": "die Eidechse", "value": "🦎" },
+            { "label": "die Schlange", "value": "🐍" },
+            { "label": "den Drachen", "value": "🐉" }
+        ],
+        [
+            { "label": "das Huhn", "value": "🐔" },
+            { "label": "den Pinguin", "value": "🐧" },
+            { "label": "die Taube", "value": "🕊️" },
+            { "label": "den Adler", "value": "🦅" },
+            { "label": "die Ente", "value": "🦆" },
+            { "label": "den Schwan", "value": "🦢" },
+            { "label": "die Eule", "value": "🦉" },
+            { "label": "den Flamingo", "value": "🦩" },
+            { "label": "den Pfau", "value": "🦚" },
+            { "label": "den Papagei", "value": "🦜" }
+        ],
+        [
+            { "label": "den Wal", "value": "🐋" },
+            { "label": "den Delfin", "value": "🐬" },
+            { "label": "den Fisch", "value": "🐟" },
+            { "label": "den Hai", "value": "🦈" },
+            { "label": "den Oktopus", "value": "🐙" }
+        ]
+    ]
+}
+
+
+    
