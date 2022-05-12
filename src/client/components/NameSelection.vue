@@ -13,7 +13,7 @@
           </button>
         </p>
       </div>
-      <div>
+      <div class="has-text-danger">
         {{ error }}
       </div>
     </div>
@@ -36,7 +36,19 @@ export default {
   },
   methods: {
     checkName() {
-      this.$emit('name', this.name);
+      this.error = '';
+
+      if (this.name.length <= 0) {
+        this.error = 'Du musst einen Namen angeben!';
+      }
+
+      if (this.name.length > 10) {
+        this.error = 'Dein Name darf nicht länger als 10 Zeichen sein!';
+      }
+
+      if (this.error === '') {
+        this.$emit('name', this.name);
+      }
     },
   },
 };
