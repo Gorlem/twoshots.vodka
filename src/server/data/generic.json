@@ -134,9 +134,16 @@
             }
         ]
     },
-    "seats": {
+    "seats:all": {
         "title": "Freie Platzwahl",
         "message": "Wählt bitte aus, wo ihr abhängig von *${player}* sitzt.",
+        "data": {
+            "seat": "Freier Platz 🪑"
+        }
+    },
+    "seats:single": {
+        "title": "Freie Platzwahl",
+        "message": "Wähle aus zwischen wem du sitzt.",
         "data": {
             "seat": "Freier Platz 🪑"
         }

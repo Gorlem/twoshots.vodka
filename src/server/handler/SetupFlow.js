@@ -5,7 +5,7 @@ import Step from './Step.js';
 import { get, template } from '../texts.js';
 import PendingRoom from '../models/PendingRoom.js';
 
-const text = get('generic', 'seats');
+const seatsText = get('generic', 'seats:all');
 
 class SeatStep extends Step {
   constructor(handler, room) {
@@ -15,11 +15,11 @@ class SeatStep extends Step {
     const player = _.sample([...room.playing]);
 
     this.seating = [...room.playing]
-      .map((p, i) => (i === 0 ? { key: player.id, value: player.name, static: true } : { key: i, value: text.data.seat }));
+      .map((p, i) => (i === 0 ? { key: player.id, value: player.name, static: true } : { key: i, value: seatsText.data.seat }));
 
     this.global.card = 'CarouselCard';
     this.global.data = {
-      ...template(text, { player: player.name }),
+      ...template(seatsText, { player: player.name }),
       options: this.seating,
     };
 
@@ -35,7 +35,7 @@ class SeatStep extends Step {
       const prev = this.seating.findIndex((seat) => seat.key === player.id);
 
       if (prev !== -1) {
-        this.seating[prev] = { key: prev, value: text.data.seat };
+        this.seating[prev] = { key: prev, value: seatsText.data.seat };
       }
 
       this.seating[value] = { key: player.id, value: player.name, static: true };
@@ -64,7 +64,7 @@ class SeatStep extends Step {
       _.pullAt(this.seating, this.seating.findLastIndex((seat, i) => seat.key === i));
     }
 
-    this.seating = this.seating.map((seat, i) => (seat.static ? seat : { key: i, value: text.data.seat }));
+    this.seating = this.seating.map((seat, i) => (seat.static ? seat : { key: i, value: seatsText.data.seat }));
   }
 }
 

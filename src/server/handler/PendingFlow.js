@@ -2,7 +2,7 @@ import Step from './Step.js';
 
 import { get, template } from '../texts.js';
 
-const text = get('generic', 'seats');
+const seatsText = get('generic', 'seats:single');
 
 class SeatStep extends Step {
   constructor(handler, room) {
@@ -12,11 +12,11 @@ class SeatStep extends Step {
 
   updateOptions() {
     this.seating = this.room.seating
-      .flatMap((player, i) => [{ key: i, value: text.data.seat }, { key: player.id, value: player.name, static: true }]);
+      .flatMap((player, i) => [{ key: i, value: seatsText.data.seat }, { key: player.id, value: player.name, static: true }]);
 
     this.global.card = 'CarouselCard';
     this.global.data = {
-      ...template(text, { player: '!!!!' }),
+      ...template(seatsText),
       options: this.seating,
     };
 
