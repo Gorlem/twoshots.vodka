@@ -106,7 +106,7 @@ export default {
       this.$emit('navigate', '/new');
     },
     joinRoom() {
-      this.$emit('navigate', `/${this.left}-mit-${this.right}`);
+      this.$emit('navigate', `/${this.left.trim().toLowerCase()}-mit-${this.right.trim().toLowerCase()}`);
     },
   },
 };
