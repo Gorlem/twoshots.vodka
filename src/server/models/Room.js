@@ -142,14 +142,14 @@ export default class Room {
   remove(user) {
     this.logger.info(`Removing user ${user.name}`, { user: user.id });
 
+    if (this.seating) {
+      _.pullAllBy(this.seating, [user], 'id');
+    }
+
     if (this.playing.has(user)) {
       this.playing.delete(user);
       this.handler?.removedPlayer(user);
       this.vote.reset(user);
-
-      if (this.seating) {
-        _.pullAllBy(this.seating, [user], 'id');
-      }
     }
 
     if (this.spectating.has(user)) {
