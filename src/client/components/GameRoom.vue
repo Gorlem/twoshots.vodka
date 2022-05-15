@@ -1,25 +1,23 @@
 <template>
-  <section class="hero is-fullheight">
-    <div class="hero-head">
-      <div class="container">
-        <div class="level m-2">
-          <div class="level-left">
-            <div class="level-item">
-              <p class="subtitle is-5">
-                <strong>{{ roomId }}</strong>
-              </p>
-            </div>
+  <div class="hero-head">
+    <div class="container">
+      <div class="level m-2">
+        <div class="level-left">
+          <div class="level-item">
+            <p class="subtitle is-5">
+              <strong>{{ roomId }}</strong>
+            </p>
           </div>
-          <div class="level-right" v-if="vote != null">
-            <div class="level-item">
-              <VoteButton :data="vote" @submit="roomVote">Weiter geht's 👉</VoteButton>
-            </div>
+        </div>
+        <div class="level-right" v-if="vote != null">
+          <div class="level-item">
+            <VoteButton :data="vote" @submit="roomVote">Weiter geht's 👉</VoteButton>
           </div>
         </div>
       </div>
     </div>
-    <component :is="card.name" v-if="card != null" :data="card.data" @action="roomAction"></component>
-  </section>
+  </div>
+  <component :is="card.name" v-if="card != null" :data="card.data" @action="roomAction"></component>
 </template>
 
 <script>

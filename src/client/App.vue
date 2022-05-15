@@ -6,6 +6,14 @@
 body {
   touch-action: none;
 }
+
+html, body, #app {
+  height: 100%;
+}
+
+.hero.is-fullheight {
+  min-height: 100% !important;
+}
 </style>
 
 <script>
