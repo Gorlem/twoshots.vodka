@@ -56,19 +56,19 @@
         "message": "Alle Frauen trinken *${shots}*."
     },
     {
-        "title": "Der oder die Größte muss *${shots}* trinken",
+        "title": "Der Größte muss *${shots}* trinken",
         "message": "Manchmal kommt es eben doch auf die Größe drauf an."
     },
     {
-        "title": "Der oder die Kleinste muss *${shots}* trinken",
+        "title": "Der Kleinste muss *${shots}* trinken",
         "message": "Darfst du eigentlich schon vorne sitzen im Auto?"
     },
     {
-        "title": "Der oder die Jüngste muss *${shots}* trinken",
+        "title": "Der Jüngste muss *${shots}* trinken",
         "message": "Dürfte ich mal Ihren Ausweis sehen?"
     },
     {
-        "title": "Der oder die Älteste muss *${shots}* trinken",
+        "title": "Der Älteste muss *${shots}* trinken",
         "message": "Du alter Sack."
     },
     {
@@ -122,5 +122,57 @@
     {
         "title": "Happy Birthday",
         "message": "Wer von euch zuletzt Geburtstag hatte, darf sich jemanden aussuchen, mit dem er zusammen mit *${shots}* darauf anstößt."
+    },
+    {
+        "title": "Alle, die weder etwas zu essen, noch zu trinken, mitgebracht haben müssen *${shots}* trinken",
+        "message": "Wer hat euch denn bitte so erzogen?"
+    },
+    {
+        "title": "Jeder von euch, der heute schon ein Tier gestreichelt hat, muss *${shots}* trinken",
+        "message": "Die sind aber auch immer süß."
+    },
+    {
+        "title": "Schlaft ihr noch mit einem Kuscheltier? Dann trinkt *${shots}*",
+        "message": "Kann man euch aber auch nicht verübeln."
+    },
+    {
+        "title": "Alle die heute schon Toast gegessen haben, trinken *${shots}*",
+        "message": "Ihr wisst, dass es auch ordentliches Brot gibt, oder?"
+    },
+    {
+        "title": "Die erste Person, die *${players[0]}* ein Kompliment macht, darf *${shots}* verteilen",
+        "message": "Hoffentlich war das auch ernst gemeint."
+    },
+    {
+        "title": "Die erste Person, die heute da war, darf *${shots}* verteilen",
+        "message": "Der Gastgeber zählt natürlich nicht dazu."
+    },
+    {
+        "title": "Die letzte Person, die dazu gestoßen ist, muss *${shots}* trinken",
+        "message": "Hoffentlich hattest du eine gute Ausrede."
+    },
+    {
+        "title": "Vergleicht die Länge von euren Mittelfingern",
+        "message": "Der mit dem Kleinsten muss *${shots}* trinken. Sorry."
+    },
+    {
+        "title": "Wer auch immer von euch zuletzt in der Notaufname war, muss *${shots}* trinken",
+        "message": "Hoffentlich hat es weh getan."
+    },
+    {
+        "title": "Die erste Person, die komplett unterm Tisch ist, darf *${shots}* verteilen",
+        "message": "Kopf dabei gestoßen?"
+    },
+    {
+        "title": "Der Erste, der einen Handstand für 5 Sekunden halten kann, darf *${shots}* verteilen",
+        "message": "Aber kotz dabei bitte nicht."
+    },
+    {
+        "title": "Der Erste, der die Person links von sich schlägt, darf *${shots}* verteilen",
+        "message": "Wird schon nicht weh getan haben, oder?"
+    },
+    {
+        "title": "Der Erste, der sein Glas ext, darf anschließend *${shots}* verteilen",
+        "message": "Hoffentlich war da nicht mehr so viel drin."
     }
 ]
