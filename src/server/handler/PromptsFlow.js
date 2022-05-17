@@ -12,6 +12,7 @@ const explanationText = get('generic', 'prompts:explanation');
 const gameText = get('generic', 'prompts:game');
 const resultsText = get('generic', 'prompts:results');
 const correctText = get('generic', 'prompts:correct');
+const duplicateText = get('generic', 'prompts:duplicate');
 const wrongText = get('generic', 'prompts:wrong');
 
 class ExplanationStep extends StepWithVote {
@@ -127,19 +128,30 @@ class InputStep extends Step {
       }
     }
 
-    if (userAnswer != null && !result.answers.has(userAnswer.texts[0])) {
-      result.answers.add(userAnswer.texts[0]);
-      result.points += userAnswer.percent;
+    if (userAnswer != null) {
+      if (result.answers.has(userAnswer.texts[0])) {
+        this.players[user.id].card = 'InformationCard';
+        this.players[user.id].data = {
+          ...template(duplicateText, {
+            answer: payload,
+            points: result.points,
+          }),
+        };
+        this.send();
+      } else {
+        result.answers.add(userAnswer.texts[0]);
+        result.points += userAnswer.percent;
 
-      this.players[user.id].card = 'InformationCard';
-      this.players[user.id].data = {
-        ...template(correctText, {
-          answer: userAnswer.texts[0],
-          percent: userAnswer.percent,
-          points: result.points,
-        }),
-      };
-      this.send();
+        this.players[user.id].card = 'InformationCard';
+        this.players[user.id].data = {
+          ...template(correctText, {
+            answer: payload,
+            percent: userAnswer.percent,
+            points: result.points,
+          }),
+        };
+        this.send();
+      }
     } else {
       this.players[user.id].card = 'InformationCard';
       this.players[user.id].data = {

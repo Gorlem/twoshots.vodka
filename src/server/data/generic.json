@@ -233,6 +233,11 @@
         "message": "…und gibt dir *${percent} Punkte*!",
         "footer": "Du hast jetzt *${points} Punkte*."
     },
+    "prompts:duplicate": {
+        "title": "*${answer}* gehört zwar dazu, aber *hattest du schon*",
+        "message": "Versuch's mit was Anderem!",
+        "footer": "Du hast immernoch *${points} Punkte*."
+    },
     "prompts:wrong": {
         "title": "*${answer}* gehört *nicht* dazu",
         "message": "Versuch's weiter!",
