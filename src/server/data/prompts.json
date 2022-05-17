@@ -3375,7 +3375,9 @@
                 "texts": [
                     "spiele spielen",
                     "computerspiele spielen",
-                    "zocken"
+                    "zocken",
+                    "spiele",
+                    "spielen"
                 ]
             },
             {
@@ -4130,6 +4132,1054 @@
                 "percent": 1,
                 "texts": [
                     "citratzyklus"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt ein Land, in dessen Nationalflagge die Farbe Grün ist",
+        "amount": 763,
+        "source": "https://www.reddit.com/r/de/comments/uixjrc/umfrage_f%C3%BCr_ein_familienduell/",
+        "answers": [
+            {
+                "percent": 22,
+                "texts": [
+                    "italien"
+                ]
+            },
+            {
+                "percent": 17,
+                "texts": [
+                    "irland"
+                ]
+            },
+            {
+                "percent": 13,
+                "texts": [
+                    "brasilien"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "saudi arabien"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "jamaika"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "libyen"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "nigeria"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "mexiko"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt etwas, wofür man Handschuhe braucht",
+        "amount": 765,
+        "source": "https://www.reddit.com/r/de/comments/uixjrc/umfrage_f%C3%BCr_ein_familienduell/",
+        "answers": [
+            {
+                "percent": 18,
+                "texts": [
+                    "putzen",
+                    "reinigen",
+                    "sauber machen"
+                ]
+            },
+            {
+                "percent": 16,
+                "texts": [
+                    "gartenarbeit",
+                    "garten arbeit",
+                    "gärtnern"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "backofen",
+                    "herd",
+                    "kochen",
+                    "backen"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "ski fahren",
+                    "ski"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "schneeballschlacht",
+                    "schneeball schlacht",
+                    "schneeball werfen"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "operation",
+                    "op",
+                    "operieren"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "fahrrad",
+                    "fahrrad fahren"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "gegen kälte",
+                    "kälte",
+                    "eis",
+                    "schnee",
+                    "winter"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt ein Videospiel",
+        "amount": 763,
+        "source": "https://www.reddit.com/r/de/comments/uixjrc/umfrage_f%C3%BCr_ein_familienduell/",
+        "answers": [
+            {
+                "percent": 8,
+                "texts": [
+                    "super mario"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "legend of zelda"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "tetris"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "grand theft auto",
+                    "gta"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "elden ring"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "minecraft"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "mario kart"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "world of warcraft",
+                    "wow",
+                    "warcraft"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt ein Tier ohne Fell",
+        "amount": 764,
+        "source": "https://www.reddit.com/r/de/comments/uixjrc/umfrage_f%C3%BCr_ein_familienduell/",
+        "answers": [
+            {
+                "percent": 33,
+                "texts": [
+                    "nacktmull"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "fisch"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "schlange"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "nacktkatze",
+                    "nackt katze"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "vogel"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "schnecke",
+                    "nacktschnecke"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "schildkröte"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "regenwurm",
+                    "wurm"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt einen Urlaubsort außerhalb Deutschlands",
+        "amount": 762,
+        "source": "https://www.reddit.com/r/de/comments/uixjrc/umfrage_f%C3%BCr_ein_familienduell/",
+        "answers": [
+            {
+                "percent": 37,
+                "texts": [
+                    "mallorca",
+                    "malle"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "italien"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "spanien"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "paris"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "bayern"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "rom"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "barcelona"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "malediven"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt eine beliebte Buchreihe",
+        "amount": 760,
+        "source": "https://www.reddit.com/r/de/comments/uixjrc/umfrage_f%C3%BCr_ein_familienduell/",
+        "answers": [
+            {
+                "percent": 59,
+                "texts": [
+                    "harry potter"
+                ]
+            },
+            {
+                "percent": 15,
+                "texts": [
+                    "herr der ringe"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "game of thrones"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "eragon"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "scheibenwelt"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "brockhaus"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "hunger games"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "twilight"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt eine bedeutende Sehenswürdigkeit auf der Welt",
+        "amount": 762,
+        "source": "https://www.reddit.com/r/de/comments/uixjrc/umfrage_f%C3%BCr_ein_familienduell/",
+        "answers": [
+            {
+                "percent": 42,
+                "texts": [
+                    "eiffelturm"
+                ]
+            },
+            {
+                "percent": 12,
+                "texts": [
+                    "pyramiden",
+                    "pyramiden von gizeh",
+                    "cheops pyramide",
+                    "chepren pyramide",
+                    "mykerinos pyramide",
+                    "pyramide"
+                ]
+            },
+            {
+                "percent": 11,
+                "texts": [
+                    "freiheitsstatue"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "taj mahal"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "chinesische mauer"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "kolosseum"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "brandenburger tor"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "louvre"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt etwas, was man oft im Auto dabei hat",
+        "amount": 763,
+        "source": "https://www.reddit.com/r/de/comments/uixjrc/umfrage_f%C3%BCr_ein_familienduell/",
+        "answers": [
+            {
+                "percent": 9,
+                "texts": [
+                    "schlüssel",
+                    "auto schlüssel",
+                    "autoschlüssel"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "warndreieck"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "sonnenbrille"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "führerschein",
+                    "fahrzeugpapiere"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "warnweste"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "eiskratzer"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "handy",
+                    "smartphone"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "parkscheibe"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt ein elektrisches Küchengerät",
+        "amount": 764,
+        "source": "https://www.reddit.com/r/de/comments/uixjrc/umfrage_f%C3%BCr_ein_familienduell/",
+        "answers": [
+            {
+                "percent": 55,
+                "texts": [
+                    "mixer"
+                ]
+            },
+            {
+                "percent": 11,
+                "texts": [
+                    "toaster"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "mikrowelle"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "wasserkocher"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "kühlschrank"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "kaffeemaschine",
+                    "kaffee maschine"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "herd"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "thermomixer"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt etwas, das man werfen kann",
+        "amount": 765,
+        "source": "https://www.reddit.com/r/de/comments/uixjrc/umfrage_f%C3%BCr_ein_familienduell/",
+        "answers": [
+            {
+                "percent": 52,
+                "texts": [
+                    "ball"
+                ]
+            },
+            {
+                "percent": 11,
+                "texts": [
+                    "stein"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "frisbee"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "kinder"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "speer"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "schneeball"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "zwerge"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "handtuch"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt eine Mahlzeit für einen gemütlichen Tag Zuhause",
+        "amount": 760,
+        "source": "https://www.reddit.com/r/de/comments/uixjrc/umfrage_f%C3%BCr_ein_familienduell/",
+        "answers": [
+            {
+                "percent": 37,
+                "texts": [
+                    "pizza"
+                ]
+            },
+            {
+                "percent": 10,
+                "texts": [
+                    "pasta",
+                    "nudeln"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "suppe"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "lasagne"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "chips"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "döner"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "eintopf"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "gulasch"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt eine Automarke ohne kreisförmiges Logo",
+        "amount": 753,
+        "source": "https://www.reddit.com/r/de/comments/uixjrc/umfrage_f%C3%BCr_ein_familienduell/",
+        "answers": [
+            {
+                "percent": 15,
+                "texts": [
+                    "renault"
+                ]
+            },
+            {
+                "percent": 9,
+                "texts": [
+                    "tesla"
+                ]
+            },
+            {
+                "percent": 9,
+                "texts": [
+                    "ferrari"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "porsche"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "peugeot"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "seat"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "honda"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "ford"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt etwas, mit dem man Töne machen kann",
+        "amount": 764,
+        "source": "https://www.reddit.com/r/de/comments/uixjrc/umfrage_f%C3%BCr_ein_familienduell/",
+        "answers": [
+            {
+                "percent": 27,
+                "texts": [
+                    "flöte",
+                    "blockflöte",
+                    "querflöte"
+                ]
+            },
+            {
+                "percent": 11,
+                "texts": [
+                    "klavier"
+                ]
+            },
+            {
+                "percent": 11,
+                "texts": [
+                    "mund"
+                ]
+            },
+            {
+                "percent": 9,
+                "texts": [
+                    "po",
+                    "hintern",
+                    "arsch",
+                    "popo"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "gitarre"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "trompete"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "xylophon"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "instrument"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt einen Superhelden / Superheldin",
+        "amount": 759,
+        "source": "https://www.reddit.com/r/de/comments/uixjrc/umfrage_f%C3%BCr_ein_familienduell/",
+        "answers": [
+            {
+                "percent": 24,
+                "texts": [
+                    "batman"
+                ]
+            },
+            {
+                "percent": 23,
+                "texts": [
+                    "superman"
+                ]
+            },
+            {
+                "percent": 11,
+                "texts": [
+                    "spiderman"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "ironman"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "wonder woman"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "captain america"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "captain marvel"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "deadpool"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt ein Element aus dem Periodensystem",
+        "amount": 761,
+        "source": "https://www.reddit.com/r/de/comments/uixjrc/umfrage_f%C3%BCr_ein_familienduell/",
+        "answers": [
+            {
+                "percent": 17,
+                "texts": [
+                    "wasserstoff"
+                ]
+            },
+            {
+                "percent": 15,
+                "texts": [
+                    "helium"
+                ]
+            },
+            {
+                "percent": 8,
+                "texts": [
+                    "eisen"
+                ]
+            },
+            {
+                "percent": 6,
+                "texts": [
+                    "gold"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "sauerstoff"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "blei"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "neon"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "argon"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt eine wichtige Erfindung der Menschheitsgeschichte",
+        "amount": 761,
+        "source": "https://www.reddit.com/r/de/comments/uixjrc/umfrage_f%C3%BCr_ein_familienduell/",
+        "answers": [
+            {
+                "percent": 22,
+                "texts": [
+                    "rad"
+                ]
+            },
+            {
+                "percent": 11,
+                "texts": [
+                    "elektrizität",
+                    "strom"
+                ]
+            },
+            {
+                "percent": 8,
+                "texts": [
+                    "buckdruck"
+                ]
+            },
+            {
+                "percent": 7,
+                "texts": [
+                    "internet"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "computer"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "dampfmaschine"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "fahrrad"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "penicillin"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt etwas, das in eine Hosentasche passt",
+        "amount": 759,
+        "source": "https://www.reddit.com/r/de/comments/uixjrc/umfrage_f%C3%BCr_ein_familienduell/",
+        "answers": [
+            {
+                "percent": 43,
+                "texts": [
+                    "handy",
+                    "smartphone"
+                ]
+            },
+            {
+                "percent": 16,
+                "texts": [
+                    "schlüssel",
+                    "auto schlüssel",
+                    "autoschlüssel"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "hand"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "feuerzeug"
+                ]
+            },
+            {
+                "percent": 5,
+                "texts": [
+                    "taschenmesser"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "taschentuch"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "portemonnaie",
+                    "portmonee",
+                    "geldbeutel",
+                    "geldtasche"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "taschenuhr"
+                ]
+            }
+        ]
+    },
+    {
+        "question": "Nennt etwas, was man im Internet macht",
+        "amount": 758,
+        "source": "https://www.reddit.com/r/de/comments/uixjrc/umfrage_f%C3%BCr_ein_familienduell/",
+        "answers": [
+            {
+                "percent": 31,
+                "texts": [
+                    "pornos",
+                    "pornos schauen",
+                    "pornos gucken"
+                ]
+            },
+            {
+                "percent": 24,
+                "texts": [
+                    "surfen"
+                ]
+            },
+            {
+                "percent": 10,
+                "texts": [
+                    "filme",
+                    "filme gucken",
+                    "filme schauen",
+                    "videos",
+                    "videos schauen",
+                    "videos gucken"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "reddit"
+                ]
+            },
+            {
+                "percent": 4,
+                "texts": [
+                    "shoppen"
+                ]
+            },
+            {
+                "percent": 3,
+                "texts": [
+                    "nachrichten",
+                    "nachrichten lesen"
+                ]
+            },
+            {
+                "percent": 2,
+                "texts": [
+                    "zocken",
+                    "spiele spielen",
+                    "spiele",
+                    "spielen"
+                ]
+            },
+            {
+                "percent": 1,
+                "texts": [
+                    "trollen"
                 ]
             }
         ]
