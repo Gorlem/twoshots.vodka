@@ -149,7 +149,7 @@ export default class Room {
     if (this.playing.has(user)) {
       this.playing.delete(user);
       this.handler?.removedPlayer(user);
-      this.vote.reset(user);
+      this.vote.removedPlayer(user);
     }
 
     if (this.spectating.has(user)) {
