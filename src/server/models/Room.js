@@ -3,6 +3,8 @@ import winston from 'winston';
 
 import Vote from './Vote.js';
 
+import PendingRoom from './PendingRoom.js';
+
 import Handler from '../handler/Handler.js';
 import LobbyFlow from '../handler/LobbyFlow.js';
 import SetupFlow from '../handler/SetupFlow.js';
@@ -167,5 +169,13 @@ export default class Room {
     if (this.playing.size === 0 && this.spectating.size === 0) {
       this.game?.removeRoom(this);
     }
+  }
+
+  createSeating(seating) {
+    const users = new Map([...this.playing].map((user) => [user.id, user]));
+
+    this.seating = seating.map((userId) => users.get(userId));
+
+    this.pendingRoom = new PendingRoom(this.seating);
   }
 }

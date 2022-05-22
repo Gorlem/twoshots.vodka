@@ -244,7 +244,7 @@
         "footer": "Du hast immernoch *${points} Punkte*."
     },
     "prompts:results": {
-        "message": "*${winner}* hat mit *${winnerCorrect} Punkten* gewonnen und darf *${shots}* verteilen. *${loser}* ist nur auf *${loserCorrect} Punkte* gekomen und muss *${shots}* trinken.",
+        "message": "*${winner}* hat mit *${winnerCorrect} Punkten* gewonnen und darf *${shots}* verteilen. *${loser}* ist nur auf *${loserCorrect} Punkte* gekommen und muss *${shots}* trinken.",
         "footer": "Quelle: [${domain}](${url})"
     },
     "kingscup:explanation": {

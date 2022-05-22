@@ -11,7 +11,6 @@ class LobbyStep extends StepWithVote {
     this.global.card = 'LobbyCard';
     this.global.data = {
       ...template(content, { roomId: this.room.id }),
-      users: [...this.room.playing].map((user) => user.name),
     };
 
     this.playing.data = {
@@ -21,6 +20,15 @@ class LobbyStep extends StepWithVote {
     this.vote.setPercentage(100);
     this.vote.setMinimum(2);
 
+    this.updateCard();
+  }
+
+  updateCard() {
+    this.global.data = {
+      ...this.global.data,
+      users: [...this.room.playing].map((user) => user.name),
+    };
+
     this.update();
   }
 
@@ -29,21 +37,11 @@ class LobbyStep extends StepWithVote {
   }
 
   addedPlayer() {
-    this.global.data = {
-      ...this.global.data,
-      users: [...this.room.playing].map((user) => user.name),
-    };
-
-    this.update();
+    this.updateCard();
   }
 
   removedPlayer() {
-    this.global.data = {
-      ...this.global.data,
-      users: [...this.room.playing].map((user) => user.name),
-    };
-
-    this.update();
+    this.updateCard();
   }
 
   action(user) {

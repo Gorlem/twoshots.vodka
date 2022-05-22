@@ -3,7 +3,6 @@ import _ from 'lodash';
 import Step from './Step.js';
 
 import { get, template } from '../texts.js';
-import PendingRoom from '../models/PendingRoom.js';
 
 const seatsText = get('generic', 'seats:all');
 
@@ -49,8 +48,8 @@ class SeatStep extends Step {
     }
 
     if (this.seating.every((seat, i) => seat.key !== i)) {
-      this.room.seating = this.seating.map((seat) => [...this.room.playing].find((p) => p.id === seat.key));
-      this.room.pendingRoom = new PendingRoom(this.room.seating);
+      this.room.createSeating(this.seating.map((seat) => seat.key));
+
       this.handler.nextStep();
     }
   }
