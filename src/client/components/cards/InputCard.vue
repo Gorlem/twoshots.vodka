@@ -39,9 +39,7 @@ export default {
     };
   },
   mounted() {
-    this.$refs.input.focus();
-  },
-  activated() {
+    this.$refs.input.click();
     this.$refs.input.focus();
   },
   computed: {

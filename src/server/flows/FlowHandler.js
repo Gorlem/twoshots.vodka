@@ -32,7 +32,7 @@ export default class Handler {
   }
 
   skip() {
-    if (this.flows.length > 0) {
+    if (this.flows.length === 0) {
       this.pushFlow(this.director.getNextFlow());
     }
 

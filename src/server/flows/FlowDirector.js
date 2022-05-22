@@ -17,13 +17,13 @@ import DefendTheCastle from './games/DefendTheCastle.js';
 import TaskHero from './games/TaskHero.js';
 
 const weights = {
-  Instructions: { flow: Instructions, weight: 3 },
-  Polls: { flow: Polls, weight: 3 },
-  WouldYouRather: { flow: WouldYouRather, weight: 3 },
+  Instructions: { flow: Instructions, weight: 5 },
+  Polls: { flow: Polls, weight: 2 },
+  WouldYouRather: { flow: WouldYouRather, weight: 2 },
 
   Guess: { flow: Guess, weight: 2 },
-  Categories: { flow: Categories, weight: 2 },
-  Prompts: { flow: Prompts, weight: 2 },
+  Categories: { flow: Categories, weight: 1 },
+  Prompts: { flow: Prompts, weight: 1 },
 
   HorseRace: { flow: HorseRace, weight: 1 },
   Bombs: { flow: Bombs, weight: 1 },
@@ -44,7 +44,8 @@ export default class FlowDirector {
   }
 
   getNextFlow() {
-    const flow = _(this.flows).without(this.history).sample();
+    const flow = _(this.flows).without(...this.history).sample();
+    console.log(this.history);
     this.addToHistory(flow);
     return flow;
   }
@@ -55,7 +56,7 @@ export default class FlowDirector {
 
   addToHistory(flow) {
     this.history.push(flow);
-    if (this.history.length > 5) {
+    if (this.history.length > 2) {
       this.history.shift();
     }
   }
