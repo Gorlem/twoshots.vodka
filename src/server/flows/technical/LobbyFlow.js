@@ -1,12 +1,11 @@
-import StepWithVote from './StepWithVote.js';
-import { get, template } from '../texts.js';
+import StepWithVote from '../../steps/StepWithVote.js';
+import { get, template } from '../../texts.js';
 
 const content = get('generic', 'lobby');
 
 class LobbyStep extends StepWithVote {
-  constructor(handler, room) {
+  constructor(room) {
     super(room);
-    this.handler = handler;
 
     this.global.card = 'LobbyCard';
     this.global.data = {
@@ -33,7 +32,7 @@ class LobbyStep extends StepWithVote {
   }
 
   nextStep() {
-    this.handler.nextStep();
+    this.room.handler.next();
   }
 
   addedPlayer() {

@@ -1,17 +1,16 @@
 import _ from 'lodash';
 
-import Step from './Step.js';
-import StepWithVote from './StepWithVote.js';
+import Step from '../../steps/Step.js';
+import StepWithVote from '../../steps/StepWithVote.js';
 
-import generateShots from '../shots.js';
-import { get, template, keys } from '../texts.js';
+import generateShots from '../../shots.js';
+import { get, template, keys } from '../../texts.js';
 
 const voteText = get('generic', 'would-you-rather:vote');
 
 class VoteStep extends StepWithVote {
-  constructor(handler, room) {
+  constructor(room) {
     super(room);
-    this.handler = handler;
 
     if (room.cache.would == null || room.cache.would.length === 0) {
       room.cache.would = _.shuffle(keys('would-you-rather'));
@@ -39,7 +38,7 @@ class VoteStep extends StepWithVote {
   }
 
   nextStep() {
-    this.handler.nextStep({ results: this.vote.results, options: this.options, shots: this.shots });
+    this.room.handler.next({ results: this.vote.results, options: this.options, shots: this.shots });
   }
 
   action(user, payload) {
@@ -52,7 +51,7 @@ class VoteStep extends StepWithVote {
 }
 
 class ResultsStep extends Step {
-  constructor(handler, room, { results, options, shots }) {
+  constructor(room, { results, options, shots }) {
     super(room);
 
     const tieText = get('generic', 'would-you-rather:tie');

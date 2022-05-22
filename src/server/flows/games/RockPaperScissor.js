@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
-import Step from '../Step.js';
-import StepWithVote from '../StepWithVote.js';
+import Step from '../../steps/Step.js';
+import StepWithVote from '../../steps/StepWithVote.js';
 
 import { get, template } from '../../texts.js';
 import generateShots from '../../shots.js';
@@ -13,9 +13,13 @@ const teamText = get('generic', 'rockpaperscissor:team');
 const spectatorText = get('generic', 'rockpaperscissor:spectator');
 
 class ExplanationStep extends StepWithVote {
-  constructor(handler, room, { left, right }) {
+  constructor(room) {
     super(room);
-    this.handler = handler;
+
+    const half = Math.ceil(room.playing.size / 2);
+    const left = _.sampleSize([...room.playing], half);
+    const right = _.without([...room.playing], ...left);
+
     this.teams = { left, right };
 
     const parts = room.id.split('-');
@@ -36,7 +40,7 @@ class ExplanationStep extends StepWithVote {
   }
 
   nextStep() {
-    this.handler.nextStep({ left: this.teams.left, right: this.teams.right });
+    this.room.handler.next({ left: this.teams.left, right: this.teams.right });
   }
 
   action(user) {
@@ -51,9 +55,8 @@ class ExplanationStep extends StepWithVote {
 }
 
 class GameStep extends StepWithVote {
-  constructor(handler, room, { left, right }) {
+  constructor(room, { left, right }) {
     super(room);
-    this.handler = handler;
     this.teams = { left, right };
 
     const parts = room.id.split('-');
@@ -132,7 +135,7 @@ class GameStep extends StepWithVote {
     if (leftDecision.length !== 1 || rightDecision.length !== 1) {
       this.update();
     } else {
-      this.handler.nextStep({
+      this.room.handler.next({
         left: this.teams.left,
         right: this.teams.right,
         decisions: [leftDecision[0], rightDecision[0]],
@@ -164,7 +167,7 @@ class GameStep extends StepWithVote {
 }
 
 class ResultStep extends Step {
-  constructor(handler, room, { left, right, decisions }) {
+  constructor(room, { left, right, decisions }) {
     super(room);
 
     const winner = ResultStep.findWinner(...decisions);

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
-import Step from '../Step.js';
-import StepWithVote from '../StepWithVote.js';
+import Step from '../../steps/Step.js';
+import StepWithVote from '../../steps/StepWithVote.js';
 
 import { get, template } from '../../texts.js';
 import generateShots from '../../shots.js';
@@ -15,9 +15,8 @@ const spectator = get('generic', 'game:bomb:spectator');
 const fuseTime = [15000, 30000]; // between 15 and 30 seconds
 
 class ExplanationStep extends StepWithVote {
-  constructor(handler, room) {
+  constructor(room) {
     super(room);
-    this.handler = handler;
 
     this.shots = generateShots(3, 6);
 
@@ -32,7 +31,7 @@ class ExplanationStep extends StepWithVote {
   }
 
   nextStep() {
-    this.handler.nextStep({ shots: this.shots });
+    this.room.handler.next({ shots: this.shots });
   }
 
   action(user) {
@@ -50,9 +49,8 @@ class GameStep extends Step {
   current;
   seating;
 
-  constructor(handler, room, { shots }) {
+  constructor(room, { shots }) {
     super(room);
-    this.handler = handler;
 
     this.seating = [...room.seating];
 
@@ -66,7 +64,7 @@ class GameStep extends Step {
     this.giveBomb(_.sample(this.seating));
 
     setTimeout(() => {
-      handler.nextStep({ loser: this.current, shots });
+      room.handler.next({ loser: this.current, shots });
     }, _.random(...fuseTime));
   }
 
@@ -131,7 +129,7 @@ class GameStep extends Step {
 }
 
 class ResultsStep extends Step {
-  constructor(handler, room, { loser, shots }) {
+  constructor(room, { loser, shots }) {
     super(room);
 
     this.global.card = 'InformationCard';

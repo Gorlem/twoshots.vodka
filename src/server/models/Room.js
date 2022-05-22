@@ -3,31 +3,13 @@ import winston from 'winston';
 
 import Vote from './Vote.js';
 
-import PendingRoom from './PendingRoom.js';
+import FlowHandler from '../flows/FlowHandler.js';
+import LobbyFlow from '../flows/technical/LobbyFlow.js';
+import SetupFlow from '../flows/technical/SetupFlow.js';
 
-import Handler from '../handler/Handler.js';
-import LobbyFlow from '../handler/LobbyFlow.js';
-import SetupFlow from '../handler/SetupFlow.js';
+import { get, template } from '../texts.js';
 
-import InstructionFlow from '../handler/InstructionFlow.js';
-import GuessFlow from '../handler/GuessFlow.js';
-import PollFlow from '../handler/PollFlow.js';
-import WouldYouRatherFlow from '../handler/WouldYouRatherFlow.js';
-import GameFlow from '../handler/GameFlow.js';
-import TeamGameFlow from '../handler/TeamGameFlow.js';
-import CategoryFlow from '../handler/CategoryFlow.js';
-import PromptsFlow from '../handler/PromptsFlow.js';
-
-const flows = {
-  InstructionFlow,
-  GuessFlow,
-  PollFlow,
-  WouldYouRatherFlow,
-  GameFlow,
-  TeamGameFlow,
-  CategoryFlow,
-  PromptsFlow,
-};
+const seatsText = get('generic', 'seats:single');
 
 export default class Room {
   spectating = new Set();
@@ -37,23 +19,24 @@ export default class Room {
   id = '';
   vote = null;
 
-  handler = new Handler(this, this.nextFlow.bind(this));
+  handler = new FlowHandler(this);
   cache = {};
 
   seating = [];
-  pendingRoom = null;
 
   constructor(id) {
     this.id = id;
 
     this.logger = winston.child({ room: id });
 
-    this.vote = new Vote(this, this.nextFlow.bind(this));
+    this.handler.addListener(this.nextFlow.bind(this));
+
+    this.vote = new Vote(this, this.handler.skip.bind(this.handler));
     this.vote.setPercentage(50.1);
 
     this.handler.pushFlow(LobbyFlow);
     this.handler.pushFlow(SetupFlow);
-    this.handler.nextStep();
+    this.handler.next();
   }
 
   action(user, ...payload) {
@@ -61,7 +44,10 @@ export default class Room {
       this.handler.action(user, ...payload);
     }
     if (this.pending.has(user)) {
-      this.pendingRoom.action(user, ...payload);
+      this.seating.splice(payload[0], 0, user);
+      this.pending.delete(user);
+      this.addSpectator(user);
+      this.sendPendingData();
     }
   }
 
@@ -81,57 +67,32 @@ export default class Room {
     }
   }
 
-  addPlayer(user) {
-    this.playing.add(user);
-    this.handler.addedPlayer(user);
-    this.sendRoomData();
-  }
+  sendPendingData() {
+    const seating = this.seating
+      .flatMap((player, i) => [
+        { key: i, value: seatsText.data.seat },
+        { key: player.id, value: player.name, static: true },
+      ]);
 
-  addPending(user) {
-    this.pending.add(user);
-    this.pendingRoom.addPlayer(user);
-  }
-
-  addSpectator(user) {
-    this.spectating.add(user);
-    this.handler.addedSpectator(user);
+    for (const user of this.pending) {
+      user.sendCard('CarouselCard', {
+        ...template(seatsText),
+        options: seating,
+      });
+    }
   }
 
   forceFlow(flowName) {
-    const flow = flows[flowName];
-
-    if (flow == null) {
-      return;
-    }
-
-    if (this.cache.flows == null || this.cache.flows.length === 0) {
-      this.cache.flows = [flow];
-    } else {
-      this.cache.flows.unshift(flow);
-    }
-
-    this.nextFlow();
+    this.handler.forceFlow(flowName);
   }
 
   nextFlow() {
-    if (this.cache.flows == null || this.cache.flows.length === 0) {
-      this.cache.flows = _(flows).values().shuffle().value();
-    }
-
-    if (this.pending.size > 0) {
-      for (const user of [...this.pending]) {
-        if (this.seating.includes(user)) {
-          this.playing.add(user);
-          this.pending.delete(user);
-          this.pendingRoom.remove(user);
-        }
+    for (const user of [...this.spectating]) {
+      if (this.seating.includes(user)) {
+        this.playing.add(user);
+        this.spectating.delete(user);
       }
     }
-
-    const flow = this.cache.flows.shift();
-
-    this.handler.pushFlow(flow);
-    this.handler.nextFlow();
 
     this.vote.reset();
     this.sendRoomData();
@@ -141,7 +102,35 @@ export default class Room {
     return this.handler.step instanceof LobbyFlow[0];
   }
 
-  remove(user) {
+  addUser(user) {
+    this.logger.info(`Adding user ${user.name}`, { user: user.id });
+
+    if (user.role === 'spectator') {
+      this.addSpectator(user);
+    } else if (this.isInLobby()) {
+      this.addPlayer(user);
+    } else {
+      this.addPending(user);
+    }
+  }
+
+  addPlayer(user) {
+    this.playing.add(user);
+    this.handler.addedPlayer(user);
+    this.sendRoomData();
+  }
+
+  addSpectator(user) {
+    this.spectating.add(user);
+    this.handler.addedSpectator(user);
+  }
+
+  addPending(user) {
+    this.pending.add(user);
+    this.sendPendingData();
+  }
+
+  removeUser(user) {
     this.logger.info(`Removing user ${user.name}`, { user: user.id });
 
     if (this.seating) {
@@ -161,7 +150,6 @@ export default class Room {
 
     if (this.pending.has(user)) {
       this.pending.delete(user);
-      this.pendingRoom.remove(user);
     }
 
     this.sendRoomData();
@@ -175,7 +163,5 @@ export default class Room {
     const users = new Map([...this.playing].map((user) => [user.id, user]));
 
     this.seating = seating.map((userId) => users.get(userId));
-
-    this.pendingRoom = new PendingRoom(this.seating);
   }
 }

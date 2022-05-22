@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
-import Step from '../Step.js';
-import StepWithVote from '../StepWithVote.js';
+import Step from '../../steps/Step.js';
+import StepWithVote from '../../steps/StepWithVote.js';
 
 import Cards from '../../models/Cards.js';
 
@@ -13,9 +13,8 @@ const explanationText = get('generic', 'kingscup:explanation');
 const resultsText = get('generic', 'kingscup:results');
 
 class ExplanationStep extends StepWithVote {
-  constructor(handler, room) {
+  constructor(room) {
     super(room);
-    this.handler = handler;
 
     this.global.card = 'ConfirmationCard';
     this.global.data = template(explanationText);
@@ -28,7 +27,7 @@ class ExplanationStep extends StepWithVote {
   }
 
   nextStep() {
-    this.handler.nextStep();
+    this.room.handler.next();
   }
 
   action(user) {
@@ -45,9 +44,8 @@ class ExplanationStep extends StepWithVote {
 class KingscupStep extends Step {
   playerCards = new Map();
 
-  constructor(handler, room) {
+  constructor(room) {
     super(room);
-    this.handler = handler;
 
     this.cards = Cards.sample(Math.ceil(room.playing.size * 1.5))
       .map((card) => ({ hidden: true, value: card }));
@@ -107,7 +105,7 @@ class KingscupStep extends Step {
       this.nextPlayer();
 
       if (this.playerCards.has(this.player)) {
-        this.handler.nextStep({ cards: this.playerCards });
+        this.room.handler.next({ cards: this.playerCards });
       } else {
         this.showCards();
       }
@@ -128,7 +126,7 @@ class KingscupStep extends Step {
 }
 
 class ResultsStep extends Step {
-  constructor(handler, room, { cards }) {
+  constructor(room, { cards }) {
     super(room);
 
     this.global.card = 'ResultsCard';

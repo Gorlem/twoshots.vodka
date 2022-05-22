@@ -5,9 +5,8 @@ import { get, template } from '../texts.js';
 const countdownText = get('generic', 'countdown');
 
 class CountdownStep extends Step {
-  constructor(handler, room, data) {
+  constructor(room, data) {
     super(room);
-    this.handler = handler;
     this.data = data;
 
     this.countdown = 3;
@@ -27,7 +26,7 @@ class CountdownStep extends Step {
     this.countdown -= 1;
 
     if (this.countdown === 0) {
-      this.handler.nextStep(this.data);
+      this.room.handler.next(this.data);
       clearInterval(this.interval);
       return;
     }

@@ -1,17 +1,16 @@
 import _ from 'lodash';
 
-import Step from './Step.js';
-import StepWithVote from './StepWithVote.js';
+import Step from '../../steps/Step.js';
+import StepWithVote from '../../steps/StepWithVote.js';
 
-import { get, template, keys } from '../texts.js';
-import generateShots from '../shots.js';
+import { get, template, keys } from '../../texts.js';
+import generateShots from '../../shots.js';
 
 const explanation = get('generic', 'polls:explanation');
 
 class PollStep extends StepWithVote {
-  constructor(handler, room) {
+  constructor(room) {
     super(room);
-    this.handler = handler;
 
     if (room.cache.polls == null || room.cache.polls.length === 0) {
       room.cache.polls = _.shuffle(keys('polls'));
@@ -39,7 +38,7 @@ class PollStep extends StepWithVote {
   }
 
   nextStep() {
-    this.handler.nextStep({ poll: this.poll, shots: this.shots, results: this.vote.results });
+    this.room.handler.next({ poll: this.poll, shots: this.shots, results: this.vote.results });
   }
 
   action(user, payload) {
@@ -54,7 +53,7 @@ class PollStep extends StepWithVote {
 }
 
 class ResultStep extends Step {
-  constructor(handler, room, { poll, shots, results }) {
+  constructor(room, { poll, shots, results }) {
     super(room);
 
     const counts = _.countBy([...results], '1');

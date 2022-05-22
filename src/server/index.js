@@ -15,11 +15,11 @@ export default function (io) {
 
     socket.on('room/join', (roomId, role, name, callback) => {
       const user = new User(socket);
-      socket.user = user;
       user.role = role;
       user.name = name;
-
       user.logger = winston.child({ user: user.id });
+
+      socket.user = user;
 
       let room;
 
@@ -37,13 +37,7 @@ export default function (io) {
       callback(room.id);
       socket.room = room;
 
-      if (role === 'spectator') {
-        room.addSpectator(user);
-      } else if (room.isInLobby()) {
-        room.addPlayer(user);
-      } else {
-        room.addPending(user);
-      }
+      room.addUser(user);
     });
 
     socket.on('room/action', (...payload) => {
@@ -56,7 +50,7 @@ export default function (io) {
 
     socket.on('disconnect', () => {
       socket.user?.logger?.info('User disconnected');
-      socket.room?.remove(socket.user);
+      socket.room?.removeUser(socket.user);
     });
 
     socket.on('force-flow', (flowName) => {

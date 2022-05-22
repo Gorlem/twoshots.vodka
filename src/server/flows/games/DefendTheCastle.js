@@ -1,9 +1,11 @@
-import Step from '../Step.js';
-import StepWithVote from '../StepWithVote.js';
+import _ from 'lodash';
+
+import Step from '../../steps/Step.js';
+import StepWithVote from '../../steps/StepWithVote.js';
 
 import { get, template } from '../../texts.js';
 import generateShots from '../../shots.js';
-import CountdownStep from '../CountdownStep.js';
+import CountdownStep from '../../steps/CountdownStep.js';
 
 const explanationText = get('generic', 'defendcastle:explanation');
 const teamText = get('generic', 'defendcastle:team');
@@ -11,9 +13,13 @@ const spectatorText = get('generic', 'defendcastle:spectator');
 const winnerText = get('generic', 'defendcastle:winner');
 
 class ExplanationStep extends StepWithVote {
-  constructor(handler, room, { left, right }) {
+  constructor(room) {
     super(room);
-    this.handler = handler;
+
+    const half = Math.ceil(room.playing.size / 2);
+    const left = _.sampleSize([...room.playing], half);
+    const right = _.without([...room.playing], ...left);
+
     this.teams = { left, right };
 
     const parts = room.id.split('-');
@@ -34,7 +40,7 @@ class ExplanationStep extends StepWithVote {
   }
 
   nextStep() {
-    this.handler.nextStep({ left: this.teams.left, right: this.teams.right });
+    this.room.handler.next({ left: this.teams.left, right: this.teams.right });
   }
 
   action(user) {
@@ -49,9 +55,8 @@ class ExplanationStep extends StepWithVote {
 }
 
 class GameStep extends Step {
-  constructor(handler, room, { left, right }) {
+  constructor(room, { left, right }) {
     super(room);
-    this.handler = handler;
     this.teams = { left, right };
 
     this.score = 0;
@@ -91,7 +96,7 @@ class GameStep extends Step {
   }
 
   finish() {
-    this.handler.nextStep({ score: this.score, left: this.teams.left, right: this.teams.right });
+    this.room.handler.next({ score: this.score, left: this.teams.left, right: this.teams.right });
     clearInterval(this.interval);
     clearTimeout(this.timeout);
   }
@@ -124,7 +129,7 @@ class GameStep extends Step {
 }
 
 class ResultStep extends Step {
-  constructor(handler, room, { score, left, right }) {
+  constructor(room, { score, left, right }) {
     super(room);
 
     const parts = room.id.split('-');

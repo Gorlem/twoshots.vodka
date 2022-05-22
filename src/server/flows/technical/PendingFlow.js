@@ -1,15 +1,10 @@
-import Step from './Step.js';
+import Step from '../../steps/Step.js';
 
-import { get, template } from '../texts.js';
+import { get, template } from '../../texts.js';
 
 const seatsText = get('generic', 'seats:single');
 
 class SeatStep extends Step {
-  constructor(handler, room) {
-    super(room);
-    this.handler = handler;
-  }
-
   updateOptions() {
     this.seating = this.room.seating
       .flatMap((player, i) => [{ key: i, value: seatsText.data.seat }, { key: player.id, value: player.name, static: true }]);

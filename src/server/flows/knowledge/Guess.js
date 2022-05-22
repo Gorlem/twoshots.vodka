@@ -1,17 +1,16 @@
 import _ from 'lodash/fp.js';
 
-import Step from './Step.js';
-import StepWithVote from './StepWithVote.js';
+import Step from '../../steps/Step.js';
+import StepWithVote from '../../steps/StepWithVote.js';
 
-import { get, template, keys } from '../texts.js';
-import generateShots from '../shots.js';
+import { get, template, keys } from '../../texts.js';
+import generateShots from '../../shots.js';
 
 const explanation = get('generic', 'guess:explanation');
 
 class GuessStep extends StepWithVote {
-  constructor(handler, room) {
+  constructor(room) {
     super(room);
-    this.handler = handler;
 
     if (room.cache.guesses == null || room.cache.guesses.length === 0) {
       room.cache.guesses = _.shuffle(keys('guesses'));
@@ -39,7 +38,7 @@ class GuessStep extends StepWithVote {
   }
 
   nextStep() {
-    this.handler.nextStep({ guess: this.guess, shots: this.shots, results: this.vote.results });
+    this.room.handler.next({ guess: this.guess, shots: this.shots, results: this.vote.results });
   }
 
   action(user, payload) {
@@ -54,7 +53,7 @@ class GuessStep extends StepWithVote {
 }
 
 class ResultStep extends Step {
-  constructor(handler, room, { guess, shots, results }) {
+  constructor(room, { guess, shots, results }) {
     super(room);
 
     const resultsText = get('generic', 'guess:results');

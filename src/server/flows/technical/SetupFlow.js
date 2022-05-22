@@ -1,15 +1,14 @@
 import _ from 'lodash';
 
-import Step from './Step.js';
+import Step from '../../steps/Step.js';
 
-import { get, template } from '../texts.js';
+import { get, template } from '../../texts.js';
 
 const seatsText = get('generic', 'seats:all');
 
 class SeatStep extends Step {
-  constructor(handler, room) {
+  constructor(room) {
     super(room);
-    this.handler = handler;
 
     const player = _.sample([...room.playing]);
 
@@ -50,7 +49,7 @@ class SeatStep extends Step {
     if (this.seating.every((seat, i) => seat.key !== i)) {
       this.room.createSeating(this.seating.map((seat) => seat.key));
 
-      this.handler.nextStep();
+      this.room.handler.next();
     }
   }
 

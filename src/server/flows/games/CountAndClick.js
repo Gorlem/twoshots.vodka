@@ -1,11 +1,11 @@
 import _ from 'lodash';
 
-import Step from '../Step.js';
-import StepWithVote from '../StepWithVote.js';
+import Step from '../../steps/Step.js';
+import StepWithVote from '../../steps/StepWithVote.js';
 
 import { get, template } from '../../texts.js';
 import generateShots from '../../shots.js';
-import CountdownStep from '../CountdownStep.js';
+import CountdownStep from '../../steps/CountdownStep.js';
 
 const explanationText = get('generic', 'countclick:explanation');
 const gameText = get('generic', 'countclick:game');
@@ -15,9 +15,8 @@ const resultsText = get('generic', 'countclick:results');
 const numbers = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣', '🔟'];
 
 class ExplanationStep extends StepWithVote {
-  constructor(handler, room) {
+  constructor(room) {
     super(room);
-    this.handler = handler;
 
     this.shots = generateShots(3, 6);
 
@@ -32,7 +31,7 @@ class ExplanationStep extends StepWithVote {
   }
 
   nextStep() {
-    this.handler.nextStep({ shots: this.shots });
+    this.room.handler.next({ shots: this.shots });
   }
 
   action(user) {
@@ -49,9 +48,8 @@ class ExplanationStep extends StepWithVote {
 class GameStep extends Step {
   finished = new Map();
 
-  constructor(handler, room, { shots }) {
+  constructor(room, { shots }) {
     super(room);
-    this.handler = handler;
     this.shots = shots;
 
     this.numbers = numbers.map((number, i) => ({
@@ -106,7 +104,7 @@ class GameStep extends Step {
       this.send();
 
       if (this.finished.size === this.room.playing.size) {
-        this.handler.nextStep({ finished: this.finished, shots: this.shots });
+        this.room.handler.next({ finished: this.finished, shots: this.shots });
       }
     }
   }
@@ -117,9 +115,8 @@ class GameStep extends Step {
 }
 
 class ResultsStep extends Step {
-  constructor(handler, room, { finished, shots }) {
+  constructor(room, { finished, shots }) {
     super(room);
-    this.handler = handler;
 
     const results = _(finished)
       .entries()

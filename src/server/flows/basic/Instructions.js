@@ -1,12 +1,12 @@
 import _ from 'lodash';
 
-import Step from './Step.js';
+import Step from '../../steps/Step.js';
 
-import { get, template, keys } from '../texts.js';
-import generateShots from '../shots.js';
+import { get, template, keys } from '../../texts.js';
+import generateShots from '../../shots.js';
 
 class InstructionStep extends Step {
-  constructor(handler, room) {
+  constructor(room) {
     super(room);
 
     if (room.cache.instructions == null || room.cache.instructions.length === 0) {

@@ -1,11 +1,11 @@
 import _ from 'lodash';
 
-import Step from '../Step.js';
-import StepWithVote from '../StepWithVote.js';
+import Step from '../../steps/Step.js';
+import StepWithVote from '../../steps/StepWithVote.js';
 
 import { get, template } from '../../texts.js';
 import generateShots from '../../shots.js';
-import CountdownStep from '../CountdownStep.js';
+import CountdownStep from '../../steps/CountdownStep.js';
 
 const explanationText = get('generic', 'taskhero:explanation');
 const countdownText = get('generic', 'taskhero:countdown');
@@ -24,9 +24,13 @@ const buttonTaskText = get('generic', 'taskhero:buttontask');
 const collections = get('tasks', 'collections');
 
 class ExplanationStep extends StepWithVote {
-  constructor(handler, room, { left, right }) {
+  constructor(room) {
     super(room);
-    this.handler = handler;
+
+    const half = Math.ceil(room.playing.size / 2);
+    const left = _.sampleSize([...room.playing], half);
+    const right = _.without([...room.playing], ...left);
+
     this.teams = { left, right };
 
     const parts = room.id.split('-');
@@ -47,7 +51,7 @@ class ExplanationStep extends StepWithVote {
   }
 
   nextStep() {
-    this.handler.nextStep({ left: this.teams.left, right: this.teams.right });
+    this.room.handler.next({ left: this.teams.left, right: this.teams.right });
   }
 
   action(user) {
@@ -74,9 +78,8 @@ class GameStep extends Step {
     this.buttonTask.bind(this),
   ];
 
-  constructor(handler, room, { left, right }) {
+  constructor(room, { left, right }) {
     super(room);
-    this.handler = handler;
 
     this.parts = room.id.split('-');
 
@@ -150,7 +153,7 @@ class GameStep extends Step {
 
   nextStep() {
     clearInterval(this.interval);
-    this.handler.nextStep({ left: this.left, right: this.right });
+    this.room.handler.next({ left: this.left, right: this.right });
   }
 
   task(player) {
@@ -336,7 +339,7 @@ class GameStep extends Step {
 }
 
 class ResultsStep extends Step {
-  constructor(handler, room, { left, right }) {
+  constructor(room, { left, right }) {
     super(room);
 
     const parts = room.id.split('-');
