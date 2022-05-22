@@ -138,7 +138,7 @@
         "source": "https://www.boxen1.com/gewichtsklassen-im-boxen/"
     },
     {
-        "question": "Wie oft wird der Deutesche Aktienindex (DAX) in einer Stunde berechnet?",
+        "question": "Wie oft wird der Deutsche Aktienindex (DAX) in einer Stunde berechnet?",
         "unit": null,
         "answer": 3600,
         "source": "https://www.gevestor.de/details/wie-wird-der-dax-berechnet-570078.html"
@@ -353,5 +353,59 @@
         "unit": null,
         "answer": 5,
         "source": "http://www.strassenschilder.de/richtzeichen/fussgaengerueberweg/"
+    },
+    {
+        "question": "Wie oft gibt es die \"Hauptstraße\" in Deutschland?",
+        "unit": null,
+        "answer": 6114,
+        "source": "https://www.strassen-in-deutschland.de/die-haeufigsten-strassennamen-in-deutschland.html"
+    },
+    {
+        "question": "Wie oft gibt es die \"Neue Straße\" in Deutschland?",
+        "unit": null,
+        "answer": 1104,
+        "source": "https://www.strassen-in-deutschland.de/die-haeufigsten-strassennamen-in-deutschland.html"
+    },
+    {
+        "question": "Wie groß ist die durchschnittliche Distanz zwischen der Sonne und dem Mond?",
+        "unit": "Millionen Kilometer",
+        "answer": 149.5,
+        "source": "https://www.astronews.com/frag/antworten/4/frage4035.html"
+    },
+    {
+        "question": "Wie viele Jahre liegen zwischen Michael Wendler und Laura Müller?",
+        "unit": "Jahre",
+        "answer": 28,
+        "source": "https://de.wikipedia.org/wiki/Laura_M%C3%BCller_(It-Girl)"
+    },
+    {
+        "question": "In welchem Jahr verlor Adolf Hitler angeblich einen Hoden?",
+        "unit": null,
+        "answer": 1913,
+        "source": "https://www.stern.de/panorama/wissen/adolf-hitler-hatte-nur-einen-hoden---arztbericht-von-1923-aufgetaucht-6612172.html"
+    },
+    {
+        "question": "Wie oft das die CIA versucht Fidel Castro zu ermoden?",
+        "unit": null,
+        "answer": 638,
+        "source": "https://en.wikipedia.org/wiki/Assassination_attempts_on_Fidel_Castro"
+    },
+    {
+        "question": "Wie viele Städte gibt es in Deutschland?",
+        "unit": null,
+        "answer": 2055,
+        "source": "https://de.wikipedia.org/wiki/Liste_der_St%C3%A4dte_in_Deutschland"
+    },
+    {
+        "question": "Wie viele Noppen hat die Standard-Wasserflasche?",
+        "unit": null,
+        "answer": 230,
+        "source": "https://de.wikipedia.org/wiki/Normbrunnenflasche"
+    },
+    {
+        "question": "Was sind -40° Celsius in Fahrenheit?",
+        "unit": "° Fahrenheit",
+        "answer": -40,
+        "source": "http://files.kukla-spedition.com/Temperaturtabelle.pdf"
     }
 ]

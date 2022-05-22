@@ -4,10 +4,6 @@
         "keine Familie und viel Geld haben"
     ],
     [
-        "jedes Wochenende alle deine Passwörter vergessen",
-        "jedes Mal deinen Namen vergessen, wenn du jemanden zum ersten Mal triffst"
-    ],
-    [
         "in einem kaputten Skilift festsitzen",
         "in einem kaputten Aufzug festsitzen"
     ],
@@ -16,16 +12,12 @@
         "Augen so klein wie Erbsen haben"
     ],
     [
-        "während einer Rede dein T-Shirt falsch herum tragen",
-        "während einer Rede Toilettenpapier auf der Schuhsohle haben"
+        "dein T-Shirt falsch herum tragen",
+        "Toilettenpapier auf der Schuhsohle haben"
     ],
     [
         "in einer Welt voller Scientologists leben",
         "in einer Welt voller Flat-Earthers leben"
-    ],
-    [
-        "ein Durchschnittsmensch in der Gegenwart sein",
-        "ein König eines großen Landes vor 2500 Jahren sein"
     ],
     [
         "das Gefühl haben ständig niesen zu müssen",
@@ -36,7 +28,7 @@
         "eine Gurke sein"
     ],
     [
-        "in einem Aufzug laut furzen",
+        "in einem vollem Aufzug laut furzen",
         "in einer überfüllten Toilette laut furzen"
     ],
     [
@@ -54,14 +46,6 @@
     [
         "Steine kacken",
         "Schlangen kotzen"
-    ],
-    [
-        "Augenbrauen haben, die nie aufhören zu wachsen",
-        "Wimpern haben, die nie aufhören zu wachsen"
-    ],
-    [
-        "beim Einkaufen 10 Sachen kaufen, die du nicht brauchst",
-        "vergessen was du eigentlich kaufen wolltest"
     ],
     [
         "einen Pferdschwanz haben",
@@ -108,32 +92,20 @@
         "eine Pausetaste in deinem Leben haben"
     ],
     [
-        "die Toilette an deinem Arbeitsplatz verstopfen",
-        "die Toilette im Haus deines Schwarms verstopfen"
-    ],
-    [
         "an dem Hintern eines Hundes schnüffeln",
-        "an dem nackten Hintern eines Fremden schnüffeln"
+        "an dem Hintern eines Fremden schnüffeln"
     ],
     [
         "ein Drache sein",
         "ein Einhorn sein"
     ],
     [
-        "immer wenn du weinen musst, unkontrolliert lachen",
-        "immer wenn du glücklich bist, wie ein Baby weinen"
+        "wenn du weinen musst, unkontrolliert lachen",
+        "wenn du glücklich bist, wie ein Baby weinen"
     ],
     [
         "in die Vergangenheit reisen",
         "in die Zukunft reisen"
-    ],
-    [
-        "jeder Person, die du begegnest, die Hand geben",
-        "dich vor jeder Person, die du begegnest, verneigen"
-    ],
-    [
-        "einen Hund mit der Persönlichkeit einer Katze haben",
-        "eine Katze mit der Persönlichkeit eines Hundes haben"
     ],
     [
         "nur grüne Ampeln haben",
@@ -152,24 +124,16 @@
         "keine Zehen haben"
     ],
     [
-        "jeden Satz mit \"Nach meinen Berechnungen\" beginnen",
-        "jeden Satz mit \"Punkt\" beenden"
-    ],
-    [
         "von einem Stinktier besprüht werden",
         "von einem Schwarm Wespen gestochen werden"
     ],
     [
-        "eine nervige piepsige Stimme haben",
+        "eine extrem piepsige Stimme haben",
         "eine unglaublich tiefe Stimme haben"
     ],
     [
         "alles zurücknehmen können, was du gesagt hast",
         "alles hören, was über dich gesagt wurde"
-    ],
-    [
-        "eine Kolonie auf einem anderen Planeten gründen",
-        "der Anführer eines kleinen Landes auf der Erde sein"
     ],
     [
         "Rülpse haben, die nach Donuts riechen",
@@ -182,14 +146,6 @@
     [
         "selbst gemachter Millionär sein",
         "einen Milliardär heiraten"
-    ],
-    [
-        "ein fremdes Haar in deinem Essen finden wollen",
-        "einen Käfer am Boden deines Getränk finden wollen"
-    ],
-    [
-        "deine Eltern deinen zukünftigen Partner wählen lassen",
-        "deine Geschwister deinen zukünftigen Partner wählen lassen"
     ],
     [
         "einen Monat auf Duschen verzichten",
@@ -246,5 +202,33 @@
     [
         "nicht sprechen können",
         "nicht laufen können"
+    ],
+    [
+        "auf allen Vieren gehen",
+        "wie eine Krabbe seitwärts gehen"
+    ],
+    [
+        "in der Öffentlichkeit tanzen",
+        "in der Öffentlichkeit singen"
+    ],
+    [
+        "auf Salziges verzichten",
+        "auf Süßes verzichten"
+    ],
+    [
+        "in den Wolken leben",
+        "unter Wasser leben"
+    ],
+    [
+        "auf TikTok verzichten",
+        "auf YouTube verzichten"
+    ],
+    [
+        "keine Augenbrauen haben",
+        "keine Wimpern haben"
+    ],
+    [
+        "immer overdressed sein",
+        "immer underdressed sein"
     ]
 ]
