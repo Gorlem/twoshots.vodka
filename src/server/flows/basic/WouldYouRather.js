@@ -5,6 +5,7 @@ import StepWithVote from '../../steps/StepWithVote.js';
 
 import generateShots from '../../shots.js';
 import { get, template, keys } from '../../texts.js';
+import Cache from '../../models/Cache.js';
 
 const voteText = get('generic', 'would-you-rather:vote');
 
@@ -12,11 +13,11 @@ class VoteStep extends StepWithVote {
   constructor(room) {
     super(room);
 
-    if (room.cache.would == null || room.cache.would.length === 0) {
-      room.cache.would = _.shuffle(keys('would-you-rather'));
+    if (room.cache.would == null) {
+      room.cache.would = new Cache(keys('would-you-rather'));
     }
 
-    const key = room.cache.would.shift();
+    const key = room.cache.would.get();
     this.options = get('would-you-rather', key);
 
     this.shots = generateShots(2, 6);

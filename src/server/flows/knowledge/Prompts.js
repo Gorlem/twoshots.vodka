@@ -7,6 +7,7 @@ import { get, template, keys } from '../../texts.js';
 import generateShots from '../../shots.js';
 
 import CountdownStep from '../../steps/CountdownStep.js';
+import Cache from '../../models/Cache.js';
 
 const explanationText = get('generic', 'prompts:explanation');
 const gameText = get('generic', 'prompts:game');
@@ -19,11 +20,11 @@ class ExplanationStep extends StepWithVote {
   constructor(room) {
     super(room);
 
-    if (room.cache.prompts == null || room.cache.prompts.length === 0) {
-      room.cache.prompts = _.shuffle(keys('prompts'));
+    if (room.cache.prompts == null) {
+      room.cache.prompts = new Cache(keys('prompts'));
     }
 
-    const key = room.cache.prompts.shift();
+    const key = room.cache.prompts.get();
     this.shots = generateShots(1, 5);
     this.prompt = get('prompts', key);
 

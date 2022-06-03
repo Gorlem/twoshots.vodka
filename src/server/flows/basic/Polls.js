@@ -5,6 +5,7 @@ import StepWithVote from '../../steps/StepWithVote.js';
 
 import { get, template, keys } from '../../texts.js';
 import generateShots from '../../shots.js';
+import Cache from '../../models/Cache.js';
 
 const explanation = get('generic', 'polls:explanation');
 
@@ -12,11 +13,11 @@ class PollStep extends StepWithVote {
   constructor(room) {
     super(room);
 
-    if (room.cache.polls == null || room.cache.polls.length === 0) {
-      room.cache.polls = _.shuffle(keys('polls'));
+    if (room.cache.polls == null) {
+      room.cache.polls = new Cache(keys('polls'));
     }
 
-    const key = room.cache.polls.shift();
+    const key = room.cache.polls.get();
     this.shots = generateShots(2, 6);
 
     this.poll = get('polls', key);

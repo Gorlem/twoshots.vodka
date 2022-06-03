@@ -5,6 +5,7 @@ import StepWithVote from '../../steps/StepWithVote.js';
 
 import { get, template, keys } from '../../texts.js';
 import generateShots from '../../shots.js';
+import Cache from '../../models/Cache.js';
 
 const explanation = get('generic', 'guess:explanation');
 
@@ -12,11 +13,11 @@ class GuessStep extends StepWithVote {
   constructor(room) {
     super(room);
 
-    if (room.cache.guesses == null || room.cache.guesses.length === 0) {
-      room.cache.guesses = _.shuffle(keys('guesses'));
+    if (room.cache.guesses == null) {
+      room.cache.guesses = new Cache(keys('guesses'));
     }
 
-    const key = room.cache.guesses.shift();
+    const key = room.cache.guesses.get();
     this.shots = generateShots(1, 5);
     this.guess = get('guesses', key);
 
