@@ -57,6 +57,7 @@ class GameStep extends Step {
       value: number,
       x: Math.random(),
       y: Math.random(),
+      size: 4,
     }));
 
     this.global.card = 'CanvasCard';

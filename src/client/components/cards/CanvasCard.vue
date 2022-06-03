@@ -3,7 +3,7 @@
     <slot/>
     <div class="canvas" ref="canvas">
       <span v-for="option in data.options" :key="option.key" :style="position(option)" @click="$emit('action', option.key)"
-          class="is-unselectable is-clickable">
+          :class="['is-unselectable', 'is-clickable', 'is-size-' + option.size]">
         {{ option.value }}
       </span>
     </div>

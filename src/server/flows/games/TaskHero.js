@@ -171,7 +171,7 @@ class GameStep extends Step {
       ...template(collectionTaskText, {
         label: answer.label,
       }),
-      options: options.map((option, index) => ({ key: index, value: option.value })),
+      options: options.map((option, index) => ({ key: index, value: option.value, size: 4 })),
     };
 
     const index = options.indexOf(answer);
@@ -190,7 +190,7 @@ class GameStep extends Step {
       ...template(invertedCollectionTaskText, {
         label: answer.label,
       }),
-      options: options.map((option, index) => ({ key: index, value: option.value })),
+      options: options.map((option, index) => ({ key: index, value: option.value, size: 4 })),
     };
 
     const index = options.indexOf(answer);
@@ -245,7 +245,7 @@ class GameStep extends Step {
 
   biggerTask(player) {
     const numbers = ['0️⃣', '1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣', '🔟']
-      .map((value, key) => ({ key, value }));
+      .map((value, key) => ({ key, value, size: 4 }));
 
     const options = _.sampleSize(numbers, _.random(3, 5));
     const max = _.maxBy(options, 'key');
@@ -265,7 +265,7 @@ class GameStep extends Step {
 
   smallerTask(player) {
     const numbers = ['0️⃣', '1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣', '🔟']
-      .map((value, key) => ({ key, value }));
+      .map((value, key) => ({ key, value, size: 4 }));
 
     const options = _.sampleSize(numbers, _.random(3, 5));
     const min = _.minBy(options, 'key');
