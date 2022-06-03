@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 import Instructions from './basic/Instructions.js';
 import Polls from './basic/Polls.js';
 import WouldYouRather from './basic/WouldYouRather.js';
@@ -16,48 +14,40 @@ import RockPaperScissor from './games/RockPaperScissor.js';
 import DefendTheCastle from './games/DefendTheCastle.js';
 import TaskHero from './games/TaskHero.js';
 
-const weights = {
-  Instructions: { flow: Instructions, weight: 5 },
-  Polls: { flow: Polls, weight: 2 },
-  WouldYouRather: { flow: WouldYouRather, weight: 2 },
+import Cache from '../models/Cache.js';
 
-  Guess: { flow: Guess, weight: 2 },
-  Categories: { flow: Categories, weight: 1 },
-  Prompts: { flow: Prompts, weight: 1 },
+const flows = {
+  Instructions,
+  Polls,
+  WouldYouRather,
 
-  HorseRace: { flow: HorseRace, weight: 1 },
-  Bombs: { flow: Bombs, weight: 1 },
-  CountAndClick: { flow: CountAndClick, weight: 1 },
-  Kingscup: { flow: Kingscup, weight: 1 },
-  RockPaperScissor: { flow: RockPaperScissor, weight: 1 },
-  DefendTheCastle: { flow: DefendTheCastle, weight: 1 },
-  TaskHero: { flow: TaskHero, weight: 1 },
+  Guess,
+  Categories,
+  Prompts,
+
+  HorseRace,
+  Bombs,
+  CountAndClick,
+  Kingscup,
+  RockPaperScissor,
+  DefendTheCastle,
+  TaskHero,
 };
 
 export default class FlowDirector {
-  history = [];
-  flows = [];
-
   constructor() {
-    this.flows = Object.values(weights)
-      .flatMap((weighted) => _.times(weighted.weight, _.constant(weighted.flow)));
+    this.basic = new Cache([Instructions, Polls, WouldYouRather]);
+    this.knowledge = new Cache([Guess, Categories, Prompts]);
+    this.games = new Cache([HorseRace, Bombs, CountAndClick, Kingscup, RockPaperScissor, DefendTheCastle, TaskHero]);
+
+    this.cache = new Cache(() => [this.basic.get(), this.basic.get(), this.knowledge.get(), this.games.get()]);
   }
 
   getNextFlow() {
-    const flow = _(this.flows).without(...this.history).sample();
-    console.log(this.history);
-    this.addToHistory(flow);
-    return flow;
+    return this.cache.get();
   }
 
   getFlowByName(flowName) {
-    return weights[flowName].flow;
-  }
-
-  addToHistory(flow) {
-    this.history.push(flow);
-    if (this.history.length > 2) {
-      this.history.shift();
-    }
+    return flows[flowName];
   }
 }
