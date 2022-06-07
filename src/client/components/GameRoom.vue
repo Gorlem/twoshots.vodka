@@ -36,6 +36,7 @@ import CarouselCard from '@/components/cards/CarouselCard.vue';
 import DefendCastleGame from '@/components/teams/DefendCastleGame.vue';
 import CanvasCard from '@/components/cards/CanvasCard.vue';
 import ResultsCard from '@/components/cards/ResultsCard.vue';
+import BoxesCard from '@/components/cards/BoxesCard.vue';
 
 export default {
   components: {
@@ -51,6 +52,7 @@ export default {
     DefendCastleGame,
     CanvasCard,
     ResultsCard,
+    BoxesCard,
   },
   emits: [
     'update',

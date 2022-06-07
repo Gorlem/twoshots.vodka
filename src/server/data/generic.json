@@ -324,5 +324,20 @@
     "taskhero:results": {
         "title": "*${winnersName}* hat gewonnen",
         "message": "Somit muss Team *${losersName}* (*${losers}*) jeweils *${shots}* trinken!"
+    },
+    "boxbuilder:explanation": {
+        "title": "Max Mustermann",
+        "message": "Ihr habt *1 Sekunde* um euch das gleich angezeigte Muster zu merken. Danach müsst ihr so schnell ihr könnt das Muster *nachstellen*. Sobald der erste fertig ist, ist das Spiel zuende.",
+        "data": {
+            "button": "Verstanden ✔"
+        }
+    },
+    "boxbuilder:results": {
+        "title": "*${winner}* hat es als Erstes geschafft",
+        "message": "Alle anderen müssen für jeden Fehler *einen Schluck* trinken. Hier seht ihr wie viele Fehler ihr gemacht habt."
+    },
+    "boxbuilder:game": {
+        "title": "Hoffentlich habt ihr es euch gemerkt",
+        "message": "Jetzt seid ihr dran!"
     }
 }

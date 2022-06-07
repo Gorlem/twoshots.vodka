@@ -37,13 +37,9 @@ export default {
 </script>
 
 <style scoped>
-.hero-body {
-  touch-action: manipulation;
-}
-
 .canvas {
-    height: 50vh;
-    width: 80vw;
-    position: relative;
-  }
+  height: 50vh;
+  width: 80vw;
+  position: relative;
+}
 </style>
