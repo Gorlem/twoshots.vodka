@@ -38,11 +38,12 @@ const flows = {
 
 export default class FlowDirector {
   constructor() {
-    this.basic = new Cache([Instructions, Polls, WouldYouRather]);
+    this.basic = new Cache([Instructions]);
+    this.votes = new Cache([Polls, WouldYouRather]);
     this.knowledge = new Cache([Guess, Categories, Prompts]);
     this.games = new Cache([HorseRace, Bombs, CountAndClick, Kingscup, RockPaperScissor, DefendTheCastle, TaskHero, BoxBuilder]);
 
-    this.cache = new Cache(() => [this.basic.get(), this.basic.get(), this.knowledge.get(), this.games.get()]);
+    this.cache = new Cache(() => [this.basic.get(), this.votes.get(), this.knowledge.get(), this.games.get()]);
   }
 
   getNextFlow() {
