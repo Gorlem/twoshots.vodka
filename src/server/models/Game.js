@@ -34,8 +34,6 @@ export default class Game {
     room.game = this;
     this.rooms.push(room);
 
-    room.logger.info('Created new room');
-
     return room;
   }
 
@@ -45,7 +43,6 @@ export default class Game {
 
   removeRoom(room) {
     room.game = null;
-    room.logger.info('Removed room');
     _.pull(this.rooms, room);
   }
 

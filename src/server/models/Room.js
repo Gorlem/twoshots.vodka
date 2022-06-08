@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import winston from 'winston';
 
 import Vote from './Vote.js';
 
@@ -26,8 +25,6 @@ export default class Room {
 
   constructor(id) {
     this.id = id;
-
-    this.logger = winston.child({ room: id });
 
     this.handler.addListener(this.nextFlow.bind(this));
 
@@ -103,8 +100,6 @@ export default class Room {
   }
 
   addUser(user) {
-    this.logger.info(`Adding user ${user.name}`, { user: user.id });
-
     if (user.role === 'spectator') {
       this.addSpectator(user);
     } else if (this.isInLobby()) {
@@ -131,8 +126,6 @@ export default class Room {
   }
 
   removeUser(user) {
-    this.logger.info(`Removing user ${user.name}`, { user: user.id });
-
     if (this.seating) {
       _.pullAllBy(this.seating, [user], 'id');
     }

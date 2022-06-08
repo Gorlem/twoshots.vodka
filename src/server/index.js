@@ -1,4 +1,4 @@
-import winston from 'winston';
+import logEvent from './analytics.js';
 
 import Game from './models/Game.js';
 import User from './models/User.js';
@@ -7,7 +7,7 @@ const game = new Game();
 
 export default function (io) {
   io.on('connection', (socket) => {
-    winston.info('User connected', { user: socket.id });
+    logEvent(socket.id, 'user_connected');
 
     socket.on('parts', (callback) => {
       callback(Game.getNameParts());
@@ -17,7 +17,6 @@ export default function (io) {
       const user = new User(socket);
       user.role = role;
       user.name = name;
-      user.logger = winston.child({ user: user.id });
 
       socket.user = user;
 
@@ -25,6 +24,7 @@ export default function (io) {
 
       if (roomId === 'new') {
         room = game.createRoom();
+        logEvent(socket.id, 'room_created', { room: room.id });
       } else {
         room = game.findRoomById(roomId);
       }
@@ -33,6 +33,8 @@ export default function (io) {
         callback(null);
         return;
       }
+
+      logEvent(socket.id, 'room_joined', { room: room.id });
 
       callback(room.id);
       socket.room = room;
@@ -49,12 +51,15 @@ export default function (io) {
     });
 
     socket.on('disconnect', () => {
-      socket.user?.logger?.info('User disconnected');
       socket.room?.removeUser(socket.user);
+      logEvent(socket.id, 'user_disconnected');
+
+      if (socket.room) {
+        logEvent(socket.id, 'room_left', { room: socket.room.id });
+      }
     });
 
     socket.on('force-flow', (flowName) => {
-      socket.user?.logger?.info(`User forced ${flowName}`);
       socket.room?.forceFlow(flowName);
     });
   });

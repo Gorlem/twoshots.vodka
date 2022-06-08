@@ -18,8 +18,7 @@ class SeatStep extends Step {
     this.send();
   }
 
-  addedPlayer(user) {
-    user.logger.info('added to pending flow');
+  addedPlayer() {
     this.updateOptions();
   }
 
@@ -28,7 +27,6 @@ class SeatStep extends Step {
   }
 
   action(user, value) {
-    user.logger.info('action', { value });
     if (this.seating[value * 2] != null && this.seating[value * 2].key === value) {
       this.room.seating.splice(value, 0, user);
       this.players[user.id].data = {
