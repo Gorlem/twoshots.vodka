@@ -47,12 +47,9 @@ class ExplanationStep extends StepWithVote {
 
 class GameStep extends Step {
   current;
-  seating;
 
   constructor(room, { shots }) {
     super(room);
-
-    this.seating = [...room.seating];
 
     this.playing.card = 'InformationCard';
     this.spectating.card = 'CarouselCard';
@@ -61,7 +58,7 @@ class GameStep extends Step {
       selected: true,
     };
 
-    this.giveBomb(_.sample(this.seating));
+    this.giveBomb(_.sample([...this.room.playing]));
 
     setTimeout(() => {
       room.handler.next({ loser: this.current, shots });
@@ -88,7 +85,7 @@ class GameStep extends Step {
 
     this.spectating.data = {
       ...this.spectating.data,
-      options: this.seating.map((user) => ({ key: user.id, value: user.name + (user.id === player.id ? ' 💣' : '') })),
+      options: [...this.room.playing].map((user) => ({ key: user.id, value: user.name + (user.id === player.id ? ' 💣' : '') })),
     };
 
     this.current = player;
@@ -97,10 +94,8 @@ class GameStep extends Step {
   }
 
   removedPlayer(user) {
-    _.pull(this.seating, user);
-
     if (user === this.current) {
-      this.giveBomb(_.sample(this.seating));
+      this.giveBomb(_.sample([...this.room.playing]));
     }
   }
 
@@ -110,20 +105,22 @@ class GameStep extends Step {
     }
 
     if (direction === 'random') {
-      this.giveBomb(_(this.seating).without(user).sample());
+      this.giveBomb(_([...this.room.playing]).without(user).sample());
     } else {
-      let index = this.seating.indexOf(user);
+      const playing = [...this.room.playing];
+
+      let index = playing.indexOf(user);
       index += direction === 'left' ? 1 : -1;
 
-      if (index >= this.seating.length) {
+      if (index >= playing.length) {
         index = 0;
       }
 
       if (index < 0) {
-        index = this.seating.length - 1;
+        index = playing.length - 1;
       }
 
-      this.giveBomb(this.seating[index]);
+      this.giveBomb(playing[index]);
     }
   }
 }

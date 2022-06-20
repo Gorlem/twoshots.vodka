@@ -38,9 +38,9 @@ export default class Handler {
 
     this.flow = this.flows.shift();
 
-    this.listener?.();
-
     this.next();
+
+    this.listener?.();
   }
 
   next(data) {

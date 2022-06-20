@@ -1,14 +1,7 @@
-import _ from 'lodash';
-
 import Vote from './Vote.js';
 
 import FlowHandler from '../flows/FlowHandler.js';
 import LobbyFlow from '../flows/technical/LobbyFlow.js';
-import SetupFlow from '../flows/technical/SetupFlow.js';
-
-import { get, template } from '../texts.js';
-
-const seatsText = get('generic', 'seats:single');
 
 export default class Room {
   spectating = new Set();
@@ -21,8 +14,6 @@ export default class Room {
   handler = new FlowHandler(this);
   cache = {};
 
-  seating = [];
-
   constructor(id) {
     this.id = id;
 
@@ -32,19 +23,12 @@ export default class Room {
     this.vote.setPercentage(50.1);
 
     this.handler.pushFlow(LobbyFlow);
-    this.handler.pushFlow(SetupFlow);
     this.handler.next();
   }
 
   action(user, ...payload) {
     if (this.playing.has(user)) {
       this.handler.action(user, ...payload);
-    }
-    if (this.pending.has(user)) {
-      this.seating.splice(payload[0], 0, user);
-      this.pending.delete(user);
-      this.addSpectator(user);
-      this.sendPendingData();
     }
   }
 
@@ -64,31 +48,15 @@ export default class Room {
     }
   }
 
-  sendPendingData() {
-    const seating = this.seating
-      .flatMap((player, i) => [
-        { key: i, value: seatsText.data.seat },
-        { key: player.id, value: player.name, static: true },
-      ]);
-
-    for (const user of this.pending) {
-      user.sendCard('CarouselCard', {
-        ...template(seatsText),
-        options: seating,
-      });
-    }
-  }
-
   forceFlow(flowName) {
     this.handler.forceFlow(flowName);
   }
 
   nextFlow() {
-    for (const user of [...this.spectating]) {
-      if (this.seating.includes(user)) {
-        this.playing.add(user);
-        this.spectating.delete(user);
-      }
+    for (const user of [...this.pending]) {
+      this.playing.add(user);
+      this.spectating.delete(user);
+      this.pending.delete(user);
     }
 
     this.vote.reset();
@@ -122,14 +90,10 @@ export default class Room {
 
   addPending(user) {
     this.pending.add(user);
-    this.sendPendingData();
+    this.addSpectator(user);
   }
 
   removeUser(user) {
-    if (this.seating) {
-      _.pullAllBy(this.seating, [user], 'id');
-    }
-
     if (this.playing.has(user)) {
       this.playing.delete(user);
       this.handler?.removedPlayer(user);
@@ -150,11 +114,5 @@ export default class Room {
     if (this.playing.size === 0 && this.spectating.size === 0) {
       this.game?.removeRoom(this);
     }
-  }
-
-  createSeating(seating) {
-    const users = new Map([...this.playing].map((user) => [user.id, user]));
-
-    this.seating = seating.map((userId) => users.get(userId));
   }
 }

@@ -50,7 +50,7 @@ class KingscupStep extends Step {
     this.cards = Cards.sample(Math.ceil(room.playing.size * 1.5))
       .map((card) => ({ hidden: true, value: card }));
 
-    this.player = _.sample(room.seating);
+    this.player = _.sample([...this.room.playing]);
 
     this.showCards();
   }
@@ -116,12 +116,14 @@ class KingscupStep extends Step {
   }
 
   nextPlayer() {
-    let index = this.room.seating.indexOf(this.player) + 1;
-    if (index >= this.room.seating.length) {
+    const playing = [...this.room.playing];
+
+    let index = playing.indexOf(this.player) + 1;
+    if (index >= playing.length) {
       index = 0;
     }
 
-    this.player = this.room.seating[index];
+    this.player = playing[index];
   }
 }
 
