@@ -38,6 +38,10 @@ class CountdownStep extends Step {
     };
     this.send();
   }
+
+  stop() {
+    clearInterval(this.interval);
+  }
 }
 
 export default CountdownStep;

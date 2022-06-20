@@ -97,8 +97,7 @@ class GameStep extends Step {
 
   finish() {
     this.room.handler.next({ score: this.score, left: this.teams.left, right: this.teams.right });
-    clearInterval(this.interval);
-    clearTimeout(this.timeout);
+    this.stop();
   }
 
   updateScore() {
@@ -125,6 +124,11 @@ class GameStep extends Step {
     } else if (this.teams.right.includes(user)) {
       this.score -= 5 / this.teams.right.length;
     }
+  }
+
+  stop() {
+    clearInterval(this.interval);
+    clearTimeout(this.timeout);
   }
 }
 

@@ -92,8 +92,11 @@ class InputStep extends Step {
   }
 
   nextStep() {
+    this.stop();
     this.room.handler.next({ shots: this.shots, prompt: this.prompt, results: this.results });
+  }
 
+  stop() {
     clearInterval(this.interval);
     for (const timeout of this.timeouts) {
       clearTimeout(timeout);

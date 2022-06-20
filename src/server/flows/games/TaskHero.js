@@ -152,8 +152,12 @@ class GameStep extends Step {
   }
 
   nextStep() {
-    clearInterval(this.interval);
+    this.stop();
     this.room.handler.next({ left: this.left, right: this.right });
+  }
+
+  stop() {
+    clearInterval(this.interval);
   }
 
   task(player) {

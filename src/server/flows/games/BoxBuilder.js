@@ -71,7 +71,7 @@ class PatternInstructionStep extends Step {
 
     this.send();
 
-    setTimeout(this.showText.bind(this), 1000);
+    this.timeout = setTimeout(this.showText.bind(this), 1000);
   }
 
   showText() {
@@ -82,11 +82,15 @@ class PatternInstructionStep extends Step {
 
     this.send();
 
-    setTimeout(this.nextStep.bind(this), 1000);
+    this.timeout = setTimeout(this.nextStep.bind(this), 1000);
   }
 
   nextStep() {
     this.room.handler.next({ pattern: this.pattern });
+  }
+
+  stop() {
+    clearTimeout(this.timeout);
   }
 }
 

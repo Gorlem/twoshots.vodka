@@ -60,7 +60,7 @@ class GameStep extends Step {
 
     this.giveBomb(_.sample([...this.room.playing]));
 
-    setTimeout(() => {
+    this.timeout = setTimeout(() => {
       room.handler.next({ loser: this.current, shots });
     }, _.random(...fuseTime));
   }
@@ -118,6 +118,10 @@ class GameStep extends Step {
       const target = _.find([...this.room.playing], { id: direction });
       this.giveBomb(target);
     }
+  }
+
+  stop() {
+    clearTimeout(this.timeout);
   }
 }
 

@@ -51,6 +51,8 @@ export default class Handler {
       return;
     }
 
+    this.step?.stop?.();
+
     this.step = new Step(this.room, data);
   }
 
