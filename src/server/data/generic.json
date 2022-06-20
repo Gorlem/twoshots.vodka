@@ -98,16 +98,8 @@
         "message": "Die Bombe kannst du nach links / rechts oder an einen zufälligen Mitspieler weitergeben.",
         "options": [
             {
-                "key": "left",
-                "value": "👈 nach links"
-            },
-            {
                 "key": "random",
-                "value": "🔀 zufällig"
-            },
-            {
-                "key": "right",
-                "value": "nach rechts 👉"
+                "value": "🔀 Zufällig"
             }
         ]
     },

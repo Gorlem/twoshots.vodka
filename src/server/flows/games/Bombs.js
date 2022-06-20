@@ -75,10 +75,18 @@ class GameStep extends Step {
       this.players[this.current.id].data = undefined;
     }
 
+    const possibleTargets = _([...this.room.playing]).without(player).sampleSize(3);
+
     this.players[player.id].card = 'PollCard';
     this.players[player.id].data = {
-      ...hasBomb,
       ...template(hasBomb),
+      options: [
+        ...hasBomb.options,
+        ...possibleTargets.map((user) => ({
+          key: user.id,
+          value: user.name,
+        })),
+      ],
     };
 
     this.playing.data = template(waiting, { bomb: player.name });
@@ -107,20 +115,8 @@ class GameStep extends Step {
     if (direction === 'random') {
       this.giveBomb(_([...this.room.playing]).without(user).sample());
     } else {
-      const playing = [...this.room.playing];
-
-      let index = playing.indexOf(user);
-      index += direction === 'left' ? 1 : -1;
-
-      if (index >= playing.length) {
-        index = 0;
-      }
-
-      if (index < 0) {
-        index = playing.length - 1;
-      }
-
-      this.giveBomb(playing[index]);
+      const target = _.find([...this.room.playing], { id: direction });
+      this.giveBomb(target);
     }
   }
 }
