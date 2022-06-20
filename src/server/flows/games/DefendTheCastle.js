@@ -96,8 +96,8 @@ class GameStep extends Step {
   }
 
   finish() {
-    this.room.handler.next({ score: this.score, left: this.teams.left, right: this.teams.right });
     this.stop();
+    this.room.handler.next({ score: this.score, left: this.teams.left, right: this.teams.right });
   }
 
   updateScore() {

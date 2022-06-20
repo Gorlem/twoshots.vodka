@@ -22,6 +22,10 @@ winston.add(new winston.transports.DailyRotateFile({
   maxFiles: 30,
 }));
 
+winston.exceptions.handle(new winston.transports.File({
+  filename: './logs/exceptions.log',
+}));
+
 const app = express();
 app.disable('x-powered-by');
 
