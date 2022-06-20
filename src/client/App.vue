@@ -4,7 +4,7 @@
 
 <style>
 body {
-  touch-action: none;
+  touch-action: pan-x pan-y;
 }
 
 html, body, #app {
