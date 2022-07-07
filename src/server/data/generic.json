@@ -336,7 +336,7 @@
     },
     "quiz:results": {
         "title": "Die richtige Antwort ist *${correct}*",
-        "message": "*${losers}* haben falsch geantwortet, und müssen somit *${shots}* trinken!",
+        "message": "${explanation}\n\n*${losers}* haben falsch geantwortet, und müssen somit *${shots}* trinken!",
         "footer": "Quelle: [${domain}](${url})"
     }
 }

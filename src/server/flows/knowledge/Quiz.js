@@ -74,6 +74,7 @@ class ResultStep extends Step {
         shots: generateShots(2, 5),
         correct,
         losers,
+        explanation: entry.explanation,
         url: entry.source,
         domain: new URL(entry.source).hostname,
       }),
