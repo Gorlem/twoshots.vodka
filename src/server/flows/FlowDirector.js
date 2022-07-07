@@ -5,6 +5,7 @@ import WouldYouRather from './basic/WouldYouRather.js';
 import Guess from './knowledge/Guess.js';
 import Categories from './knowledge/Categories.js';
 import Prompts from './knowledge/Prompts.js';
+import Quiz from './knowledge/Quiz.js';
 
 import HorseRace from './games/HorseRace.js';
 import Bombs from './games/Bombs.js';
@@ -25,6 +26,7 @@ const flows = {
   Guess,
   Categories,
   Prompts,
+  Quiz,
 
   HorseRace,
   Bombs,
@@ -40,7 +42,7 @@ export default class FlowDirector {
   constructor() {
     this.basic = new Cache([Instructions]);
     this.votes = new Cache([Polls, WouldYouRather]);
-    this.knowledge = new Cache([Guess, Categories, Prompts]);
+    this.knowledge = new Cache([Guess, Categories, Prompts, Quiz]);
     this.games = new Cache([HorseRace, Bombs, CountAndClick, Kingscup, RockPaperScissor, DefendTheCastle, TaskHero, BoxBuilder]);
 
     this.cache = new Cache(() => [this.basic.get(), this.votes.get(), this.knowledge.get(), this.games.get()]);

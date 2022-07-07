@@ -331,5 +331,12 @@
     "boxbuilder:game": {
         "title": "Hoffentlich habt ihr es euch gemerkt",
         "message": "Jetzt seid ihr dran!"
+    },
+    "quiz:explanation": {
+    },
+    "quiz:results": {
+        "title": "Die richtige Antwort ist *${correct}*",
+        "message": "*${losers}* haben falsch geantwortet, und müssen somit *${shots}* trinken!",
+        "footer": "Quelle: [${domain}](${url})"
     }
 }

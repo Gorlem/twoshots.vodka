@@ -1,0 +1,13 @@
+[
+    {
+        "question": "In welchem Land regierte der Diktator \"Papa Doc\"?",
+        "explanation": "François Duvalier war ein haitianischer Politiker und Diktator",
+        "answers": [
+            "Haiti",
+            "Simbabwe",
+            "Kamerun",
+            "Kuba"
+        ],
+        "source": "https://www.handelsblatt.com/politik/international/ein-staat-im-elend-wie-papa-und-baby-doc-haiti-brutal-auspluenderten-seite-2/3768604-2.html"
+    }
+]
