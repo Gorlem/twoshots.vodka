@@ -206,37 +206,32 @@
         "message": "…und kann *${shots}* verteilen. Am längsten hat *${loser}* gebraucht und muss *${shots}* trinken."
     },
     "prompts:explanation": {
-        "title": "Erratet die Antworten",
-        "message": "Ihr bekommt gleich eine Frage gestellt die *${amount} Leute* bereits beantwortet haben. Euer Ziel ist es die gegebenen Antworten zu erraten. Jede Antwort gibt Punkte, je nachdem wie viel Prozent der Leute die gleiche Antwort gegeben hat.",
+        "title": "Highscore",
+        "message": "Euch werden gleich *3 Fragen* gestellt, welche bereits andere Menschen bei Umfragen beantwortet haben. Eure Antworten geben Punkte, je nachdem wie viele Leute die gleiche Antwort gegeben haben. Die Punkte für die *3 Antworten* werden am Ende zusammengerechnet.",
         "data": {
             "button": "Verstanden ✔"
         }
     },
     "prompts:game": {
-        "message": "Du hast noch *${seconds} Sekunden*.",
         "data": {
             "button": "Abgeben 😬"
-        },
-        "footer": "Bisher hast du *${points}* Punkte."
+        }
     },
-    "prompts:correct": {
-        "title": "*${answer}* ist *richtig*",
-        "message": "…und gibt dir *${percent} Punkte*!",
-        "footer": "Du hast jetzt *${points} Punkte*."
+    "prompts:results/single/single": {
+        "title": "Mal schauen wie viele Punkte ihr geschafft habt",
+        "message": "*${winner}* hat mit *${winnerCorrect} Punkten* gewonnen und darf *${shots}* verteilen. *${loser}* ist nur auf *${loserCorrect} Punkte* gekommen und muss *${shots}* trinken."
     },
-    "prompts:duplicate": {
-        "title": "*${answer}* gehört zwar dazu, aber *hattest du schon*",
-        "message": "Versuch's mit was Anderem!",
-        "footer": "Du hast immernoch *${points} Punkte*."
+    "prompts:results/multiple/single": {
+        "title": "Mal schauen wie viele Punkte ihr geschafft habt",
+        "message": "*${winner}* haben mit *${winnerCorrect} Punkten* gewonnen und dürfen jeweils *${shots}* verteilen. *${loser}* ist nur auf *${loserCorrect} Punkte* gekommen und muss *${shots}* trinken."
     },
-    "prompts:wrong": {
-        "title": "*${answer}* gehört *nicht* dazu",
-        "message": "Versuch's weiter!",
-        "footer": "Du hast immernoch *${points} Punkte*."
+    "prompts:results/single/multiple": {
+        "title": "Mal schauen wie viele Punkte ihr geschafft habt",
+        "message": "*${winner}* hat mit *${winnerCorrect} Punkten* gewonnen und darf *${shots}* verteilen. *${loser}* sind nur auf *${loserCorrect} Punkte* gekommen und müssen jeweils *${shots}* trinken."
     },
-    "prompts:results": {
-        "message": "*${winner}* hat mit *${winnerCorrect} Punkten* gewonnen und darf *${shots}* verteilen. *${loser}* ist nur auf *${loserCorrect} Punkte* gekommen und muss *${shots}* trinken.",
-        "footer": "Quelle: [${domain}](${url})"
+    "prompts:results/multiple/multiple": {
+        "title": "Mal schauen wie viele Punkte ihr geschafft habt",
+        "message": "*${winner}* haben mit *${winnerCorrect} Punkten* gewonnen und dürfen jeweils *${shots}* verteilen. *${loser}* sind nur auf *${loserCorrect} Punkte* gekommen und müssen jeweils *${shots}* trinken."
     },
     "kingscup:explanation": {
         "title": "Mini Cup",

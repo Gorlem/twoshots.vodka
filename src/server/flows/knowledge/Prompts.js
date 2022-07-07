@@ -6,15 +6,14 @@ import StepWithVote from '../../steps/StepWithVote.js';
 import { get, template, keys } from '../../texts.js';
 import generateShots from '../../shots.js';
 
-import CountdownStep from '../../steps/CountdownStep.js';
 import Cache from '../../models/Cache.js';
 
 const explanationText = get('generic', 'prompts:explanation');
 const gameText = get('generic', 'prompts:game');
-const resultsText = get('generic', 'prompts:results');
-const correctText = get('generic', 'prompts:correct');
-const duplicateText = get('generic', 'prompts:duplicate');
-const wrongText = get('generic', 'prompts:wrong');
+const resultsSingleSingleText = get('generic', 'prompts:results/single/single');
+const resultsMultipleSingleText = get('generic', 'prompts:results/multiple/single');
+const resultsSingleMultipleText = get('generic', 'prompts:results/single/multiple');
+const resultsMultipleMultipleText = get('generic', 'prompts:results/multiple/multiple');
 
 class ExplanationStep extends StepWithVote {
   constructor(room) {
@@ -24,16 +23,10 @@ class ExplanationStep extends StepWithVote {
       room.cache.prompts = new Cache(keys('prompts'));
     }
 
-    const key = room.cache.prompts.get();
-    this.prompt = get('prompts', key);
-
     this.global.card = 'ConfirmationCard';
     this.spectating.card = 'InformationCard';
     this.global.data = {
-      ...template(explanationText, {
-        shots: this.shots,
-        amount: this.prompt.amount,
-      }),
+      ...template(explanationText),
       ...explanationText.data,
     };
 
@@ -41,7 +34,13 @@ class ExplanationStep extends StepWithVote {
   }
 
   nextStep() {
-    this.room.handler.next({ prompt: this.prompt });
+    const scores = new Map();
+
+    for (const player of this.room.playing) {
+      scores.set(player, 0);
+    }
+
+    this.room.handler.next({ scores });
   }
 
   action(user, payload) {
@@ -55,15 +54,12 @@ class ExplanationStep extends StepWithVote {
   }
 }
 
-class InputStep extends Step {
-  results = new Map();
-  seconds = 60;
-
-  timeouts = [];
-
-  constructor(room, { prompt }) {
+class InputStep extends StepWithVote {
+  constructor(room, { scores }) {
     super(room);
-    this.prompt = prompt;
+    this.scores = scores;
+
+    this.prompt = get('prompts', room.cache.prompts.get());
 
     this.spectating.card = 'InformationCard';
     this.spectating.data = {
@@ -72,138 +68,80 @@ class InputStep extends Step {
 
     this.playing.card = 'InputCard';
     this.playing.data = {
-      ...template(gameText, {
-        points: 0,
-        seconds: this.seconds,
-      }),
+      ...template(gameText),
       title: this.prompt.question,
       ...gameText.data,
     };
 
-    for (const player of room.playing) {
-      this.results.set(player, { points: 0, answers: new Set() });
-    }
-
-    this.send();
-
-    this.interval = setInterval(this.countdown.bind(this), 1000);
+    this.update();
   }
 
   nextStep() {
-    this.stop();
-    this.room.handler.next({ prompt: this.prompt, results: this.results });
-  }
-
-  stop() {
-    clearInterval(this.interval);
-    for (const timeout of this.timeouts) {
-      clearTimeout(timeout);
+    for (const [user, cleaned] of this.vote.results) {
+      const entry = this.prompt.answers.find((answer) => answer.texts.includes(cleaned));
+      if (entry) {
+        this.scores.set(user, this.scores.get(user) + entry.percent);
+      }
     }
-  }
 
-  countdown() {
-    this.seconds -= 1;
-
-    this.playing.data = {
-      ...this.playing.data,
-      ...template({ message: gameText.message }, { seconds: this.seconds }),
-    };
+    this.playing.card = 'InformationCard';
     this.send();
 
-    if (this.seconds === 0) {
-      this.nextStep();
-    }
+    this.room.handler.next({ scores: this.scores });
   }
 
   action(user, payload) {
     const cleaned = payload.toLowerCase().replace(/[^a-zäöüß]/g, ' ');
+    this.vote.submit(user, cleaned);
 
-    const result = this.results.get(user);
-    let userAnswer = null;
+    this.players[user.id].data = {
+      selected: true,
+    };
 
-    for (const answer of this.prompt.answers) {
-      if (answer.texts.includes(cleaned)) {
-        userAnswer = answer;
-        break;
-      }
-    }
-
-    if (userAnswer != null) {
-      if (result.answers.has(userAnswer.texts[0])) {
-        this.players[user.id].card = 'InformationCard';
-        this.players[user.id].data = {
-          ...template(duplicateText, {
-            answer: payload,
-            points: result.points,
-          }),
-        };
-        this.send();
-      } else {
-        result.answers.add(userAnswer.texts[0]);
-        result.points += userAnswer.percent;
-
-        this.players[user.id].card = 'InformationCard';
-        this.players[user.id].data = {
-          ...template(correctText, {
-            answer: payload,
-            percent: userAnswer.percent,
-            points: result.points,
-          }),
-        };
-        this.send();
-      }
-    } else {
-      this.players[user.id].card = 'InformationCard';
-      this.players[user.id].data = {
-        ...template(wrongText, {
-          answer: payload,
-          points: result.points,
-        }),
-      };
-      this.send();
-    }
-
-    const id = setTimeout(() => {
-      _.pull(this.timeouts, id);
-
-      this.players[user.id].card = 'InputCard';
-      this.players[user.id].data = {
-        ...template({ footer: gameText.footer }, { points: result.points }),
-      };
-      this.send();
-    }, 500);
-    this.timeouts.push(id);
+    this.update();
   }
 }
 
 class ResultStep extends Step {
-  constructor(room, { prompt, results }) {
+  constructor(room, { scores }) {
     super(room);
 
-    const sorted = _(results)
-      .entries()
-      .map((entry) => [entry[0], entry[1].points])
-      .orderBy('1', 'desc');
+    const results = [...scores];
 
-    const winner = sorted.first();
-    const loser = sorted.last();
+    const max = _.maxBy(results, '1')[1];
+    const min = _.minBy(results, '1')[1];
+
+    const winner = results
+      .filter((result) => result[1] === max)
+      .map((result) => result[0].name);
+
+    const loser = results
+      .filter((result) => result[1] === min)
+      .map((result) => result[0].name);
+
+    let text = resultsSingleSingleText;
+
+    if (winner.length > 1 && loser.length > 1) {
+      text = resultsMultipleMultipleText;
+    } else if (winner.length > 1) {
+      text = resultsMultipleSingleText;
+    } else if (loser.length > 1) {
+      text = resultsSingleMultipleText;
+    }
 
     this.global.card = 'ResultsCard';
     this.global.data = {
-      ...template(resultsText, {
+      ...template(text, {
         shots: generateShots(1, 5),
-        winner: winner[0].name,
-        winnerCorrect: winner[1],
-        loser: loser[0].name,
-        loserCorrect: loser[1],
-        url: prompt.source,
-        domain: new URL(prompt.source).hostname,
+        winner: winner.join('*, *'),
+        winnerCorrect: max,
+        loser: loser.join('*, *'),
+        loserCorrect: min,
       }),
-      title: prompt.question,
-      options: sorted.map((entry) => ({
-        key: entry[0].id,
-        value: entry[0].name,
-        result: `${entry[1]} Punkte`,
+      options: results.map(([user, score]) => ({
+        key: user.id,
+        value: user.name,
+        result: `${score} Punkte`,
       })),
     };
 
@@ -213,7 +151,8 @@ class ResultStep extends Step {
 
 export default [
   ExplanationStep,
-  CountdownStep,
+  InputStep,
+  InputStep,
   InputStep,
   ResultStep,
 ];
