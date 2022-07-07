@@ -11,8 +11,20 @@
             "button": "Abgeben 😬"
         }
     },
-    "guess:results": {
+    "guess:results/single/single": {
         "message": "Die richtige Antwort ist *${answer}*. Somit darf *${winner}* *${shots}* verteilen, und *${loser}* muss *${shots}* trinken.",
+        "footer": "Quelle: [${domain}](${url})"
+    },
+    "guess:results/multiple/single": {
+        "message": "Die richtige Antwort ist *${answer}*. Somit dürfen *${winner}* jeweils *${shots}* verteilen, und *${loser}* muss *${shots}* trinken.",
+        "footer": "Quelle: [${domain}](${url})"
+    },
+    "guess:results/single/multiple": {
+        "message": "Die richtige Antwort ist *${answer}*. Somit darf *${winner}* *${shots}* verteilen, und *${loser}* müssen jeweils *${shots}* trinken.",
+        "footer": "Quelle: [${domain}](${url})"
+    },
+    "guess:results/multiple/multiple": {
+        "message": "Die richtige Antwort ist *${answer}*. Somit dürfen *${winner}* jeweils *${shots}* verteilen, und *${loser}* müssen jeweils *${shots}* trinken.",
         "footer": "Quelle: [${domain}](${url})"
     },
     "game:horserace:explanation": {
