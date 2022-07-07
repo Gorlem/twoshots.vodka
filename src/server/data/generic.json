@@ -71,7 +71,11 @@
         "title": "Es kann nur Verlierer geben",
         "message": "Da ihr euch alle für *${option}* entschieden habt, müsst ihr alle *${shots}* trinken!"
     },
-    "would-you-rather:results": {
+    "would-you-rather:results/single": {
+        "title": "Die Mehrheit würdet eher ${option}",
+        "message": "Das bedeutet *${losers}* muss *${shots}* trinken!"
+    },
+    "would-you-rather:results/multiple": {
         "title": "Die Mehrheit würdet eher ${option}",
         "message": "Das bedeutet *${losers}* müssen *${shots}* trinken!"
     },

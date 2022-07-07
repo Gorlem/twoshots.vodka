@@ -8,6 +8,10 @@ import { get, template, keys } from '../../texts.js';
 import Cache from '../../models/Cache.js';
 
 const voteText = get('generic', 'would-you-rather:vote');
+const tieText = get('generic', 'would-you-rather:tie');
+const sameText = get('generic', 'would-you-rather:same');
+const resultsSingleText = get('generic', 'would-you-rather:results/single');
+const resultsMultipleText = get('generic', 'would-you-rather:results/multiple');
 
 class VoteStep extends StepWithVote {
   constructor(room) {
@@ -55,10 +59,6 @@ class ResultsStep extends Step {
   constructor(room, { results, options, shots }) {
     super(room);
 
-    const tieText = get('generic', 'would-you-rather:tie');
-    const sameText = get('generic', 'would-you-rather:same');
-    const resultsText = get('generic', 'would-you-rather:results');
-
     const counts = _.countBy([...results], '1');
     _.defaults(counts, { left: 0, right: 0 });
 
@@ -77,10 +77,13 @@ class ResultsStep extends Step {
         .filter((r) => (r[1] === (counts.left < counts.right ? 'left' : 'right')))
         .map('[0].name')
         .value();
+
+      const text = losers.length === 1 ? resultsSingleText : resultsMultipleText;
+
       this.global.data = {
-        ...template(resultsText, {
+        ...template(text, {
           option: counts.left < counts.right ? options[1] : options[0],
-          losers,
+          losers: losers.join('*, *'),
           shots,
         }),
       };
