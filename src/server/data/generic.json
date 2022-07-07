@@ -334,7 +334,17 @@
     },
     "quiz:explanation": {
     },
-    "quiz:results": {
+    "quiz:results/none": {
+        "title": "Die richtige Antwort ist *${correct}*",
+        "message": "${explanation}\n\n*Niemand* hat falsch geantwortet, und somit muss auch keiner trinken. Schade.",
+        "footer": "Quelle: [${domain}](${url})"
+    },
+    "quiz:results/single": {
+        "title": "Die richtige Antwort ist *${correct}*",
+        "message": "${explanation}\n\n*${losers}* hat falsch geantwortet, und muss somit *${shots}* trinken!",
+        "footer": "Quelle: [${domain}](${url})"
+    },
+    "quiz:results/multiple": {
         "title": "Die richtige Antwort ist *${correct}*",
         "message": "${explanation}\n\n*${losers}* haben falsch geantwortet, und müssen somit *${shots}* trinken!",
         "footer": "Quelle: [${domain}](${url})"

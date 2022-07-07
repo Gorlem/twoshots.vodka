@@ -8,7 +8,9 @@ import generateShots from '../../shots.js';
 import Cache from '../../models/Cache.js';
 
 const explanationText = get('generic', 'quiz:explanation');
-const resultsText = get('generic', 'quiz:results');
+const resultsNoneText = get('generic', 'quiz:results/none');
+const resultsSingleText = get('generic', 'quiz:results/single');
+const resultsMultipleText = get('generic', 'quiz:results/multiple');
 
 class QuizStep extends StepWithVote {
   constructor(room) {
@@ -65,15 +67,24 @@ class ResultStep extends Step {
 
     const losers = results
       .filter((result) => result[1] !== correct)
-      .map(([user]) => user.name)
-      .join('*, *');
+      .map(([user]) => user.name);
+
+    const amount = losers.length;
+
+    let text = resultsMultipleText;
+
+    if (amount === 0) {
+      text = resultsNoneText;
+    } else if (amount === 1) {
+      text = resultsSingleText;
+    }
 
     this.global.card = 'ResultsCard';
     this.global.data = {
-      ...template(resultsText, {
+      ...template(text, {
         shots: generateShots(2, 5),
         correct,
-        losers,
+        losers: losers.join('*, *'),
         explanation: entry.explanation,
         url: entry.source,
         domain: new URL(entry.source).hostname,
