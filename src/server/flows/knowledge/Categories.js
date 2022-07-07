@@ -24,14 +24,12 @@ class ExplanationStep extends StepWithVote {
     }
 
     const key = room.cache.categories.get();
-    this.shots = generateShots(1, 5);
     this.category = get('categories', key);
 
     this.global.card = 'ConfirmationCard';
     this.spectating.card = 'InformationCard';
     this.global.data = {
       ...template(explanationText, {
-        shots: this.shots,
         category: this.category.category,
         size: this.category.answers.length,
       }),
@@ -43,7 +41,7 @@ class ExplanationStep extends StepWithVote {
   }
 
   nextStep() {
-    this.room.handler.next({ category: this.category, shots: this.shots });
+    this.room.handler.next({ category: this.category });
   }
 
   action(user, payload) {
@@ -63,10 +61,9 @@ class InputStep extends Step {
 
   timeouts = [];
 
-  constructor(room, { category, shots }) {
+  constructor(room, { category }) {
     super(room);
     this.category = category;
-    this.shots = shots;
 
     this.spectating.card = 'InformationCard';
     this.spectating.data = {
@@ -94,7 +91,7 @@ class InputStep extends Step {
 
   nextStep() {
     this.stop();
-    this.room.handler.next({ shots: this.shots, category: this.category, results: this.results });
+    this.room.handler.next({ category: this.category, results: this.results });
   }
 
   stop() {
@@ -162,7 +159,7 @@ class InputStep extends Step {
 }
 
 class ResultStep extends Step {
-  constructor(room, { category, shots, results }) {
+  constructor(room, { category, results }) {
     super(room);
 
     const sorted = _(results)
@@ -176,7 +173,7 @@ class ResultStep extends Step {
     this.global.card = 'ResultsCard';
     this.global.data = {
       ...template(resultsText, {
-        shots,
+        shots: generateShots(1, 5),
         winner: winner[0].name,
         winnerCorrect: winner[1],
         loser: loser[0].name,

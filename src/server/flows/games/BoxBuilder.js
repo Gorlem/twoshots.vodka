@@ -4,7 +4,6 @@ import Step from '../../steps/Step.js';
 import StepWithVote from '../../steps/StepWithVote.js';
 
 import { get, template } from '../../texts.js';
-import generateShots from '../../shots.js';
 import CountdownStep from '../../steps/CountdownStep.js';
 
 const explanationText = get('generic', 'boxbuilder:explanation');
@@ -20,10 +19,8 @@ class ExplanationStep extends StepWithVote {
   constructor(room) {
     super(room);
 
-    this.shots = generateShots(3, 6);
-
     this.global.card = 'ConfirmationCard';
-    this.global.data = template(explanationText, { shots: this.shots });
+    this.global.data = template(explanationText);
 
     this.playing.data = {
       button: explanationText.data.button,
@@ -33,7 +30,7 @@ class ExplanationStep extends StepWithVote {
   }
 
   nextStep() {
-    this.room.handler.next({ shots: this.shots });
+    this.room.handler.next();
   }
 
   action(user) {

@@ -146,7 +146,7 @@ class ResultStep extends Step {
         winner: parts[winner === 'right' ? 2 : 0],
         losersName: parts[winner === 'right' ? 0 : 2],
         losers: (winner === 'right' ? left : right).map((p) => p.name).join('*, *'),
-        shots: generateShots(2, 5),
+        shots: generateShots(1, 5),
       }),
     };
 

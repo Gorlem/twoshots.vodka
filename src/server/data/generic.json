@@ -7,7 +7,6 @@
         }
     },
     "guess:explanation": {
-        "message": "Der Gewinner darf *${shots}* verteilen, der Verlierer muss *${shots}* trinken. Falls mehrere die richtige Antwort gegeben haben, geht es um Geschwindigkeit.",
         "data": {
             "button": "Abgeben 😬"
         }
@@ -15,9 +14,6 @@
     "guess:results": {
         "message": "Die richtige Antwort ist *${answer}*. Somit darf *${winner}* *${shots}* verteilen, und *${loser}* muss *${shots}* trinken.",
         "footer": "Quelle: [${domain}](${url})"
-    },
-    "polls:explanation": {
-        "message": "Es geht um *${shots}*. Diese müssen entweder getrunken oder verteilt werden."
     },
     "game:horserace:explanation": {
         "title": "Pferderennen",
@@ -60,19 +56,18 @@
         "message": "Ihr habt entschieden: *${player}* darf nicht mitspielen."
     },
     "would-you-rather:vote": {
-        "title": "Würdest du eher … oder …?",
-        "message": "Es geht um *${shots}*. Alle Spieler, welche die unbeliebtere Entscheidung getroffen haben, müssen trinken. Bei einem unentschieden trinkt niemand. Falls ihr jedoch alle die gleiche Entscheidung gefällt habt, müsst ihr alle trinken!"
+        "title": "Würdest du eher … oder …?"
     },
     "would-you-rather:tie": {
-        "title": "Unentschieden",
-        "message": "Beide Möglichkeiten wurden gleich oft gewählt. Glück gehabt! Keiner muss trinken."
+        "title": "*Unentschieden*",
+        "message": "Beide Möglichkeiten wurden *gleich oft* gewählt. Glück gehabt! *Keiner muss trinken*."
     },
     "would-you-rather:same": {
         "title": "Es kann nur Verlierer geben",
         "message": "Da ihr euch alle für *${option}* entschieden habt, müsst ihr alle *${shots}* trinken!"
     },
     "would-you-rather:results/single": {
-        "title": "Die Mehrheit würdet eher ${option}",
+        "title": "Die Mehrheit würdet eher *${option}*",
         "message": "Das bedeutet *${losers}* muss *${shots}* trinken!"
     },
     "would-you-rather:results/multiple": {
@@ -81,7 +76,7 @@
     },
     "game:bomb:explanation": {
         "title": "Die Bombe tickt",
-        "message": "Wenn du die Bombe hast, kannst du sie nach links / rechts oder an einen zufälligen Mitspieler weitergeben. Der Spieler, bei dem die Bombe explodiert, muss *${shots}* trinken!",
+        "message": "Wenn du die Bombe hast, kannst du sie an einen anderen Mitspieler *weitergeben*. Der Spieler, bei dem die Bombe *explodiert*, muss trinken!",
         "data": {
             "button": "Verstanden ✔"
         }
@@ -165,7 +160,7 @@
         "message": "Somit muss Team *${losersName}* (*${losers}*) jeweils *${shots}* trinken!"
     },
     "categories:explanation": {
-        "message": "Ihr habt gleich *60 Sekunden* um möglichst viel aus der Kategorie *${category}* aufzuzählen. Der Gewinner darf *${shots}* verteilen, der Verlierer muss *${shots}* trinken. Sollte einer alle *${size}* Antworten richtig erraten, endet das Spiel sofort.",
+        "message": "Ihr habt gleich *60 Sekunden* um möglichst viel aus der Kategorie *${category}* aufzuzählen.",
         "data": {
             "button": "Verstanden ✔"
         }
@@ -193,7 +188,7 @@
     },
     "countclick:explanation": {
         "title": "Zähle und Klicke",
-        "message": "Klicke die Zahlen von 1️⃣ bis 🔟 in der richtigen Reihenfolge an. Es geht um *${shots}*.",
+        "message": "Klicke die Zahlen von 1️⃣ bis 🔟 in der richtigen Reihenfolge an.",
         "data": {
             "button": "Verstanden ✔"
         }
@@ -212,7 +207,7 @@
     },
     "prompts:explanation": {
         "title": "Erratet die Antworten",
-        "message": "Ihr bekommt gleich eine Frage gestellt die *${amount} Leute* bereits beantwortet haben. Euer Ziel ist es die gegebenen Antworten zu erraten. Jede Antwort gibt Punkte, je nachdem wie viel Prozent der Leute die gleiche Antwort gegeben hat. Der am Ende die meisten Punkte hat, darf *${shots}* verteilen. Der mit den wenigsten muss *${shots}* trinken!",
+        "message": "Ihr bekommt gleich eine Frage gestellt die *${amount} Leute* bereits beantwortet haben. Euer Ziel ist es die gegebenen Antworten zu erraten. Jede Antwort gibt Punkte, je nachdem wie viel Prozent der Leute die gleiche Antwort gegeben hat.",
         "data": {
             "button": "Verstanden ✔"
         }

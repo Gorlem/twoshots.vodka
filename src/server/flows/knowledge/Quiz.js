@@ -82,7 +82,7 @@ class ResultStep extends Step {
     this.global.card = 'ResultsCard';
     this.global.data = {
       ...template(text, {
-        shots: generateShots(2, 5),
+        shots: generateShots(1, 5),
         correct,
         losers: losers.join('*, *'),
         explanation: entry.explanation,

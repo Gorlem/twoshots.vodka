@@ -120,7 +120,7 @@ class ResultsStep extends Step {
       }))
       .value();
 
-    const shots = generateShots(3, 6);
+    const shots = generateShots(1, 5);
 
     this.global.card = 'HorseRaceGameResults';
     this.global.data = {

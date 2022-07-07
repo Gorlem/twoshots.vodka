@@ -18,10 +18,8 @@ class ExplanationStep extends StepWithVote {
   constructor(room) {
     super(room);
 
-    this.shots = generateShots(3, 6);
-
     this.global.card = 'ConfirmationCard';
-    this.global.data = template(explanation, { shots: this.shots });
+    this.global.data = template(explanation);
 
     this.playing.data = {
       button: explanation.data.button,
@@ -31,7 +29,7 @@ class ExplanationStep extends StepWithVote {
   }
 
   nextStep() {
-    this.room.handler.next({ shots: this.shots });
+    this.room.handler.next();
   }
 
   action(user) {
@@ -48,7 +46,7 @@ class ExplanationStep extends StepWithVote {
 class GameStep extends Step {
   current;
 
-  constructor(room, { shots }) {
+  constructor(room) {
     super(room);
 
     this.playing.card = 'InformationCard';
@@ -61,7 +59,7 @@ class GameStep extends Step {
     this.giveBomb(_.sample([...this.room.playing]));
 
     this.timeout = setTimeout(() => {
-      room.handler.next({ loser: this.current, shots });
+      room.handler.next({ loser: this.current });
     }, _.random(...fuseTime));
   }
 
@@ -126,12 +124,15 @@ class GameStep extends Step {
 }
 
 class ResultsStep extends Step {
-  constructor(room, { loser, shots }) {
+  constructor(room, { loser }) {
     super(room);
 
     this.global.card = 'InformationCard';
     this.global.data = {
-      ...template(results, { loser: loser.name, shots }),
+      ...template(results, {
+        loser: loser.name,
+        shots: generateShots(1, 5),
+      }),
     };
 
     this.send();

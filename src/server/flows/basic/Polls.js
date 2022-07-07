@@ -7,8 +7,6 @@ import { get, template, keys } from '../../texts.js';
 import generateShots from '../../shots.js';
 import Cache from '../../models/Cache.js';
 
-const explanation = get('generic', 'polls:explanation');
-
 class PollStep extends StepWithVote {
   constructor(room) {
     super(room);
@@ -18,7 +16,6 @@ class PollStep extends StepWithVote {
     }
 
     const key = room.cache.polls.get();
-    this.shots = generateShots(2, 6);
 
     this.poll = get('polls', key);
 
@@ -27,7 +24,7 @@ class PollStep extends StepWithVote {
 
     this.global.card = 'PollCard';
     this.global.data = {
-      ...template({ title: this.poll.title, ...explanation }, { shots: this.shots }),
+      title: this.poll.title,
       options: this.users,
     };
 
@@ -39,7 +36,7 @@ class PollStep extends StepWithVote {
   }
 
   nextStep() {
-    this.room.handler.next({ poll: this.poll, shots: this.shots, results: this.vote.results });
+    this.room.handler.next({ poll: this.poll, results: this.vote.results });
   }
 
   action(user, payload) {
@@ -54,7 +51,7 @@ class PollStep extends StepWithVote {
 }
 
 class ResultStep extends Step {
-  constructor(room, { poll, shots, results }) {
+  constructor(room, { poll, results }) {
     super(room);
 
     const counts = _.countBy([...results], '1');
@@ -67,7 +64,13 @@ class ResultStep extends Step {
 
     this.global.card = 'ResultsCard';
     this.global.data = {
-      ...template({ message: _.sample(poll.message), title: poll.title }, { shots, winner }),
+      ...template({
+        message: _.sample(poll.message),
+        title: poll.title,
+      }, {
+        shots: generateShots(1, 5),
+        winner,
+      }),
       options: _.entries(counts).map((e) => ({
         key: e[0],
         value: e[0],

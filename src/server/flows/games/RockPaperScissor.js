@@ -179,7 +179,7 @@ class ResultStep extends Step {
 
     if (winner === 'draw') {
       content = template(drawText, {
-        shots: generateShots(2, 5),
+        shots: generateShots(1, 5),
         symbol: GameStep.keyToName(winnerSign),
       });
     } else {
@@ -188,7 +188,7 @@ class ResultStep extends Step {
         loser: GameStep.keyToName(loserSign),
         losersName: room.id.split('-')[winner === 'left' ? 2 : 0],
         losers: (winner === 'left' ? right : left).map((p) => p.name).join('*, *'),
-        shots: generateShots(2, 5),
+        shots: generateShots(1, 5),
       });
     }
 

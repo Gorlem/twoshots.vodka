@@ -24,11 +24,9 @@ class VoteStep extends StepWithVote {
     const key = room.cache.would.get();
     this.options = get('would-you-rather', key);
 
-    this.shots = generateShots(2, 6);
-
     this.global.card = 'PollCard';
     this.global.data = {
-      ...template(voteText, { shots: this.shots }),
+      ...template(voteText),
       options: [
         { key: 'left', value: this.options[0] },
         { key: 'right', value: this.options[1] },
@@ -43,7 +41,7 @@ class VoteStep extends StepWithVote {
   }
 
   nextStep() {
-    this.room.handler.next({ results: this.vote.results, options: this.options, shots: this.shots });
+    this.room.handler.next({ results: this.vote.results, options: this.options });
   }
 
   action(user, payload) {
@@ -56,7 +54,7 @@ class VoteStep extends StepWithVote {
 }
 
 class ResultsStep extends Step {
-  constructor(room, { results, options, shots }) {
+  constructor(room, { results, options }) {
     super(room);
 
     const counts = _.countBy([...results], '1');
@@ -66,7 +64,10 @@ class ResultsStep extends Step {
 
     if (counts.left === 0 || counts.right === 0) {
       this.global.data = {
-        ...template(sameText, { option: counts.left === 0 ? options[1] : options[0], shots }),
+        ...template(sameText, {
+          option: counts.left === 0 ? options[1] : options[0],
+          shots: generateShots(1, 5),
+        }),
       };
     } else if (counts.left === counts.right) {
       this.global.data = {
@@ -84,7 +85,7 @@ class ResultsStep extends Step {
         ...template(text, {
           option: counts.left < counts.right ? options[1] : options[0],
           losers: losers.join('*, *'),
-          shots,
+          shots: generateShots(1, 5),
         }),
       };
     }

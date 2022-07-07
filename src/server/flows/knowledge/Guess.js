@@ -18,7 +18,6 @@ class GuessStep extends StepWithVote {
     }
 
     const key = room.cache.guesses.get();
-    this.shots = generateShots(1, 5);
     this.guess = get('guesses', key);
 
     this.global.data = {
@@ -39,7 +38,7 @@ class GuessStep extends StepWithVote {
   }
 
   nextStep() {
-    this.room.handler.next({ guess: this.guess, shots: this.shots, results: this.vote.results });
+    this.room.handler.next({ guess: this.guess, results: this.vote.results });
   }
 
   action(user, payload) {
@@ -54,7 +53,7 @@ class GuessStep extends StepWithVote {
 }
 
 class ResultStep extends Step {
-  constructor(room, { guess, shots, results }) {
+  constructor(room, { guess, results }) {
     super(room);
 
     const resultsText = get('generic', 'guess:results');
@@ -77,7 +76,7 @@ class ResultStep extends Step {
     this.global.card = 'ResultsCard';
     this.global.data = {
       ...template(resultsText, {
-        shots,
+        shots: generateShots(1, 5),
         winner,
         loser,
         answer,

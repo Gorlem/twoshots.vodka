@@ -18,10 +18,8 @@ class ExplanationStep extends StepWithVote {
   constructor(room) {
     super(room);
 
-    this.shots = generateShots(3, 6);
-
     this.global.card = 'ConfirmationCard';
-    this.global.data = template(explanationText, { shots: this.shots });
+    this.global.data = template(explanationText);
 
     this.playing.data = {
       button: explanationText.data.button,
@@ -31,7 +29,7 @@ class ExplanationStep extends StepWithVote {
   }
 
   nextStep() {
-    this.room.handler.next({ shots: this.shots });
+    this.room.handler.next();
   }
 
   action(user) {
@@ -48,9 +46,8 @@ class ExplanationStep extends StepWithVote {
 class GameStep extends Step {
   finished = new Map();
 
-  constructor(room, { shots }) {
+  constructor(room) {
     super(room);
-    this.shots = shots;
 
     this.numbers = numbers.map((number, i) => ({
       key: i,
@@ -105,7 +102,7 @@ class GameStep extends Step {
       this.send();
 
       if (this.finished.size === this.room.playing.size) {
-        this.room.handler.next({ finished: this.finished, shots: this.shots });
+        this.room.handler.next({ finished: this.finished });
       }
     }
   }
@@ -116,7 +113,7 @@ class GameStep extends Step {
 }
 
 class ResultsStep extends Step {
-  constructor(room, { finished, shots }) {
+  constructor(room, { finished }) {
     super(room);
 
     const results = _(finished)
@@ -131,7 +128,7 @@ class ResultsStep extends Step {
       ...template(resultsText, {
         winner,
         loser,
-        shots,
+        shots: generateShots(1, 5),
       }),
       options: results.map((r) => ({
         key: r[0].id,
