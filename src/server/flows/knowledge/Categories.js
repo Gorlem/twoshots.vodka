@@ -11,9 +11,12 @@ import Cache from '../../models/Cache.js';
 
 const explanationText = get('generic', 'categories:explanation');
 const gameText = get('generic', 'categories:game');
-const resultsText = get('generic', 'categories:results');
 const correctText = get('generic', 'categories:correct');
 const wrongText = get('generic', 'categories:wrong');
+const resultsSingleSingleText = get('generic', 'categories:results/single/single');
+const resultsMultipleSingleText = get('generic', 'categories:results/multiple/single');
+const resultsSingleMultipleText = get('generic', 'categories:results/single/multiple');
+const resultsMultipleMultipleText = get('generic', 'categories:results/multiple/multiple');
 
 class ExplanationStep extends StepWithVote {
   constructor(room) {
@@ -91,7 +94,7 @@ class InputStep extends Step {
 
   nextStep() {
     this.stop();
-    this.room.handler.next({ category: this.category, results: this.results });
+    this.room.handler.next({ category: this.category, results: [...this.results] });
   }
 
   stop() {
@@ -162,30 +165,42 @@ class ResultStep extends Step {
   constructor(room, { category, results }) {
     super(room);
 
-    const sorted = _(results)
-      .entries()
-      .map((entry) => [entry[0], entry[1].size])
-      .orderBy('1', 'desc');
+    const max = _.maxBy(results, '1.size')[1].size;
+    const min = _.minBy(results, '1.size')[1].size;
 
-    const winner = sorted.first();
-    const loser = sorted.last();
+    const winner = results
+      .filter((result) => result[1].size === max)
+      .map((result) => result[0].name);
+    const loser = results
+      .filter((result) => result[1].size === min)
+      .map((result) => result[0].name);
+
+    let text = resultsSingleSingleText;
+
+    if (winner.length > 1 && loser.length > 1) {
+      text = resultsMultipleMultipleText;
+    } else if (winner.length > 1) {
+      text = resultsMultipleSingleText;
+    } else if (loser.length > 1) {
+      text = resultsSingleMultipleText;
+    }
 
     this.global.card = 'ResultsCard';
     this.global.data = {
-      ...template(resultsText, {
+      ...template(text, {
         shots: generateShots(1, 5),
-        winner: winner[0].name,
-        winnerCorrect: winner[1],
-        loser: loser[0].name,
-        loserCorrect: loser[1],
+        winner: winner.join('*, *'),
+        winnerCorrect: max,
+        loser: loser.join('*, *'),
+        loserCorrect: min,
         url: category.source,
         domain: new URL(category.source).hostname,
       }),
       title: category.category,
-      options: sorted.map((entry) => ({
-        key: entry[0].id,
-        value: entry[0].name,
-        result: `${entry[1]} Antworten`,
+      options: results.map(([user, result]) => ({
+        key: user.id,
+        value: user.name,
+        result: `${result.size} Antworten`,
       })),
     };
 

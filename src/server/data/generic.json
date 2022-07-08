@@ -114,20 +114,6 @@
             }
         ]
     },
-    "seats:all": {
-        "title": "Freie Platzwahl",
-        "message": "Wählt bitte aus, wo ihr abhängig von *${player}* sitzt.",
-        "data": {
-            "seat": "Freier Platz 🪑"
-        }
-    },
-    "seats:single": {
-        "title": "Freie Platzwahl",
-        "message": "Wähle aus zwischen wem du sitzt.",
-        "data": {
-            "seat": "Freier Platz 🪑"
-        }
-    },
     "rockpaperscissor:explanation": {
         "title": "Schere, Stein, Papier",
         "message": "Team *${leftName}* (*${leftPlayers}*) spielt gegen Team *${rightName}* (*${rightPlayers}*).\nJeder Spieler wählt zwischen Schere, Stein und Papier aus.",
@@ -194,8 +180,20 @@
         "message": "Versuch's weiter!",
         "footer": "Bisher *${correct}* richtige Antworten."
     },
-    "categories:results": {
+    "categories:results/single/single": {
         "message": "*${winner}* hat mit *${winnerCorrect}* richtigen Antworten gewonnen und darf *${shots}* verteilen. *${loser}* hatte nur *${loserCorrect}* richtig und muss *${shots}* trinken.",
+        "footer": "Quelle: [${domain}](${url})"
+    },
+    "categories:results/multiple/single": {
+        "message": "*${winner}* haben mit *${winnerCorrect}* richtigen Antworten gewonnen und dürfen jeweils *${shots}* verteilen. *${loser}* hatte nur *${loserCorrect}* richtig und muss *${shots}* trinken.",
+        "footer": "Quelle: [${domain}](${url})"
+    },
+    "categories:results/single/multiple": {
+        "message": "*${winner}* hat mit *${winnerCorrect}* richtigen Antworten gewonnen und darf *${shots}* verteilen. *${loser}* hatten nur *${loserCorrect}* richtig und müssen jeweils *${shots}* trinken.",
+        "footer": "Quelle: [${domain}](${url})"
+    },
+    "categories:results/multiple/multiple": {
+        "message": "*${winner}* haben mit *${winnerCorrect}* richtigen Antworten gewonnen und dürfen jeweils *${shots}* verteilen. *${loser}* hatten nur *${loserCorrect}* richtig und müssen jeweils *${shots}* trinken.",
         "footer": "Quelle: [${domain}](${url})"
     },
     "countclick:explanation": {
