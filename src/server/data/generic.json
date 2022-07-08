@@ -354,5 +354,27 @@
         "title": "Die richtige Antwort ist *${correct}*",
         "message": "${explanation}\n\n*${losers}* haben falsch geantwortet, und müssen somit *${shots}* trinken!",
         "footer": "Quelle: [${domain}](${url})"
+    },
+    "hangman:explanation": {
+        "title": "Hangman",
+        "message": "Team *${leftName}* (*${leftPlayers}*) spielt gegen Team *${rightName}* (*${rightPlayers}*).\n\nIhr könnt entweder einzelne Buchstaben, oder ganze Wörter eingeben.",
+        "data": {
+            "button": "Verstanden ✔"
+        }
+    },
+    "hangman:game": {
+        "message": "*${amount} Buchstaben*. Bereits versucht: ${guesses}\n\n${hangman}",
+        "data": {
+            "button": "Abgeben 😬"
+        },
+        "footer": "Gerade ist *${current}* dran."
+    },
+    "hangman:results/steps": {
+        "title": "Team *${winnerTeam}* hat gewonnen",
+        "message": "Team *${loserTeam}* (*${losers}*) hat zu viele Versuche gebraucht, um das Wort *${word}* zu erraten. Ihr müsst jeweils *${shots}* trinken."
+    },
+    "hangman:results/word": {
+        "title": "Team *${winnerTeam}* hat das Wort *${word}* erraten",
+        "message": "Team *${loserTeam}* (*${losers}*) ihr seid leider zu langsam gewesen und müsst jeweils *${shots}* trinken."
     }
 }

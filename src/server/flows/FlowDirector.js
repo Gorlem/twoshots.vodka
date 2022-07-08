@@ -15,6 +15,7 @@ import RockPaperScissor from './games/RockPaperScissor.js';
 import DefendTheCastle from './games/DefendTheCastle.js';
 import TaskHero from './games/TaskHero.js';
 import BoxBuilder from './games/BoxBuilder.js';
+import Hangman from './games/Hangman.js';
 
 import Cache from '../models/Cache.js';
 
@@ -36,6 +37,7 @@ const flows = {
   DefendTheCastle,
   TaskHero,
   BoxBuilder,
+  Hangman,
 };
 
 export default class FlowDirector {
@@ -43,7 +45,7 @@ export default class FlowDirector {
     this.basic = new Cache([Instructions]);
     this.votes = new Cache([Polls, WouldYouRather]);
     this.knowledge = new Cache([Guess, Categories, Prompts, Quiz]);
-    this.games = new Cache([HorseRace, Bombs, CountAndClick, Kingscup, RockPaperScissor, DefendTheCastle, TaskHero, BoxBuilder]);
+    this.games = new Cache([HorseRace, Bombs, CountAndClick, Kingscup, RockPaperScissor, DefendTheCastle, TaskHero, BoxBuilder, Hangman]);
 
     this.cache = new Cache(() => [this.basic.get(), this.votes.get(), this.knowledge.get(), this.games.get()]);
   }
