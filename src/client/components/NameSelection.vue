@@ -38,7 +38,7 @@ export default {
     checkName() {
       this.error = '';
 
-      if (this.name.length <= 0) {
+      if (this.name.length < 1) {
         this.error = 'Du musst einen Namen angeben!';
       }
 
