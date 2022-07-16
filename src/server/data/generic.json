@@ -27,6 +27,10 @@
         "message": "Die richtige Antwort ist *${answer}*. Somit dürfen *${winner}* jeweils *${shots}* verteilen, und *${loser}* müssen jeweils *${shots}* trinken.",
         "footer": "Quelle: [${domain}](${url})"
     },
+    "guess:results/all": {
+        "message": "Die richtige Antwort ist *${answer}*. Anscheinend habt ihr alle die *gleiche Antwort*. Dann trinkt ihr halt alle *${shots}*.",
+        "footer": "Quelle: [${domain}](${url})"
+    },
     "game:horserace:explanation": {
         "title": "Pferderennen",
         "message": "Tippe so oft du kannst! Versuche schneller das Ziel zu erreichen, als deine Mitspieler.",

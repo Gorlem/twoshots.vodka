@@ -12,6 +12,7 @@ const resultsSingleSingleText = get('generic', 'guess:results/single/single');
 const resultsMultipleSingleText = get('generic', 'guess:results/multiple/single');
 const resultsSingleMultipleText = get('generic', 'guess:results/single/multiple');
 const resultsMultipleMultipleText = get('generic', 'guess:results/multiple/multiple');
+const resultsAllText = get('generic', 'guess:results/all');
 
 class GuessStep extends StepWithVote {
   constructor(room) {
@@ -79,7 +80,9 @@ class ResultStep extends Step {
 
     let text = resultsSingleSingleText;
 
-    if (winner.length > 1 && loser.length > 1) {
+    if (winner.length === loser.length) {
+      text = resultsAllText;
+    } else if (winner.length > 1 && loser.length > 1) {
       text = resultsMultipleMultipleText;
     } else if (winner.length > 1) {
       text = resultsMultipleSingleText;
