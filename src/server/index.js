@@ -16,7 +16,7 @@ export default function (io) {
     socket.on('room/join', (roomId, role, name, callback) => {
       const user = new User(socket);
       user.role = role;
-      user.name = name;
+      user.name = name.trim();
 
       socket.user = user;
 

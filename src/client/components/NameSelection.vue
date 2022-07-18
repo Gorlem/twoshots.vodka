@@ -38,16 +38,18 @@ export default {
     checkName() {
       this.error = '';
 
-      if (this.name.length < 1) {
+      const name = this.name.trim();
+
+      if (name.length < 1) {
         this.error = 'Du musst einen Namen angeben!';
       }
 
-      if (this.name.length > 10) {
+      if (name.length > 10) {
         this.error = 'Dein Name darf nicht länger als 10 Zeichen sein!';
       }
 
       if (this.error === '') {
-        this.$emit('name', this.name);
+        this.$emit('name', name);
       }
     },
   },
