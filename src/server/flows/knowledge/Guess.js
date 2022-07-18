@@ -80,7 +80,7 @@ class ResultStep extends Step {
 
     let text = resultsSingleSingleText;
 
-    if (winner.length === loser.length) {
+    if (winner.length === results.length) {
       text = resultsAllText;
     } else if (winner.length > 1 && loser.length > 1) {
       text = resultsMultipleMultipleText;
