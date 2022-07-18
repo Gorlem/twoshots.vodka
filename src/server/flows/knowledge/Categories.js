@@ -119,7 +119,7 @@ class InputStep extends Step {
   }
 
   action(user, payload) {
-    const cleaned = payload.toLowerCase().replace(/[^a-zäöüß]/g, ' ');
+    const cleaned = payload.toLowerCase().replace(/[^a-zäöüß]/g, ' ').trim();
 
     const answers = this.results.get(user);
     if (this.category.answers.includes(cleaned)) {
@@ -128,7 +128,7 @@ class InputStep extends Step {
       this.players[user.id].card = 'InformationCard';
       this.players[user.id].data = {
         ...template(correctText, {
-          answer: payload,
+          answer: cleaned,
           correct: answers.size,
         }),
       };
@@ -141,7 +141,7 @@ class InputStep extends Step {
       this.players[user.id].card = 'InformationCard';
       this.players[user.id].data = {
         ...template(wrongText, {
-          answer: payload,
+          answer: cleaned,
           correct: answers.size,
         }),
       };

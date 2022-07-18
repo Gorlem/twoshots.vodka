@@ -91,7 +91,7 @@ class InputStep extends StepWithVote {
   }
 
   action(user, payload) {
-    const cleaned = payload.toLowerCase().replace(/[^a-zäöüß]/g, ' ');
+    const cleaned = payload.toLowerCase().replace(/[^a-zäöüß]/g, ' ').trim();
     this.vote.submit(user, cleaned);
 
     this.players[user.id].data = {
