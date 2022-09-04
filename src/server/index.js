@@ -50,6 +50,10 @@ export default function (io) {
       socket.room?.roomVote(socket.user);
     });
 
+    socket.on('room/exists', (roomId, callback) => {
+      callback(roomId === 'new' || game.findRoomById(roomId) != null);
+    });
+
     socket.on('disconnect', () => {
       socket.room?.removeUser(socket.user);
       logEvent(socket.id, 'user_disconnected');

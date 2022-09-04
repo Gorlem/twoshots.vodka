@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import io from 'socket.io-client';
+
 import RoleSelection from '@/components/RoleSelection.vue';
 import NameSelection from '@/components/NameSelection.vue';
 import GameRoom from '@/components/GameRoom.vue';
@@ -33,6 +35,15 @@ export default {
     this.name = sessionStorage.getItem('name');
 
     this.roomId = decodeURI(window.location.pathname.slice(1));
+
+    const socket = io();
+    socket.emit('room/exists', this.roomId, (exists) => {
+      if (!exists) {
+        this.updateRoomId(null);
+      }
+
+      socket.disconnect();
+    });
   },
   methods: {
     setRole(role) {
