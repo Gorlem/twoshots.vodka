@@ -83,11 +83,11 @@
         "message": "Da ihr euch alle für *${option}* entschieden habt, müsst ihr alle *${shots}* trinken!"
     },
     "would-you-rather:results/single": {
-        "title": "Die Mehrheit würdet eher *${option}*",
+        "title": "Die Mehrheit würde eher *${option}*",
         "message": "Das bedeutet *${losers}* muss *${shots}* trinken!"
     },
     "would-you-rather:results/multiple": {
-        "title": "Die Mehrheit würdet eher ${option}",
+        "title": "Die Mehrheit würde eher ${option}",
         "message": "Das bedeutet *${losers}* müssen *${shots}* trinken!"
     },
     "game:bomb:explanation": {
