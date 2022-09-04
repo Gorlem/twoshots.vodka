@@ -1,7 +1,7 @@
 [
     {
         "question": "In welchem Land regierte der Diktator \"Papa Doc\"?",
-        "explanation": "*François Duvalier* war ein haitianischer Politiker und Diktator.",
+        "explanation": "François Duvalier war ein *haitianischer* Politiker und Diktator.",
         "answers": [
             "Haiti",
             "Simbabwe",
@@ -12,7 +12,7 @@
     },
     {
         "question": "Welches Land besitzt am meisten Inseln?",
-        "explanation": "Zu Schweden gehören *267.570 Inseln*, wovon nur 984 bewohnt sind.",
+        "explanation": "Zu *Schweden* gehören 267.570 Inseln, wovon nur 984 bewohnt sind.",
         "answers": [
             "Schweden",
             "Malta",
@@ -23,7 +23,7 @@
     },
     {
         "question": "Was ist eine Operationsmethode?",
-        "explanation": "Bei der Tübinger Torte können bereits während einer Hautkrebsoperation Tumorausläufer erfasst werden.",
+        "explanation": "Bei der *Tübinger Torte* können bereits während einer Hautkrebsoperation Tumorausläufer erfasst werden.",
         "answers": [
             "Tübinger Torte",
             "Kölner Kuchen",
@@ -34,7 +34,7 @@
     },
     {
         "question": "Was ist die \"Heidelberger Verlängerung\"?",
-        "explanation": "Sie werden eingesetzt, falls eine Standard-Infusionsleistung nicht ausreicht.",
+        "explanation": "Sie werden eingesetzt, falls eine *Standard-Infusionsleistung* nicht ausreicht.",
         "answers": [
             "Verlängerung für Infusionssysteme",
             "Teil des Blinddarms",
@@ -45,7 +45,7 @@
     },
     {
         "question": "Wie gewann Fred Lorz den olympischen Marathon 1904?",
-        "explanation": "Lorz ist aufgrund von Krämpfen frühzeitig ausgeschieden, und hat sich als Anhalter zum Ziel fahren lassen. Dort ist er dem Rennen unbemerkt wieder beigetreten.",
+        "explanation": "Lorz ist aufgrund von Krämpfen frühzeitig ausgeschieden, und hat sich als *Anhalter* zum Ziel fahren lassen. Dort ist er dem Rennen unbemerkt wieder beigetreten.",
         "answers": [
             "Er fuhr in einem Auto",
             "Er nahm eine Abkürzung",
@@ -56,7 +56,7 @@
     },
     {
         "question": "Welche Reliquie wurde von den Kirchen in Valois, Andechs, Antwerpen und Calcata beansprucht?",
-        "explanation": "Die vier Kirchen behaupten alle, dass sie die heilige Vorhaut Jesu Christi besitzen.",
+        "explanation": "Die vier Kirchen behaupten alle, dass sie die heilige *Vorhaut Jesu Christi* besitzen.",
         "answers": [
             "Die heilige Vorhaut",
             "Die heiligen Schamhaare",
@@ -67,7 +67,7 @@
     },
     {
         "question": "Welches Tier trägt den zoologischen Namen \"Naja Naja\"?",
-        "explanation": "Brillenschlangen gehören zur Gattung der Echten Kobras (Naja).",
+        "explanation": "*Brillenschlangen* gehören zur Gattung der Echten Kobras (Naja).",
         "answers": [
             "Brillenschlange",
             "Rippenqualle",
@@ -78,7 +78,7 @@
     },
     {
         "question": "Was ist kein Standardtanz?",
-        "explanation": "Ballett zählt nicht zu den Standardtänzen.",
+        "explanation": "*Ballett* zählt nicht zu den Standardtänzen.",
         "answers": [
             "Ballett",
             "Walzer",
@@ -89,7 +89,7 @@
     },
     {
         "question": "In welcher Stadt spielt Romeo und Julia?",
-        "explanation": "Romeo und Julia spielt in der italienischen Stadt Verona",
+        "explanation": "Romeo und Julia spielt in der italienischen Stadt *Verona*",
         "answers": [
             "Verona",
             "Mailand",
@@ -100,7 +100,7 @@
     },
     {
         "question": "Was ist der längste Fluss der Welt?",
-        "explanation": "Der Nil ist mit *6.671* Kilometer nur knapp *300 Meter* länger als der Amazonas.",
+        "explanation": "Der *Nil* ist mit 6.671 Kilometer nur knapp 300 Meter länger als der Amazonas.",
         "answers": [
             "Nil",
             "Amazonas",
@@ -111,7 +111,7 @@
     },
     {
         "question": "Welcher Planet umkreist im Uhrzeigersinn die Sonne?",
-        "explanation": "Im Gegensatz zu allen anderen Planeten umkreist nur die Venus die Sonne im Uhrzeigersinn.",
+        "explanation": "Im Gegensatz zu allen anderen Planeten umkreist nur die *Venus* die Sonne im Uhrzeigersinn.",
         "answers": [
             "Venus",
             "Erde",
@@ -119,5 +119,27 @@
             "Uranus"
         ],
         "source": "https://www.astronews.com/frag/antworten/3/frage3608.html"
+    },
+    {
+        "question": "Wie heißt eine Symphonie von Mozart?",
+        "explanation": "Der sechstimmige Kanon *\"Leck mich im Arsch\"* von Mozart wurde erst nach seinem Tod veröffentlicht, allerdings wurde der Text zu \"Lasst uns froh sein\" geändert.",
+        "answers": [
+            "Leck mich im Arsch",
+            "Muttersöhnchen",
+            "Fick dich ans Knie",
+            "Milchbubi"
+        ],
+        "source": "https://de.wikipedia.org/wiki/Leck_mich_im_Arsch"
+    },
+    {
+        "question": "Welches Land besitzt die kürzeste Landgrenze zu Deutschland?",
+        "explanation": "Die Landgrenze zwischen Deutschland und *Dänemark* ist nur 68 Kilometer lang, und somit nur halb so lang wie die Grenze zu Luxemburg.",
+        "answers": [
+            "Dänemark",
+            "Luxemburg",
+            "Schweiz",
+            "Belgien"
+        ],
+        "source": "https://de.statista.com/statistik/daten/studie/1985/umfrage/deutschland-grenzlaenge-zu-benachbarten-staaten/"
     }
 ]

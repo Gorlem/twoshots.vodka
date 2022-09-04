@@ -407,5 +407,11 @@
         "unit": "° Fahrenheit",
         "answer": -40,
         "source": "http://files.kukla-spedition.com/Temperaturtabelle.pdf"
+    },
+    {
+        "question": "Bei wie vielen Stunden ohne Schlaf liegt der Weltrekord?",
+        "unit": "Stunden",
+        "answer": 266,
+        "source": "https://www.spiegel.de/spiegelwissen/a-660643.html"
     }
 ]
