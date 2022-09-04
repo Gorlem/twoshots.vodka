@@ -4,8 +4,8 @@
       <div class="level m-2">
         <div class="level-left">
           <div class="level-item">
-            <p class="subtitle is-5">
-              <strong>{{ roomId }}</strong>
+            <p class="subtitle is-5" @click="toggleQrCode">
+              <strong title="QR-Code anzeigen">{{ roomId }} | 📲</strong>
             </p>
           </div>
         </div>
@@ -26,7 +26,16 @@
       </h2>
     </div>
   </div>
-  <component :is="card.name" v-if="card != null && connected" :data="card.data" @action="roomAction"></component>
+  <component :is="card.name" v-if="card != null && connected && !showQrCode" :data="card.data" @action="roomAction"></component>
+  <div class="hero-body" v-if="connected && showQrCode">
+    <div class="container">
+      <h1 class="title">Raum <strong class="has-text-primary">{{roomId}}</strong></h1>
+      <h2 class="subtitle">Mitspieler können den QR-Code scannen oder den Raumnamen auf der Startseite eingeben.</h2>
+      <RoomImage/>
+      <br/>
+      <button class="button" type="button" @click="toggleQrCode">QR Code schließen</button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -46,6 +55,7 @@ import DefendCastleGame from '@/components/teams/DefendCastleGame.vue';
 import CanvasCard from '@/components/cards/CanvasCard.vue';
 import ResultsCard from '@/components/cards/ResultsCard.vue';
 import BoxesCard from '@/components/cards/BoxesCard.vue';
+import RoomImage from '@/components/RoomImage.vue';
 
 export default {
   components: {
@@ -62,6 +72,7 @@ export default {
     CanvasCard,
     ResultsCard,
     BoxesCard,
+    RoomImage,
   },
   emits: [
     'update',
@@ -77,6 +88,7 @@ export default {
       vote: null,
       card: null,
       connected: true,
+      showQrCode: false,
     };
   },
   mounted() {
@@ -109,6 +121,9 @@ export default {
     },
     roomAction(...data) {
       this.socket.emit('room/action', ...data);
+    },
+    toggleQrCode() {
+      this.showQrCode = !this.showQrCode;
     },
   },
   unmounted() {
