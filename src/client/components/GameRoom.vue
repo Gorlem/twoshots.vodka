@@ -17,7 +17,16 @@
       </div>
     </div>
   </div>
-  <component :is="card.name" v-if="card != null" :data="card.data" @action="roomAction"></component>
+  <div class="hero-body" v-if="!connected">
+    <div class="container">
+      <h1 class="title">Verbindung verloren</h1>
+      <h2 class="subtitle">
+        Es wird automatisch versucht eine neue Verbindung aufzubauen.<br/>
+        Falls dies länger als ein paar Sekunden dauert, solltest du die Seite neuladen.
+      </h2>
+    </div>
+  </div>
+  <component :is="card.name" v-if="card != null && connected" :data="card.data" @action="roomAction"></component>
 </template>
 
 <script>
@@ -67,6 +76,7 @@ export default {
       socket: null,
       vote: null,
       card: null,
+      connected: true,
     };
   },
   mounted() {
@@ -75,6 +85,7 @@ export default {
     window.socket = this.socket;
 
     this.socket.on('connect', () => {
+      this.connected = true;
       this.socket.emit('room/join', this.roomId, this.role, this.name, (roomId) => {
         this.$emit('update', roomId);
       });
@@ -86,6 +97,10 @@ export default {
 
     this.socket.on('room/card', (card) => {
       this.card = card;
+    });
+
+    this.socket.on('disconnect', () => {
+      this.connected = false;
     });
   },
   methods: {
