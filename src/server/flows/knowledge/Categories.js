@@ -13,6 +13,7 @@ const explanationText = get('generic', 'categories:explanation');
 const gameText = get('generic', 'categories:game');
 const correctText = get('generic', 'categories:correct');
 const wrongText = get('generic', 'categories:wrong');
+const resultsAllText = get('generic', 'categories:results/all');
 const resultsSingleSingleText = get('generic', 'categories:results/single/single');
 const resultsMultipleSingleText = get('generic', 'categories:results/multiple/single');
 const resultsSingleMultipleText = get('generic', 'categories:results/single/multiple');
@@ -177,7 +178,9 @@ class ResultStep extends Step {
 
     let text = resultsSingleSingleText;
 
-    if (winner.length > 1 && loser.length > 1) {
+    if (max === min) {
+      text = resultsAllText;
+    } else if (winner.length > 1 && loser.length > 1) {
       text = resultsMultipleMultipleText;
     } else if (winner.length > 1) {
       text = resultsMultipleSingleText;

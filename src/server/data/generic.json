@@ -184,6 +184,10 @@
         "message": "Versuch's weiter!",
         "footer": "Bisher *${correct}* richtige Antworten."
     },
+    "categories:results/all": {
+        "message": "Ihr habt es geschafft alle *${winnerCorrect}* richtige Antworten zu haben. Dafür trinkt ihr alle jeweils *${selfShots}*.",
+        "footer": "Quelle: [${domain}](${url})"
+    },
     "categories:results/single/single": {
         "message": "*${winner}* hat mit *${winnerCorrect}* richtigen Antworten gewonnen und darf *${distributedShots}* verteilen. *${loser}* hatte nur *${loserCorrect}* richtig und muss *${selfShots}* trinken.",
         "footer": "Quelle: [${domain}](${url})"
