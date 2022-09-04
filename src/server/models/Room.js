@@ -17,13 +17,13 @@ export default class Room {
   constructor(id) {
     this.id = id;
 
-    this.handler.addListener(this.nextFlow.bind(this));
-
     this.vote = new Vote(this, this.handler.skip.bind(this.handler));
     this.vote.setPercentage(50.1);
 
     this.handler.pushFlow(LobbyFlow);
     this.handler.next();
+
+    this.handler.addListener(this.nextFlow.bind(this));
   }
 
   action(user, ...payload) {
@@ -39,10 +39,6 @@ export default class Room {
   }
 
   sendRoomData() {
-    if (this.isInLobby()) {
-      return;
-    }
-
     for (const player of this.playing) {
       player.send('room/vote', this.vote.data());
     }
@@ -80,7 +76,10 @@ export default class Room {
   addPlayer(user) {
     this.playing.add(user);
     this.handler.addedPlayer(user);
-    this.sendRoomData();
+
+    if (!this.isInLobby()) {
+      this.sendRoomData();
+    }
   }
 
   addSpectator(user) {
@@ -109,7 +108,9 @@ export default class Room {
       this.pending.delete(user);
     }
 
-    this.sendRoomData();
+    if (!this.isInLobby()) {
+      this.sendRoomData();
+    }
 
     if (this.playing.size === 0 && this.spectating.size === 0) {
       this.game?.removeRoom(this);
