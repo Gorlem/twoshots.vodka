@@ -358,7 +358,7 @@
         "footer": "Quelle: [${domain}](${url})"
     },
     "hangman:explanation": {
-        "title": "Hangman",
+        "title": "Galgenmännchen",
         "message": "Team *${leftName}* (*${leftPlayers}*) spielt gegen Team *${rightName}* (*${rightPlayers}*).\n\nIhr könnt entweder einzelne Buchstaben, oder ganze Wörter eingeben.",
         "data": {
             "button": "Verstanden ✔"
