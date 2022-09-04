@@ -1,55 +1,42 @@
-import Instructions from './basic/Instructions.js';
-import Polls from './basic/Polls.js';
-import WouldYouRather from './basic/WouldYouRather.js';
-
-import Guess from './knowledge/Guess.js';
-import Categories from './knowledge/Categories.js';
-import Prompts from './knowledge/Prompts.js';
-import Quiz from './knowledge/Quiz.js';
-
-import HorseRace from './games/HorseRace.js';
-import Bombs from './games/Bombs.js';
-import CountAndClick from './games/CountAndClick.js';
-import Kingscup from './games/Kingscup.js';
-import RockPaperScissor from './games/RockPaperScissor.js';
-import DefendTheCastle from './games/DefendTheCastle.js';
-import TaskHero from './games/TaskHero.js';
-import BoxBuilder from './games/BoxBuilder.js';
-import Hangman from './games/Hangman.js';
-import MusicalChairs from './games/MusicalChairs.js';
+import { readdirSync } from 'fs';
 
 import Cache from '../models/Cache.js';
 
-const flows = {
-  Instructions,
-  Polls,
-  WouldYouRather,
+const allFlows = {};
+const categories = {};
 
-  Guess,
-  Categories,
-  Prompts,
-  Quiz,
+const basePath = 'src/server/flows/';
 
-  HorseRace,
-  Bombs,
-  CountAndClick,
-  Kingscup,
-  RockPaperScissor,
-  DefendTheCastle,
-  TaskHero,
-  BoxBuilder,
-  Hangman,
-  MusicalChairs,
-};
+function getFlows(type) {
+  const promises = readdirSync(basePath + type)
+    .map((file) => {
+      const name = file.slice(0, -3);
+      return import(`./${type}/${file}`)
+        .then((flow) => {
+          allFlows[name] = flow.default;
+          return flow.default;
+        });
+    });
+
+  Promise.all(promises).then((flows) => {
+    categories[type] = flows;
+  });
+}
+
+getFlows('basic');
+getFlows('votes');
+getFlows('knowledge');
+getFlows('games');
 
 export default class FlowDirector {
-  constructor() {
-    this.basic = new Cache([Instructions]);
-    this.votes = new Cache([Polls, WouldYouRather]);
-    this.knowledge = new Cache([Guess, Categories, Prompts, Quiz]);
-    this.games = new Cache([HorseRace, Bombs, CountAndClick, Kingscup, RockPaperScissor, DefendTheCastle, TaskHero, BoxBuilder, Hangman]);
+  categoryCaches = [];
 
-    this.cache = new Cache(() => [this.basic.get(), this.votes.get(), this.knowledge.get(), this.games.get()]);
+  constructor() {
+    for (const entry of Object.entries(categories)) {
+      this.categoryCaches.push(new Cache(entry[1]));
+    }
+
+    this.cache = new Cache(() => this.categoryCaches.map((cache) => cache.get()));
   }
 
   getNextFlow() {
@@ -57,6 +44,6 @@ export default class FlowDirector {
   }
 
   getFlowByName(flowName) {
-    return flows[flowName];
+    return allFlows[flowName];
   }
 }
