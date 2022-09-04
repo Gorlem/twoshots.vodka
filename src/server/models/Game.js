@@ -3,10 +3,9 @@ import fs from 'fs';
 
 import Room from './Room.js';
 
-const names = _(fs.readFileSync('src/server/data/names.txt'))
-  .split(/\r\n|\n/)
-  .filter((row) => row !== '' && !row.startsWith('#'))
-  .value();
+const spirits = fs.readFileSync('src/server/data/spirits.txt').toString('utf8').split(/\r\n|\n/);
+const mixer = fs.readFileSync('src/server/data/mixer.txt').toString('utf8').split(/\r\n|\n/);
+const cocktail = [...spirits, ...mixer].sort();
 
 const seperator = '-mit-';
 
@@ -14,7 +13,9 @@ export default class Game {
   rooms = [];
 
   static generateRoomId() {
-    return Game.combineParts(..._.sampleSize(names, 2));
+    const left = _.sample(spirits);
+    const right = _(cocktail).without(left).sample();
+    return Game.combineParts(left, right);
   }
 
   static combineParts(left, right) {
@@ -22,7 +23,7 @@ export default class Game {
   }
 
   static getNameParts() {
-    return names;
+    return cocktail;
   }
 
   createRoom() {
