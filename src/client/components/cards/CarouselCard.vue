@@ -4,7 +4,7 @@
       <button class="button is-rounded" type="button" v-for="(option, index) in data.options" :key="option.key"
           :class="{
             'is-primary is-loading': data.selected === option.key,
-            'is-static': (data.selected != null && data.selected !== option.key) || option.static,
+            'is-static': (data.selected != null && data.selected !== option.key) || (option.static && (data.selected !== option.key)),
           }"
           :style="'--index: ' + index + ';'"
           @click="$emit('action', option.key)">

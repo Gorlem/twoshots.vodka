@@ -16,6 +16,7 @@ import DefendTheCastle from './games/DefendTheCastle.js';
 import TaskHero from './games/TaskHero.js';
 import BoxBuilder from './games/BoxBuilder.js';
 import Hangman from './games/Hangman.js';
+import MusicalChairs from './games/MusicalChairs.js';
 
 import Cache from '../models/Cache.js';
 
@@ -38,6 +39,7 @@ const flows = {
   TaskHero,
   BoxBuilder,
   Hangman,
+  MusicalChairs,
 };
 
 export default class FlowDirector {

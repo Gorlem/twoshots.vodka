@@ -378,5 +378,30 @@
     "hangman:results/word": {
         "title": "Team *${winnerTeam}* hat das Wort *${word}* erraten",
         "message": "Team *${loserTeam}* (*${losers}*) ihr seid leider zu langsam gewesen und müsst jeweils *${shots}* trinken."
+    },
+    "musicalchairs:explanation": {
+        "title": "Reise nach Jerusalem",
+        "message": "Euch werden gleich freie Plätze angezeigt, wovon ihr euch einen auswählt. Es gibt allerdings nicht für alle einen Platz. Das geht so lange, bis es nur noch einer über ist.",
+        "data": {
+            "button": "Verstanden ✔"
+        }
+    },
+    "musicalchairs:game": {
+        "title": "Wählt jetzt schnell einen Platz für euch aus",
+        "data": {
+            "chair": "🪑 Freier Platz"
+        }
+    },
+    "musicalchairs:start": {
+        "title": "Die Reise beginnt",
+        "message": "Wann wird wohl die erste Pause sein?"
+    },
+    "musicalchairs:out": {
+        "title": "Sorry *${player}*",
+        "message": "Du hast es leider nicht geschafft, einen freien Platz zu ergattern. Damit bist du raus.\n\nFür den Rest geht die Reise weiter."
+    },
+    "musicalchairs:results": {
+        "title": "Glückwunsch *${winner}*",
+        "message": "Du hast die Reise als einziger überstanden. Dafür darfst du *${shots}* verteilen."
     }
 }
