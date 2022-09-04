@@ -1,82 +1,82 @@
 [
     {
         "title": "Eine Runde bitte",
-        "message": "Jeder trinkt *${shots}*."
+        "message": "Jeder trinkt *${selfShots}*."
     },
     {
         "title": "*${players[0]}* ist dran",
-        "message": "…und muss *${shots}* trinken."
+        "message": "…und muss *${selfShots}* trinken."
     },
     {
         "title": "Hoffentlich mag *${players[0]}* euch",
-        "message": "*${players[0]}* darf *${shots}* verteilen."
+        "message": "*${players[0]}* darf *${distributedShots}* verteilen."
     },
     {
         "title": "Couple goals",
-        "message": "*${players[0]}* und *${players[1]}* trinken beide *${shots}*."
+        "message": "*${players[0]}* und *${players[1]}* trinken beide *${selfShots}*."
     },
     {
-        "title": "Alle Singles trinken *${shots}*",
+        "title": "Alle Singles trinken *${selfShots}*",
         "message": "Irgendwann findet ihr schon wen."
     },
     {
-        "title": "Alle in einer Beziehung trinken *${shots}*",
+        "title": "Alle in einer Beziehung trinken *${selfShots}*",
         "message": "Hoffentlich lohnt es sich."
     },
     {
-        "title": "Raucher trinken *${shots}*",
+        "title": "Raucher trinken *${selfShots}*",
         "message": "Alkohol > Zigaretten."
     },
     {
-        "title": "Alle mit blonden Haaren trinken *${shots}*",
+        "title": "Alle mit blonden Haaren trinken *${selfShots}*",
         "message": "Ausnahmsweise mal kein Blondinenwitz."
     },
     {
-        "title": "Alle mit braunen Haaren trinken *${shots}*",
+        "title": "Alle mit braunen Haaren trinken *${selfShots}*",
         "message": "Hauptsache nur die Haare sind braun."
     },
     {
-        "title": "Alle mit schwarzen Haaren trinken *${shots}*",
+        "title": "Alle mit schwarzen Haaren trinken *${selfShots}*",
         "message": "Mehr als die Hälfte aller Menschen hat schwarzes Haar."
     },
     {
-        "title": "Alle mit roten Haaren trinken *${shots}*",
+        "title": "Alle mit roten Haaren trinken *${selfShots}*",
         "message": "Heute versauft ihr eure Seele."
     },
     {
-        "title": "Alle mit einer Glatze trinken *${shots}*",
+        "title": "Alle mit einer Glatze trinken *${selfShots}*",
         "message": "Na wenigstens könnt ihr euch nicht in die Haare kriegen."
     },
     {
         "title": "Dicks drink",
-        "message": "Alle Männer trinken *${shots}*."
+        "message": "Alle Männer trinken *${selfShots}*."
     },
     {
         "title": "Chicks drink",
-        "message": "Alle Frauen trinken *${shots}*."
+        "message": "Alle Frauen trinken *${selfShots}*."
     },
     {
-        "title": "Der Größte muss *${shots}* trinken",
+        "title": "Der Größte muss *${selfShots}* trinken",
         "message": "Manchmal kommt es eben doch auf die Größe drauf an."
     },
     {
-        "title": "Der Kleinste muss *${shots}* trinken",
+        "title": "Der Kleinste muss *${selfShots}* trinken",
         "message": "Darfst du eigentlich schon vorne sitzen im Auto?"
     },
     {
-        "title": "Der Jüngste muss *${shots}* trinken",
+        "title": "Der Jüngste muss *${selfShots}* trinken",
         "message": "Dürfte ich mal Ihren Ausweis sehen?"
     },
     {
-        "title": "Der Älteste muss *${shots}* trinken",
+        "title": "Der Älteste muss *${selfShots}* trinken",
         "message": "Du alter Sack."
     },
     {
-        "title": "Bartträger trinken *${shots}*",
+        "title": "Bartträger trinken *${selfShots}*",
         "message": "Darf ich mal streicheln?"
     },
     {
-        "title": "Alle ohne einen Bart trinken *${shots}*",
+        "title": "Alle ohne einen Bart trinken *${selfShots}*",
         "message": "Wenigstens bleibt nichts im Bart hängen."
     },
     {
@@ -89,90 +89,58 @@
     },
     {
         "title": "Wer austeilen kann, muss auch einstecken können",
-        "message": "Trink *${shots}*, *${players[0]}*. Dafür darfst du jetzt auch *${shots}* verteilen."
+        "message": "Trink *${selfShots}*, *${players[0]}*. Dafür darfst du jetzt auch *${distributedShots}* verteilen."
     },
     {
         "title": "Wasserfall",
         "message": "Alle fangen gleichzeitig an zu trinken. Höre erst auf wenn dein rechter Nachbar absetzt. *${players[0]}* darf als erstes absetzen."
     },
     {
-        "title": "*${players[0]}* wählt eine Person aus, die *${shots}* trinken muss",
+        "title": "*${players[0]}* wählt eine Person aus, die *${selfShots}* trinken muss",
         "message": "Wer hat es am meisten verdient?"
     },
     {
         "title": "Kategorie",
-        "message": "*${players[0]}* sucht sich eine Kategorie aus. Im Uhrzeigersinn muss jeder etwas aus der Kategorie nennen. Der erste der etwas wiederholt, oder nichts mehr weiß, muss *${shots}* trinken."
+        "message": "*${players[0]}* sucht sich eine Kategorie aus. Im Uhrzeigersinn muss jeder etwas aus der Kategorie nennen. Der erste der etwas wiederholt, oder nichts mehr weiß, muss *${selfShots}* trinken."
     },
     {
         "title": "Reimen",
-        "message": "*${players[0]}* sucht sich ein Wort aus. Im Uhrzeigersinn müssen die anderen einen Reim darauf finden. Der erste der keinen Reim findet, oder ein Wort wiederholt, muss *${shots}* trinken."
+        "message": "*${players[0]}* sucht sich ein Wort aus. Im Uhrzeigersinn müssen die anderen einen Reim darauf finden. Der erste der keinen Reim findet, oder ein Wort wiederholt, muss *${selfShots}* trinken."
     },
     {
         "title": "Hands up",
-        "message": "Haltet eure Hände in die *Luft*. Der letzte muss *${shots}* trinken!"
+        "message": "Haltet eure Hände in die *Luft*. Der letzte muss *${selfShots}* trinken!"
     },
     {
         "title": "Hands down",
-        "message": "Berührt so schnell ihr könnt den *Boden*. Der letzte muss *${shots}* trinken!"
+        "message": "Berührt so schnell ihr könnt den *Boden*. Der letzte muss *${selfShots}* trinken!"
     },
     {
         "title": "Ich hab noch nie",
-        "message": "*${players[0]}* erzähl etwas, was du noch nie gemacht hast. Jeder der das schon gemacht hat muss *${shots}* trinken."
+        "message": "*${players[0]}* erzähl etwas, was du noch nie gemacht hast. Jeder der das schon gemacht hat muss *${selfShots}* trinken."
     },
     {
         "title": "Happy Birthday",
-        "message": "Wer von euch zuletzt Geburtstag hatte, darf sich jemanden aussuchen, mit dem er zusammen mit *${shots}* darauf anstößt."
+        "message": "Wer von euch zuletzt Geburtstag hatte, darf sich jemanden aussuchen, mit dem er zusammen mit *${selfShots}* darauf anstößt."
     },
     {
-        "title": "Alle, die weder etwas zu essen, noch zu trinken, mitgebracht haben müssen *${shots}* trinken",
-        "message": "Wer hat euch denn bitte so erzogen?"
+        "title": "Macht *${players[0]}* ein Kompliment",
+        "message": "Der Erste darf *${distributedShots}* verteilen. Hoffentlich war das auch ernst gemeint."
     },
     {
-        "title": "Jeder von euch, der heute schon ein Tier gestreichelt hat, muss *${shots}* trinken",
-        "message": "Die sind aber auch immer süß."
+        "title": "Vergleicht eure Mittelfingern",
+        "message": "Der mit dem Kleinsten muss *${selfShots}* trinken. Sorry."
     },
     {
-        "title": "Schlaft ihr noch mit einem Kuscheltier? Dann trinkt *${shots}*",
-        "message": "Kann man euch aber auch nicht verübeln."
+        "title": "Unter den Tisch",
+        "message": "Der Ertste darf *${distributedShots}* verteilen. Kopf dabei gestoßen?"
     },
     {
-        "title": "Alle die heute schon Toast gegessen haben, trinken *${shots}*",
-        "message": "Ihr wisst, dass es auch ordentliches Brot gibt, oder?"
+        "title": "Schlagt die Person links von euch",
+        "message": "Der Erste darf *${distributedShots}* verteilen. Wird schon nicht weh getan haben, oder?"
     },
     {
-        "title": "Die erste Person, die *${players[0]}* ein Kompliment macht, darf *${shots}* verteilen",
-        "message": "Hoffentlich war das auch ernst gemeint."
-    },
-    {
-        "title": "Die erste Person, die heute da war, darf *${shots}* verteilen",
-        "message": "Der Gastgeber zählt natürlich nicht dazu."
-    },
-    {
-        "title": "Die letzte Person, die dazu gestoßen ist, muss *${shots}* trinken",
-        "message": "Hoffentlich hattest du eine gute Ausrede."
-    },
-    {
-        "title": "Vergleicht die Länge von euren Mittelfingern",
-        "message": "Der mit dem Kleinsten muss *${shots}* trinken. Sorry."
-    },
-    {
-        "title": "Wer auch immer von euch zuletzt in der Notaufname war, muss *${shots}* trinken",
-        "message": "Hoffentlich hat es weh getan."
-    },
-    {
-        "title": "Die erste Person, die komplett unterm Tisch ist, darf *${shots}* verteilen",
-        "message": "Kopf dabei gestoßen?"
-    },
-    {
-        "title": "Der Erste, der einen Handstand für 5 Sekunden halten kann, darf *${shots}* verteilen",
-        "message": "Aber kotz dabei bitte nicht."
-    },
-    {
-        "title": "Der Erste, der die Person links von sich schlägt, darf *${shots}* verteilen",
-        "message": "Wird schon nicht weh getan haben, oder?"
-    },
-    {
-        "title": "Der Erste, der sein Glas ext, darf anschließend *${shots}* verteilen",
-        "message": "Hoffentlich war da nicht mehr so viel drin."
+        "title": "Ext euer Glas",
+        "message": "Der Erste darf *${distributedShots}* verteilen. Hoffentlich war da nicht mehr so viel drin."
     }
 ]
