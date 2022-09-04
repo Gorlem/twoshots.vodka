@@ -4,7 +4,7 @@ import Step from '../../steps/Step.js';
 import Cache from '../../models/Cache.js';
 
 import { get, template, keys } from '../../texts.js';
-import generateShots from '../../shots.js';
+import { getShots } from '../../helper/Shots.js';
 
 class InstructionStep extends Step {
   constructor(room) {
@@ -20,7 +20,7 @@ class InstructionStep extends Step {
       .shuffle()
       .value();
 
-    const shots = generateShots(1, 5);
+    const shots = getShots(1, 5);
     const content = get('instructions', instruction);
 
     this.global.card = 'InformationCard';

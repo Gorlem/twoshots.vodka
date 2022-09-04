@@ -3,7 +3,7 @@ import _ from 'lodash';
 import Step from '../../steps/Step.js';
 import StepWithVote from '../../steps/StepWithVote.js';
 
-import generateShots from '../../shots.js';
+import { getSelfShots } from '../../helper/Shots.js';
 import { get, template, keys } from '../../texts.js';
 import Cache from '../../models/Cache.js';
 
@@ -66,7 +66,7 @@ class ResultsStep extends Step {
       this.global.data = {
         ...template(sameText, {
           option: counts.left === 0 ? options[1] : options[0],
-          shots: generateShots(1, 5),
+          shots: getSelfShots(),
         }),
       };
     } else if (counts.left === counts.right) {
@@ -85,7 +85,7 @@ class ResultsStep extends Step {
         ...template(text, {
           option: counts.left < counts.right ? options[1] : options[0],
           losers: losers.join('*, *'),
-          shots: generateShots(1, 5),
+          shots: getSelfShots(),
         }),
       };
     }

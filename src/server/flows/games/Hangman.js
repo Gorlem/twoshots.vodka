@@ -4,7 +4,7 @@ import Step from '../../steps/Step.js';
 import StepWithVote from '../../steps/StepWithVote.js';
 
 import { get, template, keys } from '../../texts.js';
-import generateShots from '../../shots.js';
+import { getSelfShots } from '../../helper/Shots.js';
 import Cache from '../../models/Cache.js';
 
 const explanationText = get('generic', 'hangman:explanation');
@@ -197,7 +197,7 @@ class ResultStep extends Step {
 
     const parts = room.id.split('-');
 
-    const shots = generateShots(1, 5);
+    const shots = getSelfShots();
 
     if (status === 'word') {
       this.global.data = {

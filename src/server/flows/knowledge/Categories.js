@@ -4,7 +4,7 @@ import Step from '../../steps/Step.js';
 import StepWithVote from '../../steps/StepWithVote.js';
 
 import { get, template, keys } from '../../texts.js';
-import generateShots from '../../shots.js';
+import { getDistributedShots, getSelfShots } from '../../helper/Shots.js';
 
 import CountdownStep from '../../steps/CountdownStep.js';
 import Cache from '../../models/Cache.js';
@@ -188,7 +188,8 @@ class ResultStep extends Step {
     this.global.card = 'ResultsCard';
     this.global.data = {
       ...template(text, {
-        shots: generateShots(1, 5),
+        selfShots: getSelfShots(),
+        distributedShots: getDistributedShots(),
         winner: winner.join('*, *'),
         winnerCorrect: max,
         loser: loser.join('*, *'),

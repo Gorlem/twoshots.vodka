@@ -4,7 +4,7 @@ import Step from '../../steps/Step.js';
 import StepWithVote from '../../steps/StepWithVote.js';
 
 import { get, template } from '../../texts.js';
-import generateShots from '../../shots.js';
+import { getSelfShots } from '../../helper/Shots.js';
 
 const explanationText = get('generic', 'rockpaperscissor:explanation');
 const drawText = get('generic', 'rockpaperscissor:draw');
@@ -179,7 +179,7 @@ class ResultStep extends Step {
 
     if (winner === 'draw') {
       content = template(drawText, {
-        shots: generateShots(1, 5),
+        shots: getSelfShots(),
         symbol: GameStep.keyToName(winnerSign),
       });
     } else {
@@ -188,7 +188,7 @@ class ResultStep extends Step {
         loser: GameStep.keyToName(loserSign),
         losersName: room.id.split('-')[winner === 'left' ? 2 : 0],
         losers: (winner === 'left' ? right : left).map((p) => p.name).join('*, *'),
-        shots: generateShots(1, 5),
+        shots: getSelfShots(),
       });
     }
 

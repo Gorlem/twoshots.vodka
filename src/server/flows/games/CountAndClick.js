@@ -4,7 +4,7 @@ import Step from '../../steps/Step.js';
 import StepWithVote from '../../steps/StepWithVote.js';
 
 import { get, template } from '../../texts.js';
-import generateShots from '../../shots.js';
+import { getDistributedShots, getSelfShots } from '../../helper/Shots.js';
 import CountdownStep from '../../steps/CountdownStep.js';
 
 const explanationText = get('generic', 'countclick:explanation');
@@ -128,7 +128,8 @@ class ResultsStep extends Step {
       ...template(resultsText, {
         winner,
         loser,
-        shots: generateShots(1, 5),
+        selfShots: getSelfShots(),
+        distributedShots: getDistributedShots(),
       }),
       options: results.map((r) => ({
         key: r[0].id,

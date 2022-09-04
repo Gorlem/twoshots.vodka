@@ -51,8 +51,8 @@
     {
         "title": "Wer schaut immer romantische Filme?",
         "message": [
-            "*${winner}* ist wohl ein richtiger Romantiker. Verteile *${shots}*.",
-            "Sehr süß *${winner}*. Dafür trinkst du erstmal *${shots}*."
+            "Sehr süß *${winner}*. Dafür trinkst du erstmal *${shots}*.",
+            "*${winner}* ist wohl ein richtiger Romantiker. Verteile *${shots}*."
         ]
     },
     {
@@ -100,8 +100,8 @@
     {
         "title": "Wer war wahrscheinlich der erste, der jemanden geküsst hat?",
         "message": [
-            "*${winner}* du warst wohl richtig früh reif. Du darfst *${shots}* verteilen.",
-            "Hoffentlich hast du es nicht bereut *${winner}*. Trink darauf *${shots}*."
+            "Hoffentlich hast du es nicht bereut *${winner}*. Trink darauf *${shots}*.",
+            "*${winner}* du warst wohl richtig früh reif. Du darfst *${shots}* verteilen."
         ]
     },
     {
@@ -121,8 +121,8 @@
     {
         "title": "Wer trifft am ehesten einen Geist?",
         "message": [
-            "Solange du keine Angst vor Geistern hast ist ja alles gut *${winner}*. Verteile *${shots}*.",
-            "Bist du etwa ein Geisterjäger *${winner}*? Trink *${shots}*."
+            "Bist du etwa ein Geisterjäger *${winner}*? Trink *${shots}*.",
+            "Solange du keine Angst vor Geistern hast ist ja alles gut *${winner}*. Verteile *${shots}*."
         ]
     },
     {
@@ -142,8 +142,8 @@
     {
         "title": "Wer lebt von euch am längsten?",
         "message": [
-            "*${winner}* lebt wohl ein entspanntes Leben. Verteile *${shots}*.",
-            "Bloß keine Risiken eingehen, *${winner}*. Trink *${shots}*."
+            "Bloß keine Risiken eingehen, *${winner}*. Trink *${shots}*.",
+            "*${winner}* lebt wohl ein entspanntes Leben. Verteile *${shots}*."
         ]
     },
     {
@@ -156,8 +156,8 @@
     {
         "title": "Wer küsst am ehesten einen Frosch?",
         "message": [
-            "Eine richtige Prinzessin, *${winner}*. Die Prinzessin darf *${shots}* verteilen.",
-            "Schon ein bisschen eklig, oder? *${winner}* trink *${shots}*"
+            "Schon ein bisschen eklig, oder? *${winner}* trink *${shots}*",
+            "Eine richtige Prinzessin, *${winner}*. Die Prinzessin darf *${shots}* verteilen."
         ]
     },
     {
@@ -170,8 +170,8 @@
     {
         "title": "Wer wird am ehesten in eine psychiatrische Klinik eingewiesen?",
         "message": [
-            "Passt auf vor *${winner}*. Du darfst *${shots}* verteilen.",
-            "*${winner}* wenn du jetzt noch *${shots}* trinkst, dauert es vielleicht gar nicht mehr so lange."
+            "*${winner}* wenn du jetzt noch *${shots}* trinkst, dauert es vielleicht gar nicht mehr so lange.",
+            "Passt auf vor *${winner}*. Du darfst *${shots}* verteilen."
         ]
     },
     {
@@ -191,8 +191,8 @@
     {
         "title": "Wer räumt immer hinter allen auf?",
         "message": [
-            "Jede Party braucht eine Putzfee, *${winner}*. Deine gute Arbeit wird belohnt, verteile *${shots}*.",
-            "Du könntest ja auch mal die anderen fragen, *${winner}*. Trink *${shots}*."
+            "Du könntest ja auch mal die anderen fragen, *${winner}*. Trink *${shots}*.",
+            "Jede Party braucht eine Putzfee, *${winner}*. Deine gute Arbeit wird belohnt, verteile *${shots}*."
         ]
     },
     {
@@ -205,8 +205,8 @@
     {
         "title": "Wer gibt am meisten beim Shoppen aus?",
         "message": [
-            "Günstiger als eine Therapie, oder *${winner}*? Verteile *${shots}*.",
-            "Ich will gar nicht wissen, wie viel du schon ausgegeben hast *${winner}*. Trinke *${shots}*."
+            "Ich will gar nicht wissen, wie viel du schon ausgegeben hast *${winner}*. Trinke *${shots}*.",
+            "Günstiger als eine Therapie, oder *${winner}*? Verteile *${shots}*."
         ]
     },
     {
@@ -219,22 +219,22 @@
     {
         "title": "Wer bringt immer die besten Snacks mit?",
         "message": [
-            "Wir bedanken uns bei *${winner}*. Dafür darfst du *${shots}* verteilen.",
-            "*${winner}*, du willst uns doch nur dick machen. Trink *${shots}*"
+            "*${winner}*, du willst uns doch nur dick machen. Trink *${shots}*",
+            "Wir bedanken uns bei *${winner}*. Dafür darfst du *${shots}* verteilen."
         ]
     },
     {
         "title": "Wer ist der größte Sammler unter euch?",
         "message": [
-            "Wenn du uns deine Sammlung zeigst *${winner}*, darfst du *${winner}* verteilen. Wenn nicht, dann immernoch.",
-            "Da haben wir wohl einen Messie gefunden, *${winner}*. Dafür musst du erstmal *${shots}* trinken!"
+            "Da haben wir wohl einen Messie gefunden, *${winner}*. Dafür musst du erstmal *${shots}* trinken!",
+            "Wenn du uns deine Sammlung zeigst *${winner}*, darfst du *${winner}* verteilen. Wenn nicht, dann immernoch."
         ]
     },
     {
         "title": "Wer wäscht seine Bettwäsche wohl am häufigsten?",
         "message": [
-            "So viel Aufwand muss belohnt werden *${winner}*. Du darfst *${shots}* verteilen.",
-            "*${winner}* für deinen Hygienefimmel trinkst du am besten *${shots}*, um dich auch von ihnen zu desinfizieren."
+            "*${winner}* für deinen Hygienefimmel trinkst du am besten *${shots}*, um dich auch von ihnen zu desinfizieren.",
+            "So viel Aufwand muss belohnt werden *${winner}*. Du darfst *${shots}* verteilen."
         ]
     },
     {
@@ -247,15 +247,15 @@
     {
         "title": "Wer schläft noch mit einem Kuscheltier?",
         "message": [
-            "Sehr süß *${winner}*! Bevor du es vollkotzt darfst du *${shots}* verteilen.",
-            "Wie niedlich *${winner}*! Trotzdem musst du *${shots}* trinken."
+            "Wie niedlich *${winner}*! Trotzdem musst du *${shots}* trinken.",
+            "Sehr süß *${winner}*! Bevor du es vollkotzt darfst du *${shots}* verteilen."
         ]
     },
     {
         "title": "Wer kann am besten tanzen?",
         "message": [
-            "*${winner}* zeig mal deine besten Moves! Darfst auch *${shots}* verteilen.",
-            "Glaube das will hier eher keiner sehen *${winner}*. Trink *${shots}*."
+            "Glaube das will hier eher keiner sehen *${winner}*. Trink *${shots}*.",
+            "*${winner}* zeig mal deine besten Moves! Darfst auch *${shots}* verteilen."
         ]
     },
     {
@@ -268,8 +268,8 @@
     {
         "title": "Wer ist immer am pünktlichsten?",
         "message": [
-            "*${winner}* für deine Pünktlichkeit darfst du *${shots}* verteilen.",
-            "*${winner}* zu früh ist aber auch nicht geil. Trink *${shots}*."
+            "*${winner}* zu früh ist aber auch nicht geil. Trink *${shots}*.",
+            "*${winner}* für deine Pünktlichkeit darfst du *${shots}* verteilen."
         ]
     },
     {
@@ -289,15 +289,15 @@
     {
         "title": "Wer hat am längsten nicht geduscht?",
         "message": [
-            "Man richt es schon. *${winner}* verteile *${shots}*. Hoffentlich hilft das den Anderen.",
-            "Schon nicht so geil *${winner}*. Trink mal lieber *${shots}*."
+            "Schon nicht so geil *${winner}*. Trink mal lieber *${shots}*.",
+            "Man richt es schon. *${winner}* verteile *${shots}*. Hoffentlich hilft das den Anderen."
         ]
     },
     {
         "title": "Wer hat zuletzt in einen Pool gepinkelt?",
         "message": [
-            "*${winner}*, wer sich sowas traut darf direkt *${shots}* verteilen!",
-            "Hat sich das Wasser dann eigentlich verfärbt, *${winner}*? Trink *${shots}*."
+            "Hat sich das Wasser dann eigentlich verfärbt, *${winner}*? Trink *${shots}*.",
+            "*${winner}*, wer sich sowas traut darf direkt *${shots}* verteilen!"
         ]
     },
     {
@@ -324,15 +324,15 @@
     {
         "title": "Wer hat am längsten kein Gemüse mehr gegessen?",
         "message": [
-            "Von Salat schrumpft ja bekanntlich der Bizeps. Also alles richtig gemacht *${winner}*. Verteile *${shots}*.",
-            "Schnaps ist ja quasi auch Gemüse, oder? *${winner}* trink *${shots}*."
+            "Schnaps ist ja quasi auch Gemüse, oder? *${winner}* trink *${shots}*.",
+            "Von Salat schrumpft ja bekanntlich der Bizeps. Also alles richtig gemacht *${winner}*. Verteile *${shots}*."
         ]
     },
     {
         "title": "Wer hat am meisten Controller zestört?",
         "message": [
-            "*${winner}* du Bestie! Verteile *${shots}*.",
-            "Die armen Controller, *${winner}*. Trink *${shots}*."
+            "Die armen Controller, *${winner}*. Trink *${shots}*.",
+            "*${winner}* du Bestie! Verteile *${shots}*."
         ]
     },
     {
@@ -352,8 +352,8 @@
     {
         "title": "Wer hat sich die meisten Knochen gebrochen?",
         "message": [
-            "Damit da heute keiner dazu kommt, darf *${winner}* *${shots}* verteilen.",
-            "Auf den Schock erstmal *${shots}* trinken, *${winner}*!"
+            "Auf den Schock erstmal *${shots}* trinken, *${winner}*!",
+            "Damit da heute keiner dazu kommt, darf *${winner}* *${shots}* verteilen."
         ]
     }
 ]

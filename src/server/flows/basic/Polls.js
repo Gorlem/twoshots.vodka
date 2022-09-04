@@ -4,7 +4,7 @@ import Step from '../../steps/Step.js';
 import StepWithVote from '../../steps/StepWithVote.js';
 
 import { get, template, keys } from '../../texts.js';
-import generateShots from '../../shots.js';
+import { getDistributedShots, getSelfShots } from '../../helper/Shots.js';
 import Cache from '../../models/Cache.js';
 
 class PollStep extends StepWithVote {
@@ -62,13 +62,15 @@ class ResultStep extends Step {
       .filter((count) => count[1] === max)
       .head()[0];
 
+    const messageIndex = _.random(0, 1);
+
     this.global.card = 'ResultsCard';
     this.global.data = {
       ...template({
-        message: _.sample(poll.message),
+        message: poll.message[messageIndex],
         title: poll.title,
       }, {
-        shots: generateShots(1, 5),
+        shots: messageIndex === 0 ? getSelfShots() : getDistributedShots(),
         winner,
       }),
       options: _.entries(counts).map((e) => ({

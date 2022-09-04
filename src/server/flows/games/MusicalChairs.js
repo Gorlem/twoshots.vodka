@@ -4,7 +4,7 @@ import Step from '../../steps/Step.js';
 import StepWithVote from '../../steps/StepWithVote.js';
 
 import { get, template } from '../../texts.js';
-import generateShots from '../../shots.js';
+import { getDistributedShots } from '../../helper/Shots.js';
 
 const explanationText = get('generic', 'musicalchairs:explanation');
 const gameText = get('generic', 'musicalchairs:game');
@@ -171,7 +171,7 @@ class ResultsStep extends Step {
     this.global.data = {
       ...template(resultsText, {
         winner: winner.name,
-        shots: generateShots(1, 5),
+        shots: getDistributedShots(),
       }),
     };
 

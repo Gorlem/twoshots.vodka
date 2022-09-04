@@ -12,23 +12,23 @@
         }
     },
     "guess:results/single/single": {
-        "message": "Die richtige Antwort ist *${answer}*. Somit darf *${winner}* *${shots}* verteilen, und *${loser}* muss *${shots}* trinken.",
+        "message": "Die richtige Antwort ist *${answer}*. Somit darf *${winner}* *${distributedShots}* verteilen, und *${loser}* muss *${selfShots}* trinken.",
         "footer": "Quelle: [${domain}](${url})"
     },
     "guess:results/multiple/single": {
-        "message": "Die richtige Antwort ist *${answer}*. Somit dürfen *${winner}* jeweils *${shots}* verteilen, und *${loser}* muss *${shots}* trinken.",
+        "message": "Die richtige Antwort ist *${answer}*. Somit dürfen *${winner}* jeweils *${distributedShots}* verteilen, und *${loser}* muss *${selfShots}* trinken.",
         "footer": "Quelle: [${domain}](${url})"
     },
     "guess:results/single/multiple": {
-        "message": "Die richtige Antwort ist *${answer}*. Somit darf *${winner}* *${shots}* verteilen, und *${loser}* müssen jeweils *${shots}* trinken.",
+        "message": "Die richtige Antwort ist *${answer}*. Somit darf *${winner}* *${distributedShots}* verteilen, und *${loser}* müssen jeweils *${selfShots}* trinken.",
         "footer": "Quelle: [${domain}](${url})"
     },
     "guess:results/multiple/multiple": {
-        "message": "Die richtige Antwort ist *${answer}*. Somit dürfen *${winner}* jeweils *${shots}* verteilen, und *${loser}* müssen jeweils *${shots}* trinken.",
+        "message": "Die richtige Antwort ist *${answer}*. Somit dürfen *${winner}* jeweils *${distributedShots}* verteilen, und *${loser}* müssen jeweils *${selfShots}* trinken.",
         "footer": "Quelle: [${domain}](${url})"
     },
     "guess:results/all": {
-        "message": "Die richtige Antwort ist *${answer}*. Anscheinend habt ihr alle die *gleiche Antwort*. Dann trinkt ihr halt alle *${shots}*.",
+        "message": "Die richtige Antwort ist *${answer}*. Anscheinend habt ihr alle die *gleiche Antwort*. Dann trinkt ihr halt alle *${selfShots}*.",
         "footer": "Quelle: [${domain}](${url})"
     },
     "game:horserace:explanation": {
@@ -185,19 +185,19 @@
         "footer": "Bisher *${correct}* richtige Antworten."
     },
     "categories:results/single/single": {
-        "message": "*${winner}* hat mit *${winnerCorrect}* richtigen Antworten gewonnen und darf *${shots}* verteilen. *${loser}* hatte nur *${loserCorrect}* richtig und muss *${shots}* trinken.",
+        "message": "*${winner}* hat mit *${winnerCorrect}* richtigen Antworten gewonnen und darf *${distributedShots}* verteilen. *${loser}* hatte nur *${loserCorrect}* richtig und muss *${selfShots}* trinken.",
         "footer": "Quelle: [${domain}](${url})"
     },
     "categories:results/multiple/single": {
-        "message": "*${winner}* haben mit *${winnerCorrect}* richtigen Antworten gewonnen und dürfen jeweils *${shots}* verteilen. *${loser}* hatte nur *${loserCorrect}* richtig und muss *${shots}* trinken.",
+        "message": "*${winner}* haben mit *${winnerCorrect}* richtigen Antworten gewonnen und dürfen jeweils *${distributedShots}* verteilen. *${loser}* hatte nur *${loserCorrect}* richtig und muss *${selfShots}* trinken.",
         "footer": "Quelle: [${domain}](${url})"
     },
     "categories:results/single/multiple": {
-        "message": "*${winner}* hat mit *${winnerCorrect}* richtigen Antworten gewonnen und darf *${shots}* verteilen. *${loser}* hatten nur *${loserCorrect}* richtig und müssen jeweils *${shots}* trinken.",
+        "message": "*${winner}* hat mit *${winnerCorrect}* richtigen Antworten gewonnen und darf *${distributedShots}* verteilen. *${loser}* hatten nur *${loserCorrect}* richtig und müssen jeweils *${selfShots}* trinken.",
         "footer": "Quelle: [${domain}](${url})"
     },
     "categories:results/multiple/multiple": {
-        "message": "*${winner}* haben mit *${winnerCorrect}* richtigen Antworten gewonnen und dürfen jeweils *${shots}* verteilen. *${loser}* hatten nur *${loserCorrect}* richtig und müssen jeweils *${shots}* trinken.",
+        "message": "*${winner}* haben mit *${winnerCorrect}* richtigen Antworten gewonnen und dürfen jeweils *${distributedShots}* verteilen. *${loser}* hatten nur *${loserCorrect}* richtig und müssen jeweils *${selfShots}* trinken.",
         "footer": "Quelle: [${domain}](${url})"
     },
     "countclick:explanation": {
@@ -217,7 +217,7 @@
     },
     "countclick:results": {
         "title": "*${winner}* war als erstes fertig",
-        "message": "…und kann *${shots}* verteilen. Am längsten hat *${loser}* gebraucht und muss *${shots}* trinken."
+        "message": "…und kann *${distributedShots}* verteilen. Am längsten hat *${loser}* gebraucht und muss *${selfShots}* trinken."
     },
     "prompts:explanation": {
         "title": "Highscore",
@@ -233,19 +233,19 @@
     },
     "prompts:results/single/single": {
         "title": "Mal schauen wie viele Punkte ihr geschafft habt",
-        "message": "*${winner}* hat mit *${winnerCorrect} Punkten* gewonnen und darf *${shots}* verteilen. *${loser}* ist nur auf *${loserCorrect} Punkte* gekommen und muss *${shots}* trinken."
+        "message": "*${winner}* hat mit *${winnerCorrect} Punkten* gewonnen und darf *${distributedShots}* verteilen. *${loser}* ist nur auf *${loserCorrect} Punkte* gekommen und muss *${selfShots}* trinken."
     },
     "prompts:results/multiple/single": {
         "title": "Mal schauen wie viele Punkte ihr geschafft habt",
-        "message": "*${winner}* haben mit *${winnerCorrect} Punkten* gewonnen und dürfen jeweils *${shots}* verteilen. *${loser}* ist nur auf *${loserCorrect} Punkte* gekommen und muss *${shots}* trinken."
+        "message": "*${winner}* haben mit *${winnerCorrect} Punkten* gewonnen und dürfen jeweils *${distributedShots}* verteilen. *${loser}* ist nur auf *${loserCorrect} Punkte* gekommen und muss *${selfShots}* trinken."
     },
     "prompts:results/single/multiple": {
         "title": "Mal schauen wie viele Punkte ihr geschafft habt",
-        "message": "*${winner}* hat mit *${winnerCorrect} Punkten* gewonnen und darf *${shots}* verteilen. *${loser}* sind nur auf *${loserCorrect} Punkte* gekommen und müssen jeweils *${shots}* trinken."
+        "message": "*${winner}* hat mit *${winnerCorrect} Punkten* gewonnen und darf *${distributedShots}* verteilen. *${loser}* sind nur auf *${loserCorrect} Punkte* gekommen und müssen jeweils *${selfShots}* trinken."
     },
     "prompts:results/multiple/multiple": {
         "title": "Mal schauen wie viele Punkte ihr geschafft habt",
-        "message": "*${winner}* haben mit *${winnerCorrect} Punkten* gewonnen und dürfen jeweils *${shots}* verteilen. *${loser}* sind nur auf *${loserCorrect} Punkte* gekommen und müssen jeweils *${shots}* trinken."
+        "message": "*${winner}* haben mit *${winnerCorrect} Punkten* gewonnen und dürfen jeweils *${distributedShots}* verteilen. *${loser}* sind nur auf *${loserCorrect} Punkte* gekommen und müssen jeweils *${selfShots}* trinken."
     },
     "kingscup:explanation": {
         "title": "Mini Cup",

@@ -4,7 +4,7 @@ import Step from '../../steps/Step.js';
 import StepWithVote from '../../steps/StepWithVote.js';
 
 import { get, template } from '../../texts.js';
-import generateShots from '../../shots.js';
+import { getSelfShots } from '../../helper/Shots.js';
 import CountdownStep from '../../steps/CountdownStep.js';
 
 const explanationText = get('generic', 'taskhero:explanation');
@@ -356,7 +356,7 @@ class ResultsStep extends Step {
         winnersName: parts[winner === 'left' ? 0 : 2],
         losersName: parts[winner === 'left' ? 2 : 0],
         losers: (winner === 'left' ? right.players : left.players).map((p) => p.name).join('*, *'),
-        shots: generateShots(1, 5),
+        shots: getSelfShots(),
       }),
       options: [
         {

@@ -4,7 +4,7 @@ import Step from '../../steps/Step.js';
 import StepWithVote from '../../steps/StepWithVote.js';
 
 import { get, template } from '../../texts.js';
-import generateShots from '../../shots.js';
+import { getSelfShots } from '../../helper/Shots.js';
 import CountdownStep from '../../steps/CountdownStep.js';
 
 const explanationText = get('generic', 'defendcastle:explanation');
@@ -146,7 +146,7 @@ class ResultStep extends Step {
         winner: parts[winner === 'right' ? 2 : 0],
         losersName: parts[winner === 'right' ? 0 : 2],
         losers: (winner === 'right' ? left : right).map((p) => p.name).join('*, *'),
-        shots: generateShots(1, 5),
+        shots: getSelfShots(),
       }),
     };
 

@@ -4,7 +4,7 @@ import Step from '../../steps/Step.js';
 import StepWithVote from '../../steps/StepWithVote.js';
 
 import { get, template } from '../../texts.js';
-import generateShots from '../../shots.js';
+import { getDistributedShots } from '../../helper/Shots.js';
 
 import CountdownStep from '../../steps/CountdownStep.js';
 
@@ -120,12 +120,13 @@ class ResultsStep extends Step {
       }))
       .value();
 
-    const shots = generateShots(1, 5);
-
     this.global.card = 'HorseRaceGameResults';
     this.global.data = {
       tracks,
-      ...template(results, { winner, shots }),
+      ...template(results, {
+        winner,
+        shots: getDistributedShots(),
+      }),
     };
 
     this.send();
