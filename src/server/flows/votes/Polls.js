@@ -19,13 +19,16 @@ class PollStep extends StepWithVote {
 
     this.poll = get('polls', key);
 
-    this.title = this.poll.title;
-    this.users = [...room.playing].map((user) => ({ key: user.name, value: user.name }));
+    this.sendPoll([...this.room.playing]);
+  }
+
+  sendPoll(users) {
+    const options = users.map((user) => ({ key: user.name, value: user.name }));
 
     this.global.card = 'PollCard';
     this.global.data = {
       title: this.poll.title,
-      options: this.users,
+      options,
     };
 
     this.spectating.data = {
@@ -36,7 +39,27 @@ class PollStep extends StepWithVote {
   }
 
   nextStep() {
-    this.room.handler.next({ poll: this.poll, results: this.vote.results });
+    const counts = _.countBy([...this.vote.results], '1');
+    const max = _.max(_.values(counts));
+
+    const winner = _(counts)
+      .entries()
+      .filter((count) => count[1] === max)
+      .value();
+
+    console.log(winner);
+
+    if (winner.length > 1) {
+      this.vote.reset();
+
+      for (const player of this.room.playing) {
+        this.players[player.id].data = {};
+      }
+
+      this.sendPoll(winner.map((entry) => ({ name: entry[0] })));
+    } else {
+      this.room.handler.next({ poll: this.poll, counts, winner: winner[0] });
+    }
   }
 
   action(user, payload) {
@@ -51,16 +74,8 @@ class PollStep extends StepWithVote {
 }
 
 class ResultStep extends Step {
-  constructor(room, { poll, results }) {
+  constructor(room, { poll, counts, winner }) {
     super(room);
-
-    const counts = _.countBy([...results], '1');
-    const max = _.max(_.values(counts));
-
-    const winner = _(counts)
-      .entries()
-      .filter((count) => count[1] === max)
-      .head()[0];
 
     const messageIndex = _.random(0, 1);
 
@@ -71,7 +86,7 @@ class ResultStep extends Step {
         title: poll.title,
       }, {
         shots: messageIndex === 0 ? getSelfShots() : getDistributedShots(),
-        winner,
+        winner: winner[0],
       }),
       options: _.entries(counts).map((e) => ({
         key: e[0],
