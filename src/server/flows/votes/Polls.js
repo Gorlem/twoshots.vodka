@@ -47,8 +47,6 @@ class PollStep extends StepWithVote {
       .filter((count) => count[1] === max)
       .value();
 
-    console.log(winner);
-
     if (winner.length > 1) {
       this.vote.reset();
 

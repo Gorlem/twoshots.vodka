@@ -407,5 +407,23 @@
     "musicalchairs:results": {
         "title": "Glückwunsch *${winner}*",
         "message": "Du hast die Reise als einziger überstanden. Dafür darfst du *${shots}* verteilen."
+    },
+    "clock:explanation": {
+        "title": "Stoppuhr",
+        "message": "Ihr bekommt gleich eine *Zeit in Sekunden* angezeigt. Ihr müsst dann im Kopf die Zeit *mitverfolgen*. Wenn ihr denkt, dass die angegebenen Sekunden abgelaufen sind, drückt ihr auf den Knopf.",
+        "data": {
+            "button": "Verstanden ✔"
+        }
+    },
+    "clock:game": {
+        "title": "*${seconds} Sekunden*",
+        "message": "Versucht so nah dran zu sein, wie ihr könnt.",
+        "data": {
+            "button": "Jetzt! 😬"
+        }
+    },
+    "clock:results": {
+        "title": "*${winner}* war am nähsten dran",
+        "message": "…und darf *${distributedShots}* verteilen. *${loser}* hat am schlechtesten abgeschnitten und muss *${selfShots}* trinken."
     }
 }
