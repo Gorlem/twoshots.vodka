@@ -62,9 +62,10 @@ class ResultStep extends Step {
     super(room);
 
     const differences = results
+      .filter((result) => result[1] != null)
       .map(([user, result]) => [
         user,
-        Math.abs(guess.answer - Number.parseFloat(result.replace(',', '.'))),
+        Math.abs(guess.answer - Number.parseFloat(result.toString().replace(',', '.'))),
       ]);
 
     const max = _.maxBy(differences, '1')[1];
